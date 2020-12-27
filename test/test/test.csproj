@@ -183,7 +183,6 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Login.aspx" />
-    <Content Include="RegisterAllenatore.aspx" />
     <Content Include="RegisterAtleta.aspx" />
     <Content Include="RegisterSocieta.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -233,13 +232,6 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegisterAllenatore.aspx.cs">
-      <DependentUpon>RegisterAllenatore.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RegisterAllenatore.aspx.designer.cs">
-      <DependentUpon>RegisterAllenatore.aspx</DependentUpon>
-    </Compile>
     <Compile Include="RegisterAtleta.aspx.cs">
       <DependentUpon>RegisterAtleta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
