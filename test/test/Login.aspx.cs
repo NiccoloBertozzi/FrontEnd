@@ -16,7 +16,7 @@ namespace test
             if (email.Text.Length <= 20 && PWD.Text.Length <= 20)
             {
                 //-------------CHIAMATA API----------------
-                var client = new RestClient("https://aibvcwa.azurewebsites.net/api/v1/login/Login");
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/login/Login");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("Content-Type", "application/json");

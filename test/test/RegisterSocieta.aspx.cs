@@ -13,7 +13,7 @@ namespace test
 
         protected void btn_registerSocieta_Click(object sender, EventArgs e)
         {
-            var client = new RestClient("https://aibvcwa.azurewebsites.net/api/v1/registrati/RegistraSocieta");
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/registrati/RegistraSocieta");
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
             request.AddHeader("Content-Type", "application/json");

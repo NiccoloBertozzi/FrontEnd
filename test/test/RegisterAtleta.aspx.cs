@@ -14,7 +14,7 @@ namespace test
         protected void btn_registerAtleta_Click(object sender, EventArgs e)
         {
             //----------------------RegisterAtleta------------------------
-            var client = new RestClient("https://aibvcwa.azurewebsites.net/api/v1/registrati/RegistraAtleta");
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/registrati/RegistraAtleta");
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
             request.AddHeader("Content-Type", "application/json");
