@@ -13,10 +13,10 @@ namespace test
 
         protected void btn_accedi_Click(object sender, EventArgs e)
         {
-            if (email.Text.Length <= 20 && PWD.Text.Length <= 20)
+            if (email.Text.Length <= 50 && PWD.Text.Length <= 20)
             {
                 //-------------CHIAMATA API----------------
-                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/login/Login");
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/Login");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("Content-Type", "application/json");
