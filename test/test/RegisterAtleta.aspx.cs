@@ -8,23 +8,28 @@ namespace test
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btn_registerAtleta_Click(object sender, EventArgs e)
         {
-            //----------------------RegisterAtleta------------------------
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/registrati/RegistraAtleta");
+            string sex  =  "";
+
+            if (sesso1.Checked == true) sex = sesso1.Text;
+            else if (sesso2.Checked == true) sex = sesso2.Text;
+
+            //----------------------RegisterAtleta------------------------//
+            var client = new RestClient("https://aibvcwa.azurewebsites.net/api/v1/registrati/RegistraAtleta");
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
             request.AddHeader("Content-Type", "application/json");
-            request.AddParameter("application/json", "{\r\n  \"atleta\": {\r\n    \"codiceTessera\": \"666\",\r\n    \"nome\": \"MATTEO\",\r\n    \"cognome\": \"tamagnini\",\r\n    \"sesso\": \"M\",\r\n    \"cf\": \"MTTTMG\",\r\n    \"dataNascita\": \"2002-03-05T06:57:25.473Z\",\r\n    \"indirizzo\": \"Via di santermete\",\r\n    \"cap\": \"47822\",\r\n    \"email\": \"matteotama@gmail.com\",\r\n    \"tel\": \"58234053\",\r\n    \"altezza\": 180,\r\n    \"peso\": 65,\r\n    \"dataScadenzaCertificato\": \"2020-12-22T06:57:25.473Z\"\r\n  },\r\n  \"cred\": {\r\n    \"comuneNascita\": \"Rimini\",\r\n    \"comuneResidenza\": \"Rimini\",\r\n    \"nomeSocieta\": \"Beach Volley University\",\r\n    \"password\": \"Matteo1234\"\r\n  }\r\n}", ParameterType.RequestBody);
+            request.AddParameter("application/json", "{\r\n  \"atleta\": {\r\n    \"codiceTessera\": \"" + codTessera.Text + "\",\r\n    \"nome\": \"" + nome.Text + "\",\r\n    \"cognome\": \"" + cognome.Text + "\",\r\n    \"sesso\": \"" + sex + "\",\r\n    \"cf\": \"" + cf.Text + "\",\r\n    \"dataNascita\": \"" + dataNascita.Text + "\",\r\n    \"indirizzo\": \"" + indirizzo.Text + "\",\r\n    \"cap\": \"" + cap.Text + "\",\r\n    \"email\": \"" + email.Text + "\",\r\n    \"tel\": \"" + tel.Text + "\",\r\n    \"altezza\": " + altezza.Text + "\r\n    \"peso\": " + peso.Text + "\r\n    \"dataScadenzaCertificato\": \"" + dataScadCert + "\"\r\n  },\r\n  \"cred\": {\r\n    \"comuneNascita\": \"" + comuneNascita.Text + "\",\r\n    \"comuneResidenza\": \"" + comuneResidenza.Text + "\",\r\n    \"nomeSocieta\": \"" + nomeSocieta.Text + "\",\r\n    \"password\": \"" + password.Text + "\"\r\n  }\r\n}", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
             if (response.StatusCode == HttpStatusCode.OK)
                 risultato.Text = response.Content;
             else
                 risultato.Text = response.ErrorMessage;
-            //-----------------------------------------
+            //------------------------------------------------------------//
         }
     }
 }

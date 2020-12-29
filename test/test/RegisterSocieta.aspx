@@ -10,6 +10,12 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="lblNomeSocieta" runat="server" Text="Nome Società"></asp:Label> <!-- Nome Società -->
+            <asp:TextBox ID="nomesocieta" runat="server"></asp:TextBox> <br />
+
+            <asp:Label ID="lblIndirizzo" runat="server" Text="Indirizzo"></asp:Label> <!-- Indirizzo -->
+            <asp:TextBox ID="indirizzo" runat="server"></asp:TextBox> <br />
+
             <asp:Button ID="btn_registerSocieta" runat="server" Text="RegistraSocieta" OnClick="btn_registerSocieta_Click" />
             <asp:Label ID="risultato" runat="server" Text="Label"></asp:Label>
         </div>
