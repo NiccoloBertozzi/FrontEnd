@@ -11,7 +11,7 @@ namespace test
 {
 
 
-    public partial class RegisterAllenatore
+    public partial class RegisterAtleta
     {
 
         /// <summary>
@@ -24,31 +24,31 @@ namespace test
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Controllo lblAllenatore.
+        /// Controllo ruolo.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAllenatore;
+        protected global::System.Web.UI.WebControls.DropDownList ruolo;
 
         /// <summary>
-        /// Controllo allenatore.
+        /// Controllo formregister.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox allenatore;
+        protected global::System.Web.UI.WebControls.PlaceHolder formregister;
 
         /// <summary>
-        /// Controllo lblCodiceTessera.
+        /// Controllo lblTessera.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCodiceTessera;
+        protected global::System.Web.UI.WebControls.Label lblTessera;
 
         /// <summary>
         /// Controllo codiceTessera.
@@ -58,24 +58,6 @@ namespace test
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox codiceTessera;
-
-        /// <summary>
-        /// Controllo lblGrado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGrado;
-
-        /// <summary>
-        /// Controllo grado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox grado;
 
         /// <summary>
         /// Controllo lblNome.
@@ -114,49 +96,40 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox cognome;
 
         /// <summary>
-        /// Controllo lblSesso.
+        /// Controllo lblEmail.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSesso;
+        protected global::System.Web.UI.WebControls.Label lblEmail;
 
         /// <summary>
-        /// Controllo sesso1.
+        /// Controllo email.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton sesso1;
+        protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
-        /// Controllo sesso2.
+        /// Controllo lblTel.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton sesso2;
+        protected global::System.Web.UI.WebControls.Label lblTel;
 
         /// <summary>
-        /// Controllo lblCF.
+        /// Controllo tel.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCF;
-
-        /// <summary>
-        /// Controllo cf.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cf;
+        protected global::System.Web.UI.WebControls.TextBox tel;
 
         /// <summary>
         /// Controllo lblDataNascita.
@@ -175,6 +148,24 @@ namespace test
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox dataNascita;
+
+        /// <summary>
+        /// Controllo lblCf.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCf;
+
+        /// <summary>
+        /// Controllo cf.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox cf;
 
         /// <summary>
         /// Controllo lblIndirizzo.
@@ -213,40 +204,103 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox cap;
 
         /// <summary>
-        /// Controllo lblEmail.
+        /// Controllo lblDataScadCert.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
+        protected global::System.Web.UI.WebControls.Label lblDataScadCert;
 
         /// <summary>
-        /// Controllo email.
+        /// Controllo dataScadenzaCertificato.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox email;
+        protected global::System.Web.UI.WebControls.TextBox dataScadenzaCertificato;
 
         /// <summary>
-        /// Controllo lblTel.
+        /// Controllo lblAltezza.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTel;
+        protected global::System.Web.UI.WebControls.Label lblAltezza;
 
         /// <summary>
-        /// Controllo tel.
+        /// Controllo altezza.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tel;
+        protected global::System.Web.UI.WebControls.TextBox altezza;
+
+        /// <summary>
+        /// Controllo lblPeso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPeso;
+
+        /// <summary>
+        /// Controllo peso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox peso;
+
+        /// <summary>
+        /// Controllo lblSesso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSesso;
+
+        /// <summary>
+        /// Controllo sesso1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton sesso1;
+
+        /// <summary>
+        /// Controllo sesso2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton sesso2;
+
+        /// <summary>
+        /// Controllo lblgrado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblgrado;
+
+        /// <summary>
+        /// Controllo grado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox grado;
 
         /// <summary>
         /// Controllo lblComuneNascita.
@@ -321,13 +375,22 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox password;
 
         /// <summary>
-        /// Controllo btn_registerAllenatore.
+        /// Controllo info.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_registerAllenatore;
+        protected global::System.Web.UI.WebControls.Label info;
+
+        /// <summary>
+        /// Controllo btn_registerAtleta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_registerAtleta;
 
         /// <summary>
         /// Controllo risultato.
