@@ -60,6 +60,12 @@
             <asp:RadioButton ID="sesso1" runat="server" Text="Maschio" GroupName="sesso"></asp:RadioButton>
             <asp:RadioButton ID="sesso2" runat="server" Text="Femmina" GroupName="sesso"></asp:RadioButton> <br/>
 
+            <asp:PlaceHolder ID="select" runat="server" Visible="false">
+                <asp:Label ID="Label1" runat="server" Text="Ruolo *"></asp:Label> <!-- Ruolo -->
+                <asp:RadioButton ID="supervisore" runat="server" Text="Supervisore" GroupName="role"></asp:RadioButton>
+                <asp:RadioButton ID="arbitro" runat="server" Text="Arbitro" GroupName="role"></asp:RadioButton> <br/>
+            </asp:PlaceHolder>
+
             <asp:Label ID="lblgrado" runat="server" Visible="false" Text="Grado *"></asp:Label> <!-- Codice Fiscale -->
             <asp:TextBox ID="grado" AccessKey="1" Visible="false" runat="server"></asp:TextBox> <br />
 
