@@ -1,6 +1,8 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Net;
+using test.Models;
 
 namespace test
 {
@@ -24,7 +26,11 @@ namespace test
                 request.AddParameter("application/json", "{\r\n  \"email\": \"" + email.Text + "\",\r\n  \"password\": \"" + PWD.Text + "\"\r\n}", ParameterType.RequestBody);
                 IRestResponse response = client.Execute(request);
                 if (response.StatusCode == HttpStatusCode.OK)
-                    risultato.Text = response.Content;
+                {
+                    var contenuto = JsonConvert.DeserializeObject<getToken>(response.Content);
+
+                    Response.Redirect("OutputTornei.aspx?token=" + contenuto.token); //rimanda alla form 'output tornei'
+                }
                 else
                     risultato.Text = response.ErrorMessage;
                 //------------------------------------------
