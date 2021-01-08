@@ -185,6 +185,9 @@
     <None Include="Properties\PublishProfiles\AIBVCwa - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\AIBVCwa - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Img\aibvc-logo.png" />
+    <Content Include="Img\sand.jpg" />
+    <Content Include="Img\sfondo.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="OutputTornei.aspx" />
     <Content Include="Register.aspx" />
@@ -218,6 +221,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Content\styles.css" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
