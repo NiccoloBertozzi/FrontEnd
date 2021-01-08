@@ -12,7 +12,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-            <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
             <span class="sr-only">Toggle navigation</span>
@@ -66,7 +66,7 @@
         <!--CERCA-->
         <div class="searchBox mx-2 my-2">
             <input class="searchInput" type="text" name="" placeholder="Cerca">
-            <button class="searchButton" href="#">
+            <button class="searchButton">
             <i class=" fas fa-search"></i>
         </button>
         </div>
@@ -77,8 +77,8 @@
             </div>
         </div>
     </div>
-    <script src="Scripts/jquery.min.js "></script>
+    <script src="Scripts/jquery-3.4.1.min.js "></script>
     <script src="Scripts/bootstrap.min.js "></script>
-    </form>
+        </form>
 </body>
 </html>
