@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RecuperaPassword.aspx.cs" Inherits="test.RecuperaPassword" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NuovaPassword.aspx.cs" Inherits="test.NuovaPassword" %>
 
 <!DOCTYPE html>
 
@@ -12,7 +12,9 @@
         <div>
             <asp:Label ID="Label1" runat="server" Text="Email"></asp:Label>
             <asp:TextBox ID="email" runat="server"></asp:TextBox>
-            <asp:Button ID="btn_accedi" runat="server" Text="Accedi" OnClick="btn_recuperaPassword_Click" />
+            <asp:Label ID="Label2" runat="server" Text="PWD"></asp:Label>
+            <asp:TextBox ID="PWD" runat="server"></asp:TextBox>
+            <asp:Button ID="btn_accedi" runat="server" Text="Accedi" OnClick="btn_nuovaPassword_Click" />
             <asp:Label ID="risultato" runat="server" Text="risultato"></asp:Label>
             <asp:Label ID="errore" runat="server" Text="" color="red"></asp:Label>
         </div>

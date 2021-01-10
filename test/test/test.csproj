@@ -189,6 +189,7 @@
     <Content Include="Img\sand.jpg" />
     <Content Include="Img\sfondo.jpg" />
     <Content Include="Login.aspx" />
+    <Content Include="NuovaPassword.aspx" />
     <Content Include="OutputTornei.aspx" />
     <Content Include="RecuperaPassword.aspx" />
     <Content Include="Register.aspx" />
@@ -249,6 +250,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\getToken.cs" />
+    <Compile Include="NuovaPassword.aspx.cs">
+      <DependentUpon>NuovaPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NuovaPassword.aspx.designer.cs">
+      <DependentUpon>NuovaPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="OutputTornei.aspx.cs">
       <DependentUpon>OutputTornei.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

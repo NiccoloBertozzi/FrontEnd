@@ -13,7 +13,7 @@ namespace test
         {
 
         }
-        protected void btn_recupera_Click(object sender, EventArgs e)
+        protected void btn_recuperaPassword_Click(object sender, EventArgs e)
         {
 
         }
