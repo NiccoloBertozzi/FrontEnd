@@ -190,7 +190,6 @@
     <Content Include="Login.aspx" />
     <Content Include="NuovaPassword.aspx" />
     <Content Include="OutputTornei.aspx" />
-    <Content Include="RecuperaPassword.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="RegisterDelegato.aspx" />
     <Content Include="RegisterSocieta.aspx" />
@@ -264,13 +263,6 @@
       <DependentUpon>OutputTornei.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecuperaPassword.aspx.cs">
-      <DependentUpon>RecuperaPassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RecuperaPassword.aspx.designer.cs">
-      <DependentUpon>RecuperaPassword.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

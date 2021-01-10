@@ -10,8 +10,6 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="Label1" runat="server" Text="Email"></asp:Label>
-            <asp:TextBox ID="email" runat="server"></asp:TextBox>
             <asp:Label ID="Label2" runat="server" Text="Nuova PWD"></asp:Label>
             <asp:TextBox ID="PWD" runat="server"></asp:TextBox>
             <asp:Button ID="btn_accedi" runat="server" Text="Cambia password" OnClick="btn_nuovaPassword_Click" />

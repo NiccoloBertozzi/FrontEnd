@@ -17,6 +17,8 @@
             <asp:Button ID="btn_accedi" runat="server" Text="Accedi" OnClick="btn_accedi_Click" />
             <asp:Label ID="risultato" runat="server" Text="risultato"></asp:Label>
             <asp:Label ID="errore" runat="server" Text="" color="red"></asp:Label>
+            <br />
+            <asp:LinkButton ID="LabelRecovery" runat="server" Text="Recupera password" OnClick="LabelRecovery_Click"></asp:LinkButton>
         </div>
     </form>
 </body>
