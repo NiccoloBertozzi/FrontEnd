@@ -23,7 +23,7 @@ namespace test
             if (email.Text.Length <= 50 && PWD.Text.Length <= 20)
             {
                 //-------------CHIAMATA API----------------
-                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/CambiaPsw");
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/LoginRegister/CambiaPsw");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("Content-Type", "application/json");
@@ -33,7 +33,7 @@ namespace test
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     //-------------CHIAMATA API----------------
-                    var clientLogin = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/Login");
+                    var clientLogin = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/LoginRegister/Login");
                     clientLogin.Timeout = -1;
                     var requestLogin = new RestRequest(Method.POST);
                     requestLogin.AddHeader("Content-Type", "application/json");
