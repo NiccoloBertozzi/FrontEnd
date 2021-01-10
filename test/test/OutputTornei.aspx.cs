@@ -21,7 +21,7 @@ namespace test
             { 
                 token = Request.QueryString["token"];
                 //passo i tornei fino a due mesi prima
-                string data = Convert.ToDateTime(DateTime.Now.Date.AddDays(-60)).ToString("yyyy-MM-dd");
+                string data = Convert.ToDateTime(DateTime.Now.Date.AddDays(+60)).ToString("yyyy-MM-dd");
                 DownloadDataTornei(token, data);
             }        
         }
@@ -56,7 +56,6 @@ namespace test
                 //Append the HTML string to Placeholder.
                 torneilist.Controls.Add(new Literal { Text = table.ToString() });
             }
-            //if (response.Content == "") txtProva.Text = "";
         }
     }
 }

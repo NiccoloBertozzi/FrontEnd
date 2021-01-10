@@ -89,7 +89,6 @@ E:\ProgrammiScuola\SCUOLA\FrontEnd\test\test\bin\it\System.Web.Webpages.Deployme
 E:\ProgrammiScuola\SCUOLA\FrontEnd\test\test\bin\it\System.Web.Webpages.Razor.resources.dll
 E:\ProgrammiScuola\SCUOLA\FrontEnd\test\test\bin\it\System.Web.Helpers.resources.dll
 E:\ProgrammiScuola\SCUOLA\FrontEnd\test\test\bin\it\System.Web.Mvc.resources.dll
-E:\ProgrammiScuola\SCUOLA\FrontEnd\test\test\obj\Release\test.csprojAssemblyReference.cache
 E:\ProgrammiScuola\SCUOLA\FrontEnd\test\test\obj\Release\test.csproj.CoreCompileInputs.cache
 E:\ProgrammiScuola\SCUOLA\FrontEnd\test\test\obj\Release\test.csproj.CopyComplete
 E:\ProgrammiScuola\SCUOLA\FrontEnd\test\test\obj\Release\test.dll
@@ -286,3 +285,4 @@ C:\Users\filip\OneDrive\Desktop\FrontEnd\test\test\obj\Release\test.csproj.CopyC
 C:\Users\filip\OneDrive\Desktop\FrontEnd\test\test\obj\Release\test.dll
 C:\Users\filip\OneDrive\Desktop\FrontEnd\test\test\obj\Release\test.pdb
 C:\Users\filip\OneDrive\Desktop\FrontEnd\test\test\obj\Release\test.csprojAssemblyReference.cache
+E:\ProgrammiScuola\SCUOLA\FrontEnd\test\test\obj\Release\test.csprojAssemblyReference.cache
