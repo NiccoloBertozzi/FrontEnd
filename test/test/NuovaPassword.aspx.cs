@@ -16,10 +16,8 @@ namespace test
         string email;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.IsPostBack)
-            {
                 email = Request.QueryString["email"];
-            }
+                risultato.Text = email;
         }
 
         protected void btn_nuovaPassword_Click(object sender, EventArgs e)
