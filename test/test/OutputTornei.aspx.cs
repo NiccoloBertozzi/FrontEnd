@@ -25,13 +25,6 @@ namespace test
                 DownloadDataTornei(token, data);
             }        
         }
-
-        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
-        {
-            //passo la data settada dal calendario
-            //string data = Convert.ToDateTime(Calendar1.SelectedDate.Date).ToString("yyyy-MM-dd");
-            //DownloadDataTornei(token, data);
-        }
         protected void DownloadDataTornei(string token,string data)
         {
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetTornei/"+data);
