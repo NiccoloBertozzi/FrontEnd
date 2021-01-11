@@ -32,6 +32,7 @@ namespace test
             //string data = Convert.ToDateTime(Calendar1.SelectedDate.Date).ToString("yyyy-MM-dd");
             //DownloadDataTornei(token, data);
         }
+
         protected void DownloadDataTornei(string token,string data)
         {
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetTornei/"+data);
