@@ -21,18 +21,10 @@ namespace test
             { 
                 token = Request.QueryString["token"];
                 //passo i tornei fino a due mesi prima
-                string data = Convert.ToDateTime(DateTime.Now.Date.AddDays(-60)).ToString("yyyy-MM-dd");
+                string data = Convert.ToDateTime(DateTime.Now.Date.AddDays(+60)).ToString("yyyy-MM-dd");
                 DownloadDataTornei(token, data);
             }        
         }
-
-        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
-        {
-            //passo la data settada dal calendario
-            //string data = Convert.ToDateTime(Calendar1.SelectedDate.Date).ToString("yyyy-MM-dd");
-            //DownloadDataTornei(token, data);
-        }
-
         protected void DownloadDataTornei(string token,string data)
         {
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetTornei/"+data);
@@ -64,7 +56,6 @@ namespace test
                 //Append the HTML string to Placeholder.
                 torneilist.Controls.Add(new Literal { Text = table.ToString() });
             }
-            //if (response.Content == "") txtProva.Text = "";
         }
     }
 }

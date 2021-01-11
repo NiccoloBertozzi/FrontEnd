@@ -11,7 +11,7 @@ namespace test
 {
 
 
-    public partial class Login
+    public partial class NuovaPassword
     {
 
         /// <summary>
@@ -24,13 +24,13 @@ namespace test
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Controllo email.
+        /// Controllo Label2.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox email;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
         /// Controllo PWD.
@@ -42,30 +42,30 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox PWD;
 
         /// <summary>
-        /// Controllo LabelRecovery.
+        /// Controllo btn_accedi.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LabelRecovery;
+        protected global::System.Web.UI.WebControls.Button btn_accedi;
 
         /// <summary>
-        /// Controllo login.
+        /// Controllo risultato.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button login;
+        protected global::System.Web.UI.WebControls.Label risultato;
 
         /// <summary>
-        /// Controllo register.
+        /// Controllo errore.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button register;
+        protected global::System.Web.UI.WebControls.Label errore;
     }
 }
