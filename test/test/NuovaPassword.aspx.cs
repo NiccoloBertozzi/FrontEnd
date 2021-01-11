@@ -16,8 +16,16 @@ namespace test
         string email;
         protected void Page_Load(object sender, EventArgs e)
         {
-                email = Request.QueryString["email"];
+            //scarico l'email criptata
+            if (!this.IsPostBack)
+            {
+                email = Request.Params["email"];
+                //salvo nella sessione per non perdere il valore durante il PostBack
+                Session["email"] = email;
                 risultato.Text = email;
+            }
+            else
+                email = Session["email"].ToString();
         }
 
         protected void btn_nuovaPassword_Click(object sender, EventArgs e)
