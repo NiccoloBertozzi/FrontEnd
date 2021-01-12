@@ -2,6 +2,7 @@
 using RestSharp;
 using System;
 using System.Net;
+using System.Web.WebPages;
 using test.Models;
 
 namespace test
@@ -15,10 +16,10 @@ namespace test
 
         protected void btn_accedi_Click(object sender, EventArgs e)
         {
-            if (email.Text.Length <= 50 && PWD.Text.Length <= 20)
+            if (email.Text.Length <= 50 && PWD.Text.Length <= 30)
             {
                 //-------------CHIAMATA API----------------
-                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/Login");
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/LoginRegister/Login");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("Content-Type", "application/json");
@@ -32,13 +33,43 @@ namespace test
                     Response.Redirect("OutputTornei.aspx?token=" + contenuto.token); //rimanda alla form 'output tornei'
                 }
                 else
-                    risultato.Text = response.ErrorMessage;
+                    Response.Write("<script>alert('" + response.ErrorMessage + "');</script>");
                 //------------------------------------------
             }
             else
             {
-                errore.Text = "Assicurati che email e password abbiano una lunghezza inferiore ai 20 caratteri";
+                Response.Write("<script>alert('Completare i Campi');</script>");
             }
+        }
+
+        protected void LabelRecovery_Click(object sender, EventArgs e)
+        {
+            if (email.Text.IsEmpty())
+            {
+                //-------------CHIAMATA API----------------
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/LoginRegister/RecuperaPassword");
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("Content-Type", "application/json");
+                request.AddParameter("application/json", "{\r\n  \"email\": \"" + email.Text + "\",\r\n  \"password\": \"\"\r\n}", ParameterType.RequestBody);
+                IRestResponse response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    Response.Write("<script>alert('Mail inviata');</script>");
+                }
+                else
+                Response.Write("<script>alert('"+ response.ErrorMessage + "');</script>");
+                //------------------------------------------
+            }
+            else
+            {
+                Response.Write("<script>alert('Inserire l'email');</script>");
+            }
+        }
+
+        protected void register_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Register.aspx");
         }
     }
 }

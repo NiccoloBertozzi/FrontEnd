@@ -61,7 +61,7 @@ namespace test
             if ((ruolo.SelectedValue == "Atleta"&&cont == 8)|| (ruolo.SelectedValue == "Allenatore" && cont == 9) || (ruolo.SelectedValue == "Delegato" && cont == 7))//ci sono 8/9 campi obbligatori
             {
                 var client=new RestClient();
-                //----------------------RegisterAtleta------------------------//
+                //----------------------Registrazione-------------------------//
                 if (ruolo.SelectedValue == "Atleta")
                     client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/registrati/RegistraAtleta");
                 else if (ruolo.SelectedValue == "Allenatore")

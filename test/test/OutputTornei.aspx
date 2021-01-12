@@ -11,8 +11,7 @@
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+     <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
             <span class="sr-only">Toggle navigation</span>
@@ -52,33 +51,34 @@
                     </ul>
                 </div>
                 <div class="col-md-1 col-sm-12">
-                    <button type="button" class="loginButtonTornei btn float-right-md float-left-sm">Accedi</button>
+                    <a href="Login.aspx" class="loginButtonTornei btn float-right-md float-left-sm">Accedi</a>
                 </div>
             </div>
         </div>
     </nav>
-    <!--Banner-->
-    <div class="page-title row">
-        <h1 class=" col-12 text-center my-auto">Calendario L1</h1>
-    </div>
-
-    <div class="container">
-        <!--CERCA-->
-        <div class="searchBox mx-2 my-2">
-            <input class="searchInput" type="text" name="" placeholder="Cerca">
-            <button class="searchButton">
-            <i class=" fas fa-search"></i>
-        </button>
+    <form id="form1" runat="server">
+        <!--Banner-->
+        <div class="page-title row">
+            <h1 class=" col-12 text-center my-auto">Calendario L1</h1>
         </div>
-        <!--Tornei-->
-        <div class="card-deck">
-            <div class="row">
-                <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>  
+
+        <div class="container">
+            <!--CERCA-->
+            <div class="searchBox mx-2 my-2">
+                <input class="searchInput" type="text" name="" placeholder="Cerca">
+                <button class="searchButton" href="#">
+                <i class=" fas fa-search"></i>
+            </button>
+            </div>
+            <!--Tornei-->
+            <div class="card-deck">
+                <div class="row">
+                    <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>  
+                </div>
             </div>
         </div>
-    </div>
-    <script src="Scripts/jquery-3.4.1.min.js "></script>
-    <script src="Scripts/bootstrap.min.js "></script>
-        </form>
+        <script src="Scripts/jquery-3.4.1.min.js "></script>
+        <script src="Scripts/bootstrap.min.js "></script>
+    </form>
 </body>
 </html>
