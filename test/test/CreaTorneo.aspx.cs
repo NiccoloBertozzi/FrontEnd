@@ -109,11 +109,12 @@ namespace test
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/CreaTorneo");
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
-            request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Im5pY29AaXR0c2J2Lml0Iiwicm9sZSI6IlNvY2lldGEiLCJuYmYiOjE2MTA0Njk1NjksImV4cCI6MTYxMDQ3MDc2OSwiaWF0IjoxNjEwNDY5NTY5fQ.PJ6ABJnCcPa_R0QCndHEvaad7qBFOuq7yvkbBdrBKDA");
+            request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Im5pY29AaXR0c2J2Lml0Iiwicm9sZSI6IlNvY2lldGEiLCJuYmYiOjE2MTA0NzQzNTksImV4cCI6MTYxMDQ3NTU1OSwiaWF0IjoxNjEwNDc0MzU5fQ.Ml2ncPZu5AKuFzFymDBfS3alxa3hCgS0Y2wtodRybms");
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
-            request.AddParameter("application/json", "{\r\n  \"titolo\": \"" + txtTitolo.Text + "\",\r\n  \"puntiVittoria\": " + txtPuntiVitt.Text + ",\r\n  \"montepremi\": " + txtMontepremi.Text + ",\r\n  \"dataChiusuraIscrizioni\": \"" + txtDataChiusuraIscr.SelectedDate.Date + "\",\r\n  \"dataInizio\": \"" + txtDataInizio.SelectedDate.Date + "\",\r\n  \"dataFine\": \"" + txtDataFine.SelectedDate.Date + "\",\r\n  \"genere\": \"" + gender + "\",\r\n  \"formulaTorneo\": \"" + cmbFormula.ID + "\",\r\n  \"numTeamTabellone\": " + lblNumTeamTabellone.Text + ",\r\n  \"numTeamQualifiche\": " + lblNumTeamQualifiche.Text + ",\r\n  \"parametriTorneo\": [\r\n " + Session["idImpianti"] + "\r\n  ],\r\n \"tipoTorneo\": \"string\",\r\n  \"impianti\": [\r\n    " + Session["idImpianti"]+"\r\n  ]\r\n}", ParameterType.RequestBody);
-            risultato.Text= "{\r\n  \"titolo\": \"" + txtTitolo.Text + "\",\r\n  \"puntiVittoria\": " + txtPuntiVitt.Text + ",\r\n  \"montepremi\": " + txtMontepremi.Text + ",\r\n  \"dataChiusuraIscrizioni\": \"" + txtDataChiusuraIscr.SelectedDate.Date + "\",\r\n  \"dataInizio\": \"" + txtDataInizio.SelectedDate.Date + "\",\r\n  \"dataFine\": \"" + txtDataFine.SelectedDate.Date + "\",\r\n  \"genere\": \"" + gender + "\",\r\n  \"formulaTorneo\": \"" + cmbFormula.ID + "\",\r\n  \"numTeamTabellone\": " + lblNumTeamTabellone.Text + ",\r\n  \"numTeamQualifiche\": " + lblNumTeamQualifiche.Text + ",\r\n  \"parametriTorneo\": [\r\n " + Session["idImpianti"] + "\r\n  ],\r\n \"tipoTorneo\": \"string\",\r\n  \"impianti\": [\r\n    " + Session["idImpianti"] + "\r\n  ]\r\n}";
+            request.AddParameter("application/json", "{\r\n  \"titolo\": \"" + txtTitolo.Text + "\",\r\n  \"puntiVittoria\": " + txtPuntiVitt.Text + ",\r\n  \"montepremi\": " + txtMontepremi.Text + ",\r\n  \"dataChiusuraIscrizioni\": \"" + txtDataChiusuraIscr.SelectedDate.Date.ToString("yyyy-MM-dd") + "\",\r\n  \"dataInizio\": \"" + txtDataInizio.SelectedDate.Date.ToString("yyyy-MM-dd") + "\",\r\n  \"dataFine\": \"" + txtDataFine.SelectedDate.Date.ToString("yyyy-MM-dd") + "\",\r\n  \"genere\": \"" + gender + "\",\r\n  \"formulaTorneo\": \"" + cmbFormula.SelectedItem.Text + "\",\r\n  \"numTeamTabellone\": " + txtNumTeamTabellone.Text + ",\r\n  \"numTeamQualifiche\": " + txtNumTeamQualifiche.Text + ",\r\n  \"parametriTorneo\": [\r\n " + Session["idParametri"] + "\r\n  ],\r\n \"tipoTorneo\": \"" + cmbTipoTorneo.SelectedItem.Text + "\",\r\n  \"impianti\": [\r\n    " + Session["nomeImpianti"] + "\r\n  ]\r\n}", ParameterType.RequestBody);
+            //manca quota di iscrizione, non prende impianti
+            risultato.Text= "{\r\n  \"titolo\": \"" + txtTitolo.Text + "\",\r\n  \"puntiVittoria\": " + txtPuntiVitt.Text + ",\r\n  \"montepremi\": " + txtMontepremi.Text + ",\r\n  \"dataChiusuraIscrizioni\": \"" + txtDataChiusuraIscr.SelectedDate.Date.ToString("yyyy-MM-dd") + "\",\r\n  \"dataInizio\": \"" + txtDataInizio.SelectedDate.Date.ToString("yyyy-MM-dd") + "\",\r\n  \"dataFine\": \"" + txtDataFine.SelectedDate.Date.ToString("yyyy-MM-dd") + "\",\r\n  \"genere\": \"" + gender + "\",\r\n  \"formulaTorneo\": \"" + cmbFormula.SelectedItem.Text + "\",\r\n  \"numTeamTabellone\": " + txtNumTeamTabellone.Text + ",\r\n  \"numTeamQualifiche\": " + txtNumTeamQualifiche.Text + ",\r\n  \"parametriTorneo\": [\r\n " + Session["idParametri"] + "\r\n  ],\r\n \"tipoTorneo\": \"" + cmbTipoTorneo.SelectedItem.Text + "\",\r\n  \"impianti\": [\r\n    " + Session["nomeImpianti"] + "\r\n  ]\r\n}";
               IRestResponse response = client.Execute(request);
             if (response.StatusCode == HttpStatusCode.OK)
                 risultato.Text = response.Content;
@@ -125,7 +126,7 @@ namespace test
         {
             DropDownList cmb = (DropDownList)sender;
             Label lb = new Label();
-            Session["idParametri"] += (cmb.SelectedValue + ",");
+            Session["idParametri"] += ("\"" + cmb.SelectedItem.Text + "\",");
             lb.ID = cmb.SelectedValue;
             lb.Text = cmb.SelectedItem.Text;
             parametriInseriti.Controls.Add(lb);
@@ -136,7 +137,7 @@ namespace test
         {
             DropDownList cmb = (DropDownList)sender;
             Label lb = new Label();
-            Session["idImpianti"] += (cmb.SelectedValue + ",");
+            Session["nomeImpianti"] += ("\"" + cmb.SelectedItem.Text +"\",");
             lb.ID = cmb.SelectedValue;
             lb.Text = cmb.SelectedItem.Text;
             impiantiSelezionati.Controls.Add(lb);
