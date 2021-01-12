@@ -190,6 +190,7 @@
     <Content Include="Img\background-login.png" />
     <Content Include="Img\sand.jpg" />
     <Content Include="Img\sfondo.jpg" />
+    <Content Include="CreazioneTorneo.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="NuovaPassword.aspx" />
     <Content Include="OutputTornei.aspx" />
@@ -249,6 +250,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="CreazioneTorneo.aspx.cs">
+      <DependentUpon>CreazioneTorneo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreazioneTorneo.aspx.designer.cs">
+      <DependentUpon>CreazioneTorneo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

@@ -71,9 +71,11 @@
             </button>
             </div>
             <!--Tornei-->
-            <div class="card-deck">
-                <div class="row">
-                    <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>  
+            <div class="card-container">
+                <div class="card-deck">
+                    <div class="row">
+                        <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>  
+                    </div>
                 </div>
             </div>
         </div>
