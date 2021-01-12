@@ -54,13 +54,8 @@
             <asp:Label ID="lblParametri" runat="server" Text="PARAMETRI TORNEO"></asp:Label> <br />
 
             <asp:Label ID="lblIDParametri" runat="server" Text="Parametro: "></asp:Label> <!-- parametro -->
-            <asp:DropDownList ID="cmbParametro" runat="server" OnSelectedIndexChanged="cmbParametro_SelectedIndexChanged" AutoPostBack="true" >
-                <asp:ListItem value="" selected="true" Text="Seleziona parametri"></asp:ListItem>
-            </asp:DropDownList> <br />            
-            <asp:Label ID="lblParametriInseriti" runat="server" Text="Parametri inseriti: "></asp:Label>
-            <div runat="server" id="parametriInseriti">
-
-            </div>
+            <asp:DropDownList ID="cmbParametro" runat="server"></asp:DropDownList> <br />
+            <asp:Label ID="parametriInseriti" runat="server" Text="Parametri inseriti: "></asp:Label>
         </div>
         <br />
         <div id="divImpianto"> <!-- IMPIANTO -->
