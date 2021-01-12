@@ -183,7 +183,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <None Include="Properties\PublishProfiles\AIBVCwa - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\AIBVCwa - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Img\aibvc-logo.png" />
@@ -191,6 +190,7 @@
     <Content Include="Img\sand.jpg" />
     <Content Include="Img\sfondo.jpg" />
     <Content Include="CreazioneTorneo.aspx" />
+    <Content Include="IscrizioneSquadra.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="NuovaPassword.aspx" />
     <Content Include="OutputTornei.aspx" />
@@ -257,6 +257,12 @@
     </Compile>
     <Compile Include="CreazioneTorneo.aspx.designer.cs">
       <DependentUpon>CreazioneTorneo.aspx</DependentUpon>
+    <Compile Include="IscrizioneSquadra.aspx.cs">
+      <DependentUpon>IscrizioneSquadra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IscrizioneSquadra.aspx.designer.cs">
+      <DependentUpon>IscrizioneSquadra.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

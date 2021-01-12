@@ -34,7 +34,7 @@
             <asp:TextBox ID="txtDataFine" runat="server" required="true"></asp:TextBox> <br /> <br />
 
             <asp:Label ID="lblGender" runat="server" Text="Gender: "></asp:Label> <br /> <!-- gender -->
-            <asp:RadioButton ID="M" runat="server" Text="Maschile" GroupName="gender" Checked="true"/> <br />
+            <asp:RadioButton ID="M" runat="server" Text="Maschile" GroupName="gender" /> <br />
             <asp:RadioButton ID="F" runat="server" Text="Femminile" GroupName="gender" /> <br /> <br />
 
             <asp:Label ID="lblNumTeamTabellone" runat="server" Text="Numero Team Tabellone: "></asp:Label> <!-- num team tabellone -->
@@ -54,26 +54,16 @@
             <asp:Label ID="lblParametri" runat="server" Text="PARAMETRI TORNEO"></asp:Label> <br />
 
             <asp:Label ID="lblIDParametri" runat="server" Text="Parametro: "></asp:Label> <!-- parametro -->
-            <asp:DropDownList ID="cmbParametro" runat="server" OnSelectedIndexChanged="cmbParametro_SelectedIndexChanged" AutoPostBack="true" >
-                <asp:ListItem value="" selected="true" Text="Seleziona parametri"></asp:ListItem>
-            </asp:DropDownList> <br />            
-            <asp:Label ID="lblParametriInseriti" runat="server" Text="Parametri inseriti: "></asp:Label>
-            <div runat="server" id="parametriInseriti">
-
-            </div>
+            <asp:DropDownList ID="cmbParametro" runat="server"></asp:DropDownList> <br />
+            <asp:Label ID="parametriInseriti" runat="server" Text="Parametri inseriti: "></asp:Label>
         </div>
         <br />
         <div id="divImpianto"> <!-- IMPIANTO -->
             <asp:Label ID="lblImpianto" runat="server" Text="INFORMAZIONI IMPIANTO"></asp:Label> <br />
 
             <asp:Label ID="lblIDImpianto" runat="server" Text="Impianto: "></asp:Label> <!-- impianto -->
-            <asp:DropDownList ID="cmbImpianto" runat="server" OnSelectedIndexChanged="impiantiInseriti_SelectedIndexChanged" AutoPostBack="true" >
-                <asp:ListItem value="" selected="true" Text="Seleziona impianti"></asp:ListItem>
-            </asp:DropDownList> <br />
-            <asp:Label ID="lblimpiantiInseriti" runat="server" Text="Impianti inseriti: "></asp:Label>
-            <div id="impiantiSelezionati" runat="server">
-
-            </div>
+            <asp:DropDownList ID="cmbImpianto" runat="server"></asp:DropDownList> <br />
+            <asp:Label ID="impiantiInseriti" runat="server" Text="Impianti inseriti: "></asp:Label>
         </div>
         <div>
             <asp:Button ID="creaTorneo" runat="server" Text="Crea torneo" OnClick="creaTorneo_Click" />
