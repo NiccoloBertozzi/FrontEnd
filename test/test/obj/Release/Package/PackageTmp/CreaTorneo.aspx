@@ -2,81 +2,151 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+
 <head runat="server">
-    <title>CREA UN TORNEO</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Creazione torneo</title>
+    <link rel="stylesheet" href="Content/bootstrap.min.css">
+    <link rel="stylesheet" href="Content/styles.css">
+    <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div id="divTorneo"> <!-- INFORMAZIONI TORNEO -->
-            <asp:Label ID="lblTorneo" runat="server" Text="CREAZIONE TORNEO"></asp:Label> <br />
-
-            <asp:Label ID="lblTitolo" runat="server" Text="Titolo torneo: "></asp:Label> <!-- titolo -->
-            <asp:TextBox ID="txtTitolo" runat="server" required="true"></asp:TextBox> <br />
-
-            <asp:Label ID="lblQuotaIscr" runat="server" Text="Quota iscrizione: "></asp:Label> <!-- quota iscrizione -->
-            <asp:TextBox ID="txtQuotaIscr" runat="server" required="true"></asp:TextBox> <br />
-
-            <asp:Label ID="lblPuntiVitt" runat="server" Text="Punti vittoria: "></asp:Label> <!-- punti vittoria -->
-            <asp:TextBox ID="txtPuntiVitt" runat="server" required="true"></asp:TextBox> <br />
-
-            <asp:Label ID="lblMontepremi" runat="server" Text="Montepremi: "></asp:Label> <!-- montepremi -->
-            <asp:TextBox ID="txtMontepremi" runat="server" required="true"></asp:TextBox> <br />
-
-            <asp:Label ID="lblDataChiusuraIscr" runat="server" Text="Data chiusura iscrizioni: "></asp:Label> <!-- data chiusura iscrizioni -->
-            <asp:Calendar ID="txtDataChiusuraIscr" runat="server" required="true"></asp:Calendar><br />
-
-            <asp:Label ID="lblDataInizio" runat="server" Text="Data inizio: "></asp:Label> <!-- data inizio -->
-            <asp:Calendar ID="txtDataInizio" runat="server" required="true"></asp:Calendar><br />
-
-            <asp:Label ID="lblDataFine" runat="server" Text="Data fine: "></asp:Label> <!-- data fine -->
-            <asp:Calendar ID="txtDataFine" runat="server" required="true"></asp:Calendar><br />
-
-            <asp:Label ID="lblGender" runat="server" Text="Gender: "></asp:Label> <br /> <!-- gender -->
-            <asp:RadioButton ID="M" runat="server" Text="Maschile" GroupName="gender" Checked="true"/> <br />
-            <asp:RadioButton ID="F" runat="server" Text="Femminile" GroupName="gender" /> <br /> <br />
-
-            <asp:Label ID="lblNumTeamTabellone" runat="server" Text="Numero Team Tabellone: "></asp:Label> <!-- num team tabellone -->
-            <asp:TextBox ID="txtNumTeamTabellone" runat="server" required="true"></asp:TextBox> <br />
-            <asp:Label ID="lblNumTeamQualifiche" runat="server" Text="Numero Team Qualifiche: "></asp:Label> <!-- num team qualifiche -->
-            <asp:TextBox ID="txtNumTeamQualifiche" runat="server" required="true"></asp:TextBox> <br /> <br />
-
-            <asp:Label ID="lblTipoTorneo" runat="server" Text="Tipo Torneo: "></asp:Label> <!-- tipo torneo -->
-            <asp:DropDownList ID="cmbTipoTorneo" runat="server"></asp:DropDownList> <br />
-
-            <asp:Label ID="lblFormula" runat="server" Text="Formula: "></asp:Label> <!-- formula -->
-            <asp:DropDownList ID="cmbFormula" runat="server"></asp:DropDownList> <br />
-
-        </div>
-        <br />
-        <div id="divParamtri"> <!-- PARAMETRI -->
-            <asp:Label ID="lblParametri" runat="server" Text="PARAMETRI TORNEO"></asp:Label> <br />
-
-            <asp:Label ID="lblIDParametri" runat="server" Text="Parametro: "></asp:Label> <!-- parametro -->
-            <asp:DropDownList ID="cmbParametro" runat="server" OnSelectedIndexChanged="cmbParametro_SelectedIndexChanged" AutoPostBack="true" >
-                <asp:ListItem value="" selected="true" Text="Seleziona parametri"></asp:ListItem>
-            </asp:DropDownList> <br />            
-            <asp:Label ID="lblParametriInseriti" runat="server" Text="Parametri inseriti: "></asp:Label>
-            <div runat="server" id="parametriInseriti">
-
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky" id="my-navbar">
+        <div class="container-fluid">
+            <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fas fa-bars" style="color: white;"></i>
+            </button>
+            <img src="Img/aibvc-logo.png" style="width: 94px;">
+            <div class="collapse navbar-collapse row" id="navcol-1">
+                <div class="col-md-11 col-sm-12">
+                    <ul class="mx-auto nav navbar-nav">
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
+                        <li class="nav-item" role="presentation">
+                            <div class="dropdown show">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AIBVC Tour</a>
+                                <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Indizione AIBVC Tour</a>
+                                    <a class="dropdown-item" href="#">Calendario L1</a>
+                                    <a class="dropdown-item" href="#">Calendario L2</a>
+                                    <a class="dropdown-item" href="#">Calendario L3</a>
+                                    <a class="dropdown-item" href="#">Classifica Maschile</a>
+                                    <a class="dropdown-item" href="#">Classifica Femminile</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Formazione</a></li>
+                        <li class="nav-item" role="presentation">
+                            <div class="dropdown show">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
+                                <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Chi siamo</a>
+                                    <a class="dropdown-item" href="#">Affiliati</a>
+                                    <a class="dropdown-item" href="#">Attività</a>
+                                    <a class="dropdown-item" href="#">Come operiamo</a>
+                                    <a class="dropdown-item" href="#">Obiettivi</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-1 col-sm-12">
+                    <a href="Login.aspx" class="loginButtonTornei btn float-right-md float-left-sm">Accedi</a>
+                </div>
             </div>
         </div>
-        <br />
-        <div id="divImpianto"> <!-- IMPIANTO -->
-            <asp:Label ID="lblImpianto" runat="server" Text="INFORMAZIONI IMPIANTO"></asp:Label> <br />
-
-            <asp:Label ID="lblIDImpianto" runat="server" Text="Impianto: "></asp:Label> <!-- impianto -->
-            <asp:DropDownList ID="cmbImpianto" runat="server" OnSelectedIndexChanged="impiantiInseriti_SelectedIndexChanged" AutoPostBack="true" >
-                <asp:ListItem value="" selected="true" Text="Seleziona impianti"></asp:ListItem>
-            </asp:DropDownList> <br />
-            <asp:Label ID="lblimpiantiInseriti" runat="server" Text="Impianti inseriti: "></asp:Label>
-            <asp:PlaceHolder ID="impiantiSelezionati" runat="server"></asp:PlaceHolder>
+    </nav>
+    <form id="form1" runat="server">
+        <!--Banner-->
+        <div class="page-title row">
+            <h1 class=" col-12 text-center my-auto">Creazione torneo</h1>
         </div>
-        <div>
-            <asp:Button ID="creaTorneo" runat="server" Text="Crea torneo" OnClick="creaTorneo_Click" />
+        <!--Inserimento parametri-->
+        <div class="mr-3 ml-3 mt-3 card-container">
+            <div class="form-group">
+                <label for="titoloTorneo">Titolo torneo</label>
+                <asp:TextBox ID="txtTitolo" runat="server" required="true" placeholder="Inserisci il titolo del torneo" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label for="lblQuotaIscr">Quota iscrizione: </label>
+                <asp:TextBox ID="txtQuotaIscr" runat="server" required="true" placeholder="Inserisci la quota di iscrizione" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label for="lblPuntiVitt">Punti vittoria: </label>
+                <asp:TextBox ID="txtPuntiVitt" runat="server" required="true" placeholder="Inserisci punti vittoria" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label for="lblMontepremi">Montepremi: </label>
+                <asp:TextBox ID="txtMontepremi" runat="server" required="true" placeholder="Inserisci il montepremi" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label for="lblDataChiusuraIscr">Data chiusura iscrizioni: </label>
+                <asp:TextBox ID="txtDataChiusuraIscr" runat="server" required="true" placeholder="Inserisci data chiusura iscrizioni" CssClass="form-control" TextMode="Date"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label for="lblDataInizio">Data inizio: </label>
+                <asp:TextBox ID="txtDataInizio" runat="server" required="true" placeholder="Inserisci data inizio torneo" CssClass="form-control" TextMode="Date"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label for="lblDataFine">Data fine: </label>
+                <asp:TextBox ID="txtDataFine" runat="server" required="true" placeholder="Inserisci data fine torneo" CssClass="form-control" TextMode="Date"></asp:TextBox>
+            </div>
+            <br />
+            <p>Gender:</p>
+            <div class="form-check">
+                <asp:RadioButton ID="M" runat="server" CssClass="form-check-radio" Text="Maschile" GroupName="gender" Checked="true" />
+            </div>
+            <div class="form-check">
+                <asp:RadioButton ID="F" runat="server" CssClass="form-check-radio" Text="Femminile" GroupName="gender" />
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="lblNumTeamTabellone">Numero Team Tabellone: </label>
+                <asp:TextBox ID="txtNumTeamTabellone" runat="server" required="true" placeholder="Inserisci il numero di Team del tabellone" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label for="lblNumTeamQualifiche">Numero Team  Qualifiche: </label>
+                <asp:TextBox ID="txtNumTeamQualifiche" runat="server" required="true" placeholder="Inserisci il numero di Team delle qualifiche" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="form-group">
+                <label for="lblTipoTorneo">Tipo Torneo: </label>
+                <asp:DropDownList ID="cmbTipoTorneo" runat="server" CssClass="form-control"></asp:DropDownList>
+                <br />
+            </div>
+            <div class="form-group">
+                <label for="lblFormula">Formula  Torneo: </label>
+                <asp:DropDownList ID="cmbFormula" runat="server" CssClass="form-control"></asp:DropDownList>
+                <br />
+            </div>
+            <br />
+            <p>Parametri torneo:</p>
+            <div class="form-group">
+                <label for="lblIDParametri">Parametro</label>
+                <asp:DropDownList ID="cmbParametro" runat="server" OnSelectedIndexChanged="cmbParametro_SelectedIndexChanged" AutoPostBack="true" CssClass="form-control">
+                    <asp:ListItem Value="" Selected="true" Text="Seleziona parametri"></asp:ListItem>
+                </asp:DropDownList>
+                <br />
+                <asp:Label ID="Label1" runat="server" Text="Parametri inseriti: "></asp:Label>
+                <div runat="server" id="parametriInseriti">
+                </div>
+            </div>
+            <br />
+            <p>Parametri Impianto:</p>
+            <div class="form-group">
+                <label for="lblIDParametri">Impianto</label>
+                <asp:DropDownList ID="cmbImpianto" runat="server" OnSelectedIndexChanged="impiantiInseriti_SelectedIndexChanged" AutoPostBack="true" CssClass="form-control">
+                    <asp:ListItem Value="" Selected="true" Text="Seleziona impianti"></asp:ListItem>
+                </asp:DropDownList>
+                <br />
+                <asp:Label ID="lblimpiantiInseriti" runat="server" Text="Impianti inseriti: "></asp:Label>
+                <div runat="server" id="impiantiSelezionati">
+                </div>
+            </div>
+            <br />
+            <asp:Button ID="Button1" runat="server" Text="Crea torneo" OnClick="creaTorneo_Click" CssClass="btn btn-primary" />
         </div>
-        <asp:Label ID="risultato" runat="server"></asp:Label>
     </form>
 </body>
 </html>
