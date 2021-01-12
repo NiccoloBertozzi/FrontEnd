@@ -330,13 +330,22 @@ namespace test
         protected global::System.Web.UI.WebControls.DropDownList cmbImpianto;
 
         /// <summary>
-        /// Controllo impiantiInseriti.
+        /// Controllo lblimpiantiInseriti.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label impiantiInseriti;
+        protected global::System.Web.UI.WebControls.Label lblimpiantiInseriti;
+
+        /// <summary>
+        /// Controllo impiantiSelezionati.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl impiantiSelezionati;
 
         /// <summary>
         /// Controllo creaTorneo.

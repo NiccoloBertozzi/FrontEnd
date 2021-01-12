@@ -14,8 +14,15 @@ namespace test
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
+            /* PER RIPRISTINARE I PARAMETRI INSERITI MA SBAGLIATI, deve essere fatto anche per impianti
+            string parametroID = Request["__EVENTTARGET"];
+            string parametroNome = Request["__EVENTARGUMENT"];
+            if (parametroID != "")
+            {
+                ListItem lst = new ListItem(parametroNome, parametroID);
+                cmbParametro.Items.Insert(Convert.ToInt32(parametroID), lst);
+            }
+            */
             if (!IsPostBack)
             {
                 //-------------CHIAMATA API e popolazione impianti ----------------
@@ -32,7 +39,7 @@ namespace test
                     for (int i = 0; i < deserialzied.Count; i++)
                     {
                         ListItem lst = new ListItem(Convert.ToString(deserialzied[i].nomeImpianto), Convert.ToString(deserialzied[i].idImpianto));
-                        cmbImpianto.Items.Insert(i, lst);
+                        cmbImpianto.Items.Insert(i + 1, lst);
                     }
                 }
                 //------------------------------------------
@@ -86,7 +93,7 @@ namespace test
                     for (int i = 0; i < deserialzied.Count; i++)
                     {
                         ListItem lst = new ListItem(Convert.ToString(deserialzied[i].nomeParametro), Convert.ToString(deserialzied[i].idParametro));
-                        cmbParametro.Items.Insert(i+1, lst);
+                        cmbParametro.Items.Insert(i + 1, lst);
                     }
                 }
                 //------------------------------------------
@@ -110,23 +117,23 @@ namespace test
 
         protected void cmbParametro_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DropDownList cmb = (DropDownList)sender; //cmb.SelectedValue prende id parametro
-           
-            //lblParametriInseriti.Text += cmb.SelectedItem.Text + ", ";
-
-            LinkButton lb = new LinkButton();
+            DropDownList cmb = (DropDownList)sender;
+            Label lb = new Label();
             lb.ID = cmb.SelectedValue;
             lb.Text = cmb.SelectedItem.Text;
-            lb.Command += new CommandEventHandler(deleteParametro_Click);
             parametriInseriti.Controls.Add(lb);
             cmbParametro.Items.Remove(cmb.SelectedItem);
-
         }
 
-        private void deleteParametro_Click(object sender, CommandEventArgs e)//click parametri inseriti per eliminarli
+        protected void impiantiInseriti_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            string i = "0";
+            DropDownList cmb = (DropDownList)sender;
+            Label lb = new Label();
+            lb.ID = cmb.SelectedValue;
+            lb.Text = cmb.SelectedItem.Text;
+            impiantiSelezionati.Controls.Add(lb);
+            cmbImpianto.Items.Remove(cmb.SelectedItem);
         }
+        
     }
 }
