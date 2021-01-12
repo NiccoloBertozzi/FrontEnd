@@ -168,22 +168,22 @@ namespace test
         protected global::System.Web.UI.WebControls.Label lblGender;
 
         /// <summary>
-        /// Controllo rdMaschile.
+        /// Controllo M.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdMaschile;
+        protected global::System.Web.UI.WebControls.RadioButton M;
 
         /// <summary>
-        /// Controllo rdFemminile.
+        /// Controllo F.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rdFemminile;
+        protected global::System.Web.UI.WebControls.RadioButton F;
 
         /// <summary>
         /// Controllo lblNumTeamTabellone.
@@ -240,60 +240,6 @@ namespace test
         protected global::System.Web.UI.WebControls.DropDownList cmbTipoTorneo;
 
         /// <summary>
-        /// Controllo lblSupervisore.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSupervisore;
-
-        /// <summary>
-        /// Controllo cmbSupervisore.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbSupervisore;
-
-        /// <summary>
-        /// Controllo lblArbitro.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblArbitro;
-
-        /// <summary>
-        /// Controllo cmbArbitro.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbArbitro;
-
-        /// <summary>
-        /// Controllo lblDirettore.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDirettore;
-
-        /// <summary>
-        /// Controllo cmbDirettore.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbDirettore;
-
-        /// <summary>
         /// Controllo lblFormula.
         /// </summary>
         /// <remarks>
@@ -339,6 +285,15 @@ namespace test
         protected global::System.Web.UI.WebControls.DropDownList cmbParametro;
 
         /// <summary>
+        /// Controllo parametriInseriti.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label parametriInseriti;
+
+        /// <summary>
         /// Controllo lblImpianto.
         /// </summary>
         /// <remarks>
@@ -364,5 +319,23 @@ namespace test
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cmbImpianto;
+
+        /// <summary>
+        /// Controllo impiantiInseriti.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label impiantiInseriti;
+
+        /// <summary>
+        /// Controllo creaTorneo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button creaTorneo;
     }
 }
