@@ -147,6 +147,8 @@
             <br />
             <asp:Button ID="Button1" runat="server" Text="Crea torneo" OnClick="creaTorneo_Click" CssClass="btn btn-primary" />
         </div>
+   <script src="Scripts/jquery-3.4.1.min.js "></script>
+        <script src="Scripts/bootstrap.min.js "></script>
     </form>
 </body>
 </html>
