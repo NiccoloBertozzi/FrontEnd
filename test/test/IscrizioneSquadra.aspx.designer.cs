@@ -24,40 +24,49 @@ namespace test
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Controllo lblSecondoAtleta.
+        /// Controllo cmbAtleta2.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSecondoAtleta;
+        protected global::System.Web.UI.WebControls.DropDownList cmbAtleta2;
 
         /// <summary>
-        /// Controllo codatleta2.
+        /// Controllo nomeAtleta2.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox codatleta2;
+        protected global::System.Web.UI.WebControls.Label nomeAtleta2;
 
         /// <summary>
-        /// Controllo lblAllenatore.
+        /// Controllo cmballenatore.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAllenatore;
+        protected global::System.Web.UI.WebControls.DropDownList cmballenatore;
 
         /// <summary>
-        /// Controllo codallenatore.
+        /// Controllo nomeAllenatore.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox codallenatore;
+        protected global::System.Web.UI.WebControls.Label nomeAllenatore;
+
+        /// <summary>
+        /// Controllo txtNomeTeam.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNomeTeam;
 
         /// <summary>
         /// Controllo btn_IscriviSquadra.
@@ -67,14 +76,5 @@ namespace test
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_IscriviSquadra;
-
-        /// <summary>
-        /// Controllo risultato.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label risultato;
     }
 }

@@ -195,7 +195,6 @@
     <Content Include="NuovaPassword.aspx" />
     <Content Include="OutputTornei.aspx" />
     <Content Include="Register.aspx" />
-    <Content Include="RegisterDelegato.aspx" />
     <Content Include="RegisterSocieta.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -287,13 +286,6 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RegisterDelegato.aspx.cs">
-      <DependentUpon>RegisterDelegato.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RegisterDelegato.aspx.designer.cs">
-      <DependentUpon>RegisterDelegato.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegisterSocieta.aspx.cs">
       <DependentUpon>RegisterSocieta.aspx</DependentUpon>
