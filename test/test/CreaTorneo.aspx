@@ -64,90 +64,92 @@
             <h1 class=" col-12 text-center my-auto">Creazione torneo</h1>
         </div>
         <!--Inserimento parametri-->
-        <div class="mr-3 ml-3 mt-3 card-container">
-            <div class="form-group">
-                <label for="titoloTorneo">Titolo torneo</label>
-                <asp:TextBox ID="txtTitolo" runat="server" required="true" placeholder="Inserisci il titolo del torneo" CssClass="form-control"></asp:TextBox>
-            </div>
-            <div class="form-group">
-                <label for="lblQuotaIscr">Quota iscrizione: </label>
-                <asp:TextBox ID="txtQuotaIscr" runat="server" required="true" placeholder="Inserisci la quota di iscrizione" CssClass="form-control"></asp:TextBox>
-            </div>
-            <div class="form-group">
-                <label for="lblPuntiVitt">Punti vittoria: </label>
-                <asp:TextBox ID="txtPuntiVitt" runat="server" required="true" placeholder="Inserisci punti vittoria" CssClass="form-control"></asp:TextBox>
-            </div>
-            <div class="form-group">
-                <label for="lblMontepremi">Montepremi: </label>
-                <asp:TextBox ID="txtMontepremi" runat="server" required="true" placeholder="Inserisci il montepremi" CssClass="form-control"></asp:TextBox>
-            </div>
-            <div class="form-group">
-                <label for="lblDataChiusuraIscr">Data chiusura iscrizioni: </label>
-                <asp:TextBox ID="txtDataChiusuraIscr" runat="server" required="true" placeholder="Inserisci data chiusura iscrizioni" CssClass="form-control" TextMode="Date"></asp:TextBox>
-            </div>
-            <div class="form-group">
-                <label for="lblDataInizio">Data inizio: </label>
-                <asp:TextBox ID="txtDataInizio" runat="server" required="true" placeholder="Inserisci data inizio torneo" CssClass="form-control" TextMode="Date"></asp:TextBox>
-            </div>
-            <div class="form-group">
-                <label for="lblDataFine">Data fine: </label>
-                <asp:TextBox ID="txtDataFine" runat="server" required="true" placeholder="Inserisci data fine torneo" CssClass="form-control" TextMode="Date"></asp:TextBox>
-            </div>
-            <br />
-            <p>Gender:</p>
-            <div class="form-check">
-                <asp:RadioButton ID="M" runat="server" CssClass="form-check-radio" Text="Maschile" GroupName="gender" Checked="true" />
-            </div>
-            <div class="form-check">
-                <asp:RadioButton ID="F" runat="server" CssClass="form-check-radio" Text="Femminile" GroupName="gender" />
-            </div>
-            <br />
-            <div class="form-group">
-                <label for="lblNumTeamTabellone">Numero Team Tabellone: </label>
-                <asp:TextBox ID="txtNumTeamTabellone" runat="server" required="true" placeholder="Inserisci il numero di Team del tabellone" CssClass="form-control"></asp:TextBox>
-            </div>
-            <div class="form-group">
-                <label for="lblNumTeamQualifiche">Numero Team  Qualifiche: </label>
-                <asp:TextBox ID="txtNumTeamQualifiche" runat="server" required="true" placeholder="Inserisci il numero di Team delle qualifiche" CssClass="form-control"></asp:TextBox>
-            </div>
-            <div class="form-group">
-                <label for="lblTipoTorneo">Tipo Torneo: </label>
-                <asp:DropDownList ID="cmbTipoTorneo" runat="server" CssClass="form-control"></asp:DropDownList>
-                <br />
-            </div>
-            <div class="form-group">
-                <label for="lblFormula">Formula  Torneo: </label>
-                <asp:DropDownList ID="cmbFormula" runat="server" CssClass="form-control"></asp:DropDownList>
-                <br />
-            </div>
-            <br />
-            <p>Parametri torneo:</p>
-            <div class="form-group">
-                <label for="lblIDParametri">Parametro</label>
-                <asp:DropDownList ID="cmbParametro" runat="server" OnSelectedIndexChanged="cmbParametro_SelectedIndexChanged" AutoPostBack="true" CssClass="form-control">
-                    <asp:ListItem Value="" Selected="true" Text="Seleziona parametri"></asp:ListItem>
-                </asp:DropDownList>
-                <br />
-                <asp:Label ID="Label1" runat="server" Text="Parametri inseriti: "></asp:Label>
-                <div runat="server" id="parametriInseriti">
+        <div class="container">
+            <div class="mr-3 ml-3 mt-3 card-container">
+                <div class="form-group">
+                    <label for="titoloTorneo">Titolo torneo</label>
+                    <asp:TextBox ID="txtTitolo" runat="server" required="true" placeholder="Inserisci il titolo del torneo" CssClass="form-control"></asp:TextBox>
                 </div>
-            </div>
-            <br />
-            <p>Parametri Impianto:</p>
-            <div class="form-group">
-                <label for="lblIDParametri">Impianto</label>
-                <asp:DropDownList ID="cmbImpianto" runat="server" OnSelectedIndexChanged="impiantiInseriti_SelectedIndexChanged" AutoPostBack="true" CssClass="form-control">
-                    <asp:ListItem Value="" Selected="true" Text="Seleziona impianti"></asp:ListItem>
-                </asp:DropDownList>
-                <br />
-                <asp:Label ID="lblimpiantiInseriti" runat="server" Text="Impianti inseriti: "></asp:Label>
-                <div runat="server" id="impiantiSelezionati">
+                <div class="form-group">
+                    <label for="lblQuotaIscr">Quota iscrizione: </label>
+                    <asp:TextBox ID="txtQuotaIscr" runat="server" required="true" placeholder="Inserisci la quota di iscrizione" CssClass="form-control"></asp:TextBox>
                 </div>
+                <div class="form-group">
+                    <label for="lblPuntiVitt">Punti vittoria: </label>
+                    <asp:TextBox ID="txtPuntiVitt" runat="server" required="true" placeholder="Inserisci punti vittoria" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label for="lblMontepremi">Montepremi: </label>
+                    <asp:TextBox ID="txtMontepremi" runat="server" required="true" placeholder="Inserisci il montepremi" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label for="lblDataChiusuraIscr">Data chiusura iscrizioni: </label>
+                    <asp:TextBox ID="txtDataChiusuraIscr" runat="server" required="true" placeholder="Inserisci data chiusura iscrizioni" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label for="lblDataInizio">Data inizio: </label>
+                    <asp:TextBox ID="txtDataInizio" runat="server" required="true" placeholder="Inserisci data inizio torneo" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label for="lblDataFine">Data fine: </label>
+                    <asp:TextBox ID="txtDataFine" runat="server" required="true" placeholder="Inserisci data fine torneo" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                </div>
+                <br />
+                <p>Gender:</p>
+                <div class="form-check">
+                    <asp:RadioButton ID="M" runat="server" CssClass="form-check-radio" Text="Maschile" GroupName="gender" Checked="true" />
+                </div>
+                <div class="form-check">
+                    <asp:RadioButton ID="F" runat="server" CssClass="form-check-radio" Text="Femminile" GroupName="gender" />
+                </div>
+                <br />
+                <div class="form-group">
+                    <label for="lblNumTeamTabellone">Numero Team Tabellone: </label>
+                    <asp:TextBox ID="txtNumTeamTabellone" runat="server" required="true" placeholder="Inserisci il numero di Team del tabellone" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label for="lblNumTeamQualifiche">Numero Team  Qualifiche: </label>
+                    <asp:TextBox ID="txtNumTeamQualifiche" runat="server" required="true" placeholder="Inserisci il numero di Team delle qualifiche" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label for="lblTipoTorneo">Tipo Torneo: </label>
+                    <asp:DropDownList ID="cmbTipoTorneo" runat="server" CssClass="form-control"></asp:DropDownList>
+                    <br />
+                </div>
+                <div class="form-group">
+                    <label for="lblFormula">Formula  Torneo: </label>
+                    <asp:DropDownList ID="cmbFormula" runat="server" CssClass="form-control"></asp:DropDownList>
+                    <br />
+                </div>
+                <br />
+                <p>Parametri torneo:</p>
+                <div class="form-group">
+                    <label for="lblIDParametri">Parametro</label>
+                    <asp:DropDownList ID="cmbParametro" runat="server" OnSelectedIndexChanged="cmbParametro_SelectedIndexChanged" AutoPostBack="true" CssClass="form-control">
+                        <asp:ListItem Value="" Selected="true" Text="Seleziona parametri"></asp:ListItem>
+                    </asp:DropDownList>
+                    <br />
+                    <asp:Label ID="Label1" runat="server" Text="Parametri inseriti: "></asp:Label>
+                    <div runat="server" id="parametriInseriti">
+                    </div>
+                </div>
+                <br />
+                <p>Parametri Impianto:</p>
+                <div class="form-group">
+                    <label for="lblIDParametri">Impianto</label>
+                    <asp:DropDownList ID="cmbImpianto" runat="server" OnSelectedIndexChanged="impiantiInseriti_SelectedIndexChanged" AutoPostBack="true" CssClass="form-control">
+                        <asp:ListItem Value="" Selected="true" Text="Seleziona impianti"></asp:ListItem>
+                    </asp:DropDownList>
+                    <br />
+                    <asp:Label ID="lblimpiantiInseriti" runat="server" Text="Impianti inseriti: "></asp:Label>
+                    <div runat="server" id="impiantiSelezionati">
+                    </div>
+                </div>
+                <br />
+                <asp:Button ID="Button1" runat="server" Text="Crea torneo" OnClick="creaTorneo_Click" CssClass="btn btn-primary" />
             </div>
-            <br />
-            <asp:Button ID="Button1" runat="server" Text="Crea torneo" OnClick="creaTorneo_Click" CssClass="btn btn-primary" />
         </div>
-   <script src="Scripts/jquery-3.4.1.min.js "></script>
+        <script src="Scripts/jquery-3.4.1.min.js "></script>
         <script src="Scripts/bootstrap.min.js "></script>
     </form>
 </body>
