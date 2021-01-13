@@ -165,6 +165,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AtletaIscrizioni.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -234,6 +235,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AtletaIscrizioni.aspx.cs">
+      <DependentUpon>AtletaIscrizioni.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AtletaIscrizioni.aspx.designer.cs">
+      <DependentUpon>AtletaIscrizioni.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CreaTorneo.aspx.cs">
       <DependentUpon>CreaTorneo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
