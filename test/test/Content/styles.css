@@ -3,11 +3,7 @@ body {
     height: 100%;
     width: 100%;
 }
-.bodylogin {
-    background-image: url('../Img/background-login.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
+
 .my-navbar {
     background: linear-gradient(90deg, #019bdd 0%, rgba(21, 68, 146, 1) 100%);
 }
@@ -133,7 +129,7 @@ body {
 }
 
 .card-text {
-    color: #019bdd !important;
+    color: #019bdd;
     font-size: 500;
 }
 

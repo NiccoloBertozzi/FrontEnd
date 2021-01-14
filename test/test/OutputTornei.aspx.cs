@@ -6,7 +6,6 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Web;
-using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -18,18 +17,17 @@ namespace test
 
         public void Page_Load(object sender, EventArgs e)
         {
-            token = Request.QueryString["token"];
-            if (!this.IsPostBack)
-            {
+            if (!this.IsPostBack) 
+            { 
+                token = Request.QueryString["token"];
                 //passo i tornei fino a due mesi prima
                 string data = Convert.ToDateTime(DateTime.Now.Date.AddDays(+60)).ToString("yyyy-MM-dd");
                 DownloadDataTornei(token, data);
-            }
+            }        
         }
-        protected void DownloadDataTornei(string token, string data)
+        protected void DownloadDataTornei(string token,string data)
         {
-
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/GetTornei/" + data);
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetTornei/"+data);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("Authorization", "Bearer " + token);
@@ -45,13 +43,12 @@ namespace test
                 for (int i = 0; i < deserialzied.Count; i++)
                 {
                     table.Append("<div class=\"col-sm-12 col-md-3 my-2\">" +
-                        "<div id=\"" + deserialzied[i].idTorneo + "\" class=\"card\" onclick=\"javascript:DivClicked("+ deserialzied[i].idTorneo + "); return true;\">" +
+                        "<div class=\"card\">" +
                         "<img class=\"card-img-top\" src=\"Img/sand.jpg\" alt=\"Card image cap\">" +
                         "<div class=\"card-body\">" +
-                        "<h5 class=\"card-title\">" + deserialzied[i].titolo + "</h5>" +
+                        "<h5 class=\"card-title\">"+deserialzied[i].titolo+"</h5>" +
                         "<p class=\"card-text my-2\">€" + deserialzied[i].montepremi + "</p>" +
-                        "<p class=\"card-text my-2\"><small class=\"text-muted\">" + deserialzied[i].citta + "</small></p>" +
-                        "<p class=\"card-text my-2\"><small class=\"text-muted\">" + Convert.ToDateTime(deserialzied[i].dataInizio).Date.ToString("dd/MM/yyyy") + "</small></p>" +
+                        "<p class=\"card-text\"><small class=\"text-muted\">24+8 Eliminazione diretta</small></p>" +
                         "</div>" +
                         "</div>" +
                         "</div>");
@@ -59,12 +56,6 @@ namespace test
                 //Append the HTML string to Placeholder.
                 torneilist.Controls.Add(new Literal { Text = table.ToString() });
             }
-        }
-        protected void clickArea_Click(object sender, EventArgs e)
-        {
-            Session["IdTorneo"]= HiddenField1.Value;
-            Response.Redirect("InfoTorneo.aspx?token=" + token); //rimanda alla form 'output tornei'
-
         }
     }
 }

@@ -17,28 +17,29 @@
                   <asp:ListItem Selected="True" Value="Atleta"> Atleta </asp:ListItem>
                   <asp:ListItem Value="Allenatore"> Allenatore </asp:ListItem>
                   <asp:ListItem Value="Delegato"> Delegato </asp:ListItem>
+                  <asp:ListItem Value="Societa"> Società </asp:ListItem>
                </asp:DropDownList><br />
             <asp:PlaceHolder ID="formregister" runat="server">
             <asp:Label ID="lblTessera" runat="server" Text="Codice Tessera *"></asp:Label> <!-- Codice Tessera -->
-            <asp:TextBox ID="codiceTessera" AccessKey="1" runat="server" required="true"></asp:TextBox> <br />
+            <asp:TextBox ID="codiceTessera" AccessKey="1" runat="server"></asp:TextBox> <br />
 
             <asp:Label ID="lblNome" runat="server" Text="Nome *"></asp:Label> <!-- Nome -->
-            <asp:TextBox ID="nome" AccessKey="1" runat="server" required="true"></asp:TextBox> <br />
+            <asp:TextBox ID="nome" AccessKey="1" runat="server"></asp:TextBox> <br />
 
             <asp:Label ID="lblCognome" runat="server" Text="Cognome *"></asp:Label> <!-- Cognome -->
-            <asp:TextBox ID="cognome" AccessKey="1" runat="server" required="true"></asp:TextBox> <br />
+            <asp:TextBox ID="cognome" AccessKey="1" runat="server"></asp:TextBox> <br />
 
             <asp:Label ID="lblEmail" runat="server" Text="Email *"></asp:Label> <!-- Email -->
-            <asp:TextBox ID="email" AccessKey="1" runat="server" required="true"></asp:TextBox> <br />
+            <asp:TextBox ID="email" AccessKey="1" runat="server"></asp:TextBox> <br />
 
             <asp:Label ID="lblTel" runat="server" Text="Numero di cellulare"></asp:Label> <!-- Numero Cellulare -->
             <asp:TextBox ID="tel" runat="server"></asp:TextBox> <br />
             
             <asp:Label ID="lblDataNascita" runat="server" Text="Data di nascita mm/gg/aaaa *"></asp:Label> <!-- Data Nascita -->
-            <asp:TextBox ID="dataNascita" AccessKey="1" runat="server" required="true"></asp:TextBox> <br />
+            <asp:TextBox ID="dataNascita" AccessKey="1" runat="server"></asp:TextBox> <br />
 
             <asp:Label ID="lblCf" runat="server" Text="Codice fiscale *"></asp:Label> <!-- Codice Fiscale -->
-            <asp:TextBox ID="cf" AccessKey="1" runat="server" required="true"></asp:TextBox> <br />
+            <asp:TextBox ID="cf" AccessKey="1" runat="server"></asp:TextBox> <br />
 
             <asp:Label ID="lblIndirizzo" runat="server" Text="Indirizzo"></asp:Label> <!-- Indirizzo -->
             <asp:TextBox ID="indirizzo" runat="server"></asp:TextBox> <br />
@@ -56,17 +57,17 @@
             <asp:TextBox ID="peso" runat="server"></asp:TextBox> <br />
 
             <asp:Label ID="lblSesso" runat="server" Text="Sesso"></asp:Label> <!-- Sesso -->
-            <asp:RadioButton ID="sesso1" runat="server" Text="Maschio" GroupName="sesso" Checked="true"></asp:RadioButton>
+            <asp:RadioButton ID="sesso1" runat="server" Text="Maschio" GroupName="sesso"></asp:RadioButton>
             <asp:RadioButton ID="sesso2" runat="server" Text="Femmina" GroupName="sesso"></asp:RadioButton> <br/>
 
             <asp:PlaceHolder ID="select" runat="server" Visible="false">
                 <asp:Label ID="Label1" runat="server" Text="Ruolo *"></asp:Label> <!-- Ruolo -->
-                <asp:RadioButton ID="supervisore" runat="server" Text="Supervisore" GroupName="role" Checked="true"></asp:RadioButton>
+                <asp:RadioButton ID="supervisore" runat="server" Text="Supervisore" GroupName="role"></asp:RadioButton>
                 <asp:RadioButton ID="arbitro" runat="server" Text="Arbitro" GroupName="role"></asp:RadioButton> <br/>
             </asp:PlaceHolder>
 
             <asp:Label ID="lblgrado" runat="server" Visible="false" Text="Grado *"></asp:Label> <!-- Codice Fiscale -->
-            <asp:TextBox ID="grado" AccessKey="1" Visible="false" runat="server" required="true"></asp:TextBox> <br />
+            <asp:TextBox ID="grado" AccessKey="1" Visible="false" runat="server"></asp:TextBox> <br />
 
             <!--CREDENZIALI-->
 
@@ -77,10 +78,10 @@
             <asp:TextBox ID="comuneResidenza" runat="server"></asp:TextBox> <br />
 
             <asp:Label ID="lblNomeSocieta" runat="server" Text="Nome della società *"></asp:Label> <!-- Nome Società  -->
-            <asp:TextBox ID="nomeSocieta" AccessKey="1" runat="server" required="true"></asp:TextBox> <br />
+            <asp:TextBox ID="nomeSocieta" AccessKey="1" runat="server"></asp:TextBox> <br />
 
             <asp:Label ID="lblPassword" runat="server" Text="Password *"></asp:Label> <!-- Password -->
-            <asp:TextBox ID="password" AccessKey="1" runat="server" required="true"></asp:TextBox> <br />
+            <asp:TextBox ID="password" AccessKey="1" runat="server"></asp:TextBox> <br />
             </asp:PlaceHolder> <br />
             <asp:Label ID="info" runat="server" Text="* Campi obbligatori"></asp:Label> <br /> <!-- obbligatori -->
             <asp:Button ID="btn_registerAtleta" runat="server" Text="RegistraAtleta" OnClick="btn_registerAtleta_Click" /> <br/>

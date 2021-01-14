@@ -10,7 +10,9 @@ namespace test
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            cont = 0;
         }
+        int cont;
         protected void btn_registerAtleta_Click(object sender, EventArgs e)
         {  
             object parameter = "";
@@ -28,6 +30,8 @@ namespace test
                 if (c is TextBox)
                 {
                     TextBox textBox = c as TextBox;
+                    if (textBox.Text != string.Empty && textBox.AccessKey != "")//controllo se i campi obbligatori sono riempiti
+                        cont++;
                     if ((textBox.ID== "comuneNascita" || textBox.ID == "comuneResidenza" || textBox.ID == "nomeSocieta" || textBox.ID == "password") && !check) //inserisco inizo credenziali
                     {
                         parameter = parameter.ToString().Substring(0, parameter.ToString().Length - 3);//elimino ultimi 3 caratteri
@@ -45,17 +49,17 @@ namespace test
                     { parameter += " \"sesso\": \"M\",\r\n"; check_sesso = !check_sesso; }
                     else if (sesso2.Checked == true&& !check_sesso)
                     { parameter += " \"sesso\": \"F\",\r\n"; check_sesso = !check_sesso; }
-                    if (ruolo.SelectedValue == "Delegato")
-                    {
-                        if (supervisore.Checked == true && !check_ruolo)//controllo ruolo
-                        { parameter += " \"supervisore\": \"true\",\r\n"; check_ruolo = !check_ruolo; }
-                        else if (arbitro.Checked == true && !check_ruolo)
-                        { parameter += " \"aribtro\": \"true\",\r\n"; check_ruolo = !check_ruolo; }
-                    }
+
+                    if (supervisore.Checked == true && !check_ruolo)//controllo ruolo
+                    { parameter += " \"supervisore\": \"true\",\r\n"; check_ruolo = !check_ruolo; cont++; }
+                    else if (arbitro.Checked == true && !check_ruolo)
+                    { parameter += " \"aribtro\": \"true\",\r\n"; check_ruolo = !check_ruolo; cont++; }
                 }
             }
             parameter= parameter.ToString().Substring(0,parameter.ToString().Length - 3);//elimino ultimi 3 caratteri
             parameter += "\r\n}\r\n}";
+            if ((ruolo.SelectedValue == "Atleta"&&cont == 8)|| (ruolo.SelectedValue == "Allenatore" && cont == 9) || (ruolo.SelectedValue == "Delegato" && cont == 7))//ci sono 8/9 campi obbligatori
+            {
                 var client=new RestClient();
                 //----------------------Registrazione-------------------------//
                 if (ruolo.SelectedValue == "Atleta")
@@ -74,6 +78,9 @@ namespace test
                 else
                     risultato.Text = response.ErrorMessage;
                 //------------------------------------------------------------//
+            }
+            else
+                risultato.Text = "Completare i campi obbligatori";
         }
 
         protected void ruolo_SelectedIndexChanged(object sender, EventArgs e)

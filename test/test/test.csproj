@@ -191,12 +191,12 @@
     <Content Include="Img\background-login.png" />
     <Content Include="Img\sand.jpg" />
     <Content Include="Img\sfondo.jpg" />
-    <Content Include="InfoTorneo.aspx" />
     <Content Include="IscrizioneSquadra.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="NuovaPassword.aspx" />
     <Content Include="OutputTornei.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="RegisterDelegato.aspx" />
     <Content Include="RegisterSocieta.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -204,7 +204,6 @@
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
-    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
@@ -261,13 +260,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="InfoTorneo.aspx.cs">
-      <DependentUpon>InfoTorneo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InfoTorneo.aspx.designer.cs">
-      <DependentUpon>InfoTorneo.aspx</DependentUpon>
-    </Compile>
     <Compile Include="IscrizioneSquadra.aspx.cs">
       <DependentUpon>IscrizioneSquadra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -304,6 +296,13 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterDelegato.aspx.cs">
+      <DependentUpon>RegisterDelegato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegisterDelegato.aspx.designer.cs">
+      <DependentUpon>RegisterDelegato.aspx</DependentUpon>
     </Compile>
     <Compile Include="RegisterSocieta.aspx.cs">
       <DependentUpon>RegisterSocieta.aspx</DependentUpon>

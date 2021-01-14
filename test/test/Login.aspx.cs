@@ -2,7 +2,6 @@
 using RestSharp;
 using System;
 using System.Net;
-using System.Web.UI.WebControls;
 using System.Web.WebPages;
 using test.Models;
 
@@ -12,6 +11,7 @@ namespace test
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
 
         protected void btn_accedi_Click(object sender, EventArgs e)
@@ -28,9 +28,9 @@ namespace test
                 IRestResponse response = client.Execute(request);
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
-                    Session["IdUtente"] = deserialzied.id;
-                    Response.Redirect("OutputTornei.aspx?token=" + deserialzied.token); //rimanda alla form 'output tornei'
+                    var contenuto = JsonConvert.DeserializeObject<getToken>(response.Content);
+
+                    Response.Redirect("OutputTornei.aspx?token=" + contenuto.token); //rimanda alla form 'output tornei'
                 }
                 else
                     Response.Write("<script>alert('" + response.ErrorMessage + "');</script>");
@@ -44,8 +44,7 @@ namespace test
 
         protected void LabelRecovery_Click(object sender, EventArgs e)
         {
-            //recupera password
-            if (email.Text!="")
+            if (email.Text.IsEmpty())
             {
                 //-------------CHIAMATA API----------------
                 var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/LoginRegister/RecuperaPassword");
@@ -67,6 +66,7 @@ namespace test
                 Response.Write("<script>alert('Inserire l'email');</script>");
             }
         }
+
         protected void register_Click(object sender, EventArgs e)
         {
             Response.Redirect("Register.aspx");
