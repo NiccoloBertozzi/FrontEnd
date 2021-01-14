@@ -191,6 +191,7 @@
     <Content Include="Img\background-login.png" />
     <Content Include="Img\sand.jpg" />
     <Content Include="Img\sfondo.jpg" />
+    <Content Include="InfoTorneo.aspx" />
     <Content Include="IscrizioneSquadra.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="NuovaPassword.aspx" />
@@ -258,6 +259,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="InfoTorneo.aspx.cs">
+      <DependentUpon>InfoTorneo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InfoTorneo.aspx.designer.cs">
+      <DependentUpon>InfoTorneo.aspx</DependentUpon>
     </Compile>
     <Compile Include="IscrizioneSquadra.aspx.cs">
       <DependentUpon>IscrizioneSquadra.aspx</DependentUpon>

@@ -28,9 +28,9 @@ namespace test
                 IRestResponse response = client.Execute(request);
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    var contenuto = JsonConvert.DeserializeObject<getToken>(response.Content);
-
-                    Response.Redirect("OutputTornei.aspx?token=" + contenuto.token); //rimanda alla form 'output tornei'
+                    dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
+                    Session["IdUtente"] = deserialzied.id;
+                    Response.Redirect("OutputTornei.aspx?token=" + deserialzied.token); //rimanda alla form 'output tornei'
                 }
                 else
                     Response.Write("<script>alert('" + response.ErrorMessage + "');</script>");

@@ -9,19 +9,29 @@ namespace test
     public partial class IscrizioneSquadra : System.Web.UI.Page
     {
         //PROVVISORIO PER FARE I TEST
-        string NumTesseraAlteta1 = "1";
-        string TokenAtleta = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFsZXh0YW1hQGdtYWlsLmNvbSIsInJvbGUiOiJBdGxldGEiLCJuYmYiOjE2MTA1Njc3OTAsImV4cCI6MTYxMDU2ODk5MCwiaWF0IjoxNjEwNTY3NzkwfQ._r6j_bOV7P84V0StNp1fiQlnDz5-tmAZOXqPgXWakmo";
-        int idsocieta = 2;
+        string idAtleta1;
+        string token;
+        int idsocieta = 2;//d
         //-----------------------------
         protected void Page_Load(object sender, EventArgs e)
         {
+            idAtleta1 = Session["IdUtente"].ToString();
+            token = Request.QueryString["token"];
+            //-------------------SCARICO ID SOCIETA DELL'ATLETA-----
+            var client1 = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/atleti/GetIdSocieta/"+idAtleta1+"");
+            client1.Timeout = -1;
+            var request1 = new RestRequest(Method.GET);
+            request1.AddHeader("Authorization", "Bearer" + token + "");
+            request1.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
+            IRestResponse response1 = client1.Execute(request1);
+            //----------------------
             if (!this.IsPostBack)
             {
                 //Scarica gli atleti di una societa
                 var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AtletiSocieta/2");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.POST);
-                request.AddHeader("Authorization", "Bearer " + TokenAtleta + "");
+                request.AddHeader("Authorization", "Bearer " + token + "");
                 request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
                 IRestResponse response = client.Execute(request);
                 dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
@@ -37,7 +47,7 @@ namespace test
                 client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AllenatoriSocieta/2");
                 client.Timeout = -1;
                 request = new RestRequest(Method.POST);
-                request.AddHeader("Authorization", "Bearer " + TokenAtleta + "");
+                request.AddHeader("Authorization", "Bearer " + token + "");
                 request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
                 response = client.Execute(request);
                 deserialzied = JsonConvert.DeserializeObject(response.Content);
@@ -58,16 +68,16 @@ namespace test
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/InserisciSquadra");
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
-            request.AddHeader("Authorization", "Bearer "+TokenAtleta+"");
+            request.AddHeader("Authorization", "Bearer "+ token + "");
             request.AddHeader("Content-Type", "application/json");
-            request.AddParameter("application/json", "{\r\n  \"Atleta1\": \"" + NumTesseraAlteta1 + "\",\r\n  \"Atleta2\": \"" + cmbAtleta2.SelectedItem.Text + "\",\r\n \"NomeTeam\": \"" + txtNomeTeam.Text + "\"}", ParameterType.RequestBody);
+            request.AddParameter("application/json", "{\r\n  \"Atleta1\": \"" + idAtleta1 + "\",\r\n  \"Atleta2\": \"" + cmbAtleta2.SelectedItem.Text + "\",\r\n \"NomeTeam\": \"" + txtNomeTeam.Text + "\"}", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
             //-----------------------------------------------------------------//
             //----------------------Iscrizione Squadra--------------------------//
             client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/IscriviSquadra");
             client.Timeout = -1;
             request = new RestRequest(Method.POST);
-            request.AddHeader("Authorization", "Bearer " + TokenAtleta + "");
+            request.AddHeader("Authorization", "Bearer " + token + "");
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
             request.AddParameter("application/json", "{\r\n  \"idSquadra\": " + Convert.ToInt32(response.Content) + ",\r\n  \"idTorneo\": 1,\r\n  \"idAllenatore\": " + cmballenatore.SelectedItem.Text + "\r\n}", ParameterType.RequestBody);
@@ -82,7 +92,7 @@ namespace test
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AtletaTessera/" + cmb.SelectedItem.Text + "");
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
-            request.AddHeader("Authorization", "Bearer " + TokenAtleta + "");
+            request.AddHeader("Authorization", "Bearer " + token + "");
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
             IRestResponse response = client.Execute(request);
             nomeAtleta2.Text = response.Content;
@@ -96,7 +106,7 @@ namespace test
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AllenatoriTessera/" + cmb.SelectedItem.Text + "");
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
-            request.AddHeader("Authorization", "Bearer " + TokenAtleta + "");
+            request.AddHeader("Authorization", "Bearer " + token + "");
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
             IRestResponse response = client.Execute(request);
             nomeAllenatore.Text = response.Content;

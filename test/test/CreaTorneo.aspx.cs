@@ -13,7 +13,7 @@ namespace test
 {
     public partial class CreaTorneo : System.Web.UI.Page
     {
-        string error;
+        string error,token;
         protected void Page_Load(object sender, EventArgs e)
         {
             /* PER RIPRISTINARE I PARAMETRI INSERITI MA SBAGLIATI, deve essere fatto anche per impianti
@@ -25,10 +25,11 @@ namespace test
                 cmbParametro.Items.Insert(Convert.ToInt32(parametroID), lst);
             }
             */
+            token = Request.QueryString["token"];
             if (!IsPostBack)
             {
                 //-------------CHIAMATA API e popolazione impianti ----------------
-                int idSocieta = 6; //inviare tramite get id della società
+                int idSocieta = Convert.ToInt32(Session["IdUtente"]); //inviare tramite get id della società
                 var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/GetImpianti/" + idSocieta);
                 client.Timeout = -1;
                 var request = new RestRequest(Method.GET);
@@ -110,7 +111,7 @@ namespace test
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/CreaTorneo");
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
-            request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Im5pY29AaXR0c2J2Lml0Iiwicm9sZSI6IlNvY2lldGEiLCJuYmYiOjE2MTA1MjMzNDksImV4cCI6MTYxMDUyNDU0OSwiaWF0IjoxNjEwNTIzMzQ5fQ.G1etPDdircqT3HcE_A0mG1Tdvdg3ginBNemLoSDgjtQ");
+            request.AddHeader("Authorization", "Bearer "+token+"");
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
             request.AddParameter("application/json", "{\r\n  \"titolo\": \"" + txtTitolo.Text + "\",\r\n  \"puntiVittoria\": " + txtPuntiVitt.Text + ",\r\n  \"montepremi\": " + txtMontepremi.Text + ",\r\n  \"dataChiusuraIscrizioni\": \"" + Convert.ToDateTime(txtDataChiusuraIscr.Text).Date.ToString("yyyy-MM-dd") + "\",\r\n  \"dataInizio\": \"" + Convert.ToDateTime(txtDataInizio.Text).Date.ToString("yyyy-MM-dd") + "\",\r\n  \"dataFine\": \"" + Convert.ToDateTime(txtDataFine.Text).Date.ToString("yyyy-MM-dd") + "\",\r\n  \"genere\": \"" + gender + "\",\r\n  \"QuotaIngresso\": " + txtQuotaIscr.Text + ",\r\n  \"formulaTorneo\": \"" + cmbFormula.SelectedItem.Text + "\",\r\n  \"numTeamTabellone\": " + txtNumTeamTabellone.Text + ",\r\n  \"numTeamQualifiche\": " + txtNumTeamQualifiche.Text + ",\r\n  \"parametriTorneo\": [\r\n " + Session["idParametri"] + "\r\n  ],\r\n \"tipoTorneo\": \"" + cmbTipoTorneo.SelectedItem.Text + "\",\r\n  \"impianti\": [\r\n    " + Session["nomeImpianti"] + "\r\n  ]\r\n}", ParameterType.RequestBody);
