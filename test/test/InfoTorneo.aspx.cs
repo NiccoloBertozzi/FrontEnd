@@ -18,7 +18,7 @@ namespace test
             if (!this.IsPostBack)
             {
                 token = Request.QueryString["token"];
-                idricevuto.Text = Session["IdUtente"].ToString();
+                //idricevuto.Text = Session["IdUtente"].ToString();
                 int idTorneo = int.Parse(Session["IdTorneo"].ToString());
                 DownloadInformazioniTorneo(idTorneo);
             }
@@ -39,11 +39,49 @@ namespace test
                 table.Clear();
                 torneiInfo.Controls.Add(new Literal { Text = table.ToString() });
 
-                table.Append(deserialzied[0].titolo + "," /*AGGIUNGERE TUTTI I VALORI DEL TORNEO*/);
+                table.Append("<div class=\"row\">" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>"+
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].titolo + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Tipo Torneo</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].tipoTorneo + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].supervisoreTorneo + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].supervisoreArbitrale + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].direttoreCompetizione + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].formula + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].nomeImpianto + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].citta + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].quotaIscrizione + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].puntiVittoria + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].montepremi + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].dataInizio + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].dataFine + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].gender + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].numTeamTabellone + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].numTeamQualifiche + "</label></div>" +
+                    "</div>");
 
                 //Append the HTML string to Placeholder.
                 torneiInfo.Controls.Add(new Literal { Text = table.ToString() });
             }
+        }
+
+        protected void btnIscriviti_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("IscrizioneSquadra.aspx?token=" + token); //rimanda alla form 'output tornei'
         }
     }
 }

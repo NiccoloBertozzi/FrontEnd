@@ -228,6 +228,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Content\styles.css" />
+    <Content Include="TestBench.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -310,6 +311,13 @@
     </Compile>
     <Compile Include="RegisterSocieta.aspx.designer.cs">
       <DependentUpon>RegisterSocieta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestBench.aspx.cs">
+      <DependentUpon>TestBench.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestBench.aspx.designer.cs">
+      <DependentUpon>TestBench.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
