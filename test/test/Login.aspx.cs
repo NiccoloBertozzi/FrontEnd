@@ -2,6 +2,7 @@
 using RestSharp;
 using System;
 using System.Net;
+using System.Web.UI.WebControls;
 using System.Web.WebPages;
 using test.Models;
 
@@ -11,7 +12,6 @@ namespace test
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btn_accedi_Click(object sender, EventArgs e)
@@ -44,6 +44,7 @@ namespace test
 
         protected void LabelRecovery_Click(object sender, EventArgs e)
         {
+            //recupera password
             if (email.Text.IsEmpty())
             {
                 //-------------CHIAMATA API----------------
@@ -66,7 +67,6 @@ namespace test
                 Response.Write("<script>alert('Inserire l'email');</script>");
             }
         }
-
         protected void register_Click(object sender, EventArgs e)
         {
             Response.Redirect("Register.aspx");

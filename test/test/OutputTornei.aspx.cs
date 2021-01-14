@@ -45,7 +45,7 @@ namespace test
                 for (int i = 0; i < deserialzied.Count; i++)
                 {
                     table.Append("<div class=\"col-sm-12 col-md-3 my-2\">" +
-                        "<div id=\"" + deserialzied[i].idTorneo + "\" class=\"card\">" +
+                        "<div id=\"" + deserialzied[i].idTorneo + "\" class=\"card\" onclick=\"javascript:DivClicked("+ deserialzied[i].idTorneo + "); return true;\">" +
                         "<img class=\"card-img-top\" src=\"Img/sand.jpg\" alt=\"Card image cap\">" +
                         "<div class=\"card-body\">" +
                         "<h5 class=\"card-title\">" + deserialzied[i].titolo + "</h5>" +
@@ -62,7 +62,9 @@ namespace test
         }
         protected void clickArea_Click(object sender, EventArgs e)
         {
-            Response.Write("you clicked the div clickArea");
+            Session["IdTorneo"]= HiddenField1.Value;
+            Response.Redirect("InfoTorneo.aspx?token=" + token); //rimanda alla form 'output tornei'
+
         }
     }
 }

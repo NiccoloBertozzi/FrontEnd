@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OutputTornei.aspx.cs" Inherits="test.OutputTornei" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -9,17 +10,24 @@
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
+    <script>
+        function DivClicked() {
+            var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
+            form1.HiddenField1.value = arguments[0];
+            clickArea_Click.click();
+        }
+    </script>
 </head>
 <body>
-     <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
-            <span class="sr-only">Toggle navigation</span>
-            <i class="fas fa-bars" style="color: white;"></i>
-          </button>
+                <span class="sr-only">Toggle navigation</span>
+                <i class="fas fa-bars" style="color: white;"></i>
+            </button>
             <img src="Img/aibvc-logo.png" style="width: 94px;">
             <div class="collapse navbar-collapse row" id="navcol-1">
-                <div class="col-md-11 col-sm-12">
+                <div class="col-12">
                     <ul class="mx-auto nav navbar-nav">
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
                         <li class="nav-item" role="presentation">
@@ -50,13 +58,12 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-1 col-sm-12">
-                    <a href="Login.aspx" class="loginButtonTornei btn float-right-md float-left-sm">Accedi</a>
-                </div>
             </div>
         </div>
     </nav>
     <form id="form1" runat="server">
+        <asp:Button runat="server" ID="btnTorneo" Style="display: none" OnClick="clickArea_Click" ClientIDMode="Static" />
+        <asp:HiddenField ID="HiddenField1" runat="server" />
         <!--Banner-->
         <div class="page-title row">
             <h1 class=" col-12 text-center my-auto">Calendario L1</h1>
@@ -67,13 +74,13 @@
             <div class="searchBox mx-2 my-2">
                 <input class="searchInput" type="text" name="" placeholder="Cerca">
                 <button class="searchButton" href="#">
-                <i class=" fas fa-search"></i>
-            </button>
+                    <i class=" fas fa-search"></i>
+                </button>
             </div>
             <!--Tornei-->
             <div class="card-deck">
                 <div class="row">
-                    <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>  
+                    <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>
                 </div>
             </div>
         </div>
