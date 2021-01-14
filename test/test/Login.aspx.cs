@@ -45,7 +45,7 @@ namespace test
         protected void LabelRecovery_Click(object sender, EventArgs e)
         {
             //recupera password
-            if (email.Text.IsEmpty())
+            if (email.Text!="")
             {
                 //-------------CHIAMATA API----------------
                 var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/LoginRegister/RecuperaPassword");

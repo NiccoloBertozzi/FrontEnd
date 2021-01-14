@@ -18,9 +18,9 @@ namespace test
 
         public void Page_Load(object sender, EventArgs e)
         {
+            token = Request.QueryString["token"];
             if (!this.IsPostBack)
             {
-                token = Request.QueryString["token"];
                 //passo i tornei fino a due mesi prima
                 string data = Convert.ToDateTime(DateTime.Now.Date.AddDays(+60)).ToString("yyyy-MM-dd");
                 DownloadDataTornei(token, data);

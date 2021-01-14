@@ -11,7 +11,7 @@ namespace test
         //PROVVISORIO PER FARE I TEST
         string idAtleta1;
         string token;
-        int idsocieta = 2;//d
+        int idsocieta;
         //-----------------------------
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,6 +24,7 @@ namespace test
             request1.AddHeader("Authorization", "Bearer" + token + "");
             request1.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
             IRestResponse response1 = client1.Execute(request1);
+            idsocieta = Convert.ToInt32(response1.Content);
             //----------------------
             if (!this.IsPostBack)
             {
