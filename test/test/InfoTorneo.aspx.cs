@@ -15,9 +15,9 @@ namespace test
         string token;
         protected void Page_Load(object sender, EventArgs e)
         {
+            token = Request.QueryString["token"];
             if (!this.IsPostBack)
             {
-                token = Request.QueryString["token"];
                 //idricevuto.Text = Session["IdUtente"].ToString();
                 int idTorneo = int.Parse(Session["IdTorneo"].ToString());
                 DownloadInformazioniTorneo(idTorneo);

@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace test
 {
-    public partial class OutputTorneiNonAutorizzati : System.Web.UI.Page
+    public partial class OutputTorneiNonAutorrizati : System.Web.UI.Page
     {
 
         string token;
@@ -66,3 +66,8 @@ namespace test
         }
     }
 }
+
+
+
+
+

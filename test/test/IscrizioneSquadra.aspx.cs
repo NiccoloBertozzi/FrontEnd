@@ -11,30 +11,31 @@ namespace test
         //PROVVISORIO PER FARE I TEST
         string idAtleta1;
         string token;
-        int idsocieta;
+        string idsocieta;
         //-----------------------------
         protected void Page_Load(object sender, EventArgs e)
         {
             idAtleta1 = Session["IdUtente"].ToString();
             token = Request.QueryString["token"];
             //-------------------SCARICO ID SOCIETA DELL'ATLETA-----
-            var client1 = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/atleti/GetIdSocieta/"+idAtleta1+"");
-            client1.Timeout = -1;
-            var request1 = new RestRequest(Method.GET);
-            request1.AddHeader("Authorization", "Bearer" + token + "");
-            request1.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
-            IRestResponse response1 = client1.Execute(request1);
-            idsocieta = Convert.ToInt32(response1.Content);
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/atleti/GetIdSocieta/"+idAtleta1+"");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("Authorization", "Bearer " + token + "");
+            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
+            IRestResponse response = client.Execute(request);
+            idsocieta = response.Content;
+            client.ClearHandlers();
             //----------------------
             if (!this.IsPostBack)
             {
                 //Scarica gli atleti di una societa
-                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AtletiSocieta/2");
+                client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AtletiSocieta/2");
                 client.Timeout = -1;
-                var request = new RestRequest(Method.POST);
+                request = new RestRequest(Method.POST);
                 request.AddHeader("Authorization", "Bearer " + token + "");
                 request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
-                IRestResponse response = client.Execute(request);
+                response = client.Execute(request);
                 dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
                 if (deserialzied != null)
                 {

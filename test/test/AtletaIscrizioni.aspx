@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AtletaIscrizioni.aspx.cs" Inherits="test.AtletaIscrizioni" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AtletaIscrizioni.aspx.cs" Inherits="test.AtletaIscrizioni1" %>
 
 <!DOCTYPE html>
 
@@ -9,12 +9,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-            Mostra la lista di iscrizioni di un atleta <br /> <br /> <br />
-            <div class="card-deck">
-                <div class="row">
-                    <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>  
-                </div>
-            </div>
+        <div>
+        </div>
     </form>
 </body>
 </html>

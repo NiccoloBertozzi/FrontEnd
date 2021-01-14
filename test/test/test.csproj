@@ -166,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AtletaIscrizioni.aspx" />
+    <Content Include="AutorizzaTorneo.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -196,6 +197,7 @@
     <Content Include="Login.aspx" />
     <Content Include="NuovaPassword.aspx" />
     <Content Include="OutputTornei.aspx" />
+    <Content Include="OutputTorneiNonAutorrizati.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="RegisterSocieta.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -243,6 +245,13 @@
     </Compile>
     <Compile Include="AtletaIscrizioni.aspx.designer.cs">
       <DependentUpon>AtletaIscrizioni.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AutorizzaTorneo.aspx.cs">
+      <DependentUpon>AutorizzaTorneo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AutorizzaTorneo.aspx.designer.cs">
+      <DependentUpon>AutorizzaTorneo.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreaTorneo.aspx.cs">
       <DependentUpon>CreaTorneo.aspx</DependentUpon>
@@ -296,6 +305,13 @@
     </Compile>
     <Compile Include="OutputTornei.aspx.designer.cs">
       <DependentUpon>OutputTornei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OutputTorneiNonAutorrizati.aspx.cs">
+      <DependentUpon>OutputTorneiNonAutorrizati.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OutputTorneiNonAutorrizati.aspx.designer.cs">
+      <DependentUpon>OutputTorneiNonAutorrizati.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">

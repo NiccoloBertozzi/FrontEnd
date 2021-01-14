@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InfoTorneo.aspx.cs" Inherits="test.InfoTorneo" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OutputTorneiNonAutorrizati.aspx.cs" Inherits="test.OutputTorneiNonAutorrizati" %>
 
 <!DOCTYPE html>
 <html>
@@ -11,6 +10,13 @@
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
+    <script>
+        function DivClicked() {
+            var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
+            form1.HiddenField1.value = arguments[0];
+            clickArea_Click.click();
+        }
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
@@ -56,15 +62,27 @@
         </div>
     </nav>
     <form id="form1" runat="server">
+        <asp:Button runat="server" ID="btnTorneo" Style="display: none" OnClick="clickArea_Click" ClientIDMode="Static" />
+        <asp:HiddenField ID="HiddenField1" runat="server" />
         <!--Banner-->
         <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Info Torneo</h1>
+            <h1 class=" col-12 text-center my-auto">Calendario L1</h1>
         </div>
-        <div class="container form-group">
-            <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
-            <div class="row justify-content-center">
-            <asp:Button ID="btnIscriviti" runat="server" Text="Iscrivi squadra" OnClick="btnIscriviti_Click" CssClass="btn btn-primary" />
+
+        <div class="container">
+            <!--CERCA-->
+            <div class="searchBox mx-2 my-2">
+                <input class="searchInput" type="text" name="" placeholder="Cerca">
+                <button class="searchButton" href="#">
+                    <i class=" fas fa-search"></i>
+                </button>
+            </div>
+            <!--Tornei-->
+            <div class="card-deck">
+                <div class="row">
+                    <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>
                 </div>
+            </div>
         </div>
         <script src="Scripts/jquery-3.4.1.min.js "></script>
         <script src="Scripts/bootstrap.min.js "></script>

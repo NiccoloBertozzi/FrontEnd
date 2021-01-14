@@ -11,7 +11,7 @@ namespace test
 {
 
 
-    public partial class OutputTorneiNonAutorizzati
+    public partial class OutputTorneiNonAutorrizati
     {
 
         /// <summary>
