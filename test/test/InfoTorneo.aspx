@@ -11,6 +11,7 @@
     <form id="form1" runat="server">
         <div>
             <asp:Label ID="idricevuto" runat="server" Text=""></asp:Label>
+            <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
         </div>
     </form>
 </body>
