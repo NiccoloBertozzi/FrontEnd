@@ -8,7 +8,6 @@ namespace test
 {
     public partial class IscrizioneSquadra : System.Web.UI.Page
     {
-        //PROVVISORIO PER FARE I TEST
         string idAtleta1;
         string token;
         string idsocieta;
@@ -18,7 +17,7 @@ namespace test
             idAtleta1 = Session["IdUtente"].ToString();
             token = Request.QueryString["token"];
             //-------------------SCARICO ID SOCIETA DELL'ATLETA-----
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/atleti/GetIdSocieta/"+idAtleta1+"");
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/atleti/GetIdSocieta/" + idAtleta1 + "");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("Authorization", "Bearer " + token + "");
@@ -70,7 +69,7 @@ namespace test
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/InserisciSquadra");
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
-            request.AddHeader("Authorization", "Bearer "+ token + "");
+            request.AddHeader("Authorization", "Bearer " + token + "");
             request.AddHeader("Content-Type", "application/json");
             request.AddParameter("application/json", "{\r\n  \"Atleta1\": \"" + idAtleta1 + "\",\r\n  \"Atleta2\": \"" + cmbAtleta2.SelectedItem.Text + "\",\r\n \"NomeTeam\": \"" + txtNomeTeam.Text + "\"}", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
@@ -82,9 +81,10 @@ namespace test
             request.AddHeader("Authorization", "Bearer " + token + "");
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
-            request.AddParameter("application/json", "{\r\n  \"idSquadra\": " + Convert.ToInt32(response.Content) + ",\r\n  \"idTorneo\": 1,\r\n  \"idAllenatore\": " + cmballenatore.SelectedItem.Text + "\r\n}", ParameterType.RequestBody);
+            request.AddParameter("application/json", "{\r\n  \"idSquadra\": " + Convert.ToInt32(response.Content) + ",\r\n  \"idTorneo\": " + Session["IdTorneo"] + ",\r\n  \"idAllenatore\": " + cmballenatore.SelectedItem.Text + "\r\n}", ParameterType.RequestBody);
             IRestResponse response1 = client.Execute(request);
             //------------------------------------------------------------------//
+            Response.Redirect("OutputTornei.aspx?token=" + token);
         }
 
         protected void cmbAtleta2_SelectedIndexChanged(object sender, EventArgs e)

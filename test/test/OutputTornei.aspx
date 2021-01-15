@@ -16,6 +16,11 @@
             form1.HiddenField1.value = arguments[0];
             clickArea_Click.click();
         }
+        function LoadPage() {
+            var token = ('<%=Request.QueryString["token"] %>');
+            alert(token);
+            window.location = "OutputTorneiNonAutorrizati.aspx?token=" + token+"";
+        }
     </script>
 </head>
 <body>
@@ -56,6 +61,7 @@
                                 </div>
                             </div>
                         </li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" onclick="LoadPage();">Non autorizzati</a></li>
                     </ul>
                 </div>
             </div>

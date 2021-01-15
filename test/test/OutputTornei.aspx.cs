@@ -64,7 +64,6 @@ namespace test
         {
             Session["IdTorneo"]= HiddenField1.Value;
             Response.Redirect("InfoTorneo.aspx?token=" + token); //rimanda alla form 'output tornei'
-
         }
     }
 }
