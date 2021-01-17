@@ -28,9 +28,12 @@ namespace test
                 IRestResponse response = client.Execute(request);
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
+                    //scarico il cookie del ruolo e lo salvo
+                    Session["ruolo"] = response.Cookies[0].Value.ToString();
                     dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
                     Session["IdUtente"] = deserialzied.id;
-                    Response.Redirect("OutputTornei.aspx?token=" + deserialzied.token); //rimanda alla form 'output tornei'
+                    if (Session["ruolo"].ToString() == "Atleta" || Session["ruolo"].ToString() == "Societa") Response.Redirect("OutputTornei.aspx?token=" + deserialzied.token); //rimanda alla form 'output tornei'
+                    else if(Session["ruolo"].ToString() == "Admin") Response.Redirect("OutputTorneiNonAutorrizati.aspx?token=" + deserialzied.token); //rimanda alla form 'output tornei'
                 }
                 else
                     Response.Write("<script>alert('" + response.ErrorMessage + "');</script>");

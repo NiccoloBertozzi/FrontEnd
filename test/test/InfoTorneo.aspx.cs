@@ -22,6 +22,7 @@ namespace test
                 int idTorneo = int.Parse(Session["IdTorneo"].ToString());
                 DownloadInformazioniTorneo(idTorneo);
             }
+            if (Session["ruolo"].ToString() == "Societa") btnIscriviti.Visible = false;
         }
         protected void DownloadInformazioniTorneo(int idTorneo)
         {

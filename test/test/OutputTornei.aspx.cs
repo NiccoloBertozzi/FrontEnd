@@ -28,8 +28,10 @@ namespace test
         }
         protected void DownloadDataTornei(string token, string data)
         {
-
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/GetTornei/" + data);
+            //se è atlteta scarico tutti i tornei disponibili se è societa scarico tutti i tornei di quella societa
+            var client=new RestClient();
+            if (Session["ruolo"].ToString() == "Atleta")client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/GetTornei/" + data);
+            else if(Session["ruolo"].ToString() == "Societa") client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/societa/GetTorneiSocieta/" + data+ "/IdSocieta/" + Session["IdUtente"].ToString());
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("Authorization", "Bearer " + token);
