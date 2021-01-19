@@ -29,7 +29,7 @@ namespace test
             if (!this.IsPostBack)
             {
                 //Scarica gli atleti di una societa
-                client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AtletiSocieta/2");
+                client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AtletiSocieta/"+idsocieta+"");
                 client.Timeout = -1;
                 request = new RestRequest(Method.POST);
                 request.AddHeader("Authorization", "Bearer " + token + "");
@@ -45,7 +45,7 @@ namespace test
                     }
                 }
                 client.ClearHandlers();
-                client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AllenatoriSocieta/2");
+                client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AllenatoriSocieta/"+ idsocieta + "");
                 client.Timeout = -1;
                 request = new RestRequest(Method.POST);
                 request.AddHeader("Authorization", "Bearer " + token + "");

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OutputTornei.aspx.cs" Inherits="test.OutputTornei" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OutputTorneiIscritti.aspx.cs" Inherits="test.OutputTorneiIscritti" %>
 
 <!DOCTYPE html>
 <html>
@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Tornei</title>
+    <title>Tornei Iscritti</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
@@ -15,14 +15,6 @@
             var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
             form1.HiddenField1.value = arguments[0];
             clickArea_Click.click();
-        }
-        function LoadPage() {
-            var token = ('<%=Request.QueryString["token"] %>');
-            window.location = "OutputTorneiNonAutorrizati.aspx?token=" + token+"";
-        }
-        function LoadPageIscritti() {
-            var token = ('<%=Request.QueryString["token"] %>');
-            window.location = "OutputTorneiIscritti.aspx?token=" + token + "";
         }
     </script>
 </head>
@@ -64,8 +56,6 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item" role="presentation"><a class="nav-link active" onclick="LoadPage();">Non autorizzati</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link active" onclick="LoadPageIscritti();">Tornei Iscritti</a></li>
                     </ul>
                 </div>
             </div>
@@ -76,7 +66,7 @@
         <asp:HiddenField ID="HiddenField1" runat="server" />
         <!--Banner-->
         <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Calendario L1</h1>
+            <h1 class=" col-12 text-center my-auto">Tornei Iscritti</h1>
         </div>
 
         <div class="container">

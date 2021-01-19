@@ -175,6 +175,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="CreaTorneo.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="EliminaTorneo.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -198,6 +199,7 @@
     <Content Include="Login.aspx" />
     <Content Include="NuovaPassword.aspx" />
     <Content Include="OutputTornei.aspx" />
+    <Content Include="OutputTorneiIscritti.aspx" />
     <Content Include="OutputTorneiNonAutorrizati.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="RegisterSocieta.aspx" />
@@ -275,6 +277,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EliminaTorneo.aspx.cs">
+      <DependentUpon>EliminaTorneo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminaTorneo.aspx.designer.cs">
+      <DependentUpon>EliminaTorneo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -313,6 +322,13 @@
     </Compile>
     <Compile Include="OutputTornei.aspx.designer.cs">
       <DependentUpon>OutputTornei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OutputTorneiIscritti.aspx.cs">
+      <DependentUpon>OutputTorneiIscritti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OutputTorneiIscritti.aspx.designer.cs">
+      <DependentUpon>OutputTorneiIscritti.aspx</DependentUpon>
     </Compile>
     <Compile Include="OutputTorneiNonAutorrizati.aspx.cs">
       <DependentUpon>OutputTorneiNonAutorrizati.aspx</DependentUpon>
