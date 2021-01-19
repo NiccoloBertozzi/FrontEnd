@@ -25,7 +25,7 @@ namespace test
         protected void DownloadDataTornei(string token)
         {
 
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/TorneiIscritti/" + Session["idUtente"]);
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/atleti/Iscrizioni/" + Session["idUtente"]);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("Authorization", "Bearer " + token);
@@ -45,7 +45,7 @@ namespace test
                         "<img class=\"card-img-top\" src=\"Img/sand.jpg\" alt=\"Card image cap\">" +
                         "<div class=\"card-body\">" +
                         "<h5 class=\"card-title\">" + deserialzied[i].titolo + "</h5>" +
-                        "<p class=\"card-text my-2\">€" + deserialzied[i].montepremi + "</p>" +
+                        "<p class=\"card-text my-2\">" + deserialzied[i].atleta1 + "-"+ deserialzied[i].atleta2 + "</p>" +
                         "<p class=\"card-text my-2\"><small class=\"text-muted\">" + deserialzied[i].citta + "</small></p>" +
                         "<p class=\"card-text my-2\"><small class=\"text-muted\">" + Convert.ToDateTime(deserialzied[i].dataInizio).Date.ToString("dd/MM/yyyy") + "</small></p>" +
                         "</div>" +

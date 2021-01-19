@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OutputTornei.aspx.cs" Inherits="test.OutputTornei" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EliminaTorneo.aspx.cs" Inherits="test.EliminaTorneo" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -6,25 +7,10 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Tornei</title>
+    <title>Elimina Iscrizione</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
-    <script>
-        function DivClicked() {
-            var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
-            form1.HiddenField1.value = arguments[0];
-            clickArea_Click.click();
-        }
-        function LoadPage() {
-            var token = ('<%=Request.QueryString["token"] %>');
-            window.location = "OutputTorneiNonAutorrizati.aspx?token=" + token+"";
-        }
-        function LoadPageIscritti() {
-            var token = ('<%=Request.QueryString["token"] %>');
-            window.location = "OutputTorneiIscritti.aspx?token=" + token + "";
-        }
-    </script>
 </head>
 <body>
     <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
@@ -64,34 +50,20 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item" role="presentation"><a class="nav-link active" onclick="LoadPage();">Non autorizzati</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link active" onclick="LoadPageIscritti();">Tornei Iscritti</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
     <form id="form1" runat="server">
-        <asp:Button runat="server" ID="btnTorneo" Style="display: none" OnClick="clickArea_Click" ClientIDMode="Static" />
-        <asp:HiddenField ID="HiddenField1" runat="server" />
         <!--Banner-->
         <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Calendario L1</h1>
+            <h1 class=" col-12 text-center my-auto">Elimina Iscrizione</h1>
         </div>
-
-        <div class="container">
-            <!--CERCA-->
-            <div class="searchBox mx-2 my-2">
-                <input class="searchInput" type="text" name="" placeholder="Cerca">
-                <button class="searchButton" href="#">
-                    <i class=" fas fa-search"></i>
-                </button>
-            </div>
-            <!--Tornei-->
-            <div class="card-deck">
-                <div class="row">
-                    <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>
-                </div>
+        <div class="container form-group">
+            <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
+            <div class="row justify-content-center">
+                <asp:Button ID="btnelimina" runat="server" Text="Elimina squadra" OnClick="btnelimina_Click" CssClass="btn btn-primary" />
             </div>
         </div>
         <script src="Scripts/jquery-3.4.1.min.js "></script>
