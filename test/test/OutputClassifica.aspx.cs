@@ -39,19 +39,6 @@ namespace test
                 table.Clear();
                 classificaTable.Controls.Add(new Literal { Text = table.ToString() });
                 table.Append("<table border=1> <tr> <th> Cognome </th> <th> Nome </th> <th> Punteggio </th> </tr> ");
-                /*for (int i = 0; i < deserialzied.Count; i++) TABELLA CON PLUG-IN https://www.youtube.com/watch?v=dPAEiqJr32c&ab_channel=TheEngineeringProjects
-                {
-                    HtmlTableRow row;
-                    HtmlTableCell cell;
-                    row = new HtmlTableRow();
-                    cell = new HtmlTableCell() { InnerText = deserialzied[i].cognome };
-                    row.Controls.Add(cell);
-                    cell = new HtmlTableCell() { InnerText = deserialzied[i].nome };
-                    row.Controls.Add(cell);
-                    cell = new HtmlTableCell() { InnerText = deserialzied[i].punteggi };
-                    row.Controls.Add(cell);
-                    tabella.Controls.Add(row);
-                }*/
                 for (int i = 0; i < deserialzied.Count; i++)
                 {
                     table.Append("  <tr><td> " + deserialzied[i].cognome + " </td><td> " + deserialzied[i].nome + " </td><td> " + deserialzied[i].punteggi + " </td></tr>  ");
