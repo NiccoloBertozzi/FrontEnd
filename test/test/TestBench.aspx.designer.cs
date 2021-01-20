@@ -24,67 +24,31 @@ namespace test
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Controllo nomeSupervisore.
+        /// Controllo Supervisore.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nomeSupervisore;
+        protected global::System.Web.UI.WebControls.TextBox Supervisore;
 
         /// <summary>
-        /// Controllo cognomeSupervisore.
+        /// Controllo Arbitro.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cognomeSupervisore;
+        protected global::System.Web.UI.WebControls.TextBox Arbitro;
 
         /// <summary>
-        /// Controllo nomeSupArbitrale.
+        /// Controllo Delegato.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nomeSupArbitrale;
-
-        /// <summary>
-        /// Controllo cognomeSupArbitrale.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cognomeSupArbitrale;
-
-        /// <summary>
-        /// Controllo nomeDirettore.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nomeDirettore;
-
-        /// <summary>
-        /// Controllo cognomeDirettore.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cognomeDirettore;
-
-        /// <summary>
-        /// Controllo titoloTorneo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox titoloTorneo;
+        protected global::System.Web.UI.WebControls.TextBox Delegato;
 
         /// <summary>
         /// Controllo btnassegnasupervisore.
