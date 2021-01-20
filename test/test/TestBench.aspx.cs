@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,15 +19,67 @@ namespace test
 
         protected void btnassegnasupervisore_Click(object sender, EventArgs e)
         {
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AssegnaDelegati");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.PUT);
-            request.AddHeader("Authorization", "Bearer " + token);
-            request.AddHeader("Content-Type", "application/json");
-            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
-            request.AddParameter("application/json", "{\r\n    \"NomeSupervisore\":\"" + nomeSupervisore.Text + "\",\r\n    \"CognomeSupervisore\":\"" + cognomeSupervisore.Text + "\",\r\n    \"NomeSupArbitrale\":\"" + nomeSupArbitrale.Text + "\",\r\n    \"CognomeSupArbitrale\":\"" + cognomeSupArbitrale.Text + "\",\r\n    \"NomeDirettore\":\"" + nomeDirettore.Text + "\",\r\n    \"CognomeDirettore\":\"" + cognomeDirettore.Text + "\",\r\n    \"TitoloTorneo\":\"" + titoloTorneo.Text + "\"\r\n    }", ParameterType.RequestBody);
-            IRestResponse response = client.Execute(request);
-            risultato.Text = response.Content;
+
+        }
+
+        protected void Supervisore_TextChanged(object sender, EventArgs e)
+        {
+            //sostituire con 11 perche il CF è minimo di 11
+            if (Supervisore.Text.Length > 3)
+            {
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDSupervisore/"+Supervisore.Text+"");
+                client.Timeout = -1;
+                var request = new RestRequest(Method.GET);
+                request.AddHeader("Authorization", "Bearer "+token+"");
+                request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Atleta");
+                IRestResponse response = client.Execute(request);
+                if (response.Content!="[]")
+                {
+                    dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
+                    Session["IDSupervisore"] = deserialzied[0].idDelegato;
+                    Nomesupervisore.Text= deserialzied[0].delegato +","+Session["IDSupervisore"];
+                }
+            }
+        }
+
+        protected void Arbitro_TextChanged(object sender, EventArgs e)
+        {
+            //sostituire con 11 perche il CF è minimo di 11
+            if (Arbitro.Text.Length > 3)
+            {
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDArbitro/" + Arbitro.Text + "");
+                client.Timeout = -1;
+                var request = new RestRequest(Method.GET);
+                request.AddHeader("Authorization", "Bearer " + token + "");
+                request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Atleta");
+                IRestResponse response = client.Execute(request);
+                if (response.Content != "[]")
+                {
+                    dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
+                    Session["IDArbitro"] = deserialzied[0].idDelegato;
+                    Nomearbitro.Text = deserialzied[0].delegato + "," + Session["IDArbitro"];
+                }
+            }
+        }
+
+        protected void Direttore_TextChanged(object sender, EventArgs e)
+        {
+            //sostituire con 11 perche il CF è minimo di 11
+            if (Direttore.Text.Length > 3)
+            {
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDDirettore/" + Direttore.Text + "");
+                client.Timeout = -1;
+                var request = new RestRequest(Method.GET);
+                request.AddHeader("Authorization", "Bearer " + token + "");
+                request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Atleta");
+                IRestResponse response = client.Execute(request);
+                if (response.Content != "[]")
+                {
+                    dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
+                    Session["IDDirettore"] = deserialzied[0].idDelegato;
+                    Nomedirettore.Text = deserialzied[0].delegato + "," + Session["IDDirettore"];
+                }
+            }
         }
     }
 }

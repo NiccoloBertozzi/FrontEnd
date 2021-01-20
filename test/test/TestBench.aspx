@@ -13,11 +13,14 @@
         <div>
             <asp:Label runat="server" Text="AssegnaSupervisori"></asp:Label><br />
             <asp:Label runat="server" Text="Supervisore"></asp:Label>
-            <asp:TextBox ID="Supervisore" runat="server"></asp:TextBox><br />
+            <asp:TextBox AutoPostBack="true" ID="Supervisore" runat="server" OnTextChanged="Supervisore_TextChanged"></asp:TextBox>
+            <asp:Label runat="server" ID="Nomesupervisore"></asp:Label><br />
             <asp:Label runat="server" Text="Arbitro"></asp:Label>
-            <asp:TextBox ID="Arbitro" runat="server"></asp:TextBox><br />
+            <asp:TextBox AutoPostBack="true" ID="Arbitro" runat="server" OnTextChanged="Arbitro_TextChanged"></asp:TextBox>
+            <asp:Label runat="server" ID="Nomearbitro"></asp:Label><br />
             <asp:Label runat="server" Text="Delegato"></asp:Label>
-            <asp:TextBox ID="Delegato" runat="server"></asp:TextBox><br />
+            <asp:TextBox AutoPostBack="true" ID="Direttore" runat="server" OnTextChanged="Direttore_TextChanged"></asp:TextBox>
+            <asp:Label runat="server" ID="Nomedirettore"></asp:Label><br />
            
             <asp:Button ID="btnassegnasupervisore" OnClick="btnassegnasupervisore_Click" runat="server" Text="Assegna delegati" /><br />
             <asp:Label ID="risultato" runat="server" Text=""></asp:Label>

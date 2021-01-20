@@ -33,6 +33,15 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox Supervisore;
 
         /// <summary>
+        /// Controllo Nomesupervisore.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Nomesupervisore;
+
+        /// <summary>
         /// Controllo Arbitro.
         /// </summary>
         /// <remarks>
@@ -42,13 +51,31 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox Arbitro;
 
         /// <summary>
-        /// Controllo Delegato.
+        /// Controllo Nomearbitro.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Delegato;
+        protected global::System.Web.UI.WebControls.Label Nomearbitro;
+
+        /// <summary>
+        /// Controllo Direttore.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Direttore;
+
+        /// <summary>
+        /// Controllo Nomedirettore.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Nomedirettore;
 
         /// <summary>
         /// Controllo btnassegnasupervisore.
