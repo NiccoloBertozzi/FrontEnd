@@ -166,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AnagraficaAtleta.aspx" />
+    <Content Include="AnagraficaSocieta.aspx" />
     <Content Include="AtletaIscrizioni.aspx" />
     <Content Include="AutorizzaTorneo.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -247,6 +248,13 @@
     </Compile>
     <Compile Include="AnagraficaAtleta.aspx.designer.cs">
       <DependentUpon>AnagraficaAtleta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AnagraficaSocieta.aspx.cs">
+      <DependentUpon>AnagraficaSocieta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnagraficaSocieta.aspx.designer.cs">
+      <DependentUpon>AnagraficaSocieta.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
