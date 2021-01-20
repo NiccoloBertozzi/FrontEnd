@@ -198,6 +198,7 @@
     <Content Include="IscrizioneSquadra.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="NuovaPassword.aspx" />
+    <Content Include="OutputClassifica.aspx" />
     <Content Include="OutputTornei.aspx" />
     <Content Include="OutputTorneiIscritti.aspx" />
     <Content Include="OutputTorneiNonAutorrizati.aspx" />
@@ -315,6 +316,13 @@
     </Compile>
     <Compile Include="NuovaPassword.aspx.designer.cs">
       <DependentUpon>NuovaPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OutputClassifica.aspx.cs">
+      <DependentUpon>OutputClassifica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OutputClassifica.aspx.designer.cs">
+      <DependentUpon>OutputClassifica.aspx</DependentUpon>
     </Compile>
     <Compile Include="OutputTornei.aspx.cs">
       <DependentUpon>OutputTornei.aspx</DependentUpon>
