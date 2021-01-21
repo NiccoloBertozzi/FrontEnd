@@ -177,6 +177,15 @@ namespace test
         protected global::System.Web.UI.WebControls.DropDownList cmbImpianto;
 
         /// <summary>
+        /// Controllo AddImpianto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddImpianto;
+
+        /// <summary>
         /// Controllo lblimpiantiInseriti.
         /// </summary>
         /// <remarks>

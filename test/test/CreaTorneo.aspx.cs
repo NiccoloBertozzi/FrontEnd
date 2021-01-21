@@ -136,6 +136,11 @@ namespace test
             cmbParametro.Items.Remove(cmb.SelectedItem);
         }
 
+        protected void AddImpianto_Click(object sender, EventArgs e)
+        {
+
+        }
+
         protected void impiantiInseriti_SelectedIndexChanged(object sender, EventArgs e)
         {
             DropDownList cmb = (DropDownList)sender;

@@ -24,6 +24,10 @@
             var token = ('<%=Request.QueryString["token"] %>');
             window.location = "OutputTorneiIscritti.aspx?token=" + token + "";
         }
+        function LoadCreaTorneo() {
+            var token = ('<%=Request.QueryString["token"] %>');
+            window.location = "CreaTorneo.aspx?token=" + token + "";
+        }
     </script>
 </head>
 <body>

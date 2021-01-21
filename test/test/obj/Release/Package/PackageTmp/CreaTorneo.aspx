@@ -135,17 +135,20 @@
                 </div>
                 <br />
                 <p>Parametri Impianto:</p>
-                <div class="form-group">
-                    <label for="lblIDParametri">Impianto</label>
-                    <asp:DropDownList ID="cmbImpianto" runat="server" OnSelectedIndexChanged="impiantiInseriti_SelectedIndexChanged" AutoPostBack="true" CssClass="form-control">
-                        <asp:ListItem Value="" Selected="true" Text="Seleziona impianti"></asp:ListItem>
-                    </asp:DropDownList>
-                    <br />
-                    <asp:Label ID="lblimpiantiInseriti" runat="server" Text="Impianti inseriti: "></asp:Label>
+                <div class="form-group row">
+                    <label for="lblIDParametri" class="col-12">Impianto</label>
+                    <div class="col-10">
+                        <asp:DropDownList ID="cmbImpianto" runat="server" OnSelectedIndexChanged="impiantiInseriti_SelectedIndexChanged" AutoPostBack="true" CssClass="form-control">
+                            <asp:ListItem Value="" Selected="true" Text="Seleziona impianti"></asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                    <div class="col-2">
+                        <asp:Button ID="AddImpianto" runat="server" Text="+" OnClick="AddImpianto_Click" CssClass="btn btn-primary" />
+                    </div>
+                    <asp:Label CssClass="ml-3" ID="lblimpiantiInseriti" runat="server" Text="Impianti inseriti: "></asp:Label>
                     <div runat="server" id="impiantiSelezionati">
                     </div>
                 </div>
-                <br />
                 <asp:Button ID="Button1" runat="server" Text="Crea torneo" OnClick="creaTorneo_Click" CssClass="btn btn-primary" />
             </div>
         </div>

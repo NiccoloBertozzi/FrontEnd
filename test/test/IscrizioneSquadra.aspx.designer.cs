@@ -24,13 +24,13 @@ namespace test
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Controllo cmbAtleta2.
+        /// Controllo Atleta.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbAtleta2;
+        protected global::System.Web.UI.WebControls.TextBox Atleta;
 
         /// <summary>
         /// Controllo nomeAtleta2.
@@ -42,13 +42,13 @@ namespace test
         protected global::System.Web.UI.WebControls.Label nomeAtleta2;
 
         /// <summary>
-        /// Controllo cmballenatore.
+        /// Controllo Allenatore.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmballenatore;
+        protected global::System.Web.UI.WebControls.TextBox Allenatore;
 
         /// <summary>
         /// Controllo nomeAllenatore.

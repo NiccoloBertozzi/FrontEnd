@@ -68,18 +68,13 @@
                 <!-- Codice Secondo Atleta -->
                 <div class="form-group">
                     <label for="titoloTorneo" id="lblSecondoAtleta">Codice secondo atleta</label>
-                    <asp:DropDownList ID="cmbAtleta2" CssClass="form-control" runat="server" AutoPostBack="true" required="true" OnSelectedIndexChanged="cmbAtleta2_SelectedIndexChanged">
-                        <asp:ListItem Value="" Selected="true" Text="Seleziona Atleta"></asp:ListItem>
-                    </asp:DropDownList>
+                    <asp:TextBox AutoPostBack="true" required="true" ID="Atleta" CssClass="form-control" runat="server" OnTextChanged="Atleta_TextChanged"></asp:TextBox>
                     <asp:Label ID="nomeAtleta2" runat="server" Text=""></asp:Label></br>
                 </div>
                 <!-- Codice Secondo Atleta -->
                 <div class="form-group">
                     <label for="titoloTorneo" id="lblAllenatore">Codice allenatore</label>
-
-                    <asp:DropDownList ID="cmballenatore" CssClass="form-control" runat="server" AutoPostBack="true" required="true" OnSelectedIndexChanged="cmballenatore_SelectedIndexChanged">
-                        <asp:ListItem Value="" Selected="true" Text="Seleziona Allenatore"></asp:ListItem>
-                    </asp:DropDownList>
+                    <asp:TextBox AutoPostBack="true" required="true" ID="Allenatore" CssClass="form-control" runat="server" OnTextChanged="Allenatore_TextChanged"></asp:TextBox>
                     <asp:Label ID="nomeAllenatore" runat="server" Text=""></asp:Label></br>
                 </div>
                 <!-- Nome Team -->

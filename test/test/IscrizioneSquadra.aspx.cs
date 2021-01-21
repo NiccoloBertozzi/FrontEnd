@@ -26,92 +26,63 @@ namespace test
             idsocieta = response.Content;
             client.ClearHandlers();
             //----------------------
-            if (!this.IsPostBack)
-            {
-                //Scarica gli atleti di una societa
-                client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AtletiSocieta/"+idsocieta+"");
-                client.Timeout = -1;
-                request = new RestRequest(Method.POST);
-                request.AddHeader("Authorization", "Bearer " + token + "");
-                request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
-                response = client.Execute(request);
-                dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
-                if (deserialzied != null)
-                {
-                    for (int i = 0; i < deserialzied.Count; i++)
-                    {
-                        ListItem lst = new ListItem(Convert.ToString(deserialzied[i].codiceTessera));
-                        cmbAtleta2.Items.Insert(i + 1, lst);
-                    }
-                }
-                client.ClearHandlers();
-                client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AllenatoriSocieta/"+ idsocieta + "");
-                client.Timeout = -1;
-                request = new RestRequest(Method.POST);
-                request.AddHeader("Authorization", "Bearer " + token + "");
-                request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
-                response = client.Execute(request);
-                deserialzied = JsonConvert.DeserializeObject(response.Content);
-                if (deserialzied != null)
-                {
-                    for (int i = 0; i < deserialzied.Count; i++)
-                    {
-                        ListItem lst = new ListItem(Convert.ToString(deserialzied[i].codiceTessera));
-                        cmballenatore.Items.Insert(i + 1, lst);
-                    }
-                }
-            }
         }
 
         protected void btn_IscriviSquadra_Click(object sender, EventArgs e)
         {
-            //----------------------Inserimento Squadra-------------------------//
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/InserisciSquadra");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.POST);
-            request.AddHeader("Authorization", "Bearer " + token + "");
-            request.AddHeader("Content-Type", "application/json");
-            request.AddParameter("application/json", "{\r\n  \"Atleta1\": \"" + idAtleta1 + "\",\r\n  \"Atleta2\": \"" + cmbAtleta2.SelectedItem.Text + "\",\r\n \"NomeTeam\": \"" + txtNomeTeam.Text + "\"}", ParameterType.RequestBody);
-            IRestResponse response = client.Execute(request);
-            //-----------------------------------------------------------------//
-            //----------------------Iscrizione Squadra--------------------------//
-            client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/IscriviSquadra");
-            client.Timeout = -1;
-            request = new RestRequest(Method.POST);
-            request.AddHeader("Authorization", "Bearer " + token + "");
-            request.AddHeader("Content-Type", "application/json");
-            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
-            request.AddParameter("application/json", "{\r\n  \"idSquadra\": " + Convert.ToInt32(response.Content) + ",\r\n  \"idTorneo\": " + Session["IdTorneo"] + ",\r\n  \"idAllenatore\": " + cmballenatore.SelectedItem.Text + "\r\n}", ParameterType.RequestBody);
-            IRestResponse response1 = client.Execute(request);
-            //------------------------------------------------------------------//
-            Response.Redirect("OutputTornei.aspx?token=" + token);
+            //se è stato trovato un atleta
+            if (nomeAtleta2.Text!="") {
+                //----------------------Inserimento Squadra-------------------------//
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/InserisciSquadra");
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("Authorization", "Bearer " + token + "");
+                request.AddHeader("Content-Type", "application/json");
+                request.AddParameter("application/json", "{\r\n  \"Atleta1\": \"" + idAtleta1 + "\",\r\n  \"Atleta2\": \"" + Atleta.Text + "\",\r\n \"NomeTeam\": \"" + txtNomeTeam.Text + "\"}", ParameterType.RequestBody);
+                IRestResponse response = client.Execute(request);
+                //-----------------------------------------------------------------//
+                //----------------------Iscrizione Squadra--------------------------//
+                client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/IscriviSquadra");
+                client.Timeout = -1;
+                request = new RestRequest(Method.POST);
+                request.AddHeader("Authorization", "Bearer " + token + "");
+                request.AddHeader("Content-Type", "application/json");
+                request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
+                request.AddParameter("application/json", "{\r\n  \"idSquadra\": " + Convert.ToInt32(response.Content) + ",\r\n  \"idTorneo\": " + Session["IdTorneo"] + ",\r\n  \"idAllenatore\": " + Allenatore.Text + "\r\n}", ParameterType.RequestBody);
+                IRestResponse response1 = client.Execute(request);
+                //------------------------------------------------------------------//
+                Response.Redirect("OutputTornei.aspx?token=" + token);
+            }
+        }
+        protected void Atleta_TextChanged(object sender, EventArgs e)
+        {
+            // da modificare il 3 con il numero minimo della tessera
+            if (Atleta.Text.Length >= 3)
+            {
+                //Stampo il nome dell'atleta in base alla tessera selezionata
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AtletaTessera/" + Atleta.Text + "/Societa/"+idsocieta+"");
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("Authorization", "Bearer " + token + "");
+                request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
+                IRestResponse response = client.Execute(request);
+                nomeAtleta2.Text = response.Content;
+            }
         }
 
-        protected void cmbAtleta2_SelectedIndexChanged(object sender, EventArgs e)
+        protected void Allenatore_TextChanged(object sender, EventArgs e)
         {
-            //Stampo il nome dell'atleta in base alla tessera selezionata
-            DropDownList cmb = (DropDownList)sender;
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AtletaTessera/" + cmb.SelectedItem.Text + "");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.POST);
-            request.AddHeader("Authorization", "Bearer " + token + "");
-            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
-            IRestResponse response = client.Execute(request);
-            nomeAtleta2.Text = response.Content;
-
-        }
-
-        protected void cmballenatore_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Stampo il nome dell'allenatore in base alla tessera selezionata
-            DropDownList cmb = (DropDownList)sender;
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AllenatoriTessera/" + cmb.SelectedItem.Text + "");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.POST);
-            request.AddHeader("Authorization", "Bearer " + token + "");
-            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
-            IRestResponse response = client.Execute(request);
-            nomeAllenatore.Text = response.Content;
+            if (Allenatore.Text.Length >= 3)
+            {
+                //Stampo il nome dell'allenatore in base alla tessera selezionata
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AllenatoriTessera/" + Allenatore.Text + "/Societa/" + idsocieta + "");
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("Authorization", "Bearer " + token + "");
+                request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
+                IRestResponse response = client.Execute(request);
+                nomeAllenatore.Text = response.Content;
+            }
         }
     }
 }
