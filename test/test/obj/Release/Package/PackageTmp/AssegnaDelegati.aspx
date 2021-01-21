@@ -1,33 +1,19 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OutputTornei.aspx.cs" Inherits="test.OutputTornei" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AssegnaDelegati.aspx.cs" Inherits="test.TestBench" %>
 
 <!DOCTYPE html>
+
 <html>
 
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Tornei</title>
+    <title>Creazione torneo</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
-    <script>
-        function DivClicked() {
-            var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
-            form1.HiddenField1.value = arguments[0];
-            clickArea_Click.click();
-        }
-        function LoadPage() {
-            var token = ('<%=Request.QueryString["token"] %>');
-            window.location = "OutputTorneiNonAutorrizati.aspx?token=" + token+"";
-        }
-        function LoadPageIscritti() {
-            var token = ('<%=Request.QueryString["token"] %>');
-            window.location = "OutputTorneiIscritti.aspx?token=" + token + "";
-        }
-    </script>
 </head>
 <body>
-    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
                 <span class="sr-only">Toggle navigation</span>
@@ -35,7 +21,7 @@
             </button>
             <img src="Img/aibvc-logo.png" style="width: 94px;">
             <div class="collapse navbar-collapse row" id="navcol-1">
-                <div class="col-12">
+                <div class="col-md-11 col-sm-12">
                     <ul class="mx-auto nav navbar-nav">
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
                         <li class="nav-item" role="presentation">
@@ -64,33 +50,37 @@
                                 </div>
                             </div>
                         </li>
-                        <asp:PlaceHolder runat="server" ID="dinamicload"></asp:PlaceHolder>
                     </ul>
+                </div>
+                <div class="col-md-1 col-sm-12">
+                    <a href="Login.aspx" class="loginButtonTornei btn float-right-md float-left-sm">Accedi</a>
                 </div>
             </div>
         </div>
     </nav>
-    <form id="form1" runat="server">
-        <asp:Button runat="server" ID="btnTorneo" Style="display: none" OnClick="clickArea_Click" ClientIDMode="Static" />
-        <asp:HiddenField ID="HiddenField1" runat="server" />
+    <form id="form2" runat="server">
         <!--Banner-->
         <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Calendario L1</h1>
+            <h1 class=" col-12 text-center my-auto">Inserimento squadra torneo</h1>
         </div>
-
         <div class="container">
-            <!--CERCA-->
-            <div class="searchBox mx-2 my-2">
-                <input class="searchInput" type="text" name="" placeholder="Cerca">
-                <button class="searchButton" href="#">
-                    <i class=" fas fa-search"></i>
-                </button>
-            </div>
-            <!--Tornei-->
-            <div class="card-deck">
-                <div class="row">
-                    <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>
+           <div class="mr-3 ml-3 mt-3 card-container">
+                <div class="form-group">
+                    <label for="Supervisore">Assegna Supervisori</label>
+                   <asp:TextBox AutoPostBack="true" required="true" ID="Supervisore" CssClass="form-control" runat="server" OnTextChanged="Supervisore_TextChanged"></asp:TextBox>
+                   <asp:Label runat="server" Text="Supervisore" ID="Nomesupervisore"></asp:Label>
                 </div>
+               <div class="form-group">
+                    <label for="Arbitro">Assegna Arbitro</label>
+                   <asp:TextBox AutoPostBack="true" required="true" ID="Arbitro" CssClass="form-control" runat="server" OnTextChanged="Arbitro_TextChanged"></asp:TextBox>
+                   <asp:Label runat="server" Text="Arbitro" ID="Nomearbitro"></asp:Label>
+                </div>
+               <div class="form-group">
+                    <label for="Direttore">Assegna Direttore</label>
+                   <asp:TextBox AutoPostBack="true" required="true" ID="Direttore" CssClass="form-control" runat="server" OnTextChanged="Direttore_TextChanged"></asp:TextBox>
+                   <asp:Label runat="server" Text="Delegato" ID="Nomedirettore"></asp:Label>
+                </div>
+                <asp:Button ID="btnassegnasupervisore" OnClick="btnassegnasupervisore_Click" runat="server" Text="Assegna delegati" /><br />
             </div>
         </div>
         <script src="Scripts/jquery-3.4.1.min.js "></script>

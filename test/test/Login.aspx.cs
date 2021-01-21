@@ -32,8 +32,7 @@ namespace test
                     Session["ruolo"] = response.Cookies[0].Value.ToString();
                     dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
                     Session["IdUtente"] = deserialzied.id;
-                    if (Session["ruolo"].ToString() == "Atleta" || Session["ruolo"].ToString() == "Societa") Response.Redirect("OutputTornei.aspx?token=" + deserialzied.token); //rimanda alla form 'output tornei'
-                    else if(Session["ruolo"].ToString() == "Admin") Response.Redirect("OutputTorneiNonAutorrizati.aspx?token=" + deserialzied.token); //rimanda alla form 'output tornei'
+                    Response.Redirect("OutputTornei.aspx?token=" + deserialzied.token); //rimanda alla form 'output tornei'
                 }
                 else
                     Response.Write("<script>alert('" + response.ErrorMessage + "');</script>");

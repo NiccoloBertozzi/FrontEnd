@@ -23,6 +23,7 @@ namespace test
                 DownloadInformazioniTorneo(idTorneo);
             }
             if (Session["ruolo"].ToString() == "Societa") btnIscriviti.Visible = false;
+            if (Session["ruolo"].ToString() == "Admin") btnIscriviti.Text = "Assegna Delegato";
         }
         protected void DownloadInformazioniTorneo(int idTorneo)
         {
@@ -82,6 +83,7 @@ namespace test
 
         protected void btnIscriviti_Click(object sender, EventArgs e)
         {
+            if(Session["ruolo"].ToString() == "Admin") Response.Redirect("AssegnaDelegati.aspx?token=" + token);
             Response.Redirect("IscrizioneSquadra.aspx?token=" + token); //rimanda alla form 'output tornei'
         }
     }

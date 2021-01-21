@@ -64,8 +64,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item" role="presentation"><a class="nav-link active" onclick="LoadPage();">Non autorizzati</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link active" onclick="LoadPageIscritti();">Tornei Iscritti</a></li>
+                        <asp:PlaceHolder runat="server" ID="dinamicload"></asp:PlaceHolder>
                     </ul>
                 </div>
             </div>

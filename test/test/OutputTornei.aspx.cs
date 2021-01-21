@@ -19,6 +19,23 @@ namespace test
         public void Page_Load(object sender, EventArgs e)
         {
             token = Request.QueryString["token"];
+            if(Session["ruolo"].ToString() == "Atleta")
+            {
+                StringBuilder table = new StringBuilder();
+                table.Clear();
+                dinamicload.Controls.Add(new Literal { Text = table.ToString() });
+                table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active\" onclick=\"LoadPageIscritti(); \">Tornei Iscritti</a></li>");
+                dinamicload.Controls.Add(new Literal { Text = table.ToString() });
+            }
+            else if (Session["ruolo"].ToString() == "Admin")
+            {
+                StringBuilder table = new StringBuilder();
+                table.Clear();
+                dinamicload.Controls.Add(new Literal { Text = table.ToString() });
+                table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active\" onclick=\"LoadPage(); \">Non autorizzati</a></li>");
+                dinamicload.Controls.Add(new Literal { Text = table.ToString() });
+            }
+            //Append the HTML string to Placeholder.
             if (!this.IsPostBack)
             {
                 //passo i tornei fino a due mesi prima
@@ -30,8 +47,8 @@ namespace test
         {
             //se è atlteta scarico tutti i tornei disponibili se è societa scarico tutti i tornei di quella societa
             var client=new RestClient();
-            if (Session["ruolo"].ToString() == "Atleta")client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/GetTornei/" + data);
-            else if(Session["ruolo"].ToString() == "Societa") client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/societa/GetTorneiSocieta/" + data+ "/IdSocieta/" + Session["IdUtente"].ToString());
+            client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/GetTornei/" + data);
+            if(Session["ruolo"].ToString() == "Societa") client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/societa/GetTorneiSocieta/" + data+ "/IdSocieta/" + Session["IdUtente"].ToString());
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("Authorization", "Bearer " + token);

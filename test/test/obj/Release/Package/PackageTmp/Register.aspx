@@ -1,90 +1,160 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="test.RegisterAtleta" %>
 
 <!DOCTYPE html>
+<html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Register</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/jquery.min.js "></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js "></script>
+    <script src="assets/js/main.js"></script>
 </head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:DropDownList id="ruolo"
-                    AutoPostBack="True"
-                    OnSelectedIndexChanged="ruolo_SelectedIndexChanged" 
-                    runat="server">
-                  <asp:ListItem Selected="True" Value="Atleta"> Atleta </asp:ListItem>
-                  <asp:ListItem Value="Allenatore"> Allenatore </asp:ListItem>
-                  <asp:ListItem Value="Delegato"> Delegato </asp:ListItem>
-               </asp:DropDownList><br />
-            <asp:PlaceHolder ID="formregister" runat="server">
-            <asp:Label ID="lblTessera" runat="server" Text="Codice Tessera *"></asp:Label> <!-- Codice Tessera -->
-            <asp:TextBox ID="codiceTessera" AccessKey="1" runat="server" required="true"></asp:TextBox> <br />
 
-            <asp:Label ID="lblNome" runat="server" Text="Nome *"></asp:Label> <!-- Nome -->
-            <asp:TextBox ID="nome" AccessKey="1" runat="server" required="true"></asp:TextBox> <br />
+<body class="register">
+    <form id="formregister" runat="server">
+        <div class="row container-fluid">
+            <div class="col-3 my-auto ml-4">
+                <asp:DropDownList ID="ruolo" runat="server">
+                    <asp:ListItem Selected="True" ID="btnAtleta" Value="Atleta"> Atleta </asp:ListItem>
+                    <asp:ListItem Value="Allenatore" ID="btnAllenatore"> Allenatore </asp:ListItem>
+                    <asp:ListItem Value="Delegato" ID="Delegato"> Delegato </asp:ListItem>
+                </asp:DropDownList><br />
+            </div>
+            <div class="col-5 offset-2 my-auto">
 
-            <asp:Label ID="lblCognome" runat="server" Text="Cognome *"></asp:Label> <!-- Cognome -->
-            <asp:TextBox ID="cognome" AccessKey="1" runat="server" required="true"></asp:TextBox> <br />
+                <div class="form-group row">
+                    <label for="Tessera"class="col-sm-5 col-form-label register">Codice Tessera</label>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" id="codiceTessera" placeholder="Codice Tessera">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="lblCf" class="col-sm-5 col-form-label register">Codice Fiscale</label>
+                    <div class="col-sm-7">
+                        <asp:TextBox ID="cf" class="form-control" AccessKey="1" runat="server" required="true"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="lblEmail" class="col-sm-5 col-form-label register">Email</label>
+                    <div class="col-sm-7">
+                        <asp:TextBox ID="email" class="form-control" AccessKey="1" runat="server" required="true"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="lblPassword" class="col-sm-5 col-form-label register">Password</label>
+                    <div class="col-sm-7">
+                        <asp:TextBox ID="password" class="form-control" AccessKey="1" runat="server" required="true"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="lblNome" class="col-sm-5 col-form-label register">Nome</label>
+                    <div class="col-sm-7">
+                        <asp:TextBox ID="nome" class="form-control" AccessKey="1" runat="server" required="true"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="lblCognome" class="col-sm-5 col-form-label register">Cognome</label>
+                    <div class="col-sm-7">
+                        <asp:TextBox ID="cognome" class="form-control" AccessKey="1" runat="server" required="true"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group row ">
+                    <label for="lbldataNascita" class="col-sm-5 col-form-label register">Data di nascita</label>
+                    <div class="col-sm-7 ">
+                        <asp:TextBox ID="dataNascita" class="form-control" AccessKey="1" runat="server" required="true" TextMode="Date"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group row ">
+                    <label for="lblIndirizzo" class="col-sm-5 col-form-label register">Sesso</label>
 
-            <asp:Label ID="lblEmail" runat="server" Text="Email *"></asp:Label> <!-- Email -->
-            <asp:TextBox ID="email" AccessKey="1" runat="server" required="true"></asp:TextBox> <br />
+                    <div class="col-sm-7">
+                        <div class="form-check form-check-inline">
+                            <asp:RadioButton ID="sesso1" runat="server" Text="Maschio" GroupName="sesso" Checked="true"></asp:RadioButton>
+                            <asp:RadioButton ID="sesso2" runat="server" Text="Femmina" GroupName="sesso"></asp:RadioButton>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row ">
+                    <label for="lblTel " class="col-sm-5 col-form-label register">Numero di cellulare</label>
+                    <div class="col-sm-7 ">
+                        <asp:TextBox ID="tel" class="form-control" runat="server"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group row ">
+                    <label for="lblIndirizzo" class="col-sm-3 col-form-label register">Indirizzo di residenza</label>
+                    <div class="col-sm-4 ">
+                        <asp:TextBox ID="indirizzo" class="form-control" runat="server"></asp:TextBox>
+                    </div>
+                    <label for="lblCAP" class="col-sm-2 col-form-label register">CAP</label>
+                    <div class="col-sm-3 ">
+                        <asp:TextBox ID="cap" class="form-control" runat="server"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group row ">
+                    <label for="lblcomuneNascita" class="col-sm-5 col-form-label register">Comune di nascita</label>
+                    <div class="col-sm-7 ">
+                        <asp:TextBox ID="comuneNascita" class="form-control" runat="server"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="form-group row ">
+                    <label for="lblcomuneResidenza" class="col-sm-5 col-form-label register">Comune di residenza</label>
+                    <div class="col-sm-7 ">
+                        <asp:TextBox ID="comuneResidenza" class="form-control" runat="server"></asp:TextBox>
+                    </div>
+                </div>
+                <hr>
+                <!--FORM ATLETA-->
+                <div id="atleta">
+                    <div class="form-group row ">
+                        <label for="lblnomeSocieta" class="col-sm-5 col-form-label register">Nome società</label>
+                        <div class="col-sm-7 ">
+                            <asp:TextBox ID="nomeSocieta" class="form-control" AccessKey="1" runat="server" required="true"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label for="lblDataScadCert" class="col-sm-5 col-form-label register">Data scadenza certificato</label>
+                        <div class="col-sm-7 ">
+                            <asp:TextBox runat="server" ID="dataScadenzaCertificato" class="form-control" AccessKey="1" required="true" TextMode="Date"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="form-group row ">
+                        <label for="lblDataScadCert" class="col-sm-2 col-form-label register">Altezza</label>
+                        <div class="col-sm-4 ">
+                            <asp:TextBox ID="altezza" class="form-control" runat="server" TextMode="Number"></asp:TextBox>
+                        </div>
+                        <label for="lblPeso" class="col-sm-2 col-form-label register">Peso</label>
+                        <div class="col-sm-4 ">
+                            <asp:TextBox ID="peso" class="form-control" runat="server" TextMode="Number"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+                <!--FORM ALLENATORE-->
+                <div id="allenatore">
+                    <div class="form-group row ">
+                        <label for="lblgrado" class="col-sm-5 col-form-label register">Grado</label>
+                        <div class="col-sm-7 ">
+                            <asp:TextBox ID="grado" class="form-control" AccessKey="1" Visible="false" runat="server" required="true"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+                <!--FORM DELEGATO-->
+                <div class="form-group row " id="delegato">
+                    <label for="lblRuolo" class="col-sm-5 col-form-label register">Ruolo</label>
 
-            <asp:Label ID="lblTel" runat="server" Text="Numero di cellulare"></asp:Label> <!-- Numero Cellulare -->
-            <asp:TextBox ID="tel" runat="server"></asp:TextBox> <br />
-            
-            <asp:Label ID="lblDataNascita" runat="server" Text="Data di nascita mm/gg/aaaa *"></asp:Label> <!-- Data Nascita -->
-            <asp:TextBox ID="dataNascita" AccessKey="1" runat="server" required="true"></asp:TextBox> <br />
-
-            <asp:Label ID="lblCf" runat="server" Text="Codice fiscale *"></asp:Label> <!-- Codice Fiscale -->
-            <asp:TextBox ID="cf" AccessKey="1" runat="server" required="true"></asp:TextBox> <br />
-
-            <asp:Label ID="lblIndirizzo" runat="server" Text="Indirizzo"></asp:Label> <!-- Indirizzo -->
-            <asp:TextBox ID="indirizzo" runat="server"></asp:TextBox> <br />
-
-            <asp:Label ID="lblCap" runat="server" Text="cap"></asp:Label> <!-- Cap -->
-            <asp:TextBox ID="cap" runat="server"></asp:TextBox> <br />
-
-            <asp:Label ID="lblDataScadCert" runat="server" Text="Data di scadenza del certificato"></asp:Label> <!-- Data Scadenza Certificato -->
-            <asp:TextBox ID="dataScadenzaCertificato" runat="server"></asp:TextBox> <br />
-
-            <asp:Label ID="lblAltezza" runat="server" Text="Altezza"></asp:Label> <!-- Altezza -->
-            <asp:TextBox ID="altezza" runat="server"></asp:TextBox> <br />
-
-            <asp:Label ID="lblPeso" runat="server" Text="Peso"></asp:Label> <!-- Peso -->
-            <asp:TextBox ID="peso" runat="server"></asp:TextBox> <br />
-
-            <asp:Label ID="lblSesso" runat="server" Text="Sesso"></asp:Label> <!-- Sesso -->
-            <asp:RadioButton ID="sesso1" runat="server" Text="Maschio" GroupName="sesso" Checked="true"></asp:RadioButton>
-            <asp:RadioButton ID="sesso2" runat="server" Text="Femmina" GroupName="sesso"></asp:RadioButton> <br/>
-
-            <asp:PlaceHolder ID="select" runat="server" Visible="false">
-                <asp:Label ID="Label1" runat="server" Text="Ruolo *"></asp:Label> <!-- Ruolo -->
-                <asp:RadioButton ID="supervisore" runat="server" Text="Supervisore" GroupName="role" Checked="true"></asp:RadioButton>
-                <asp:RadioButton ID="arbitro" runat="server" Text="Arbitro" GroupName="role"></asp:RadioButton> <br/>
-            </asp:PlaceHolder>
-
-            <asp:Label ID="lblgrado" runat="server" Visible="false" Text="Grado *"></asp:Label> <!-- Codice Fiscale -->
-            <asp:TextBox ID="grado" AccessKey="1" Visible="false" runat="server" required="true"></asp:TextBox> <br />
-
-            <!--CREDENZIALI-->
-
-            <asp:Label ID="lblComuneNascita" runat="server" Text="Comune di nascita"></asp:Label> <!-- Comune di nascita -->
-            <asp:TextBox ID="comuneNascita" runat="server"></asp:TextBox> <br />
-
-            <asp:Label ID="lblComuneResidenza" runat="server" Text="Comune di residenza"></asp:Label> <!-- Comune di residenza -->
-            <asp:TextBox ID="comuneResidenza" runat="server"></asp:TextBox> <br />
-
-            <asp:Label ID="lblNomeSocieta" runat="server" Text="Nome della società *"></asp:Label> <!-- Nome Società  -->
-            <asp:TextBox ID="nomeSocieta" AccessKey="1" runat="server" required="true"></asp:TextBox> <br />
-
-            <asp:Label ID="lblPassword" runat="server" Text="Password *"></asp:Label> <!-- Password -->
-            <asp:TextBox ID="password" AccessKey="1" runat="server" required="true"></asp:TextBox> <br />
-            </asp:PlaceHolder> <br />
-            <asp:Label ID="info" runat="server" Text="* Campi obbligatori"></asp:Label> <br /> <!-- obbligatori -->
-            <asp:Button ID="btn_registerAtleta" runat="server" Text="RegistraAtleta" OnClick="btn_registerAtleta_Click" /> <br/>
-            <asp:Label ID="risultato" runat="server" Text="Label"></asp:Label>
+                    <div class="col-sm-7">
+                        <div class="form-check form-check-inline">
+                            <asp:RadioButton ID="supervisore" runat="server" Text="Supervisore" GroupName="role" Checked="true"></asp:RadioButton>
+                            <asp:RadioButton ID="arbitro" runat="server" Text="Arbitro" GroupName="role"></asp:RadioButton>
+                        </div>
+                    </div>
+                </div>
+                <asp:Button ID="btn_registerAtleta" runat="server" Text="RegistraAtleta" OnClick="btn_registerAtleta_Click" />
+                <asp:Label ID="risultato" runat="server" Text="Label"></asp:Label>
+            </div>
         </div>
     </form>
 </body>

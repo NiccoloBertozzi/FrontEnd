@@ -8,6 +8,11 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+body.register {
+    background-image: url('../Img/background-login.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 .my-navbar {
     background: linear-gradient(90deg, #019bdd 0%, rgba(21, 68, 146, 1) 100%);
 }
@@ -209,4 +214,49 @@ div.container p {
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+.box {
+    width: 28%;
+}
+
+.centerContent {
+    margin-top: 25%;
+    margin-bottom: auto;
+    margin-left: 3%;
+}
+
+.btnRegister {
+    background: linear-gradient(to bottom, #0091ff2f 5%, #0065bd2f 100%);
+    background-color: #0091ff3d;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px 15%;
+    text-decoration: none;
+}
+
+form label.register {
+    text-align: left;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: 5px;
+    color: #0094f0;
+}
+
+div.container p {
+    text-align: left;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: 3px;
+    color: #ffffffce;
 }

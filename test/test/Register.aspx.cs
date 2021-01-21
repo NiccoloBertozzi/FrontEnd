@@ -75,37 +75,5 @@ namespace test
                     risultato.Text = response.ErrorMessage;
                 //------------------------------------------------------------//
         }
-
-        protected void ruolo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ruolo.SelectedValue == "Allenatore")
-            {
-                grado.Visible = true;
-                lblgrado.Visible = true;
-                altezza.Visible = false;
-                lblAltezza.Visible = false;
-                peso.Visible = false;
-                lblPeso.Visible = false;
-                dataScadenzaCertificato.Visible = false;
-                lblDataScadCert.Visible = false;
-            }
-            else if (ruolo.SelectedValue == "Delegato")
-            {
-                grado.Visible = false;
-                lblgrado.Visible = false;
-                altezza.Visible = false;
-                lblAltezza.Visible = false;
-                peso.Visible = false;
-                lblPeso.Visible = false;
-                select.Visible = true;
-                dataScadenzaCertificato.Visible = false;
-                lblDataScadCert.Visible = false;
-                nomeSocieta.Visible = false;
-                lblNomeSocieta.Visible = false;
-                codiceTessera.Visible = false;
-                lblTessera.Visible = false;
-            }
-            else if (ruolo.SelectedValue == "Atleta") Page.Response.Redirect(Page.Request.Url.ToString(), true);//ricarica pagina base
-        }
     }
 }
