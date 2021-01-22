@@ -60,7 +60,7 @@
     </nav>
     <form id="form1" runat="server">
         <!--Banner-->
-        <div class="page-title row">
+        <div class="page-title-login row">
             <h1 class=" col-12 text-center my-auto">Creazione torneo</h1>
         </div>
         <!--Inserimento parametri-->

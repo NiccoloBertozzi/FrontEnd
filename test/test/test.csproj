@@ -193,6 +193,7 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Img\aibvc-logo.png" />
     <Content Include="Img\background-login.png" />
+    <Content Include="Img\logo.png" />
     <Content Include="Img\sand.jpg" />
     <Content Include="Img\sfondo.jpg" />
     <Content Include="InfoTorneo.aspx" />

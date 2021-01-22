@@ -7,11 +7,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Register</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <script src="assets/js/jquery.min.js "></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js "></script>
-    <script src="assets/js/main.js"></script>
+    <link rel="stylesheet" href="Content/bootstrap.min.css">
+    <link rel="stylesheet" href="Content/styles.css">
+    <link rel="stylesheet" href="Scripts/main.js">
+   
 </head>
 
 <body class="register">
@@ -157,5 +156,9 @@
             </div>
         </div>
     </form>
+
+            <script src="Scripts/jquery-3.4.1.min.js "></script>
+        <script src="Scripts/bootstrap.min.js "></script>
+
 </body>
 </html>

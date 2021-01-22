@@ -32,6 +32,17 @@ body.register {
     background-size: cover;
 }
 
+.page-title-login {
+    background-image: linear-gradient(90deg, #2F2D2D 0%, rgba(56, 53, 53, 0.87) 38.54%, rgba(118, 110, 110, 0.37) 100%), url(../Img/logo.png);
+    color: rgb(255, 255, 255);
+    /* Full height */
+    height: 178px;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .item-title {
     font-weight: bold;
     font-size: larger;
