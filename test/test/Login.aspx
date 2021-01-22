@@ -68,12 +68,12 @@
     </nav>
 
     <!--BANNER-->
-       <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Login</h1>
-        </div>
+    <div class="page-title row">
+        <h1 class=" col-12 text-center my-auto">Login</h1>
+    </div>
 
     <!--FORM-->
-        <div class="container">
+    <div class="container">
         <form id="form1">
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
