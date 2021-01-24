@@ -23,7 +23,7 @@ namespace test
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AssegnaDelegati");
             client.Timeout = -1;
             var request = new RestRequest(Method.PUT);
-            request.AddHeader("Authorization", "Bearer "+token+"");
+            request.AddHeader("Authorization", "Bearer "+token);
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
             request.AddParameter("application/json", "{\r\n    \"IdSupervisore\":"+ Session["IDSupervisore"] + ",\r\n    \"IdSupArbitrale\":"+ Session["IDArbitro"] + ",\r\n    \"IdDirettore\":"+ Session["IDDirettore"] + ",\r\n    \"IdTorneo\":"+ Session["IdTorneo"] + "\r\n}", ParameterType.RequestBody);
