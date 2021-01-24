@@ -14,17 +14,10 @@ namespace test
     public partial class CreaTorneo : System.Web.UI.Page
     {
         string error,token;
+        CheckBoxList cbListParametri;
+        CheckBoxList cbListImpianti;
         protected void Page_Load(object sender, EventArgs e)
         {
-            /* PER RIPRISTINARE I PARAMETRI INSERITI MA SBAGLIATI, deve essere fatto anche per impianti
-            string parametroID = Request["__EVENTTARGET"];
-            string parametroNome = Request["__EVENTARGUMENT"];
-            if (parametroID != "")
-            {
-                ListItem lst = new ListItem(parametroNome, parametroID);
-                cmbParametro.Items.Insert(Convert.ToInt32(parametroID), lst);
-            }
-            */
             token = Request.QueryString["token"];
             int idSocieta = Convert.ToInt32(Session["IdUtente"]); //inviare tramite get id della società
             if (!IsPostBack)
@@ -41,8 +34,8 @@ namespace test
                 {
                     for (int i = 0; i < deserialzied.Count; i++)
                     {
-                        ListItem lst = new ListItem(Convert.ToString(deserialzied[i].nomeImpianto), Convert.ToString(deserialzied[i].idImpianto));
-                        cmbImpianto.Items.Insert(i + 1, lst);
+                        cbListImpianti.Items.Add(new ListItem(Convert.ToString(deserialzied[i].nomeImpianto), Convert.ToString(deserialzied[i].idImpianto)));
+                        cmbImpianti.Controls.Add(cbListImpianti);
                     }
                 }
                 //------------------------------------------
@@ -95,8 +88,8 @@ namespace test
                 {
                     for (int i = 0; i < deserialzied.Count; i++)
                     {
-                        ListItem lst = new ListItem(Convert.ToString(deserialzied[i].nomeParametro), Convert.ToString(deserialzied[i].idParametro));
-                        cmbParametro.Items.Insert(i + 1, lst);
+                        cbListParametri.Items.Add(new ListItem(Convert.ToString(deserialzied[i].nomeParametro), Convert.ToString(deserialzied[i].idParametro)));
+                        cmbParametri.Controls.Add(cbListParametri);
                     }
                 }
                 //------------------------------------------
@@ -105,6 +98,21 @@ namespace test
 
         protected void creaTorneo_Click(object sender, EventArgs e)
         {
+            //prendere i valori dalle combobox
+            foreach (Control ctl in parametriSelezionati.Controls)
+            {
+                if (ctl is CheckBox)
+                {
+                    if (((CheckBox)ctl).Checked) Session["nomeImpianti"] += ("\"" + ctl);
+                }
+            }
+            foreach (Control ctl in impiantiSelezionati.Controls)
+            {
+                if (ctl is CheckBox)
+                {
+                    if (((CheckBox)ctl).Checked) Session["idParametri"] += ("\"" + ctl);
+                }
+            }
             string gender;
             if (M.Checked) gender = M.ID;
             else gender = F.ID;
