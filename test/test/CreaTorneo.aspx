@@ -22,7 +22,7 @@
             <img src="Img/aibvc-logo.png" style="width: 94px;">
             <div class="collapse navbar-collapse row" id="navcol-1">
                 <div class="col-md-11 col-sm-12">
-                    <ul class="mx-auto nav navbar-nav">
+                    <ul class="nav navbar-nav" id="myNavUl">
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
@@ -51,9 +51,6 @@
                             </div>
                         </li>
                     </ul>
-                </div>
-                <div class="col-md-1 col-sm-12">
-                    <a href="Login.aspx" class="loginButtonTornei btn float-right-md float-left-sm">Accedi</a>
                 </div>
             </div>
         </div>

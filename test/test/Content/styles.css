@@ -2,6 +2,7 @@ html,
 body {
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
 }
 .bodylogin {
     background-image: url('../Img/background-login.png');
@@ -62,6 +63,8 @@ body.register {
 
 .card-container {
     overflow: auto;
+    max-height: 70vh;
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -216,7 +219,6 @@ div.container p {
     text-decoration: none;
     text-transform: none;
     letter-spacing: 3px;
-    color: #ffffffce;
 }
 
 .loginform {
@@ -261,13 +263,7 @@ form label.register {
     color: #0094f0;
 }
 
-div.container p {
-    text-align: left;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    text-decoration: none;
-    text-transform: none;
-    letter-spacing: 3px;
-    color: #ffffffce;
+#myNavUl {
+    display: flex;
+    justify-content: center;
 }
