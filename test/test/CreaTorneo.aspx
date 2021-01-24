@@ -122,31 +122,17 @@
                     <br />
                 </div>
                 <br />
-                <p>Parametri torneo:</p>
-                <div class="form-group">
-                    <label for="lblIDParametri">Parametro</label>
-                    <asp:DropDownList ID="cmbParametro" runat="server" OnSelectedIndexChanged="cmbParametro_SelectedIndexChanged" AutoPostBack="true" CssClass="form-control">
-                        <asp:ListItem Value="" Selected="true" Text="Seleziona parametri"></asp:ListItem>
-                    </asp:DropDownList>
+                <div class="form-group" id="parametriSelezionati" runat="server"> 
+                    <label for="lblIDParametri">Parametri: </label>
+                    <asp:PlaceHolder ID="cmbParametri" runat="server"></asp:PlaceHolder>
                     <br />
-                    <asp:Label ID="Label1" runat="server" Text="Parametri inseriti: "></asp:Label>
-                    <div runat="server" id="parametriInseriti">
-                    </div>
                 </div>
                 <br />
-                <p>Parametri Impianto:</p>
-                <div class="form-group row">
-                    <label for="lblIDParametri" class="col-12">Impianto</label>
-                    <div class="col-10">
-                        <asp:DropDownList ID="cmbImpianto" runat="server" OnSelectedIndexChanged="impiantiInseriti_SelectedIndexChanged" AutoPostBack="true" CssClass="form-control">
-                            <asp:ListItem Value="" Selected="true" Text="Seleziona impianti"></asp:ListItem>
-                        </asp:DropDownList>
-                    </div>
+                                <div class="form-group row" id="impiantiSelezionati" runat="server">
+                    <label for="lblIDParametri" class="col-12">Impianti: </label>
                     <div class="col-2">
+                        <asp:PlaceHolder ID="cmbImpianti" runat="server"></asp:PlaceHolder>
                         <asp:Button ID="AddImpianto" runat="server" Text="+" OnClick="AddImpianto_Click" CssClass="btn btn-primary" />
-                    </div>
-                    <asp:Label CssClass="ml-3" ID="lblimpiantiInseriti" runat="server" Text="Impianti inseriti: "></asp:Label>
-                    <div runat="server" id="impiantiSelezionati">
                     </div>
                 </div>
                 <asp:Button ID="Button1" runat="server" Text="Crea torneo" OnClick="creaTorneo_Click" CssClass="btn btn-primary" />
