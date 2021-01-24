@@ -18,6 +18,8 @@ namespace test
         CheckBoxList cbListImpianti;
         protected void Page_Load(object sender, EventArgs e)
         {
+            cbListParametri = new CheckBoxList();
+            cbListImpianti = new CheckBoxList();
             token = Request.QueryString["token"];
             int idSocieta = Convert.ToInt32(Session["IdUtente"]); //inviare tramite get id della società
             if (!IsPostBack)
@@ -98,7 +100,7 @@ namespace test
 
         protected void creaTorneo_Click(object sender, EventArgs e)
         {
-            //prendere i valori dalle combobox
+            /*prendere i valori dalle combobox
             foreach (Control ctl in parametriSelezionati.Controls)
             {
                 if (ctl is CheckBox)
@@ -112,7 +114,7 @@ namespace test
                 {
                     if (((CheckBox)ctl).Checked) Session["idParametri"] += ("\"" + ctl);
                 }
-            }
+            }*/
             string gender;
             if (M.Checked) gender = M.ID;
             else gender = F.ID;
@@ -133,7 +135,7 @@ namespace test
                 error = response.ErrorMessage;
         }
 
-        protected void cmbParametro_SelectedIndexChanged(object sender, EventArgs e)
+        /*protected void cmbParametro_SelectedIndexChanged(object sender, EventArgs e)
         {
             DropDownList cmb = (DropDownList)sender;
             Label lb = new Label();
@@ -142,14 +144,14 @@ namespace test
             lb.Text = cmb.SelectedItem.Text;
             parametriInseriti.Controls.Add(lb);
             cmbParametro.Items.Remove(cmb.SelectedItem);
-        }
+        }*/
 
         protected void AddImpianto_Click(object sender, EventArgs e)
         {
 
         }
 
-        protected void impiantiInseriti_SelectedIndexChanged(object sender, EventArgs e)
+        /*protected void impiantiInseriti_SelectedIndexChanged(object sender, EventArgs e)
         {
             DropDownList cmb = (DropDownList)sender;
             Label lb = new Label();
@@ -158,6 +160,6 @@ namespace test
             lb.Text = cmb.SelectedItem.Text;
             impiantiSelezionati.Controls.Add(lb);
             cmbImpianto.Items.Remove(cmb.SelectedItem);
-        }   
+        }   */
     }
 }

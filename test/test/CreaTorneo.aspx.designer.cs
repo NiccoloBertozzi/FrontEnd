@@ -141,58 +141,22 @@ namespace test
         protected global::System.Web.UI.WebControls.DropDownList cmbFormula;
 
         /// <summary>
-        /// Controllo cmbParametro.
+        /// Controllo parametriSelezionati.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbParametro;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl parametriSelezionati;
 
         /// <summary>
-        /// Controllo Label1.
+        /// Controllo cmbParametri.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
-        /// Controllo parametriInseriti.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl parametriInseriti;
-
-        /// <summary>
-        /// Controllo cmbImpianto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cmbImpianto;
-
-        /// <summary>
-        /// Controllo AddImpianto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddImpianto;
-
-        /// <summary>
-        /// Controllo lblimpiantiInseriti.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblimpiantiInseriti;
+        protected global::System.Web.UI.WebControls.PlaceHolder cmbParametri;
 
         /// <summary>
         /// Controllo impiantiSelezionati.
@@ -202,6 +166,24 @@ namespace test
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl impiantiSelezionati;
+
+        /// <summary>
+        /// Controllo cmbImpianti.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder cmbImpianti;
+
+        /// <summary>
+        /// Controllo AddImpianto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddImpianto;
 
         /// <summary>
         /// Controllo Button1.
