@@ -21,7 +21,9 @@ body.register {
 #my-navbar-items {
     border: 0;
 }
-
+.pointer {
+    cursor: pointer;
+}
 .page-title {
     background-image: linear-gradient(90deg, #2F2D2D 0%, rgba(56, 53, 53, 0.87) 38.54%, rgba(118, 110, 110, 0.37) 100%), url(../Img/sfondo.jpg);
     color: rgb(255, 255, 255);

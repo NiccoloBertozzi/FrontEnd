@@ -13,10 +13,13 @@
     <script type="text/javascript">
         function test() {
             if (document.getElementById('<%= PWD.ClientID %>').type == 'password') {
-               document.getElementById('<%= PWD.ClientID %>').type = 'singleline'
-           }
-           else
-               document.getElementById('<%= PWD.ClientID %>').type = 'password'
+                document.getElementById('<%= PWD.ClientID %>').type = 'singleline'
+            }
+            else
+                document.getElementById('<%= PWD.ClientID %>').type = 'password'
+        }
+        function Register() {
+            LoadPage("Register.aspx");
         }
     </script>
 </head>
@@ -74,13 +77,13 @@
 
     <!--FORM-->
     <div class="container">
-        <form id="form1">
+        <form id="form1" runat="server">
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
                     <label for="Email" class="col-form-label">Email</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <input type="text" class="form-control" id="email" placeholder="Email">
+                    <asp:TextBox runat="server" ID="email" CssClass="form-control" TextMode="Email" placeholder="Email" required="true"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-lg-4">
@@ -88,21 +91,21 @@
                     <label for="PWD" class="col-form-label">Password</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <input type="password" class="form-control" id="PWD" placeholder="Password">
+                    <asp:TextBox runat="server" ID="PWD" CssClass="form-control" TextMode="Password" placeholder="Password" required="true"></asp:TextBox>
                 </div>
             </div>
             <div class="row my-lg-4 my-2 justify-content-center">
-                <a href="pswdimenticata">Password dimenticata?</a> 
+                <asp:LinkButton runat="server" ID="pswdimenticata" OnClick="LabelRecovery_Click" Text="Password Dimenticata? Recupera la password"></asp:LinkButton>
+            </div>
+            <div class="row">
+                <asp:Button runat="server" ID="Accedi" CssClass="btnLogin mx-auto" OnClick="btn_accedi_Click" Text="Accedi" />
+            </div>
+            <div class="row">
+                <p class="mx-auto my-auto p-3">oppure</p>
             </div>
         </form>
         <div class="row">
-            <a href="#" class="btnLogin mx-auto">Accedi</a>
-        </div>
-        <div class="row">
-            <p class="mx-auto my-auto p-3">oppure</p>
-        </div>
-        <div class="row">
-            <a href="#" class="btnRegister mx-auto">Registrati</a>
+            <a href="Register.aspx" class="btnRegister mx-auto">Registrati</a>
         </div>
     </div>
 

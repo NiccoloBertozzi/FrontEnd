@@ -24,7 +24,7 @@ namespace test
                 StringBuilder table = new StringBuilder();
                 table.Clear();
                 dinamicload.Controls.Add(new Literal { Text = table.ToString() });
-                table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active\" onclick=\"LoadPageIscritti(); \">Tornei Iscritti</a></li>");
+                table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active pointer\" onclick=\"LoadPageIscritti(); \">Tornei Iscritti</a></li>");
                 dinamicload.Controls.Add(new Literal { Text = table.ToString() });
             }
             else if (Session["ruolo"].ToString() == "Admin")
@@ -32,7 +32,7 @@ namespace test
                 StringBuilder table = new StringBuilder();
                 table.Clear();
                 dinamicload.Controls.Add(new Literal { Text = table.ToString() });
-                table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active\" onclick=\"LoadPage(); \">Non autorizzati</a></li>");
+                table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active pointer\" onclick=\"LoadPage(); \">Non autorizzati</a></li>");
                 dinamicload.Controls.Add(new Literal { Text = table.ToString() });
             }
             else if (Session["ruolo"].ToString() == "Societa")
@@ -40,7 +40,7 @@ namespace test
                 StringBuilder table = new StringBuilder();
                 table.Clear();
                 dinamicload.Controls.Add(new Literal { Text = table.ToString() });
-                table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active\" onclick=\"LoadCreaTorneo(); \">CreaTorneo</a></li>");
+                table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active pointer\" onclick=\"LoadCreaTorneo(); \">CreaTorneo</a></li>");
                 dinamicload.Controls.Add(new Literal { Text = table.ToString() });
             }
             //Append the HTML string to Placeholder.

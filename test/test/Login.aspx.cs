@@ -69,9 +69,5 @@ namespace test
                 Response.Write("<script>alert('Inserire l'email');</script>");
             }
         }
-        protected void register_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Register.aspx");
-        }
     }
 }
