@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -16,6 +17,59 @@ namespace test
         protected void Page_Load(object sender, EventArgs e)
         {
             token = Request.QueryString["token"];
+            if (!this.IsPostBack)
+            {
+                DownloadDelegati(token);
+            }
+        }
+
+        protected void DownloadDelegati(string token)
+        {
+            //download Supervisori
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetSupervisori");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("Authorization", "Bearer " + token);
+            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Societa");
+            IRestResponse response = client.Execute(request);
+            dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
+            if (deserialzied != null)
+            {
+                for (int i = 0; i < deserialzied.Count; i++)
+                {
+                    cbSupervisori.Items.Add(new ListItem(Convert.ToString(deserialzied[i].delegato), Convert.ToString(deserialzied[i].cf)));
+                }
+            }
+            //download arbitri
+            client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetArbitri");
+            client.Timeout = -1;
+            request = new RestRequest(Method.GET);
+            request.AddHeader("Authorization", "Bearer " + token);
+            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Societa");
+            response = client.Execute(request);
+            deserialzied = JsonConvert.DeserializeObject(response.Content);
+            if (deserialzied != null)
+            {
+                for (int i = 0; i < deserialzied.Count; i++)
+                {
+                    cbArbitro.Items.Add(new ListItem(Convert.ToString(deserialzied[i].delegato), Convert.ToString(deserialzied[i].cf)));
+                }
+            }
+            //download direttori
+            client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetDirettori");
+            client.Timeout = -1;
+            request = new RestRequest(Method.GET);
+            request.AddHeader("Authorization", "Bearer " + token);
+            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Societa");
+            response = client.Execute(request);
+            deserialzied = JsonConvert.DeserializeObject(response.Content);
+            if (deserialzied != null)
+            {
+                for (int i = 0; i < deserialzied.Count; i++)
+                {
+                    cbDirettore.Items.Add(new ListItem(Convert.ToString(deserialzied[i].delegato), Convert.ToString(deserialzied[i].cf)));
+                }
+            }
         }
 
         protected void btnassegnasupervisore_Click(object sender, EventArgs e)
@@ -32,13 +86,13 @@ namespace test
                 Response.Redirect("InfoTorneo.aspx?token=" + token); //rimanda alla form 'output tornei'
             }
         }
-
+        
         protected void Supervisore_TextChanged(object sender, EventArgs e)
         {
             //sostituire con 11 perche il CF è minimo di 11
-            if (Supervisore.Text.Length > 3)
+            if (cbSupervisori.SelectedItem.Value.Length > 3)
             {
-                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDSupervisore/"+Supervisore.Text+"");
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDSupervisore/" + cbSupervisori.SelectedItem.Value + "/Nome/" + cbSupervisori.SelectedItem.Text.Split(' ')[0] + "/Cognome/" + cbSupervisori.SelectedItem.Text.Split(' ')[1] + "/");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.GET);
                 request.AddHeader("Authorization", "Bearer "+token+"");
@@ -48,16 +102,16 @@ namespace test
                 {
                     dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
                     Session["IDSupervisore"] = deserialzied[0].idDelegato;
-                    Nomesupervisore.Text= deserialzied[0].delegato +","+Session["IDSupervisore"];
+                    Nomesupervisore.Text = deserialzied[0].delegato + ", " + Session["IDSupervisore"];
                 }
             }
         }
         protected void Arbitro_TextChanged(object sender, EventArgs e)
         {
             //sostituire con 11 perche il CF è minimo di 11
-            if (Arbitro.Text.Length > 3)
+            if (cbArbitro.Text.Length > 3)
             {
-                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDArbitro/" + Arbitro.Text + "");
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDArbitro/" + cbArbitro.SelectedItem.Value + "/Nome/" + cbArbitro.SelectedItem.Text.Split(' ')[0] + "/Cognome/" + cbArbitro.SelectedItem.Text.Split(' ')[1] + "/");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.GET);
                 request.AddHeader("Authorization", "Bearer " + token + "");
@@ -67,16 +121,16 @@ namespace test
                 {
                     dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
                     Session["IDArbitro"] = deserialzied[0].idDelegato;
-                    Nomearbitro.Text = deserialzied[0].delegato + "," + Session["IDArbitro"];
+                    Nomearbitro.Text = deserialzied[0].delegato + ", " + Session["IDArbitro"];
                 }
             }
         }
         protected void Direttore_TextChanged(object sender, EventArgs e)
         {
             //sostituire con 11 perche il CF è minimo di 11
-            if (Direttore.Text.Length > 3)
+            if (cbDirettore.Text.Length > 3)
             {
-                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDDirettore/" + Direttore.Text + "");
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDDirettore/" + cbDirettore.SelectedItem.Value + "/Nome/" + cbDirettore.SelectedItem.Text.Split(' ')[0] + "/Cognome/" + cbDirettore.SelectedItem.Text.Split(' ')[1] + "/");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.GET);
                 request.AddHeader("Authorization", "Bearer " + token + "");
@@ -86,7 +140,7 @@ namespace test
                 {
                     dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
                     Session["IDDirettore"] = deserialzied[0].idDelegato;
-                    Nomedirettore.Text = deserialzied[0].delegato + "," + Session["IDDirettore"];
+                    Nomedirettore.Text = deserialzied[0].delegato + ", " + Session["IDDirettore"];
                 }
             }
         }

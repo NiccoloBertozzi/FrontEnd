@@ -12,23 +12,20 @@ namespace test
 {
     public partial class OutputTorneiDelegato : System.Web.UI.Page
     {
-
         string token;
-
+        int idDelegato;
         public void Page_Load(object sender, EventArgs e)
         {
+            idDelegato = int.Parse(Session["IdUtente"].ToString());
             token = Request.QueryString["token"];
             if (!this.IsPostBack)
             {
-                //passo i tornei fino a due mesi prima
-                string data = Convert.ToDateTime(DateTime.Now.Date.AddDays(+60)).ToString("yyyy-MM-dd");
-                DownloadDataTornei(token, data);
+                DownloadTornei(token);
             }
         }
-        protected void DownloadDataTornei(string token, string data)
+        protected void DownloadTornei(string token)
         {
-
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/Tornei/GetTorneiSvoltiBySupervisore/1");
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/Tornei/GetTorneiSvoltiBySupervisore/" + idDelegato);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("Authorization", "Bearer " + token);

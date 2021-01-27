@@ -33,6 +33,7 @@ namespace test
                 table.Clear();
                 dinamicload.Controls.Add(new Literal { Text = table.ToString() });
                 table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active pointer\" onclick=\"LoadPage(); \">Non autorizzati</a></li>");
+                table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active pointer\" onclick=\"LoadPageDelegati(); \">Tornei delegato</a></li>");
                 dinamicload.Controls.Add(new Literal { Text = table.ToString() });
             }
             else if (Session["ruolo"].ToString() == "Societa")

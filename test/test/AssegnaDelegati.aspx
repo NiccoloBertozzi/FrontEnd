@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AssegnaDelegati.aspx.cs" Inherits="test.TestBench" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -64,21 +66,22 @@
             <h1 class=" col-12 text-center my-auto">Inserimento squadra torneo</h1>
         </div>
         <div class="container">
+           <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>
            <div class="mr-3 ml-3 mt-3 card-container">
                 <div class="form-group">
-                    <label for="Supervisore">Assegna Supervisori</label>
-                   <asp:TextBox AutoPostBack="true" required="true" ID="Supervisore" CssClass="form-control" runat="server" OnTextChanged="Supervisore_TextChanged"></asp:TextBox>
-                   <asp:Label runat="server" Text="Supervisore" ID="Nomesupervisore"></asp:Label>
+                   <label for="Supervisore">Assegna Supervisori</label><br />
+                   <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbSupervisori" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="Supervisore_TextChanged"/>
+                   <asp:Label runat="server" Text="" ID="Nomesupervisore"></asp:Label>
                 </div>
                <div class="form-group">
-                    <label for="Arbitro">Assegna Arbitro</label>
-                   <asp:TextBox AutoPostBack="true" required="true" ID="Arbitro" CssClass="form-control" runat="server" OnTextChanged="Arbitro_TextChanged"></asp:TextBox>
-                   <asp:Label runat="server" Text="Arbitro" ID="Nomearbitro"></asp:Label>
+                   <label for="Arbitro">Assegna Arbitro</label><br />
+                   <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbArbitro" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="Arbitro_TextChanged"/>
+                   <asp:Label runat="server" Text="" ID="Nomearbitro"></asp:Label>
                 </div>
                <div class="form-group">
-                    <label for="Direttore">Assegna Direttore</label>
-                   <asp:TextBox AutoPostBack="true" required="true" ID="Direttore" CssClass="form-control" runat="server" OnTextChanged="Direttore_TextChanged"></asp:TextBox>
-                   <asp:Label runat="server" Text="Delegato" ID="Nomedirettore"></asp:Label>
+                   <label for="Direttore">Assegna Direttore</label><br />
+                   <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbDirettore" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="Direttore_TextChanged"/>
+                   <asp:Label runat="server" Text="" ID="Nomedirettore"></asp:Label>
                 </div>
                 <asp:Button ID="btnassegnasupervisore" OnClick="btnassegnasupervisore_Click" runat="server" Text="Assegna delegati" /><br />
             </div>
