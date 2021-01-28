@@ -177,15 +177,6 @@ namespace test
         protected global::System.Web.UI.WebControls.PlaceHolder cmbImpianti;
 
         /// <summary>
-        /// Controllo AddImpianto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddImpianto;
-
-        /// <summary>
         /// Controllo Button1.
         /// </summary>
         /// <remarks>

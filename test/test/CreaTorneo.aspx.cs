@@ -14,15 +14,13 @@ namespace test
     public partial class CreaTorneo : System.Web.UI.Page
     {
         string error,token;
-        CheckBoxList cbListParametri;
-        CheckBoxList cbListImpianti;
+        CheckBoxList cbListParametri = new CheckBoxList();
+        CheckBoxList cbListImpianti = new CheckBoxList();
         protected void Page_Load(object sender, EventArgs e)
         {
             txtDataInizio.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
             txtDataFine.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
             txtDataChiusuraIscr.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
-            cbListParametri = new CheckBoxList();
-            cbListImpianti = new CheckBoxList();
             token = Session["Token"].ToString();
             int idSocieta = Convert.ToInt32(Session["IdUtente"]); //inviare tramite get id della società
             if (!IsPostBack)
@@ -103,15 +101,25 @@ namespace test
 
         protected void creaTorneo_Click(object sender, EventArgs e)
         {
-            /*prendere i valori dalle combobox
-            foreach (Control ctl in parametriSelezionati.Controls)
+            //scorre la checkboxlist 
+            foreach (ListItem li in cbListParametri.Items)
             {
-                if (ctl is CheckBox)
+                //controlla che item e settato
+                if (li.Selected == true)
                 {
-                    if (((CheckBox)ctl).Checked) Session["nomeImpianti"] += ("\"" + ctl);
+                    //aggiunge alla sesison
+                    Session["nomeImpianti"] += ("\"" + li.Text);
                 }
             }
-            foreach (Control ctl in impiantiSelezionati.Controls)
+            foreach (ListItem li in cbListImpianti.Items)
+            {
+                if (li.Selected == true)
+                {
+                    Session["idParametri"] += ("\"" + li.Text);
+                }
+            }
+            /*
+            foreach (Control ctl in cbListImpianti.Controls)
             {
                 if (ctl is CheckBox)
                 {
@@ -159,11 +167,6 @@ namespace test
             parametriInseriti.Controls.Add(lb);
             cmbParametro.Items.Remove(cmb.SelectedItem);
         }*/
-
-        protected void AddImpianto_Click(object sender, EventArgs e)
-        {
-
-        }
 
         /*protected void impiantiInseriti_SelectedIndexChanged(object sender, EventArgs e)
         {
