@@ -15,7 +15,7 @@ namespace test
         protected void Page_Load(object sender, EventArgs e)
         {
             idAtleta1 = Session["IdUtente"].ToString();
-            token = Request.QueryString["token"];
+            token = Session["Token"].ToString();
             //-------------------SCARICO ID SOCIETA DELL'ATLETA-----
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/atleti/GetIdSocieta/" + idAtleta1 + "");
             client.Timeout = -1;
@@ -51,7 +51,7 @@ namespace test
                 request.AddParameter("application/json", "{\r\n  \"idSquadra\": " + Convert.ToInt32(response.Content) + ",\r\n  \"idTorneo\": " + Session["IdTorneo"] + ",\r\n  \"idAllenatore\": " + Allenatore.Text + "\r\n}", ParameterType.RequestBody);
                 IRestResponse response1 = client.Execute(request);
                 //------------------------------------------------------------------//
-                Response.Redirect("OutputTornei.aspx?token=" + token);
+                Response.Redirect("OutputTornei.aspx");
             }
         }
         protected void Atleta_TextChanged(object sender, EventArgs e)

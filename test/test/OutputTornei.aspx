@@ -17,20 +17,16 @@
             clickArea_Click.click();
         }
         function LoadPage() {
-            var token = ('<%=Request.QueryString["token"] %>');
-            window.location = "OutputTorneiNonAutorrizati.aspx?token=" + token + "";
+            window.location = "OutputTorneiNonAutorrizati.aspx";
         }
         function LoadPageDelegati() {
-            var token = ('<%=Request.QueryString["token"] %>');
-            window.location = "OutputTorneiDelegato.aspx?token=" + token + "";
+            window.location = "OutputTorneiDelegato.aspx";
         }
         function LoadPageIscritti() {
-            var token = ('<%=Request.QueryString["token"] %>');
-            window.location = "OutputTorneiIscritti.aspx?token=" + token + "";
+            window.location = "OutputTorneiIscritti.aspx";
         }
         function LoadCreaTorneo() {
-            var token = ('<%=Request.QueryString["token"] %>');
-            window.location = "CreaTorneo.aspx?token=" + token + "";
+            window.location = "CreaTorneo.aspx";
         }
     </script>
 </head>

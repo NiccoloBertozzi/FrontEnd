@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <div>
             <asp:PlaceHolder runat="server" ID="squadraInfo"></asp:PlaceHolder>
-            <asp:Button runat="server" Text="Elimina squadra" OnClick="EliminaSquadra_Click"/>
+            <asp:Button runat="server" Text="Cancella squadra" OnClick="EliminaSquadra_Click"/>
         </div>
     </form>
 </body>

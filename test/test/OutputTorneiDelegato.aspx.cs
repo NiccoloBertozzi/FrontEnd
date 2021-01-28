@@ -17,7 +17,7 @@ namespace test
         public void Page_Load(object sender, EventArgs e)
         {
             idDelegato = int.Parse(Session["IdUtente"].ToString());
-            token = Request.QueryString["token"];
+            token = Session["Token"].ToString();
             if (!this.IsPostBack)
             {
                 DownloadTornei(token);
@@ -59,7 +59,7 @@ namespace test
         protected void clickArea_Click(object sender, EventArgs e)
         {
             Session["IdTorneo"] = HiddenField1.Value;
-            Response.Redirect("AutorizzaTorneo.aspx?token=" + token); //rimanda alla form 'output tornei'
+            Response.Redirect("AutorizzaTorneo.aspx"); //rimanda alla form 'output tornei'
         }
     }
 }

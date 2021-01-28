@@ -74,12 +74,12 @@
                    <asp:Label runat="server" Text="" ID="Nomesupervisore"></asp:Label>
                 </div>
                <div class="form-group">
-                   <label for="Arbitro">Assegna Arbitro</label><br />
+                   <label for="Arbitro">Assegna Supervisore Arbitrare</label><br />
                    <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbArbitro" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="Arbitro_TextChanged"/>
                    <asp:Label runat="server" Text="" ID="Nomearbitro"></asp:Label>
                 </div>
                <div class="form-group">
-                   <label for="Direttore">Assegna Direttore</label><br />
+                   <label for="Direttore">Assegna Direttore di competizione</label><br />
                    <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbDirettore" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="Direttore_TextChanged"/>
                    <asp:Label runat="server" Text="" ID="Nomedirettore"></asp:Label>
                 </div>

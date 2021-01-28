@@ -53,7 +53,8 @@ namespace test
                     if (responseLogin.StatusCode == HttpStatusCode.OK)
                     {
                         var contenutoLogin = JsonConvert.DeserializeObject<getToken>(responseLogin.Content);
-                        Response.Redirect("OutputTornei.aspx?token=" + contenutoLogin.token); //rimanda alla form 'output tornei'
+                        Session["Token"] = contenutoLogin.token;
+                        Response.Redirect("OutputTornei.aspx"); //rimanda alla form 'output tornei'
                     }
                     else
                         risultato.Text = responseLogin.ErrorMessage;

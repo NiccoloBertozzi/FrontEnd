@@ -18,8 +18,8 @@ namespace test
 
         public void Page_Load(object sender, EventArgs e)
         {
-            token = Request.QueryString["token"];
-            if(Session["ruolo"].ToString() == "Atleta")
+            token = Session["Token"].ToString();
+            if (Session["ruolo"].ToString() == "Atleta")
             {
                 StringBuilder table = new StringBuilder();
                 table.Clear();
@@ -91,7 +91,7 @@ namespace test
         protected void clickArea_Click(object sender, EventArgs e)
         {
             Session["IdTorneo"]= HiddenField1.Value;
-            Response.Redirect("InfoTorneo.aspx?token=" + token); //rimanda alla form 'output tornei'
+            Response.Redirect("InfoTorneo.aspx"); //rimanda alla form 'output tornei'
         }
     }
 }

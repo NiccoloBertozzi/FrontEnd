@@ -51,15 +51,6 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox txtPuntiVitt;
 
         /// <summary>
-        /// Controllo txtMontepremi.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMontepremi;
-
-        /// <summary>
         /// Controllo txtDataChiusuraIscr.
         /// </summary>
         /// <remarks>
@@ -130,6 +121,15 @@ namespace test
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList cmbTipoTorneo;
+
+        /// <summary>
+        /// Controllo txtMontepremi.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMontepremi;
 
         /// <summary>
         /// Controllo cmbFormula.

@@ -63,7 +63,7 @@
         <div class="container form-group">
             <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
             <div class="row justify-content-center">
-                <asp:Button ID="btnelimina" runat="server" Text="Elimina squadra" OnClick="btnelimina_Click" CssClass="btn btn-primary" />
+                <asp:Button ID="btnelimina" runat="server" Text="Cancella squadra" OnClick="btnelimina_Click" CssClass="btn btn-primary" />
             </div>
         </div>
         <script src="Scripts/jquery-3.4.1.min.js "></script>

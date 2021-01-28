@@ -16,7 +16,7 @@ namespace test
         int idDelegato;
         protected void Page_Load(object sender, EventArgs e)
         {
-            token = Request.QueryString["token"];
+            token = Session["Token"].ToString();
             idDelegato = Convert.ToInt32(Session["idUtente"]);
             DownloadAnagrafica(idDelegato);
         }

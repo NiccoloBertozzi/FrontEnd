@@ -18,9 +18,12 @@ namespace test
         CheckBoxList cbListImpianti;
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtDataInizio.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
+            txtDataFine.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
+            txtDataChiusuraIscr.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
             cbListParametri = new CheckBoxList();
             cbListImpianti = new CheckBoxList();
-            token = Request.QueryString["token"];
+            token = Session["Token"].ToString();
             int idSocieta = Convert.ToInt32(Session["IdUtente"]); //inviare tramite get id della società
             if (!IsPostBack)
             {
@@ -130,9 +133,20 @@ namespace test
             error= "{\r\n  \"titolo\": \"" + txtTitolo.Text + "\",\r\n  \"puntiVittoria\": " + txtPuntiVitt.Text + ",\r\n  \"montepremi\": " + txtMontepremi.Text + ",\r\n  \"dataChiusuraIscrizioni\": \"" + Convert.ToDateTime(txtDataChiusuraIscr.Text).Date.ToString("yyyy-MM-dd") + "\",\r\n  \"dataInizio\": \"" + Convert.ToDateTime(txtDataInizio.Text).Date.ToString("yyyy-MM-dd") + "\",\r\n  \"dataFine\": \"" + Convert.ToDateTime(txtDataFine.Text).Date.ToString("yyyy-MM-dd") + "\",\r\n  \"genere\": \"" + gender + "\",\r\n  \"QuotaIngresso\": " + txtQuotaIscr.Text + ",\r\n  \"formulaTorneo\": \"" + cmbFormula.SelectedItem.Text + "\",\r\n  \"numTeamTabellone\": " + txtNumTeamTabellone.Text + ",\r\n  \"numTeamQualifiche\": " + txtNumTeamQualifiche.Text + ",\r\n  \"parametriTorneo\": [\r\n " + Session["idParametri"] + "\r\n  ],\r\n \"tipoTorneo\": \"" + cmbTipoTorneo.SelectedItem.Text + "\",\r\n  \"impianti\": [\r\n    " + Session["nomeImpianti"] + "\r\n  ]\r\n}";
               IRestResponse response = client.Execute(request);
             if (response.StatusCode == HttpStatusCode.OK)
-                Response.Redirect("OutputTorneo.aspx?token=" + token); //rimanda alla form 'output tornei'
+                Response.Redirect("OutputTorneo.aspx"); //rimanda alla form 'output tornei'
             else
                 error = response.ErrorMessage;
+        }
+
+        protected void cmbTipoTorneo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbTipoTorneo.SelectedItem.Text != "L1")
+            {
+                txtMontepremi.Text = "0";
+                txtMontepremi.Enabled = false;
+            }
+            else
+                txtMontepremi.Enabled = true;
         }
 
         /*protected void cmbParametro_SelectedIndexChanged(object sender, EventArgs e)

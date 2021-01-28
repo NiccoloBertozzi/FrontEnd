@@ -17,7 +17,7 @@ namespace test
         int idTorneo;
         protected void Page_Load(object sender, EventArgs e)
         {
-            token = Request.QueryString["token"];
+            token = Session["Token"].ToString();
             idTorneo = int.Parse(Session["IdTorneo"].ToString());
             if (!this.IsPostBack)
             {
@@ -104,7 +104,7 @@ namespace test
                 request.AddParameter("application/json",prova, ParameterType.RequestBody);
                 IRestResponse response1 = client.Execute(request);
             }
-            Response.Redirect("OutputTorneiIscritti.aspx?token=" + token); //rimanda alla form 'output tornei iscritti'
+            Response.Redirect("OutputTorneiIscritti.aspx"); //rimanda alla form 'output tornei iscritti'
         }
     }
 }

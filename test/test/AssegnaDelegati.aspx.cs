@@ -16,7 +16,7 @@ namespace test
         string token;
         protected void Page_Load(object sender, EventArgs e)
         {
-            token = Request.QueryString["token"];
+            token = Session["Token"].ToString();
             if (!this.IsPostBack)
             {
                 DownloadDelegati(token);
@@ -37,7 +37,7 @@ namespace test
             {
                 for (int i = 0; i < deserialzied.Count; i++)
                 {
-                    cbSupervisori.Items.Add(new ListItem(Convert.ToString(deserialzied[i].delegato), Convert.ToString(deserialzied[i].cf)));
+                    cbSupervisori.Items.Add(new ListItem(Convert.ToString(deserialzied[i].delegato) + " " + Convert.ToString(deserialzied[i].cf), Convert.ToString(deserialzied[i].cf)));
                 }
             }
             //download arbitri
@@ -52,7 +52,7 @@ namespace test
             {
                 for (int i = 0; i < deserialzied.Count; i++)
                 {
-                    cbArbitro.Items.Add(new ListItem(Convert.ToString(deserialzied[i].delegato), Convert.ToString(deserialzied[i].cf)));
+                    cbArbitro.Items.Add(new ListItem(Convert.ToString(deserialzied[i].delegato) + " " + Convert.ToString(deserialzied[i].cf), Convert.ToString(deserialzied[i].cf)));
                 }
             }
             //download direttori
@@ -67,7 +67,7 @@ namespace test
             {
                 for (int i = 0; i < deserialzied.Count; i++)
                 {
-                    cbDirettore.Items.Add(new ListItem(Convert.ToString(deserialzied[i].delegato), Convert.ToString(deserialzied[i].cf)));
+                    cbDirettore.Items.Add(new ListItem(Convert.ToString(deserialzied[i].delegato) + " " + Convert.ToString(deserialzied[i].cf), Convert.ToString(deserialzied[i].cf)));
                 }
             }
         }
@@ -145,7 +145,7 @@ namespace test
             IRestResponse response = client.Execute(request);
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                Response.Redirect("InfoTorneo.aspx?token=" + token); //rimanda alla form 'output tornei'
+                Response.Redirect("InfoTorneo.aspx"); //rimanda alla form 'output tornei'
             }
         }
     }
