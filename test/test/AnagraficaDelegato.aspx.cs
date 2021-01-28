@@ -13,16 +13,17 @@ namespace test
     public partial class AnagraficaDelegato : System.Web.UI.Page
     {
         string token;
+        int idDelegato;
         protected void Page_Load(object sender, EventArgs e)
         {
             token = Request.QueryString["token"];
-            int idAtleta = Convert.ToInt32(Session["idUtente"]);
-            DownloadAnagrafica(idAtleta);
+            idDelegato = Convert.ToInt32(Session["idUtente"]);
+            DownloadAnagrafica(idDelegato);
         }
 
         protected void DownloadAnagrafica(int idAtleta)
         {
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetAnagraficaDelegato/1");
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetAnagraficaDelegato/" + idDelegato);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("Authorization", "Bearer " + token);
