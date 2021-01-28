@@ -12,27 +12,24 @@ namespace test
 {
     public partial class OutputTorneiDelegato : System.Web.UI.Page
     {
-
         string token;
-
+        int idDelegato;
         public void Page_Load(object sender, EventArgs e)
         {
+            idDelegato = int.Parse(Session["IdUtente"].ToString());
             token = Request.QueryString["token"];
             if (!this.IsPostBack)
             {
-                //passo i tornei fino a due mesi prima
-                string data = Convert.ToDateTime(DateTime.Now.Date.AddDays(+60)).ToString("yyyy-MM-dd");
-                DownloadDataTornei(token, data);
+                DownloadTornei(token);
             }
         }
-        protected void DownloadDataTornei(string token, string data)
+        protected void DownloadTornei(string token)
         {
-
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/Tornei/GetTorneiSvoltiBySupervisore/1");
+            var client = new RestClient("http://aibvcapi.azurewebsites.net/api/v1/tornei/GetTorneiSvoltiBySupervisore/" + idDelegato);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("Authorization", "Bearer " + token);
-            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Admin");
+            request.AddHeader("Cookie", "ruolo=Admin; ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
             IRestResponse response = client.Execute(request);
             //deserializza il risultato ritornato
             dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);

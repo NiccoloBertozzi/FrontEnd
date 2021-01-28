@@ -24,13 +24,22 @@ namespace test
         protected global::System.Web.UI.HtmlControls.HtmlForm form2;
 
         /// <summary>
-        /// Controllo Supervisore.
+        /// Controllo sp1.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Supervisore;
+        protected global::System.Web.UI.ScriptManager sp1;
+
+        /// <summary>
+        /// Controllo cbSupervisori.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ComboBox cbSupervisori;
 
         /// <summary>
         /// Controllo Nomesupervisore.
@@ -42,13 +51,13 @@ namespace test
         protected global::System.Web.UI.WebControls.Label Nomesupervisore;
 
         /// <summary>
-        /// Controllo Arbitro.
+        /// Controllo cbArbitro.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Arbitro;
+        protected global::AjaxControlToolkit.ComboBox cbArbitro;
 
         /// <summary>
         /// Controllo Nomearbitro.
@@ -60,13 +69,13 @@ namespace test
         protected global::System.Web.UI.WebControls.Label Nomearbitro;
 
         /// <summary>
-        /// Controllo Direttore.
+        /// Controllo cbDirettore.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Direttore;
+        protected global::AjaxControlToolkit.ComboBox cbDirettore;
 
         /// <summary>
         /// Controllo Nomedirettore.
