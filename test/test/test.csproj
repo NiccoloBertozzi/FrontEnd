@@ -179,6 +179,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="CreaTorneo.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="EliminaSquadra.aspx" />
     <Content Include="EliminaTorneo.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -290,6 +291,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EliminaSquadra.aspx.cs">
+      <DependentUpon>EliminaSquadra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminaSquadra.aspx.designer.cs">
+      <DependentUpon>EliminaSquadra.aspx</DependentUpon>
     </Compile>
     <Compile Include="EliminaTorneo.aspx.cs">
       <DependentUpon>EliminaTorneo.aspx</DependentUpon>

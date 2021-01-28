@@ -25,11 +25,11 @@ namespace test
         }
         protected void DownloadTornei(string token)
         {
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/Tornei/GetTorneiSvoltiBySupervisore/" + idDelegato);
+            var client = new RestClient("http://aibvcapi.azurewebsites.net/api/v1/tornei/GetTorneiSvoltiBySupervisore/" + idDelegato);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("Authorization", "Bearer " + token);
-            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Admin");
+            request.AddHeader("Cookie", "ruolo=Admin; ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
             IRestResponse response = client.Execute(request);
             //deserializza il risultato ritornato
             dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);

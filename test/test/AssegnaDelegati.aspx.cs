@@ -71,26 +71,11 @@ namespace test
                 }
             }
         }
-
-        protected void btnassegnasupervisore_Click(object sender, EventArgs e)
-        {
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AssegnaDelegati");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.PUT);
-            request.AddHeader("Authorization", "Bearer "+token);
-            request.AddHeader("Content-Type", "application/json");
-            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
-            request.AddParameter("application/json", "{\r\n    \"IdSupervisore\":"+ Session["IDSupervisore"] + ",\r\n    \"IdSupArbitrale\":"+ Session["IDArbitro"] + ",\r\n    \"IdDirettore\":"+ Session["IDDirettore"] + ",\r\n    \"IdTorneo\":"+ Session["IdTorneo"] + "\r\n}", ParameterType.RequestBody);
-            IRestResponse response = client.Execute(request);
-            if (response.StatusCode == HttpStatusCode.OK){
-                Response.Redirect("InfoTorneo.aspx?token=" + token); //rimanda alla form 'output tornei'
-            }
-        }
         
         protected void Supervisore_TextChanged(object sender, EventArgs e)
         {
-            //sostituire con 11 perche il CF è minimo di 11
-            if (cbSupervisori.SelectedItem.Value.Length > 3)
+            //prende supervisore selezionato e scarica id
+            if (cbSupervisori.SelectedItem.Value.Length > 11)
             {
                 var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDSupervisore/" + cbSupervisori.SelectedItem.Value + "/Nome/" + cbSupervisori.SelectedItem.Text.Split(' ')[0] + "/Cognome/" + cbSupervisori.SelectedItem.Text.Split(' ')[1] + "/");
                 client.Timeout = -1;
@@ -106,10 +91,11 @@ namespace test
                 }
             }
         }
+
         protected void Arbitro_TextChanged(object sender, EventArgs e)
         {
-            //sostituire con 11 perche il CF è minimo di 11
-            if (cbArbitro.Text.Length > 3)
+            //prende arbitro selezionato e scarica id
+            if (cbArbitro.SelectedItem.Value.Length > 11)
             {
                 var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDArbitro/" + cbArbitro.SelectedItem.Value + "/Nome/" + cbArbitro.SelectedItem.Text.Split(' ')[0] + "/Cognome/" + cbArbitro.SelectedItem.Text.Split(' ')[1] + "/");
                 client.Timeout = -1;
@@ -125,10 +111,11 @@ namespace test
                 }
             }
         }
+
         protected void Direttore_TextChanged(object sender, EventArgs e)
         {
-            //sostituire con 11 perche il CF è minimo di 11
-            if (cbDirettore.Text.Length > 3)
+            //prende direttore selezionato e scarica id
+            if (cbDirettore.SelectedItem.Value.Length > 11)
             {
                 var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDDirettore/" + cbDirettore.SelectedItem.Value + "/Nome/" + cbDirettore.SelectedItem.Text.Split(' ')[0] + "/Cognome/" + cbDirettore.SelectedItem.Text.Split(' ')[1] + "/");
                 client.Timeout = -1;
@@ -142,6 +129,23 @@ namespace test
                     Session["IDDirettore"] = deserialzied[0].idDelegato;
                     Nomedirettore.Text = deserialzied[0].delegato + ", " + Session["IDDirettore"];
                 }
+            }
+        }
+
+        protected void btnassegnasupervisore_Click(object sender, EventArgs e)
+        {
+            //assegna delegati al torneo
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AssegnaDelegati");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.PUT);
+            request.AddHeader("Authorization", "Bearer " + token);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
+            request.AddParameter("application/json", "{\r\n    \"IdSupervisore\":" + Session["IDSupervisore"] + ",\r\n    \"IdSupArbitrale\":" + Session["IDArbitro"] + ",\r\n    \"IdDirettore\":" + Session["IDDirettore"] + ",\r\n    \"IdTorneo\":" + Session["IdTorneo"] + "\r\n}", ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                Response.Redirect("InfoTorneo.aspx?token=" + token); //rimanda alla form 'output tornei'
             }
         }
     }
