@@ -35,6 +35,7 @@ namespace test
             dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
             if (deserialzied != null)
             {
+                cbSupervisori.Items.Insert(0, new ListItem(string.Empty, string.Empty));
                 for (int i = 0; i < deserialzied.Count; i++)
                 {
                     cbSupervisori.Items.Add(new ListItem(Convert.ToString(deserialzied[i].delegato) + " " + Convert.ToString(deserialzied[i].cf), Convert.ToString(deserialzied[i].cf)));
@@ -50,6 +51,7 @@ namespace test
             deserialzied = JsonConvert.DeserializeObject(response.Content);
             if (deserialzied != null)
             {
+                cbArbitro.Items.Insert(0, new ListItem(string.Empty, string.Empty));
                 for (int i = 0; i < deserialzied.Count; i++)
                 {
                     cbArbitro.Items.Add(new ListItem(Convert.ToString(deserialzied[i].delegato) + " " + Convert.ToString(deserialzied[i].cf), Convert.ToString(deserialzied[i].cf)));
@@ -65,6 +67,7 @@ namespace test
             deserialzied = JsonConvert.DeserializeObject(response.Content);
             if (deserialzied != null)
             {
+                cbDirettore.Items.Insert(0, new ListItem(string.Empty, string.Empty));
                 for (int i = 0; i < deserialzied.Count; i++)
                 {
                     cbDirettore.Items.Add(new ListItem(Convert.ToString(deserialzied[i].delegato) + " " + Convert.ToString(deserialzied[i].cf), Convert.ToString(deserialzied[i].cf)));
@@ -77,7 +80,7 @@ namespace test
             //prende supervisore selezionato e scarica id
             if (cbSupervisori.SelectedItem.Value.Length > 11)
             {
-                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDSupervisore/" + cbSupervisori.SelectedItem.Value + "/Nome/" + cbSupervisori.SelectedItem.Text.Split(' ')[0] + "/Cognome/" + cbSupervisori.SelectedItem.Text.Split(' ')[1] + "/");
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDSupervisore/" + cbSupervisori.SelectedItem.Value + "/Nome/" + cbSupervisori.SelectedItem.Text.Split(' ')[1] + "/Cognome/" + cbSupervisori.SelectedItem.Text.Split(' ')[0] + "/");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.GET);
                 request.AddHeader("Authorization", "Bearer "+token+"");
@@ -97,7 +100,7 @@ namespace test
             //prende arbitro selezionato e scarica id
             if (cbArbitro.SelectedItem.Value.Length > 11)
             {
-                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDArbitro/" + cbArbitro.SelectedItem.Value + "/Nome/" + cbArbitro.SelectedItem.Text.Split(' ')[0] + "/Cognome/" + cbArbitro.SelectedItem.Text.Split(' ')[1] + "/");
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDArbitro/" + cbArbitro.SelectedItem.Value + "/Nome/" + cbArbitro.SelectedItem.Text.Split(' ')[1] + "/Cognome/" + cbArbitro.SelectedItem.Text.Split(' ')[0] + "/");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.GET);
                 request.AddHeader("Authorization", "Bearer " + token + "");
@@ -117,7 +120,7 @@ namespace test
             //prende direttore selezionato e scarica id
             if (cbDirettore.SelectedItem.Value.Length > 11)
             {
-                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDDirettore/" + cbDirettore.SelectedItem.Value + "/Nome/" + cbDirettore.SelectedItem.Text.Split(' ')[0] + "/Cognome/" + cbDirettore.SelectedItem.Text.Split(' ')[1] + "/");
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDDirettore/" + cbDirettore.SelectedItem.Value + "/Nome/" + cbDirettore.SelectedItem.Text.Split(' ')[1] + "/Cognome/" + cbDirettore.SelectedItem.Text.Split(' ')[0] + "/");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.GET);
                 request.AddHeader("Authorization", "Bearer " + token + "");

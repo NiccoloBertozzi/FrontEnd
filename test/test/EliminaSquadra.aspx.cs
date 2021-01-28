@@ -1,7 +1,9 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -18,19 +20,39 @@ namespace test
             if (!this.IsPostBack)
             {
                 //prende id torneo e squadra
-                idSquadra = int.Parse(Session["IdTorneo"].ToString());
+                idSquadra = int.Parse(Session["IdSquadra"].ToString());
                 idTorneo = int.Parse(Session["IdTorneo"].ToString());
-                DownloadInformazioniSquadra(idSquadra);
+                DownloadInformazioniSquadra();
             }
         }
 
-        protected void DownloadInformazioniSquadra(int idSquadra)
+        protected void DownloadInformazioniSquadra()
         {
-            //scarica tutte le informazioni della squadra
+            var client = new RestClient("http://aibvcapi.azurewebsites.net/api/v1/tornei/Squadra/" + idTorneo);
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("Authorization", "Bearer " + token);
+            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Admin");
+            IRestResponse response = client.Execute(request);
+            //deserializza il risultato ritornato
+            dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
+            if (deserialzied != null)
+            {
+                StringBuilder table = new StringBuilder();
+                table.Clear();
+                squadraInfo.Controls.Add(new Literal { Text = table.ToString() });
+                for (int i = 0; i < deserialzied.Count; i++)
+                {
+                    table.Append("<p> idSquadra: " + deserialzied[i].idSquadra + ", nomeTeam: " + deserialzied[i].nomeTeam + ", atleta1: " + deserialzied[i].atleta1 + ", atleta2: " + deserialzied[i].atleta2 + "</p>");
+                }
+                //Append the HTML string to Placeholder.
+                squadraInfo.Controls.Add(new Literal { Text = table.ToString() });
+            }
         }
 
         protected void EliminaSquadra_Click(object sender, EventArgs e)
         {
+            //API non funzionante
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/EliminaSquadra");
             client.Timeout = -1;
             var request = new RestRequest(Method.DELETE);
@@ -39,6 +61,7 @@ namespace test
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Admin");
             request.AddParameter("application/json", "{\r\n    \"idTorneo\" : " + idTorneo + ",\r\n    \"idSquadra\" : " + idSquadra + "\r\n}", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
+            Response.Redirect("AutorizzaTorneo.aspx");
         }
     }
 }
