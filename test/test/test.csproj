@@ -169,6 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AnagraficaAtleta.aspx" />
+    <Content Include="AnagraficaDelegato.aspx" />
     <Content Include="AnagraficaSocieta.aspx" />
     <Content Include="AtletaIscrizioni.aspx" />
     <Content Include="AutorizzaTorneo.aspx" />
@@ -254,6 +255,13 @@
     </Compile>
     <Compile Include="AnagraficaAtleta.aspx.designer.cs">
       <DependentUpon>AnagraficaAtleta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AnagraficaDelegato.aspx.cs">
+      <DependentUpon>AnagraficaDelegato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnagraficaDelegato.aspx.designer.cs">
+      <DependentUpon>AnagraficaDelegato.aspx</DependentUpon>
     </Compile>
     <Compile Include="AnagraficaSocieta.aspx.cs">
       <DependentUpon>AnagraficaSocieta.aspx</DependentUpon>
