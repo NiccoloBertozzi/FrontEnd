@@ -106,7 +106,7 @@
                 </div>
                 <div class="form-group">
                     <label for="lblTipoTorneo">Tipo Torneo: </label>
-                    <asp:DropDownList ID="cmbTipoTorneo" runat="server" CssClass="form-control" AutoPostBack="True"  OnSelectedIndexChanged="cmbTipoTorneo_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:DropDownList ID="cmbTipoTorneo" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="cmbTipoTorneo_SelectedIndexChanged"></asp:DropDownList>
                     <br />
                 </div>
                 <div class="form-group">
@@ -125,12 +125,10 @@
                     <br />
                 </div>
                 <br />
-                <div class="form-group row" id="impiantiSelezionati" runat="server">
-                    <label for="lblIDParametri" class="col-12">Impianti: </label>
-                    <div class="col-2">
-                        <asp:PlaceHolder ID="cmbImpianti" runat="server"></asp:PlaceHolder>
-                        <asp:Button ID="AddImpianto" runat="server" Text="+" OnClick="AddImpianto_Click" CssClass="btn btn-primary" />
-                    </div>
+                <div class="form-group" id="impiantiSelezionati" runat="server">
+                    <label for="lblIDParametri">Impianti: </label>
+                    <asp:PlaceHolder ID="cmbImpianti" runat="server"></asp:PlaceHolder>
+                    <br />
                 </div>
                 <asp:Button ID="Button1" runat="server" Text="Crea torneo" OnClick="creaTorneo_Click" CssClass="btn btn-primary" />
             </div>
