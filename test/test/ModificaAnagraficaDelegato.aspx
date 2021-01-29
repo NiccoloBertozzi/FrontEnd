@@ -138,14 +138,11 @@
                 </div>
             </div>
             <div class="row">
-                <a href="#" class="btnLogin mx-auto mt-3"><asp:Button runat="server" Text="Modifica" /></a>
+                <asp:Button runat="server" Text="Modifica" OnClick="ModificaAnagrafica_Click" class="btnLogin mx-auto mt-3"/>
             </div>
-
         </div>
     </form>
-
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-
 </body>
 </html>

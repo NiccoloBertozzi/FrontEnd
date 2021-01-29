@@ -13,5 +13,9 @@ namespace test
 		{
 
 		}
+		protected void ModificaAnagrafica_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

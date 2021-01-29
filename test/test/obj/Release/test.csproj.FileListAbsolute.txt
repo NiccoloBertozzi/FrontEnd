@@ -377,7 +377,6 @@ C:\Users\Alex\Desktop\AIBVC\FrontEnd\test\test\bin\it\System.Web.Webpages.Deploy
 C:\Users\Alex\Desktop\AIBVC\FrontEnd\test\test\bin\it\System.Web.Webpages.Razor.resources.dll
 C:\Users\Alex\Desktop\AIBVC\FrontEnd\test\test\bin\it\System.Web.Helpers.resources.dll
 C:\Users\Alex\Desktop\AIBVC\FrontEnd\test\test\bin\it\System.Web.Mvc.resources.dll
-C:\Users\Alex\Desktop\AIBVC\FrontEnd\test\test\obj\Release\test.csprojAssemblyReference.cache
 C:\Users\Alex\Desktop\AIBVC\FrontEnd\test\test\obj\Release\test.csproj.CoreCompileInputs.cache
 C:\Users\Alex\Desktop\AIBVC\FrontEnd\test\test\obj\Release\test.csproj.CopyComplete
 C:\Users\Alex\Desktop\AIBVC\FrontEnd\test\test\obj\Release\test.dll
@@ -770,3 +769,4 @@ C:\Users\alegi\OneDrive\Documenti\GitHub\FrontEnd\test\test\obj\Release\test.csp
 C:\Users\alegi\OneDrive\Documenti\GitHub\FrontEnd\test\test\obj\Release\test.csproj.CopyComplete
 C:\Users\alegi\OneDrive\Documenti\GitHub\FrontEnd\test\test\obj\Release\test.dll
 C:\Users\alegi\OneDrive\Documenti\GitHub\FrontEnd\test\test\obj\Release\test.pdb
+C:\Users\Alex\Desktop\AIBVC\FrontEnd\test\test\obj\Release\test.csprojAssemblyReference.cache

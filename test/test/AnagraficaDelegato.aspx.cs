@@ -13,15 +13,14 @@ namespace test
     public partial class AnagraficaDelegato : System.Web.UI.Page
     {
         string token;
-        int idDelegato;
         protected void Page_Load(object sender, EventArgs e)
         {
             token = Session["Token"].ToString();
-            idDelegato = Convert.ToInt32(Session["idUtente"]);
+            int idDelegato = Convert.ToInt32(Session["idUtente"]);
             DownloadAnagrafica(idDelegato);
         }
 
-        protected void DownloadAnagrafica(int idAtleta)
+        protected void DownloadAnagrafica(int idDelegato)
         {
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetAnagraficaDelegato/" + idDelegato);
             client.Timeout = -1;

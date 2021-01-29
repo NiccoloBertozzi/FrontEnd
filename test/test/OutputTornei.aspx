@@ -55,7 +55,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Formazione</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Formazione</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
@@ -71,9 +71,6 @@
                         <asp:PlaceHolder runat="server" ID="dinamicload"></asp:PlaceHolder>
                     </ul>
                 </div>
-                <div class="col-md-1 col-sm-12">
-                    <a href="Login.aspx" class="loginButtonTornei btn float-right-md float-left-sm">Accedi</a>
-                </div>
             </div>
         </div>
     </nav>
@@ -82,7 +79,7 @@
         <asp:HiddenField ID="HiddenField1" runat="server" />
         <!--Banner-->
         <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Calendario L1</h1>
+            <h1 class=" col-12 text-center my-auto">Tornei</h1>
         </div>
 
         <div class="container">

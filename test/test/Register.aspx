@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Formazione</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Formazione</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>

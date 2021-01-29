@@ -49,5 +49,9 @@ namespace test
                 anagraficaAtleta.Controls.Add(new Literal { Text = table.ToString() });
             }
         }
+        protected void ModificaAnagrafica_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ModificaAnagraficaAtleta.aspx"); //manda alla form 'ModificaAnagraficaAtleta'
+        }
     }
 }
