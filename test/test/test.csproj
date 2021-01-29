@@ -204,6 +204,7 @@
     <Content Include="InfoTorneo.aspx" />
     <Content Include="IscrizioneSquadra.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="ModificaAnagraficaDelegato.aspx" />
     <Content Include="NuovaPassword.aspx" />
     <Content Include="OutputClassifica.aspx" />
     <Content Include="OutputTornei.aspx" />
@@ -339,6 +340,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\getToken.cs" />
+    <Compile Include="ModificaAnagraficaDelegato.aspx.cs">
+      <DependentUpon>ModificaAnagraficaDelegato.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificaAnagraficaDelegato.aspx.designer.cs">
+      <DependentUpon>ModificaAnagraficaDelegato.aspx</DependentUpon>
+    </Compile>
     <Compile Include="NuovaPassword.aspx.cs">
       <DependentUpon>NuovaPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

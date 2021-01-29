@@ -50,5 +50,10 @@ namespace test
                 anagraficaDelegato.Controls.Add(new Literal { Text = table.ToString() });
             }
         }
+
+        protected void ModificaAnagraficaDelegato_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ModificaAnagraficaDelegato.aspx");
+        }
     }
 }
