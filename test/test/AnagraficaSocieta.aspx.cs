@@ -58,5 +58,10 @@ namespace test
                 visualizzaSocieta.Controls.Add(new Literal { Text = table.ToString() });
             }
         }
+        
+        protected void ModificaAnagrafica_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ModificaAnagraficaSocieta.aspx"); //manda alla form 'ModificaAnagraficaSocieta'
+        }
     }
 }
