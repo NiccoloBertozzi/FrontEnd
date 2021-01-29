@@ -1,16 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ModificaAnagraficaAtleta.aspx.cs" Inherits="test.ModificaAnagraficaAtleta" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ModificaAnagraficaSocieta.aspx.cs" Inherits="test.ModificaAnagraficaSocieta" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifica anagrafica</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
 </head>
-
 <body>
     <!--Navigatore-->
     <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky" id="my-navbar">
@@ -60,113 +56,132 @@
     </nav>
 <!--Banner-->
 <div class="page-title row">
-    <h1 class=" col-12 text-center my-auto">Modifica Anagrafica - Atleta</h1>
+    <h1 class=" col-12 text-center my-auto">Modifica Anagrafica - Societa</h1>
 </div>
 
     <div class="container">
         <form id="form1">
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
-                    <label for="nome" class="col-form-label">Nome</label>
+                    <label for="nomeSocieta" class="col-form-label">Nome Società</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <input type="text" class="form-control" id="nome" placeholder="Nome">
-                </div>
-            </div>
-            <div class="row mt-lg-4">
-                <div class="col-sm-12 col-lg-6">
-                    <label for="cognome" class="col-form-label">Cognome</label>
-                </div>
-                <div class="col-sm-12 col-lg-6">
-                    <input type="text" class="form-control" id="cognome" placeholder="Cognome">
+                    <asp:Textbox runat ="server" type="text" class="form-control" id="nome" placeholder="NomeSocieta"></asp:Textbox>
                 </div>
             </div>
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
-                    <label for="lbldataNascita" class="col-form-label">Sesso</label>
+                    <label for="indirizzo" class="col-form-label">Indirizzo</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:Textbox runat="server" type="text" class="form-control" id="indirizzo" placeholder="Indirizzo"></asp:Textbox>
+                </div>
+            </div>
+            <div class="row mt-lg-4">
+                <div class="col-sm-12 col-lg-6">
+                    <label for="lblCAP" class="col-form-label">Codice Postale (CAP)</label>
                 </div>
                 <div class="col-sm-6 col-lg-2 form-check form-check-inline">
-                    <input name="sesso" type="radio" id="maschio" checked>
-                    <label for="maschio" class="lblRadio">Maschio</label>
+                    <asp:Textbox runat="server" type="text" class="form-control" id="CAP" placeholder="Codice Postale (CAP)"></asp:Textbox>
                 </div>
-                <div class="col-sm-6 col-lg-2 form-check form-check-inline">
-                    <input name="sesso" type="radio" id="femmina">
-                    <label for="femmina" class="lblRadio">Femmina</label>
+                
+            </div>
+            <div class="row mt-lg-4">
+                <div class="col-sm-12 col-lg-6">
+                    <label for="lbldataFondazione" class="col-form-label">Data Fondazione</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:TextBox ID="dataFondazione" runat="server" class="form-control" placeholder="Data Fondazione"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
-                    <label for="lbldataNascita" class="col-form-label">Data di nascita</label>
+                    <label for="lblDataAffiliazione" class="col-form-label">Data Affiliazione</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox ID="dataNascita" runat="server" class="form-control" placeholder="Data di nascita"></asp:TextBox>
-                </div>
-            </div>
-            <div class="row mt-lg-4">
-                <div class="col-sm-12 col-lg-6">
-                    <label for="lblcomuneNascita" class="col-form-label">Comune di nascita</label>
-                </div>
-                <div class="col-sm-12 col-lg-6">
-                    <input type="text" class="form-control" id="comuneNascita" placeholder="Comune di nascita">
+                    <asp:Textbox runat="server" type="text" class="form-control" id="dataAffiliazione" placeholder="Data Affiliazione"></asp:Textbox>
                 </div>
             </div>
             <div class="row mt-lg-4 mb-2">
                 <div class="col-sm-12 col-lg-6">
-                    <label for="lblcomuneResidenza" class="col-form-label">Comune di residenza</label>
+                    <label for="lblcodiceAffiliazione" class="col-form-label">CodiceAffiliazione</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <input type="text" class="form-control" id="comuneResidenza" placeholder="Comune di residenza">
+                    <asp:Textbox runat="server" type="text" class="form-control" id="codiceAffiliazione" placeholder="Codice Affiliazione"></asp:Textbox>
                 </div>
             </div>
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
-                    <label for="lblIndirizzo" class="col-form-label">Indirizzo di residenza</label>
+                    <label for="lblEmail" class="col-form-label">Email</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <input type="text" class="form-control" id="indirizzo" placeholder="Indirizzo di residenza">
+                    <asp:Textbox runat="server" type="text" class="form-control" id="email" placeholder="Email"></asp:Textbox>
                 </div>
             </div>
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
-                    <label for="lblCAP" class="col-form-label">Codice postale (CAP)</label>
+                    <label for="lblSito" class="col-form-label">Sito</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <input type="text" class="form-control" id="cap" placeholder="Codice Postale">
+                    <asp:Textbox runat="server" type="text" class="form-control" id="sito" placeholder="Sito"></asp:Textbox>
                 </div>
             </div>
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
-                    <label for="lblTel" class="col-form-label">Numero di cellulare</label>
+                    <label for="lblTel1" class="col-form-label">Numero di telefono 1</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <input type="text" class="form-control" id="tel" placeholder="Numero di cellulare">
+                    <asp:Textbox runat="server" type="text" class="form-control" id="tel1" placeholder="Numero di telefono 1"></asp:Textbox>
+                </div>
+            </div>
+             <div class="row mt-lg-4">
+                <div class="col-sm-12 col-lg-6">
+                    <label for="lblTel2" class="col-form-label">Numero di telefono 2</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:Textbox runat="server" type="text" class="form-control" id="tel2" placeholder="Numero di telefono 2"></asp:Textbox>
                 </div>
             </div>
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
-                    <label for="lblDataScadCert" class="col-form-label ">Altezza</label>
+                    <label for="lblPec" class="col-form-label ">Posta Elettronica Certificata (PEC)</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <input type="number" class="form-control " id="altezza" placeholder="Altezza">
+                    <asp:Textbox runat="server" type="number" class="form-control " id="PEC" placeholder="Posta Elettronica Certificata (PEC)"></asp:Textbox>
+                </div>       
+            </div>
+            <div class="row mt-lg-4">
+                <div class="col-sm-12 col-lg-6">
+                    <label for="lblPIVA" class="col-form-label ">Partita Iva (P.IVA)</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:Textbox runat ="server" type="number" class="form-control " id="PIVA" placeholder="Partita Iva (P.IVA)"></asp:Textbox>
                 </div>
             </div>
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
-                    <label for="lblPeso" class="col-form-label ">Peso</label>
+                    <label for="lblCF" class="col-form-label ">Codice Fiscale</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <input type="number" class="form-control " id="peso" placeholder="Peso">
+                    <asp:Textbox runat="server" type="number" class="form-control " id="CF" placeholder="Codice Fiscale"></asp:Textbox>
                 </div>
             </div>
-        </form>
-        <div class="row">
-            <a href="#" class="btnLogin mx-auto mt-3">Modifica</a>
-        </div>
+            <div class="row mt-lg-4">
+                <div class="col-sm-12 col-lg-6">
+                    <label for="lblCU" class="col-form-label ">Certificazione Unica</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:Textbox runat ="server" type="number" class="form-control " id="CU" placeholder="Certificazione Unica"></asp:Textbox>
+                </div>
+            </div>
         
+        <div class="row">
+            <a href="#" class="btnLogin mx-auto mt-3"><asp:Button text ="Modifica" runat="server" OnClick="ModificaAnagrafica_Click"/></a>
+        </div>
+        </form>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
-
 </html>
