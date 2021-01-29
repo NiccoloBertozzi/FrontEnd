@@ -13,15 +13,16 @@ namespace test
     public partial class EliminaSquadra : System.Web.UI.Page
     {
         string token;
-        int idSquadra, idTorneo;
+        int idSquadra, idTorneo, idSupervisore;
         protected void Page_Load(object sender, EventArgs e)
         {
             token = Session["Token"].ToString();
             if (!this.IsPostBack)
             {
-                //prende id torneo e squadra
+                //prende id torneo squadra e supervisore
                 idSquadra = int.Parse(Session["IdSquadra"].ToString());
                 idTorneo = int.Parse(Session["IdTorneo"].ToString());
+                idSupervisore = int.Parse(Session["IdSupervisore"].ToString());
                 DownloadInformazioniSquadra();
             }
         }
@@ -52,14 +53,12 @@ namespace test
 
         protected void EliminaSquadra_Click(object sender, EventArgs e)
         {
-            //API non funzionante
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/EliminaSquadra");
+            var client = new RestClient("https://localhost:44339/api/v1/tornei/EliminaSquadraBySupervisore");
             client.Timeout = -1;
             var request = new RestRequest(Method.DELETE);
             request.AddHeader("Authorization", "Bearer " + token);
             request.AddHeader("Content-Type", "application/json");
-            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Admin");
-            request.AddParameter("application/json", "{\r\n    \"idTorneo\" : " + idTorneo + ",\r\n    \"idSquadra\" : " + idSquadra + "\r\n}", ParameterType.RequestBody);
+            request.AddParameter("application/json", "{\r\n    \"idTorneo\": " + idTorneo + ",\r\n    \"idSquadra\":" + idSquadra + ",\r\n    \"IdSupervisore\":" + idSupervisore + "\r\n}", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
             Response.Redirect("AutorizzaTorneo.aspx");
         }
