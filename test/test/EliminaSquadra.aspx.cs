@@ -16,20 +16,20 @@ namespace test
         int idSquadra, idTorneo, idSupervisore;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //prende id torneo squadra e supervisore
             token = Session["Token"].ToString();
+            idSquadra = int.Parse(Session["IdSquadra"].ToString());
+            idTorneo = int.Parse(Session["IdTorneo"].ToString());
+            idSupervisore = int.Parse(Session["IdUtente"].ToString());
             if (!this.IsPostBack)
             {
-                //prende id torneo squadra e supervisore
-                idSquadra = int.Parse(Session["IdSquadra"].ToString());
-                idTorneo = int.Parse(Session["IdTorneo"].ToString());
-                idSupervisore = int.Parse(Session["IdSupervisore"].ToString());
                 DownloadInformazioniSquadra();
             }
         }
 
         protected void DownloadInformazioniSquadra()
         {
-            var client = new RestClient("http://aibvcapi.azurewebsites.net/api/v1/tornei/Squadra/" + idTorneo);
+            var client = new RestClient("http://aibvcapi.azurewebsites.net/api/v1/tornei/Squadra/" + idSquadra);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("Authorization", "Bearer " + token);
@@ -53,13 +53,16 @@ namespace test
 
         protected void EliminaSquadra_Click(object sender, EventArgs e)
         {
-            var client = new RestClient("https://localhost:44339/api/v1/tornei/EliminaSquadraBySupervisore");
+            //elimina squadra da lista iscritti (solo supervisore)
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/EliminaSquadraBySupervisore");
             client.Timeout = -1;
             var request = new RestRequest(Method.DELETE);
             request.AddHeader("Authorization", "Bearer " + token);
             request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Cookie", "ruolo=Admin; ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
             request.AddParameter("application/json", "{\r\n    \"idTorneo\": " + idTorneo + ",\r\n    \"idSquadra\":" + idSquadra + ",\r\n    \"IdSupervisore\":" + idSupervisore + "\r\n}", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
+            Response.Write("<script>alert('" + response.Content.ToString() + "');</script>");
             Response.Redirect("AutorizzaTorneo.aspx");
         }
     }
