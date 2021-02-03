@@ -36,7 +36,9 @@ namespace test
                     Response.Redirect("OutputTornei.aspx"); //rimanda alla form 'output tornei'
                 }
                 else
-                    Response.Write("<script>alert('" + response.ErrorMessage + "');</script>");
+                {
+                    Response.Write("<script>alert('Dati inseriti non coretti');</script>");
+                }
                 //------------------------------------------
             }
             else
