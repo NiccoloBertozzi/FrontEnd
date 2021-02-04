@@ -66,7 +66,7 @@
         <asp:HiddenField ID="HiddenField1" runat="server" />
         <!--Banner-->
         <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Iscrizione Attive</h1>
+            <h1 class=" col-12 text-center my-auto">Iscrizioni Effettuate</h1>
         </div>
 
         <div class="container">
@@ -78,9 +78,24 @@
                 </button>
             </div>
             <!--Tornei-->
+            <h2 class=" col-12 text-center">Tornei attivi</h2>
+
             <div class="card-deck">
                 <div class="row">
                     <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>
+                </div>
+            </div> 
+
+            <hr style="
+            background: black; 
+            margin-bottom: 10px;
+            "/>
+            
+            <h2 class=" col-12 text-center">Tornei attualmente in corso</h2>
+            <!--Tornei in corso-->
+            <div class="card-deck">
+                <div class="row">
+                    <asp:PlaceHolder runat="server" ID="inCorso"></asp:PlaceHolder>
                 </div>
             </div>
         </div>

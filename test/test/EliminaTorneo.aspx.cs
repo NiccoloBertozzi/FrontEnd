@@ -104,6 +104,8 @@ namespace test
                 request.AddParameter("application/json",prova, ParameterType.RequestBody);
                 IRestResponse response1 = client.Execute(request);
             }
+            else Response.Write("<script>alert('Impossibile annullare l'iscrizione: il torneo è già iniziato');</script>");
+
             Response.Redirect("OutputTorneiIscritti.aspx"); //rimanda alla form 'output tornei iscritti'
         }
     }
