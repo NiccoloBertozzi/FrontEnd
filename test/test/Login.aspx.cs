@@ -12,6 +12,10 @@ namespace test
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["idUtente"] != null)
+            {
+                Response.Redirect("OutputTornei.aspx"); //rimanda alla form 'output tornei'
+            }
         }
 
         protected void btn_accedi_Click(object sender, EventArgs e)

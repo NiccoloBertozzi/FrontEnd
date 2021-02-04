@@ -105,6 +105,14 @@
                     <asp:TextBox ID="txtNumTeamQualifiche" runat="server" required="true" placeholder="Inserisci il numero di Team che partecipano alle qualifiche" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
+                    <label for="lblNumTeamQualificati">Numero Team che si qualificano: </label>
+                    <asp:TextBox ID="txtNumTeamQualificati" runat="server" required="true" placeholder="Inserisci il numero di Team  che si qualificano" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label for="lblNumWildCard">Numero Team che hanno la wildCard: </label>
+                    <asp:TextBox ID="txtNumWildCard" runat="server" required="true" placeholder="Inserisci il numero di Team Team che hanno la wildCard" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="form-group">
                     <label for="lblTipoTorneo">Tipo Torneo: </label>
                     <asp:DropDownList ID="cmbTipoTorneo" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="cmbTipoTorneo_SelectedIndexChanged"></asp:DropDownList>
                     <br />

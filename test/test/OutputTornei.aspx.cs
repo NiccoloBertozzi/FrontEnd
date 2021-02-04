@@ -18,49 +18,73 @@ namespace test
 
         public void Page_Load(object sender, EventArgs e)
         {
-            token = Session["Token"].ToString();
-            if (Session["ruolo"].ToString() == "Atleta")
+            if (Session["ruolo"] != null)
             {
-                StringBuilder table = new StringBuilder();
-                table.Clear();
-                dinamicload.Controls.Add(new Literal { Text = table.ToString() });
-                table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active pointer\" onclick=\"LoadPageIscritti(); \">Tornei Iscritti</a></li>");
-                dinamicload.Controls.Add(new Literal { Text = table.ToString() });
+                if (Session["ruolo"].ToString() == "Atleta")
+                {
+                    StringBuilder table = new StringBuilder();
+                    table.Clear();
+                    dinamicload.Controls.Add(new Literal { Text = table.ToString() });
+                    table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active pointer\" onclick=\"LoadPageIscritti(); \">Tornei Iscritti</a></li>");
+                    dinamicload.Controls.Add(new Literal { Text = table.ToString() });
+                }
+                else if (Session["ruolo"].ToString() == "Admin")
+                {
+                    StringBuilder table = new StringBuilder();
+                    table.Clear();
+                    dinamicload.Controls.Add(new Literal { Text = table.ToString() });
+                    table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active pointer\" onclick=\"LoadPage(); \">Non autorizzati</a></li>");
+                    table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active pointer\" onclick=\"LoadPageDelegati(); \">Tornei delegato</a></li>");
+                    dinamicload.Controls.Add(new Literal { Text = table.ToString() });
+                }
+                else if (Session["ruolo"].ToString() == "Societa")
+                {
+                    StringBuilder table = new StringBuilder();
+                    table.Clear();
+                    dinamicload.Controls.Add(new Literal { Text = table.ToString() });
+                    table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active pointer\" onclick=\"LoadCreaTorneo(); \">CreaTorneo</a></li>");
+                    dinamicload.Controls.Add(new Literal { Text = table.ToString() });
+                }
+                else if (Session["ruolo"].ToString() == "Delegato")
+                {
+                    StringBuilder table = new StringBuilder();
+                    table.Clear();
+                    dinamicload.Controls.Add(new Literal { Text = table.ToString() });
+                    table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active pointer\" onclick=\"LoadPageDelegati(); \">Tornei delegato</a></li>");
+                    dinamicload.Controls.Add(new Literal { Text = table.ToString() });
+                }
             }
-            else if (Session["ruolo"].ToString() == "Admin")
+            if (Session["idUtente"] == null)
             {
                 StringBuilder table = new StringBuilder();
                 table.Clear();
-                dinamicload.Controls.Add(new Literal { Text = table.ToString() });
-                table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active pointer\" onclick=\"LoadPage(); \">Non autorizzati</a></li>");
-                table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active pointer\" onclick=\"LoadPageDelegati(); \">Tornei delegato</a></li>");
-                dinamicload.Controls.Add(new Literal { Text = table.ToString() });
-            }
-            else if (Session["ruolo"].ToString() == "Societa")
-            {
-                StringBuilder table = new StringBuilder();
-                table.Clear();
-                dinamicload.Controls.Add(new Literal { Text = table.ToString() });
-                table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active pointer\" onclick=\"LoadCreaTorneo(); \">CreaTorneo</a></li>");
-                dinamicload.Controls.Add(new Literal { Text = table.ToString() });
+                AccediBtn.Controls.Add(new Literal { Text = table.ToString() });
+                table.Append("<button type=\"button\" class=\"btn btn-light\" onclick=\"LoadLogin(); \">Login</button>");
+                AccediBtn.Controls.Add(new Literal { Text = table.ToString() });
             }
             //Append the HTML string to Placeholder.
             if (!this.IsPostBack)
             {
                 //passo i tornei fino a due mesi prima
                 string data = Convert.ToDateTime(DateTime.Now.Date.AddDays(+60)).ToString("yyyy-MM-dd");
-                DownloadDataTornei(token, data);
+                DownloadDataTornei(data);
             }
         }
-        protected void DownloadDataTornei(string token, string data)
+        protected void DownloadDataTornei(string data)
         {
             //se è atlteta scarico tutti i tornei disponibili se è societa scarico tutti i tornei di quella societa
-            var client=new RestClient();
-            client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/GetTornei/" + data);
-            if(Session["ruolo"].ToString() == "Societa") client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/societa/GetTorneiSocieta/" + data+ "/IdSocieta/" + Session["IdUtente"].ToString());
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/GetTornei/" + data);
+            if(Session["ruolo"]!=null)if(Session["ruolo"].ToString() == "Societa") client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/societa/GetTorneiSocieta/" + data+ "/IdSocieta/" + Session["IdUtente"].ToString());
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
-            request.AddHeader("Authorization", "Bearer " + token);
+            if (Session["ruolo"] != null)
+            {
+                if (Session["ruolo"].ToString() == "Societa")
+                {
+                    token = Session["Token"].ToString();
+                    request.AddHeader("Authorization", "Bearer " + token);
+                }
+            }
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
             IRestResponse response = client.Execute(request);
             //deserializza il risultato ritornato
@@ -78,7 +102,7 @@ namespace test
                         "<div class=\"card-body\">" +
                         "<h5 class=\"card-title\">" + deserialzied[i].titolo + "</h5>" +
                         "<p class=\"card-text my-2\">€" + deserialzied[i].montepremi + "</p>" +
-                        "<p class=\"card-text my-2\"><small class=\"text-muted\">" + deserialzied[i].citta + "</small></p>" +
+                        //"<p class=\"card-text my-2\"><small class=\"text-muted\">" + deserialzied[i].citta + "</small></p>" +
                         "<p class=\"card-text my-2\"><small class=\"text-muted\">" + Convert.ToDateTime(deserialzied[i].dataInizio).Date.ToString("dd/MM/yyyy") + "</small></p>" +
                         "</div>" +
                         "</div>" +
@@ -90,8 +114,11 @@ namespace test
         }
         protected void clickArea_Click(object sender, EventArgs e)
         {
-            Session["IdTorneo"]= HiddenField1.Value;
-            Response.Redirect("InfoTorneo.aspx"); //rimanda alla form 'output tornei'
+            if (Session["idUtente"] != null)
+            {
+                Session["IdTorneo"] = HiddenField1.Value;
+                Response.Redirect("InfoTorneo.aspx"); //rimanda alla form 'output tornei'
+            }
         }
     }
 }

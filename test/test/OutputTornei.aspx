@@ -28,6 +28,15 @@
         function LoadCreaTorneo() {
             window.location = "CreaTorneo.aspx";
         }
+        function LoadClassificaMaschile() {
+            window.location = "OutputClassifica.aspx?genere=M";
+        }
+        function LoadClassificaFemminile() {
+            window.location = "OutputClassifica.aspx?genere=F";
+        }
+        function LoadLogin() {
+            window.location = "Login.aspx";
+        }
     </script>
 </head>
 <body>
@@ -39,7 +48,7 @@
             </button>
             <img src="Img/aibvc-logo.png" style="width: 94px;">
             <div class="collapse navbar-collapse row" id="navcol-1">
-                <div class="col-md-11 col-sm-12">
+                <div class="col-md-10 col-sm-12">
                     <ul class="nav navbar-nav ml-5" id="myNavUl">
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
                         <li class="nav-item" role="presentation">
@@ -50,8 +59,8 @@
                                     <a class="dropdown-item" href="#">Calendario L1</a>
                                     <a class="dropdown-item" href="#">Calendario L2</a>
                                     <a class="dropdown-item" href="#">Calendario L3</a>
-                                    <a class="dropdown-item" href="#">Classifica Maschile</a>
-                                    <a class="dropdown-item" href="#">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="#" onclick="LoadClassificaMaschile();">Classifica Maschile</a>
+                                    <a class="dropdown-item" href="#" onclick="LoadClassificaFemminile();">Classifica Femminile</a>
                                 </div>
                             </div>
                         </li>
@@ -71,6 +80,9 @@
                         <asp:PlaceHolder runat="server" ID="dinamicload"></asp:PlaceHolder>
                     </ul>
                 </div>
+                <div class="col-2">
+                    <asp:PlaceHolder runat="server" ID="AccediBtn"></asp:PlaceHolder>
+                </div>
             </div>
         </div>
     </nav>
@@ -86,7 +98,7 @@
             <!--CERCA-->
             <div class="searchBox mx-2 my-2">
                 <input class="searchInput" type="text" name="" placeholder="Cerca">
-                <button class="searchButton" href="#">
+                <button class="searchButton">
                     <i class=" fas fa-search"></i>
                 </button>
             </div>
