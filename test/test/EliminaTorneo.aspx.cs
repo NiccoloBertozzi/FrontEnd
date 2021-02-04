@@ -46,33 +46,33 @@ namespace test
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].titolo + "</label></div>" +
                     "<div class=\"col-3\"><h5 class=\"card-title\">Tipo Torneo</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].tipoTorneo + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Supervisore Torneo</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].supervisoreTorneo + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Supervisore Arbitrale</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].supervisoreArbitrale + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Direttore Competizione</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].direttoreCompetizione + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Formula Torneo</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].formula + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Nome Impianto</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].nomeImpianto + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Citta</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].citta + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">QuotaIscrizione</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].quotaIscrizione + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Punti Vittoria</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].puntiVittoria + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Montepremi</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].montepremi + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Data Inizio</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].dataInizio + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Data Fine</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].dataFine + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Genere</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].gender + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Numero Team Totali Tabellone</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].numTeamTabellone + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Numero Team che partecipano alle qualifiche</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].numTeamQualifiche + "</label></div>" +
                     "</div>");
 
