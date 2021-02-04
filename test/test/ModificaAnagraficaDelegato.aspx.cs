@@ -11,7 +11,8 @@ namespace test
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["ruolo"].ToString() == "Atleta") Response.Redirect("ModificaAnagraficaAtleta.aspx");
+            if (Session["ruolo"].ToString() == "Societa") Response.Redirect("ModificaAnagraficaSocieta.aspx");
         }
         protected void ModificaAnagrafica_Click(object sender, EventArgs e)
         {

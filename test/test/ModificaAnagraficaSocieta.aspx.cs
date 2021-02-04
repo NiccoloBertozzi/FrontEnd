@@ -15,14 +15,12 @@ namespace test
         string token;
 		protected void Page_Load(object sender, EventArgs e)
 		{
+            if (Session["ruolo"].ToString() == "Atleta") Response.Redirect("ModificaAnagraficaAtleta.aspx");
+            if (Session["ruolo"].ToString() == "Admin" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("ModificaAnagraficaDelegato.aspx");
             token = Session["Token"].ToString();
             int idSocieta = Convert.ToInt32(Session["idUtente"]);
             DownloadSocieta(idSocieta);
         }
-		protected void ModificaAnagrafica_Click(object sender, EventArgs e)
-		{
-
-		}
         protected void DownloadSocieta(int idSocieta)
         {
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/societa/GetAnagraficaSocieta/" + idSocieta);
@@ -53,6 +51,10 @@ namespace test
                     CU.Text = deserialzied[i].cu;
                 }
             }
+        }
+        protected void ModificaAnagrafica_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

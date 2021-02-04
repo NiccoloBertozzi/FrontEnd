@@ -6,6 +6,8 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="Content/styles.css" />
 </head>
 <body>
     <!--Navigatore-->
@@ -147,7 +149,7 @@
                     <label for="lblPec" class="col-form-label ">Posta Elettronica Certificata (PEC)</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" type="number" class="form-control " ID="PEC" placeholder="Posta Elettronica Certificata (PEC)"></asp:TextBox>
+                    <asp:TextBox runat="server" type="text" class="form-control " ID="PEC" placeholder="Posta Elettronica Certificata (PEC)"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-lg-4">
@@ -155,7 +157,7 @@
                     <label for="lblPIVA" class="col-form-label ">Partita Iva (P.IVA)</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" type="number" class="form-control " ID="PIVA" placeholder="Partita Iva (P.IVA)"></asp:TextBox>
+                    <asp:TextBox runat="server" type="text" class="form-control " ID="PIVA" placeholder="Partita Iva (P.IVA)"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-lg-4">
@@ -163,7 +165,7 @@
                     <label for="lblCF" class="col-form-label ">Codice Fiscale</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" type="number" class="form-control " ID="CF" placeholder="Codice Fiscale"></asp:TextBox>
+                    <asp:TextBox runat="server" type="text" class="form-control " ID="CF" placeholder="Codice Fiscale"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-lg-4">
@@ -171,13 +173,14 @@
                     <label for="lblCU" class="col-form-label ">Certificazione Unica</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" type="number" class="form-control " ID="CU" placeholder="Certificazione Unica"></asp:TextBox>
+                    <asp:TextBox runat="server" type="text" class="form-control " ID="CU" placeholder="Certificazione Unica"></asp:TextBox>
                 </div>
             </div>
 
             <div class="row">
                 <asp:Button Text="Modifica" runat="server" OnClick="ModificaAnagrafica_Click" class="btnLogin mx-auto mt-3" />
             </div>
+            <br />
         </form>
     </div>
     <script src="assets/js/jquery.min.js"></script>

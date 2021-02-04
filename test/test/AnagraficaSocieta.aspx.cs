@@ -15,6 +15,8 @@ namespace test
         string token;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["ruolo"].ToString() == "Atleta") Response.Redirect("AnagraficaAtleta.aspx");
+            if (Session["ruolo"].ToString() == "Admin" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("AnagraficaDelegato.aspx");
             token = Session["Token"].ToString();
             int idSocieta = Convert.ToInt32(Session["idUtente"]);
             DownloadSocieta(idSocieta);
@@ -37,22 +39,24 @@ namespace test
                 visualizzaSocieta.Controls.Add(new Literal { Text = table.ToString() });
                 for (int i = 0; i < deserialzied.Count; i++)
                 {
+                    string affiliata = "Sì";
+                    if (deserialzied[i].affiliata.ToString() == "False") affiliata = "No";
                     table.Append("" +
-                        "<p>" + deserialzied[i].nomeSocieta + "</p>" +
-                        "<p>" + deserialzied[i].indirizzo + "</p>" +
-                        "<p>" + deserialzied[i].cap + "</p>" +
-                        "<p>" + deserialzied[i].dataFondazione + "</p>" +
-                        "<p>" + deserialzied[i].dataAffiliazione + "</p>" +
-                        "<p>" + deserialzied[i].codiceAffiliazione + "</p>" +
-                        "<p>" + deserialzied[i].affiliata + "</p>" +
-                        "<p>" + deserialzied[i].email + "</p>" +
-                        "<p>" + deserialzied[i].sito + "</p>" +
-                        "<p>" + deserialzied[i].tel1 + "</p>" +
-                        "<p>" + deserialzied[i].tel2 + "</p>" +
-                        "<p>" + deserialzied[i].pec + "</p>" +
-                        "<p>" + deserialzied[i].piva + "</p>" +
-                        "<p>" + deserialzied[i].cf + "</p>" +
-                        "<p>" + deserialzied[i].cu + "</p>");
+                        "<p> Nome società: " + deserialzied[i].nomeSocieta + "</p>" +
+                        "<p> Indrizzo: " + deserialzied[i].indirizzo + "</p>" +
+                        "<p> Cap: " + deserialzied[i].cap + "</p>" +
+                        "<p> Data fondazione: " + deserialzied[i].dataFondazione.ToString().Split(' ')[0] + "</p>" +
+                        "<p> Data affiliazione: " + deserialzied[i].dataAffiliazione.ToString().Split(' ')[0] + "</p>" +
+                        "<p> Codice affiliazione: " + deserialzied[i].codiceAffiliazione + "</p>" +
+                        "<p> Affiliata: " + affiliata + "</p>" +
+                        "<p> Email: " + deserialzied[i].email + "</p>" +
+                        "<p> Sito: " + deserialzied[i].sito + "</p>" +
+                        "<p> Telefono: " + deserialzied[i].tel1 + "</p>" +
+                        "<p> Telefono secondario: " + deserialzied[i].tel2 + "</p>" +
+                        "<p> PEC: " + deserialzied[i].pec + "</p>" +
+                        "<p> P.IVA: " + deserialzied[i].piva + "</p>" +
+                        "<p> CF: " + deserialzied[i].cf + "</p>" +
+                        "<p> CU: " + deserialzied[i].cu + "</p>");
                 }
                 //Append the HTML string to Placeholder.
                 visualizzaSocieta.Controls.Add(new Literal { Text = table.ToString() });
