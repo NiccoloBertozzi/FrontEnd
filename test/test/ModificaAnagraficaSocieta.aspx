@@ -60,7 +60,7 @@
     </div>
 
     <div class="container">
-        <form id="form1">
+        <form id="form1" runat="server">
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
                     <label for="nomeSocieta" class="col-form-label">Nome Società</label>
