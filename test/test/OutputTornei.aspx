@@ -50,17 +50,17 @@
                                     <a class="dropdown-item" href="#">Calendario L1</a>
                                     <a class="dropdown-item" href="#">Calendario L2</a>
                                     <a class="dropdown-item" href="#">Calendario L3</a>
-                                    <a class="dropdown-item" href="#">Classifica Maschile</a>
+                                    <a class="dropdown-item" href="#">Classifica Societa'</a>
                                     <a class="dropdown-item" href="#">Classifica Femminile</a>
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Formazione</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="#"></a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Chi siamo</a>
+                                    <a class="dropdown-item" href="AnagraficaSocieta.aspx">Chi siamo</a>
                                     <a class="dropdown-item" href="#">Affiliati</a>
                                     <a class="dropdown-item" href="#">Attività</a>
                                     <a class="dropdown-item" href="#">Come operiamo</a>
