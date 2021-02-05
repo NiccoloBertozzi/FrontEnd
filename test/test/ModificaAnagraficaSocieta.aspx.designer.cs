@@ -78,6 +78,15 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox codiceAffiliazione;
 
         /// <summary>
+        /// Controllo affiliata.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox affiliata;
+
+        /// <summary>
         /// Controllo email.
         /// </summary>
         /// <remarks>
