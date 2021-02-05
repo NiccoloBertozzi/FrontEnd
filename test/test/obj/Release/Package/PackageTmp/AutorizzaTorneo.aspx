@@ -14,6 +14,13 @@
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
+    <script>
+        function DivClicked() {
+            var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
+            form1.HiddenField1.value = arguments[0];
+            clickArea_Click.click();
+        }
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
@@ -24,8 +31,8 @@
             </button>
             <img src="Img/aibvc-logo.png" style="width: 94px;">
             <div class="collapse navbar-collapse row" id="navcol-1">
-                <div class="col-12">
-                    <ul class="mx-auto nav navbar-nav">
+                <div class="col-md-11 col-sm-12">
+                    <ul class="nav navbar-nav ml-5" id="myNavUl">
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
@@ -59,15 +66,20 @@
         </div>
     </nav>
     <form id="form1" runat="server">
-         <!--Banner-->
+        <!--Banner-->
         <div class="page-title row">
             <h1 class=" col-12 text-center my-auto">Info Torneo</h1>
         </div>
         <div class="container form-group">
             <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
             <div class="row justify-content-center">
-            <asp:Button ID="btnIscriviti" runat="server" Text="Autorizza torneo" OnClick="AutorizzaTorneo_Click" CssClass="btn btn-primary" />
-                </div>
+                <asp:Button ID="btnIscriviti" runat="server" Text="Autorizza torneo" OnClick="AutorizzaTorneo_Click" CssClass="btn btn-primary" />
+            </div>
+        </div>
+        <div>
+            <asp:PlaceHolder runat="server" ID="squadre"></asp:PlaceHolder>
+            <asp:Button runat="server" ID="btnTorneo" Style="display: none" OnClick="clickArea_Click" ClientIDMode="Static" />
+            <asp:HiddenField ID="HiddenField1" runat="server" />
         </div>
         <script src="Scripts/jquery-3.4.1.min.js "></script>
         <script src="Scripts/bootstrap.min.js "></script>

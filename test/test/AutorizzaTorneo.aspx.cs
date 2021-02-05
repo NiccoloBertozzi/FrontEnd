@@ -20,11 +20,11 @@ namespace test
             idTorneo = int.Parse(Session["IdTorneo"].ToString());
             if (!this.IsPostBack)
             {
-                DownloadInformazioniTorneo(idTorneo);
+                DownloadInformazioniTorneo();
                 DownloadInformazioniSquadre();
             }
         }
-        protected void DownloadInformazioniTorneo(int idTorneo)
+        protected void DownloadInformazioniTorneo()
         {
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetTorneoByID/" + idTorneo);
             client.Timeout = -1;
@@ -105,7 +105,7 @@ namespace test
         protected void clickArea_Click(object sender, EventArgs e)
         {
             Session["IdSquadra"] = HiddenField1.Value;
-            Response.Redirect("EliminaSquadra.aspx"); //rimanda alla form 'output tornei'
+            Response.Redirect("EliminaSquadra.aspx"); 
         }
         protected void AutorizzaTorneo_Click(object sender, EventArgs e)
         {

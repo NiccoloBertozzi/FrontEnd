@@ -12,6 +12,10 @@ namespace test
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["idUtente"] != null)
+            {
+                Response.Redirect("OutputTornei.aspx"); //rimanda alla form 'output tornei'
+            }
         }
 
         protected void btn_accedi_Click(object sender, EventArgs e)
@@ -36,7 +40,9 @@ namespace test
                     Response.Redirect("OutputTornei.aspx"); //rimanda alla form 'output tornei'
                 }
                 else
-                    Response.Write("<script>alert('" + response.ErrorMessage + "');</script>");
+                {
+                    Response.Write("<script>alert('Dati inseriti non coretti');</script>");
+                }
                 //------------------------------------------
             }
             else

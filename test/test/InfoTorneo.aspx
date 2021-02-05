@@ -21,9 +21,9 @@
             </button>
             <img src="Img/aibvc-logo.png" style="width: 94px;">
             <div class="collapse navbar-collapse row" id="navcol-1">
-                <div class="col-12">
-                    <ul class="mx-auto nav navbar-nav">
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
+                <div class="col-md-11 col-sm-12">
+                    <ul class="nav navbar-nav ml-5" id="myNavUl">
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="OutputTornei.aspx">Home</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AIBVC Tour</a>
@@ -37,7 +37,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Formazione</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Formazione</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
@@ -58,9 +58,9 @@
     <form id="form1" runat="server">
         <!--Banner-->
         <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Info Torneo</h1>
+            <h1 class=" col-12 text-center my-auto">Informazioni Torneo</h1>
         </div>
-        <div class="container form-group">
+        <div class="container form-group"> <br />
             <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
             <div class="row justify-content-center">
             <asp:Button ID="btnIscriviti" runat="server" Text="Iscrivi squadra" OnClick="btnIscriviti_Click" CssClass="btn btn-primary" />

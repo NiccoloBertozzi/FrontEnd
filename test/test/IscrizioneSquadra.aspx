@@ -22,8 +22,8 @@
             <img src="Img/aibvc-logo.png" style="width: 94px;">
             <div class="collapse navbar-collapse row" id="navcol-1">
                 <div class="col-md-11 col-sm-12">
-                    <ul class="mx-auto nav navbar-nav">
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
+                    <ul class="nav navbar-nav ml-5" id="myNavUl">
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="OutputTornei.aspx">Home</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AIBVC Tour</a>
@@ -37,7 +37,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Formazione</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Formazione</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
@@ -52,9 +52,6 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-1 col-sm-12">
-                    <a href="Login.aspx" class="loginButtonTornei btn float-right-md float-left-sm">Accedi</a>
-                </div>
             </div>
         </div>
     </nav>
@@ -65,6 +62,11 @@
         </div>
         <div class="container">
             <div class="mr-3 ml-3 mt-3 card-container">
+                <!-- Nome Team -->
+                <div class="form-group">
+                    <label for="titoloTorneo" id="nometeam">Nome squadra</label>
+                    <asp:TextBox ID="txtNomeTeam" runat="server" CssClass="form-control"></asp:TextBox></br>
+                </div>
                 <!-- Codice Secondo Atleta -->
                 <div class="form-group">
                     <label for="titoloTorneo" id="lblSecondoAtleta">Codice secondo atleta</label>
@@ -76,11 +78,6 @@
                     <label for="titoloTorneo" id="lblAllenatore">Codice allenatore</label>
                     <asp:TextBox AutoPostBack="true" required="true" ID="Allenatore" CssClass="form-control" runat="server" OnTextChanged="Allenatore_TextChanged"></asp:TextBox>
                     <asp:Label ID="nomeAllenatore" runat="server" Text=""></asp:Label></br>
-                </div>
-                <!-- Nome Team -->
-                <div class="form-group">
-                    <label for="titoloTorneo" id="nometeam">Nome Team</label>
-                    <asp:TextBox ID="txtNomeTeam" runat="server" CssClass="form-control"></asp:TextBox></br>
                 </div>
                 <asp:Button ID="btn_IscriviSquadra" runat="server" Text="Iscriviti al Torneo" OnClick="btn_IscriviSquadra_Click" CssClass="btn btn-primary" />
             </div>

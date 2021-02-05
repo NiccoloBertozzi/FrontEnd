@@ -11,6 +11,7 @@
     <form id="form1" runat="server">
         <div>
             <asp:PlaceHolder runat="server" ID="visualizzaSocieta"></asp:PlaceHolder>
+            <asp:Button runat="server" OnClick ="ModificaAnagrafica_Click" Text="Modifica Anagrafica"/>
         </div>
     </form>
 </body>

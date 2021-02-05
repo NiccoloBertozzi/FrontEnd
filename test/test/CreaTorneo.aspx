@@ -22,7 +22,7 @@
             <img src="Img/aibvc-logo.png" style="width: 94px;">
             <div class="collapse navbar-collapse row" id="navcol-1">
                 <div class="col-md-11 col-sm-12">
-                    <ul class="nav navbar-nav" id="myNavUl">
+                    <ul class="nav navbar-nav ml-5" id="myNavUl">
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
@@ -103,6 +103,14 @@
                 <div class="form-group">
                     <label for="lblNumTeamQualifiche">Numero Team che partecipano alle qualifiche: </label>
                     <asp:TextBox ID="txtNumTeamQualifiche" runat="server" required="true" placeholder="Inserisci il numero di Team che partecipano alle qualifiche" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label for="lblNumTeamQualificati">Numero Team che si qualificano: </label>
+                    <asp:TextBox ID="txtNumTeamQualificati" runat="server" required="true" placeholder="Inserisci il numero di Team  che si qualificano" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label for="lblNumWildCard">Numero Team che hanno la wildCard: </label>
+                    <asp:TextBox ID="txtNumWildCard" runat="server" required="true" placeholder="Inserisci il numero di Team Team che hanno la wildCard" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
                     <label for="lblTipoTorneo">Tipo Torneo: </label>

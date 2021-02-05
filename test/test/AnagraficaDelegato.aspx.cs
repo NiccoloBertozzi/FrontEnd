@@ -13,15 +13,16 @@ namespace test
     public partial class AnagraficaDelegato : System.Web.UI.Page
     {
         string token;
-        int idDelegato;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["ruolo"].ToString() == "Atleta") Response.Redirect("AnagraficaAtleta.aspx");
+            if (Session["ruolo"].ToString() == "Societa") Response.Redirect("AnagraficaSocieta.aspx");
             token = Session["Token"].ToString();
-            idDelegato = Convert.ToInt32(Session["idUtente"]);
+            int idDelegato = Convert.ToInt32(Session["idUtente"]);
             DownloadAnagrafica(idDelegato);
         }
 
-        protected void DownloadAnagrafica(int idAtleta)
+        protected void DownloadAnagrafica(int idDelegato)
         {
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetAnagraficaDelegato/" + idDelegato);
             client.Timeout = -1;
@@ -49,6 +50,11 @@ namespace test
                 //Append the HTML string to Placeholder.
                 anagraficaDelegato.Controls.Add(new Literal { Text = table.ToString() });
             }
+        }
+
+        protected void ModificaAnagraficaDelegato_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ModificaAnagraficaDelegato.aspx");
         }
     }
 }

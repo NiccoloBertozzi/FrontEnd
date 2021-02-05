@@ -20,15 +20,13 @@ namespace test
             token = Session["Token"].ToString();
             if (!this.IsPostBack)
             {
-                //passo i tornei fino a due mesi prima
-                string data = Convert.ToDateTime(DateTime.Now.Date.AddDays(+60)).ToString("yyyy-MM-dd");
-                DownloadDataTornei(token, data);
+                DownloadDataTornei(token);
             }
         }
-        protected void DownloadDataTornei(string token, string data)
+        protected void DownloadDataTornei(string token)
         {
 
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/GetTorneiNonAutorizzati/" + data);
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/GetTorneiNonAutorizzati");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("Authorization", "Bearer " + token);
@@ -49,7 +47,7 @@ namespace test
                         "<div class=\"card-body\">" +
                         "<h5 class=\"card-title\">" + deserialzied[i].titolo + "</h5>" +
                         "<p class=\"card-text my-2\">€" + deserialzied[i].montepremi + "</p>" +
-                        "<p class=\"card-text my-2\"><small class=\"text-muted\">" + deserialzied[i].citta + "</small></p>" +
+                        //"<p class=\"card-text my-2\"><small class=\"text-muted\">" + deserialzied[i].citta + "</small></p>" +
                         "<p class=\"card-text my-2\"><small class=\"text-muted\">" + Convert.ToDateTime(deserialzied[i].dataInizio).Date.ToString("dd/MM/yyyy") + "</small></p>" +
                         "</div>" +
                         "</div>" +

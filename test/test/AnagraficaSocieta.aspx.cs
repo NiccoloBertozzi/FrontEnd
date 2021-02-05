@@ -15,6 +15,8 @@ namespace test
         string token;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["ruolo"].ToString() == "Atleta") Response.Redirect("AnagraficaAtleta.aspx");
+            if (Session["ruolo"].ToString() == "Admin" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("AnagraficaDelegato.aspx");
             token = Session["Token"].ToString();
             int idSocieta = Convert.ToInt32(Session["idUtente"]);
             DownloadSocieta(idSocieta);
@@ -37,6 +39,8 @@ namespace test
                 visualizzaSocieta.Controls.Add(new Literal { Text = table.ToString() });
                 for (int i = 0; i < deserialzied.Count; i++)
                 {
+                    string affiliata = "Sì";
+                    if (deserialzied[i].affiliata.ToString() == "False") affiliata = "No";
                     table.Append("" +
                         "<p> <b>Nome :</b>" + deserialzied[i].nomeSocieta + "</p>" +
                         "<p> <b>Indirizzo :</b>" + deserialzied[i].indirizzo + "</p>" +
@@ -57,6 +61,11 @@ namespace test
                 //Append the HTML string to Placeholder.
                 visualizzaSocieta.Controls.Add(new Literal { Text = table.ToString() });
             }
+        }
+        
+        protected void ModificaAnagrafica_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ModificaAnagraficaSocieta.aspx"); //manda alla form 'ModificaAnagraficaSocieta'
         }
     }
 }

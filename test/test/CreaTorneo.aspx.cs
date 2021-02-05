@@ -14,8 +14,8 @@ namespace test
     public partial class CreaTorneo : System.Web.UI.Page
     {
         string error,token;
-        CheckBoxList cbListParametri = new CheckBoxList();
-        CheckBoxList cbListImpianti = new CheckBoxList();
+        CheckBoxList cbListParametri;
+        CheckBoxList cbListImpianti;
         protected void Page_Load(object sender, EventArgs e)
         {
             txtDataInizio.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
@@ -25,6 +25,8 @@ namespace test
             int idSocieta = Convert.ToInt32(Session["IdUtente"]); //inviare tramite get id della società
             if (!IsPostBack)
             {
+                cbListParametri = new CheckBoxList();
+                cbListImpianti = new CheckBoxList();
                 //-------------CHIAMATA API e popolazione impianti ----------------              
                 var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/GetImpianti/" + idSocieta);
                 client.Timeout = -1;
@@ -138,7 +140,7 @@ namespace test
             request.AddParameter("application/json", "{\r\n  \"titolo\": \"" + txtTitolo.Text + "\",\r\n  \"puntiVittoria\": " + txtPuntiVitt.Text + ",\r\n  \"montepremi\": " + txtMontepremi.Text + ",\r\n  \"dataChiusuraIscrizioni\": \"" + Convert.ToDateTime(txtDataChiusuraIscr.Text).Date.ToString("yyyy-MM-dd") + "\",\r\n  \"dataInizio\": \"" + Convert.ToDateTime(txtDataInizio.Text).Date.ToString("yyyy-MM-dd") + "\",\r\n  \"dataFine\": \"" + Convert.ToDateTime(txtDataFine.Text).Date.ToString("yyyy-MM-dd") + "\",\r\n  \"genere\": \"" + gender + "\",\r\n  \"QuotaIngresso\": " + txtQuotaIscr.Text + ",\r\n  \"formulaTorneo\": \"" + cmbFormula.SelectedItem.Text + "\",\r\n  \"numTeamTabellone\": " + txtNumTeamTabellone.Text + ",\r\n  \"numTeamQualifiche\": " + txtNumTeamQualifiche.Text + ",\r\n  \"parametriTorneo\": [\r\n " + Session["idParametri"] + "\r\n  ],\r\n \"tipoTorneo\": \"" + cmbTipoTorneo.SelectedItem.Text + "\",\r\n  \"impianti\": [\r\n    " + Session["nomeImpianti"] + "\r\n  ]\r\n}", ParameterType.RequestBody);
             //manca quota di iscrizione , non prende impianti
             //i double vanno con il PUNTO non con la virgola
-            error= "{\r\n  \"titolo\": \"" + txtTitolo.Text + "\",\r\n  \"puntiVittoria\": " + txtPuntiVitt.Text + ",\r\n  \"montepremi\": " + txtMontepremi.Text + ",\r\n  \"dataChiusuraIscrizioni\": \"" + Convert.ToDateTime(txtDataChiusuraIscr.Text).Date.ToString("yyyy-MM-dd") + "\",\r\n  \"dataInizio\": \"" + Convert.ToDateTime(txtDataInizio.Text).Date.ToString("yyyy-MM-dd") + "\",\r\n  \"dataFine\": \"" + Convert.ToDateTime(txtDataFine.Text).Date.ToString("yyyy-MM-dd") + "\",\r\n  \"genere\": \"" + gender + "\",\r\n  \"QuotaIngresso\": " + txtQuotaIscr.Text + ",\r\n  \"formulaTorneo\": \"" + cmbFormula.SelectedItem.Text + "\",\r\n  \"numTeamTabellone\": " + txtNumTeamTabellone.Text + ",\r\n  \"numTeamQualifiche\": " + txtNumTeamQualifiche.Text + ",\r\n  \"parametriTorneo\": [\r\n " + Session["idParametri"] + "\r\n  ],\r\n \"tipoTorneo\": \"" + cmbTipoTorneo.SelectedItem.Text + "\",\r\n  \"impianti\": [\r\n    " + Session["nomeImpianti"] + "\r\n  ]\r\n}";
+            error= "{\r\n  \"titolo\": \"" + txtTitolo.Text + "\",\r\n  \"puntiVittoria\": " + txtPuntiVitt.Text + ",\r\n  \"montepremi\": " + txtMontepremi.Text + ",\r\n  \"dataChiusuraIscrizioni\": \"" + Convert.ToDateTime(txtDataChiusuraIscr.Text).Date.ToString("yyyy-MM-dd") + "\",\r\n  \"dataInizio\": \"" + Convert.ToDateTime(txtDataInizio.Text).Date.ToString("yyyy-MM-dd") + "\",\r\n  \"dataFine\": \"" + Convert.ToDateTime(txtDataFine.Text).Date.ToString("yyyy-MM-dd") + "\",\r\n  \"genere\": \"" + gender + "\",\r\n  \"formulaTorneo\": \"" + cmbFormula.SelectedItem.Text + "\",\r\n  \"NumMaxTeamMainDraw\": " + txtNumTeamTabellone.Text + ",\r\n  \"NumMaxTeamQualifiche\": " + txtNumTeamQualifiche.Text + ",\r\n  \"parametriTorneo\": [\r\n " + Session["idParametri"] + "\r\n  ],\r\n \"tipoTorneo\": \"" + cmbTipoTorneo.SelectedItem.Text + "\",\r\n  \"impianti\": [\r\n    " + Session["nomeImpianti"] + "\r\n  ],\"QuotaIscrizione\": " + txtQuotaIscr.Text + ",\r\n,\"IDSocieta\": " + Session["idUtente"] + "\r\n,\"NumTeamQualificati\": " + txtNumTeamQualificati.Text + "\r\n,\"NumWildCard\": " + txtNumWildCard.Text + "\r\n}";
               IRestResponse response = client.Execute(request);
             if (response.StatusCode == HttpStatusCode.OK)
                 Response.Redirect("OutputTorneo.aspx"); //rimanda alla form 'output tornei'

@@ -21,8 +21,8 @@
             </button>
             <img src="Img/aibvc-logo.png" style="width: 94px;">
             <div class="collapse navbar-collapse row" id="navcol-1">
-                <div class="col-12">
-                    <ul class="mx-auto nav navbar-nav">
+                <div class="col-md-11 col-sm-12">
+                    <ul class="nav navbar-nav ml-5" id="myNavUl">
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
@@ -63,7 +63,7 @@
         <div class="container form-group">
             <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
             <div class="row justify-content-center">
-                <asp:Button ID="btnelimina" runat="server" Text="Elimina squadra" OnClick="btnelimina_Click" CssClass="btn btn-primary" />
+                <asp:Button ID="btnelimina" runat="server" Text="Cancella squadra" OnClick="btnelimina_Click" CssClass="btn btn-primary" />
             </div>
         </div>
         <script src="Scripts/jquery-3.4.1.min.js "></script>

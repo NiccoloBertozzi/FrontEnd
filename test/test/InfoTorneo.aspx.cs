@@ -56,9 +56,9 @@ namespace test
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].formula + "</label></div>" +
                     "<div class=\"col-3\"><h5 class=\"card-title\">Nome Impianto</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].nomeImpianto + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Citta</h5></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Città</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].citta + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">QuotaIscrizione</h5></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Quota iscrizione</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].quotaIscrizione + "</label></div>" +
                     "<div class=\"col-3\"><h5 class=\"card-title\">Punti Vittoria</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].puntiVittoria + "</label></div>" +
@@ -71,9 +71,9 @@ namespace test
                     "<div class=\"col-3\"><h5 class=\"card-title\">Genere</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].gender + "</label></div>" +
                     "<div class=\"col-3\"><h5 class=\"card-title\">Numero Team Totali Tabellone</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].numTeamTabellone + "</label></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].numMaxTeamMainDraw + "</label></div>" +
                     "<div class=\"col-3\"><h5 class=\"card-title\">Numero Team che partecipano alle qualifiche</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].numTeamQualifiche + "</label></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].numMaxTeamQualifiche + "</label></div>" +
                     "</div>");
 
                 //Append the HTML string to Placeholder.

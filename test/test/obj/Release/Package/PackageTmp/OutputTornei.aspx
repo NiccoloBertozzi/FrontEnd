@@ -17,16 +17,25 @@
             clickArea_Click.click();
         }
         function LoadPage() {
-            var token = ('<%=Request.QueryString["token"] %>');
-            window.location = "OutputTorneiNonAutorrizati.aspx?token=" + token+"";
+            window.location = "OutputTorneiNonAutorrizati.aspx";
+        }
+        function LoadPageDelegati() {
+            window.location = "OutputTorneiDelegato.aspx";
         }
         function LoadPageIscritti() {
-            var token = ('<%=Request.QueryString["token"] %>');
-            window.location = "OutputTorneiIscritti.aspx?token=" + token + "";
+            window.location = "OutputTorneiIscritti.aspx";
         }
         function LoadCreaTorneo() {
-            var token = ('<%=Request.QueryString["token"] %>');
-            window.location = "CreaTorneo.aspx?token=" + token + "";
+            window.location = "CreaTorneo.aspx";
+        }
+        function LoadClassificaMaschile() {
+            window.location = "OutputClassifica.aspx?genere=M";
+        }
+        function LoadClassificaFemminile() {
+            window.location = "OutputClassifica.aspx?genere=F";
+        }
+        function LoadLogin() {
+            window.location = "Login.aspx";
         }
     </script>
 </head>
@@ -39,8 +48,8 @@
             </button>
             <img src="Img/aibvc-logo.png" style="width: 94px;">
             <div class="collapse navbar-collapse row" id="navcol-1">
-                <div class="col-12">
-                    <ul class="mx-auto nav navbar-nav">
+                <div class="col-md-10 col-sm-12">
+                    <ul class="nav navbar-nav ml-5" id="myNavUl">
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
@@ -50,12 +59,12 @@
                                     <a class="dropdown-item" href="#">Calendario L1</a>
                                     <a class="dropdown-item" href="#">Calendario L2</a>
                                     <a class="dropdown-item" href="#">Calendario L3</a>
-                                    <a class="dropdown-item" href="#">Classifica Maschile</a>
-                                    <a class="dropdown-item" href="#">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="#" onclick="LoadClassificaMaschile();">Classifica Maschile</a>
+                                    <a class="dropdown-item" href="#" onclick="LoadClassificaFemminile();">Classifica Femminile</a>
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Formazione</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Formazione</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
@@ -71,6 +80,9 @@
                         <asp:PlaceHolder runat="server" ID="dinamicload"></asp:PlaceHolder>
                     </ul>
                 </div>
+                <div class="col-2">
+                    <asp:PlaceHolder runat="server" ID="AccediBtn"></asp:PlaceHolder>
+                </div>
             </div>
         </div>
     </nav>
@@ -79,14 +91,14 @@
         <asp:HiddenField ID="HiddenField1" runat="server" />
         <!--Banner-->
         <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Calendario L1</h1>
+            <h1 class=" col-12 text-center my-auto">Tornei</h1>
         </div>
 
         <div class="container">
             <!--CERCA-->
             <div class="searchBox mx-2 my-2">
                 <input class="searchInput" type="text" name="" placeholder="Cerca">
-                <button class="searchButton" href="#">
+                <button class="searchButton">
                     <i class=" fas fa-search"></i>
                 </button>
             </div>

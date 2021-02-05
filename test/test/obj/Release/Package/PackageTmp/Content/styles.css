@@ -2,6 +2,7 @@ html,
 body {
     height: 100%;
     width: 100%;
+    overflow-x: hidden;
 }
 .bodylogin {
     background-image: url('../Img/background-login.png');
@@ -20,9 +21,22 @@ body.register {
 #my-navbar-items {
     border: 0;
 }
-
+.pointer {
+    cursor: pointer;
+}
 .page-title {
     background-image: linear-gradient(90deg, #2F2D2D 0%, rgba(56, 53, 53, 0.87) 38.54%, rgba(118, 110, 110, 0.37) 100%), url(../Img/sfondo.jpg);
+    color: rgb(255, 255, 255);
+    /* Full height */
+    height: 178px;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.page-title-login {
+    background-image: linear-gradient(90deg, #2F2D2D 0%, rgba(56, 53, 53, 0.87) 38.54%, rgba(118, 110, 110, 0.37) 100%), url(../Img/logo.png);
     color: rgb(255, 255, 255);
     /* Full height */
     height: 178px;
@@ -51,6 +65,8 @@ body.register {
 
 .card-container {
     overflow: auto;
+    max-height: 70vh;
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -205,7 +221,6 @@ div.container p {
     text-decoration: none;
     text-transform: none;
     letter-spacing: 3px;
-    color: #ffffffce;
 }
 
 .loginform {
@@ -250,13 +265,7 @@ form label.register {
     color: #0094f0;
 }
 
-div.container p {
-    text-align: left;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    text-decoration: none;
-    text-transform: none;
-    letter-spacing: 3px;
-    color: #ffffffce;
+#myNavUl {
+    display: flex;
+    justify-content: center;
 }
