@@ -60,6 +60,15 @@ namespace test
         protected global::System.Web.UI.WebControls.RadioButton femmina;
 
         /// <summary>
+        /// Controllo cf.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox cf;
+
+        /// <summary>
         /// Controllo dataNascita.
         /// </summary>
         /// <remarks>
@@ -87,6 +96,15 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox comuneResidenza;
 
         /// <summary>
+        /// Controllo email.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox email;
+
+        /// <summary>
         /// Controllo indirizzo.
         /// </summary>
         /// <remarks>
@@ -112,5 +130,50 @@ namespace test
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tel;
+
+        /// <summary>
+        /// Controllo codiceTessera.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox codiceTessera;
+
+        /// <summary>
+        /// Controllo arbitro.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox arbitro;
+
+        /// <summary>
+        /// Controllo supervisore.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox supervisore;
+
+        /// <summary>
+        /// Controllo luogoN.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox luogoN;
+
+        /// <summary>
+        /// Controllo luogoR.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox luogoR;
     }
 }

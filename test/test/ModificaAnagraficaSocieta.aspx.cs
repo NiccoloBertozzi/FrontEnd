@@ -21,7 +21,8 @@ namespace test
             if (Session["ruolo"].ToString() == "Admin" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("ModificaAnagraficaDelegato.aspx");
             token = Session["Token"].ToString();
             idSocieta = Convert.ToInt32(Session["idUtente"]);
-            DownloadSocieta(idSocieta);
+            if (!this.IsPostBack)
+                DownloadSocieta(idSocieta);
         }
         protected void DownloadSocieta(int idSocieta)
         {
@@ -35,6 +36,7 @@ namespace test
             dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
             if (deserialzied != null)
             {
+                if (deserialzied[0].affiliata.ToString() == "True") affiliata.Checked = true;
                 for (int i = 0; i < deserialzied.Count; i++)
                 {
                     nome.Text = deserialzied[i].nomeSocieta;
@@ -43,7 +45,6 @@ namespace test
                     dataFondazione.Text = deserialzied[i].dataFondazione;
                     dataAffiliazione.Text = deserialzied[i].dataAffiliazione;
                     codiceAffiliazione.Text = deserialzied[i].codiceAffiliazione;
-                    if (deserialzied[i].affiliata = true) affiliata.Checked = true;
                     email.Text = deserialzied[i].email;
                     sito.Text = deserialzied[i].sito;
                     tel1.Text = deserialzied[i].tel1;
@@ -57,13 +58,15 @@ namespace test
         }
         protected void ModificaAnagrafica_Click(object sender, EventArgs e)
         {
+            bool affiliataS = false;
+            if (affiliata.Checked) affiliataS = true; 
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/LoginRegister/UpdateSocieta");
             client.Timeout = -1;
             var request = new RestRequest(Method.PUT);
-            request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImxvcmVuem9yaWdvbmlAZ21haWwuY29tIiwicm9sZSI6WyJEZWxlZ2F0byIsIkFkbWluRGVsZWdhdG8iLCJBZG1pbiJdLCJuYmYiOjE2MTI1MDkzNDUsImV4cCI6MTYxMjUxMDU0NSwiaWF0IjoxNjEyNTA5MzQ1fQ.8NIVcJHujcesu48P8bhp9JG7eDVNa7nCXeGUkpzkQZU");
+            request.AddHeader("Authorization", "Bearer " + token);
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Admin");
-            request.AddParameter("application/json", "{\r\n  \"societa\": {\r\n    \"idSocieta\": " + idSocieta + ",\r\n \"nomeSocieta\": \"" + nome.Text + "\",\r\n    \"indirizzo\": \"" + indirizzo.Text + "\",\r\n    \"cap\": \"" + CAP.Text + "\",\r\n    \"dataFondazione\": \"" + dataFondazione.Text + "\",\r\n    \"dataAffiliazione\": \"" + dataAffiliazione.Text + "\",\r\n    \"codiceAffiliazione\": \"" + codiceAffiliazione.Text + "\",\r\n    \"affiliata\": \true,\r\n    \"email\": \"" + email.Text + "string\",\r\n    \"sito\": \"" + sito.Text + "string\",\r\n    \"tel1\": \"" + tel1.Text + "string\",\r\n    \"tel2\": \"" + tel1.Text + "string\",\r\n    \"pec\": \"" + PEC.Text + "string\",\r\n    \"piva\": \"" + PIVA.Text + "string\",\r\n    \"cf\": \"" + CF.Text + "string\",\r\n    \"cu\": \"" + CU.Text + "string\"\r\n  },\r\n  \"comuneSocieta\": \"Ancona\"\r\n}", ParameterType.RequestBody);
+            request.AddParameter("application/json", "{\r\n  \"societa\": {\r\n    \"idSocieta\": " + idSocieta + ",\r\n \"nomeSocieta\": \"" + nome.Text + "\",\r\n    \"indirizzo\": \"" + indirizzo.Text + "\",\r\n    \"cap\": \"" + CAP.Text + "\",\r\n    \"dataFondazione\": \"" + dataFondazione.Text + "\",\r\n    \"dataAffiliazione\": \"" + dataAffiliazione.Text + "\",\r\n    \"codiceAffiliazione\": \"" + codiceAffiliazione.Text + "\",\r\n    \"affiliata\": \""+affiliataS+"\",\r\n    \"email\": \"" + email.Text + "\",\r\n    \"sito\": \"" + sito.Text + "\",\r\n    \"tel1\": \"" + tel1.Text + "\",\r\n    \"tel2\": \"" + tel2.Text + "\",\r\n    \"pec\": \"" + PEC.Text + "\",\r\n    \"piva\": \"" + PIVA.Text + "\",\r\n    \"cf\": \"" + CF.Text + "\",\r\n    \"cu\": \"" + CU.Text + "\"\r\n  },\r\n  \"comuneSocieta\": \""+Comune.Text+"\"\r\n}", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
         }
     }

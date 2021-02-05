@@ -184,6 +184,14 @@
                     <asp:TextBox runat="server" type="text" class="form-control " ID="CU" placeholder="Certificazione Unica"></asp:TextBox>
                 </div>
             </div>
+            <div class="row mt-lg-4">
+                <div class="col-sm-12 col-lg-6">
+                    <label for="lblComune" class="col-form-label ">Comune</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:TextBox runat="server" type="text" class="form-control " ID="Comune" placeholder="Comune"></asp:TextBox>
+                </div>
+            </div>
             <div class="row">
                 <asp:Button Text="Modifica" runat="server" OnClick="ModificaAnagrafica_Click" class="btnLogin mx-auto mt-3" />
             </div>
