@@ -36,34 +36,32 @@ namespace test
             {
                 StringBuilder table = new StringBuilder();
                 table.Clear();
-                visualizzaSocieta.Controls.Add(new Literal { Text = table.ToString() });
+                anagraficaSocieta.Controls.Add(new Literal { Text = table.ToString() });
                 for (int i = 0; i < deserialzied.Count; i++)
                 {
-                    string affiliata = "Sì";
-                    if (deserialzied[i].affiliata.ToString() == "False") affiliata = "No";
                     table.Append("" +
-                        "<p> <b>Nome :</b>" + deserialzied[i].nomeSocieta + "</p>" +
-                        "<p> <b>Indirizzo :</b>" + deserialzied[i].indirizzo + "</p>" +
-                        "<p> <b>Cap :</b>" + deserialzied[i].cap + "</p>" +
-                        "<p> <b>Data Fondazione :</b>" + deserialzied[i].dataFondazione + "</p>" +
-                        "<p> <b>Data Affiliazione :</b>" + deserialzied[i].dataAffiliazione + "</p>" +
-                        "<p> <b>Codice Affiliazione :</b>" + deserialzied[i].codiceAffiliazione + "</p>" +
-                        "<p> <b>Affiliata :</b>" + deserialzied[i].affiliata + "</p>" +
-                        "<p> <b>Email :</b>" + deserialzied[i].email + "</p>" +
-                        "<p> <b>Sito :</b>" + deserialzied[i].sito + "</p>" +
-                        "<p> <b>Tell1 :</b>" + deserialzied[i].tel1 + "</p>" +
-                        "<p> <b>Tell2 :</b>" + deserialzied[i].tel2 + "</p>" +
-                        "<p> <b>Pec :</b>" + deserialzied[i].pec + "</p>" +
-                        "<p> <b>Partita IVA :</b>" + deserialzied[i].piva + "</p>" +
-                        "<p> <b>Codice Fiscale :</b>" + deserialzied[i].cf + "</p>" +
-                        "<p> <b>CU:</b>" + deserialzied[i].cu + "</p>");
+                        "<p> <b>Nome : </b>" + deserialzied[i].nomeSocieta + "</p>" +
+                        "<p> <b>Città : </b>" + deserialzied[i].citta + "</p>" +
+                        "<p> <b>Indirizzo : </b>" + deserialzied[i].indirizzo + "</p>" +
+                        "<p> <b>Cap : </b>" + deserialzied[i].cap + "</p>" +
+                        "<p> <b>Data Fondazione : </b>" + deserialzied[i].dataFondazione.ToString().Split(' ')[0] + "</p>" +
+                        "<p> <b>Data Affiliazione : </b>" + deserialzied[i].dataAffiliazione.ToString().Split(' ')[0] + "</p>" +
+                        "<p> <b>Codice Affiliazione : </b>" + deserialzied[i].codiceAffiliazione + "</p>" +
+                        "<p> <b>Affiliata : </b>" + deserialzied[i].affiliata + "</p>" +
+                        "<p> <b>Email : </b>" + deserialzied[i].email + "</p>" +
+                        "<p> <b>Sito : </b>" + deserialzied[i].sito + "</p>" +
+                        "<p> <b>Tell1 : </b>" + deserialzied[i].tel1 + "</p>" +
+                        "<p> <b>Tell2 : </b>" + deserialzied[i].tel2 + "</p>" +
+                        "<p> <b>Pec : </b>" + deserialzied[i].pec + "</p>" +
+                        "<p> <b>Partita IVA : </b>" + deserialzied[i].piva + "</p>" +
+                        "<p> <b>Codice Fiscale : </b>" + deserialzied[i].cf + "</p>" +
+                        "<p> <b>CU: </b>" + deserialzied[i].cu + "</p>");
                 }
-                //Append the HTML string to Placeholder.
-                visualizzaSocieta.Controls.Add(new Literal { Text = table.ToString() });
+                anagraficaSocieta.Controls.Add(new Literal { Text = table.ToString() });
             }
         }
         
-        protected void ModificaAnagrafica_Click(object sender, EventArgs e)
+        protected void ModificaAnagraficaSocieta_Click(object sender, EventArgs e)
         {
             Response.Redirect("ModificaAnagraficaSocieta.aspx"); //manda alla form 'ModificaAnagraficaSocieta'
         }

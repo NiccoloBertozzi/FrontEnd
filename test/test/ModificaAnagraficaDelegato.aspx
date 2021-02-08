@@ -177,22 +177,6 @@
                     <asp:CheckBox runat="server" type="text" class="form-control" ID="supervisore" placeholder="Supervisore"></asp:CheckBox>
                 </div>
             </div>
-            <div class="row mt-lg-4">
-                <div class="col-sm-12 col-lg-6">
-                    <label for="lblluogoN" class="col-form-label">Luogo nascita</label>
-                </div>
-                <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" type="text" class="form-control" ID="luogoN" placeholder="Codice Postale" />
-                </div>
-            </div>
-            <div class="row mt-lg-4">
-                <div class="col-sm-12 col-lg-6">
-                    <label for="lblluogoR" class="col-form-label">Luogo residenza</label>
-                </div>
-                <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" type="text" class="form-control" ID="luogoR" placeholder="Codice Postale" />
-                </div>
-            </div>
             <div class="row">
                 <asp:Button runat="server" Text="Modifica" OnClick="ModificaAnagrafica_Click" class="btnLogin mx-auto mt-3"/>
             </div>

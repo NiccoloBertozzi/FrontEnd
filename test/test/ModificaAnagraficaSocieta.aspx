@@ -73,6 +73,14 @@
             </div>
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
+                    <label for="citta" class="col-form-label">Città</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:TextBox runat="server" type="text" class="form-control" ID="citta" placeholder="Città"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row mt-lg-4">
+                <div class="col-sm-12 col-lg-6">
                     <label for="indirizzo" class="col-form-label">Indirizzo</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
@@ -182,14 +190,6 @@
                 </div>
                 <div class="col-sm-12 col-lg-6">
                     <asp:TextBox runat="server" type="text" class="form-control " ID="CU" placeholder="Certificazione Unica"></asp:TextBox>
-                </div>
-            </div>
-            <div class="row mt-lg-4">
-                <div class="col-sm-12 col-lg-6">
-                    <label for="lblComune" class="col-form-label ">Comune</label>
-                </div>
-                <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" type="text" class="form-control " ID="Comune" placeholder="Comune"></asp:TextBox>
                 </div>
             </div>
             <div class="row">
