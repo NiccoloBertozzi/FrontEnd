@@ -105,7 +105,7 @@ namespace test
         protected void clickArea_Click(object sender, EventArgs e)
         {
             Session["IdSquadra"] = HiddenField1.Value;
-            Response.Redirect("EliminaSquadra.aspx"); 
+            Response.Redirect("InfoSquadra.aspx"); 
         }
         protected void AutorizzaTorneo_Click(object sender, EventArgs e)
         {
