@@ -246,6 +246,7 @@
     <Content Include="Content\styles.css" />
     <Content Include="AssegnaDelegati.aspx" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="visualizzaComponentiSocieta.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Views\web.config" />
@@ -432,6 +433,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="visualizzaComponentiSocieta.aspx.cs">
+      <DependentUpon>visualizzaComponentiSocieta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="visualizzaComponentiSocieta.aspx.designer.cs">
+      <DependentUpon>visualizzaComponentiSocieta.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
