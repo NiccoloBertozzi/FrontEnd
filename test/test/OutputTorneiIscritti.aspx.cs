@@ -60,11 +60,11 @@ namespace test
         protected void DownloadDataTorneiInCorso(string token)
         {
 
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/atleti/Iscrizioni/" + Session["idUtente"]);
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/ToreniFiniti/" + Session["idUtente"]);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
-            request.AddHeader("Authorization", "Bearer " + token);
-            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
+            request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFsZXh0YW1hQGdtYWlsLmNvbSIsInJvbGUiOiJBdGxldGEiLCJuYmYiOjE2MTI3OTI4NDcsImV4cCI6MTYxMjc5NDA0NywiaWF0IjoxNjEyNzkyODQ3fQ.HBOa5DnIzHTMYUFq6fXuTcaX86EsFIaQSgGqMcg5YsA");
+            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Atleta");
             IRestResponse response = client.Execute(request);
             //deserializza il risultato ritornato
             dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
