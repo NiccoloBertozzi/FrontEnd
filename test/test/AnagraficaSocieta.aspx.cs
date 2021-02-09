@@ -16,6 +16,7 @@ namespace test
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["ruolo"].ToString() == "Atleta") Response.Redirect("AnagraficaAtleta.aspx");
+            if (Session["ruolo"].ToString() == "Allenatore") Response.Redirect("AnagraficaAllenatore.aspx");
             if (Session["ruolo"].ToString() == "Admin" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("AnagraficaDelegato.aspx");
             token = Session["Token"].ToString();
             int idSocieta = Convert.ToInt32(Session["idUtente"]);

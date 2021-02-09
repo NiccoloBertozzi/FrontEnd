@@ -10,26 +10,25 @@ using System.Web.UI.WebControls;
 
 namespace test
 {
-    public partial class AnagraficaAtleta : System.Web.UI.Page
+    public partial class AnagraficaAllenatore : System.Web.UI.Page
     {
         string token;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["ruolo"].ToString() == "Admin" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("AnagraficaDelegato.aspx");
             if (Session["ruolo"].ToString() == "Societa") Response.Redirect("AnagraficaSocieta.aspx");
-            if (Session["ruolo"].ToString() == "Allenatore") Response.Redirect("AnagraficaAllenatore.aspx");
+            if (Session["ruolo"].ToString() == "Atleta") Response.Redirect("AnagraficaAtleta.aspx");
             token = Session["Token"].ToString();
-            int idAtleta = Convert.ToInt32(Session["idUtente"]);
-            DownloadAnagrafica(idAtleta);
+            int idAllenatore = Convert.ToInt32(Session["idUtente"]);
+            DownloadAnagrafica(idAllenatore);
         }
-
-        protected void DownloadAnagrafica(int idAtleta)
+        protected void DownloadAnagrafica(int idAllenatore)
         {
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/atleti/GetAnagraficaAtleta/" + idAtleta);
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/allenatori/GetAnagraficaAllenatore/" + idAllenatore);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("Authorization", "Bearer " + token);
-            request.AddHeader("Cookie", "ruolo=Admin; ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
+            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Allenatore");
             IRestResponse response = client.Execute(request);
             //deserializza il risultato ritornato
             dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
@@ -37,7 +36,7 @@ namespace test
             {
                 StringBuilder table = new StringBuilder();
                 table.Clear();
-                anagraficaAtleta.Controls.Add(new Literal { Text = table.ToString() });
+                anagraficaAllenatore.Controls.Add(new Literal { Text = table.ToString() });
                 for (int i = 0; i < deserialzied.Count; i++)
                 {
                     table.Append("" +
@@ -54,17 +53,15 @@ namespace test
                         "<p>CAP: " + deserialzied[i].cap + "</p>" +
                         "<p>Email: " + deserialzied[i].email + "</p>" +
                         "<p>Tel: " + deserialzied[i].tel + "</p>" +
-                        "<p>Altezza: " + deserialzied[i].altezza + "</p>" +
-                        "<p>Peso: " + deserialzied[i].peso + "</p>" +
-                        "<p>Data Scadenza Certificato: " + deserialzied[i].dataScadenzaCertificato.ToString().Split(' ')[0] + "</p>");
+                        "<p>Grado: " + deserialzied[i].grado + "</p>");
                 }
                 //Append the HTML string to Placeholder.
-                anagraficaAtleta.Controls.Add(new Literal { Text = table.ToString() });
+                anagraficaAllenatore.Controls.Add(new Literal { Text = table.ToString() });
             }
         }
         protected void ModificaAnagrafica_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ModificaAnagraficaAtleta.aspx"); //manda alla form 'ModificaAnagraficaAtleta'
+            Response.Redirect("ModificaAnagraficaAllenatore.aspx"); 
         }
     }
 }

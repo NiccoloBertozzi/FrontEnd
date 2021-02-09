@@ -168,6 +168,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AnagraficaAllenatore.aspx" />
     <Content Include="AnagraficaAtleta.aspx" />
     <Content Include="AnagraficaDelegato.aspx" />
     <Content Include="AnagraficaSocieta.aspx" />
@@ -203,6 +204,7 @@
     <Content Include="InfoTorneo.aspx" />
     <Content Include="IscrizioneSquadra.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="ModificaAnagraficaAllenatore.aspx" />
     <Content Include="ModificaAnagraficaAtleta.aspx" />
     <Content Include="ModificaAnagraficaDelegato.aspx" />
     <Content Include="ModificaAnagraficaSocieta.aspx" />
@@ -252,6 +254,13 @@
     <Content Include="Views\web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnagraficaAllenatore.aspx.cs">
+      <DependentUpon>AnagraficaAllenatore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnagraficaAllenatore.aspx.designer.cs">
+      <DependentUpon>AnagraficaAllenatore.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AnagraficaAtleta.aspx.cs">
       <DependentUpon>AnagraficaAtleta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -342,6 +351,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\getToken.cs" />
+    <Compile Include="ModificaAnagraficaAllenatore.aspx.cs">
+      <DependentUpon>ModificaAnagraficaAllenatore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificaAnagraficaAllenatore.aspx.designer.cs">
+      <DependentUpon>ModificaAnagraficaAllenatore.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ModificaAnagraficaAtleta.aspx.cs">
       <DependentUpon>ModificaAnagraficaAtleta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
