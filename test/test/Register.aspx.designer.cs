@@ -11,7 +11,7 @@ namespace test
 {
 
 
-    public partial class RegisterAtleta
+    public partial class Register
     {
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace test
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ruolo;
+        protected global::System.Web.UI.WebControls.HiddenField ruolo;
 
         /// <summary>
         /// Controllo btnAtleta.
@@ -39,7 +39,7 @@ namespace test
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem btnAtleta;
+        protected global::System.Web.UI.WebControls.Button btnAtleta;
 
         /// <summary>
         /// Controllo btnAllenatore.
@@ -48,16 +48,25 @@ namespace test
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem btnAllenatore;
+        protected global::System.Web.UI.WebControls.Button btnAllenatore;
 
         /// <summary>
-        /// Controllo Delegato.
+        /// Controllo btnDelegato.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem Delegato;
+        protected global::System.Web.UI.WebControls.Button btnDelegato;
+
+        /// <summary>
+        /// Controllo codiceTessera.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox codiceTessera;
 
         /// <summary>
         /// Controllo cf.
@@ -159,33 +168,6 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox cap;
 
         /// <summary>
-        /// Controllo comuneNascita.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox comuneNascita;
-
-        /// <summary>
-        /// Controllo comuneResidenza.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox comuneResidenza;
-
-        /// <summary>
-        /// Controllo nomeSocieta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nomeSocieta;
-
-        /// <summary>
         /// Controllo dataScadenzaCertificato.
         /// </summary>
         /// <remarks>
@@ -228,7 +210,7 @@ namespace test
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton supervisore;
+        protected global::System.Web.UI.WebControls.CheckBox supervisore;
 
         /// <summary>
         /// Controllo arbitro.
@@ -237,24 +219,42 @@ namespace test
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton arbitro;
+        protected global::System.Web.UI.WebControls.CheckBox arbitro;
 
         /// <summary>
-        /// Controllo btn_registerAtleta.
+        /// Controllo comuneNascita.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_registerAtleta;
+        protected global::System.Web.UI.WebControls.TextBox comuneNascita;
 
         /// <summary>
-        /// Controllo risultato.
+        /// Controllo comuneResidenza.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label risultato;
+        protected global::System.Web.UI.WebControls.TextBox comuneResidenza;
+
+        /// <summary>
+        /// Controllo nomeSocieta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox nomeSocieta;
+
+        /// <summary>
+        /// Controllo btnregistra.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnregistra;
     }
 }

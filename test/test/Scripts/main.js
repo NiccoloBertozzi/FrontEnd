@@ -1,7 +1,7 @@
 ﻿$(function () {
     /* Nascondo tutti i form non attivi all'inizio */
     $("#delegato, #allenatore").toggle();
-
+    
     $("#btnAtleta").click(function () {
         /* Cambio l'attivazione del bottone */
         if ($("#btnAtleta").hasClass("btn-info") == false) {
@@ -20,7 +20,7 @@
         if ($("#delegato").is(":visible")) $("#delegato").hide();
         if ($("#allenatore").is(":visible")) $("#allenatore").hide();
         $("#atleta").show();
-
+        window.location = "Register.aspx?ruolo=Atleta";
     })
 
     $("#btnAllenatore").click(function () {
@@ -41,6 +41,7 @@
         if ($("#delegato").is(":visible")) $("#delegato").hide();
         $("#allenatore").show();
         if ($("#atleta").is(":visible")) $("#atleta").hide();
+        window.location = "Register.aspx?ruolo=Allenatore";
     })
 
     $("#btnDelegato").click(function () {
@@ -61,5 +62,20 @@
         $("#delegato").show();
         if ($("#allenatore").is(":visible")) $("#allenatore").hide();
         if ($("#atleta").is(":visible")) $("#atleta").hide();
+        window.location = "Register.aspx?ruolo=Delegato";
     })
+
+    var search = new URLSearchParams(window.location.search);
+    if (search.has("ruolo")) {
+        var idTasto = search.get("ruolo");
+        if (idTasto == "Atleta") {
+            $("#btnAtleta").click();
+        }
+        else if (idTasto == "Allenatore") {
+            $("#btnAllenatore").click();
+        }
+        else if (idTasto == "Delegato") {
+            $("#btnDelegato").click();
+        }
+    }
 })
