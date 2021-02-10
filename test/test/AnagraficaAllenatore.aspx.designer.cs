@@ -11,7 +11,7 @@ namespace test
 {
 
 
-    public partial class AnagraficaSocieta
+    public partial class AnagraficaAllenatore
     {
 
         /// <summary>
@@ -24,12 +24,12 @@ namespace test
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Controllo anagraficaSocieta.
+        /// Controllo anagraficaAllenatore.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder anagraficaSocieta;
+        protected global::System.Web.UI.WebControls.PlaceHolder anagraficaAllenatore;
     }
 }

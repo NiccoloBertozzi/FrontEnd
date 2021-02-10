@@ -24,22 +24,40 @@ namespace test
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Controllo nome.
+        /// Controllo nomee.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button nome;
+        protected global::System.Web.UI.WebControls.TextBox nomee;
 
         /// <summary>
-        /// Controllo cognome.
+        /// Controllo cognomee.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cognome;
+        protected global::System.Web.UI.WebControls.TextBox cognomee;
+
+        /// <summary>
+        /// Controllo codTessera.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox codTessera;
+
+        /// <summary>
+        /// Controllo nomeSocieta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox nomeSocieta;
 
         /// <summary>
         /// Controllo maschio.
@@ -58,6 +76,15 @@ namespace test
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton femmina;
+
+        /// <summary>
+        /// Controllo cf.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox cf;
 
         /// <summary>
         /// Controllo dataNascita.
@@ -105,6 +132,15 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox cap;
 
         /// <summary>
+        /// Controllo email.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox email;
+
+        /// <summary>
         /// Controllo tel.
         /// </summary>
         /// <remarks>
@@ -130,5 +166,14 @@ namespace test
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox peso;
+
+        /// <summary>
+        /// Controllo scadCertificato.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox scadCertificato;
     }
 }

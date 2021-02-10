@@ -17,6 +17,7 @@ namespace test
         {
             if (Session["ruolo"].ToString() == "Atleta") Response.Redirect("AnagraficaAtleta.aspx");
             if (Session["ruolo"].ToString() == "Societa") Response.Redirect("AnagraficaSocieta.aspx");
+            if (Session["ruolo"].ToString() == "Allenatore") Response.Redirect("AnagraficaAllenatore.aspx");
             token = Session["Token"].ToString();
             int idDelegato = Convert.ToInt32(Session["idUtente"]);
             DownloadAnagrafica(idDelegato);
@@ -40,12 +41,20 @@ namespace test
                 for (int i = 0; i < deserialzied.Count; i++)
                 {
                     table.Append("" +
-                        "<p>" + deserialzied[i].nome + "</p>" +
-                        "<p>" + deserialzied[i].cognome + "</p>" +
-                        "<p>" + deserialzied[i].dataNascita + "</p>" +
-                        "<p>" + deserialzied[i].email + "</p>" +
-                        "<p>" + deserialzied[i].tel + "</p>" +
-                        "<p>" + deserialzied[i].sesso + "</p>");
+                    "<p>Nome: " + deserialzied[i].nome + "</p>" +
+                    "<p>Cognome: " + deserialzied[i].cognome + "</p>" +
+                    "<p>Codice Tessera: " + deserialzied[i].codiceTessera + "</p>" +
+                    "<p>Sesso: " + deserialzied[i].sesso + "</p>" +
+                    "<p>CF: " + deserialzied[i].cf + "</p>" +
+                    "<p>Data Nascita: " + deserialzied[i].dataNascita.ToString().Split(' ')[0] + "</p>" +
+                    "<p>Comune di Nascita: " + deserialzied[i].comuneNascita + "</p>" +
+                    "<p>Comune di Residenza: " + deserialzied[i].comuneResidenza + "</p>" +
+                    "<p>Indirizzo: " + deserialzied[i].indirizzo + "</p>" +
+                    "<p>CAP: " + deserialzied[i].cap + "</p>" +
+                    "<p>Email: " + deserialzied[i].email + "</p>" +
+                    "<p>Tel: " + deserialzied[i].tel + "</p>" +
+                    "<p>Supervisore: " + deserialzied[i].supervisore + "</p>" +
+                    "<p>Arbitro: " + deserialzied[i].arbitro + "</p>");
                 }
                 //Append the HTML string to Placeholder.
                 anagraficaDelegato.Controls.Add(new Literal { Text = table.ToString() });

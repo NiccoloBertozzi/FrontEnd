@@ -1,10 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ModificaAnagraficaDelegato.aspx.cs" Inherits="test.ModificaAnagraficaDelegato" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ModificaAnagraficaAllenatore.aspx.cs" Inherits="test.ModificaAnagraficaAllenatore" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modifica anagrafica</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
     <link rel="stylesheet" href="Content/styles.css" />
@@ -20,7 +21,7 @@
             <img src="Img/aibvc-logo.png" style="width: 94px;" />
             <div class="collapse navbar-collapse row" id="navcol-1">
                 <div class="col-md-11 col-sm-12">
-                    <ul class="nav navbar-nav ml-5" id="myNavUl">
+                    <ul class="mx-auto nav navbar-nav">
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
@@ -35,7 +36,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Formazione</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Formazione</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
@@ -50,6 +51,9 @@
                         </li>
                     </ul>
                 </div>
+                <div class="col-md-1 col-sm-12">
+                    <a href="Login.aspx" class="loginButtonTornei btn float-right-md float-left-sm">Accedi</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -57,15 +61,15 @@
     <div class="page-title row">
         <h1 class=" col-12 text-center my-auto">Modifica Anagrafica - Atleta</h1>
     </div>
-    <form id="form1" runat="server">
 
-        <div class="container">
+    <div class="container">
+        <form id="form1" runat="server">
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
                     <label for="nome" class="col-form-label">Nome</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" type="text" class="form-control" ID="nome" placeholder="Nome" />
+                    <asp:TextBox runat="server" class="form-control" ID="nomee" placeholder="Nome" />
                 </div>
             </div>
             <div class="row mt-lg-4">
@@ -73,7 +77,23 @@
                     <label for="cognome" class="col-form-label">Cognome</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" type="text" class="form-control" ID="cognome" placeholder="Cognome" />
+                    <asp:TextBox runat="server" class="form-control" ID="cognomee" placeholder="Cognome" />
+                </div>
+            </div>
+            <div class="row mt-lg-4">
+                <div class="col-sm-12 col-lg-6">
+                    <label for="codTessera" class="col-form-label">Codice tessera</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:TextBox runat="server" class="form-control" ID="codTessera" placeholder="Codice tessera" />
+                </div>
+            </div>
+            <div class="row mt-lg-4">
+                <div class="col-sm-12 col-lg-6">
+                    <label for="nomeSocieta" class="col-form-label">Nome societa</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:TextBox runat="server" class="form-control" ID="nomeSocieta" placeholder="Nome societa" />
                 </div>
             </div>
             <div class="row mt-lg-4">
@@ -91,10 +111,10 @@
             </div>
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
-                    <label for="lblcf" class="col-form-label">CF</label>
+                    <label for="cf" class="col-form-label">CF</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox ID="cf" runat="server" class="form-control" placeholder="CF"></asp:TextBox>
+                    <asp:TextBox runat="server" class="form-control" ID="cf" placeholder="CF" />
                 </div>
             </div>
             <div class="row mt-lg-4">
@@ -123,14 +143,6 @@
             </div>
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
-                    <label for="lblemail" class="col-form-label">Email</label>
-                </div>
-                <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox ID="email" runat="server" class="form-control" placeholder="Email"></asp:TextBox>
-                </div>
-            </div>
-            <div class="row mt-lg-4">
-                <div class="col-sm-12 col-lg-6">
                     <label for="lblIndirizzo" class="col-form-label">Indirizzo di residenza</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
@@ -147,6 +159,14 @@
             </div>
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
+                    <label for="email" class="col-form-label">email</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:TextBox runat="server" class="form-control" ID="email" placeholder="email" />
+                </div>
+            </div>
+            <div class="row mt-lg-4">
+                <div class="col-sm-12 col-lg-6">
                     <label for="lblTel" class="col-form-label">Numero di cellulare</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
@@ -155,34 +175,19 @@
             </div>
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
-                    <label for="lblTel" class="col-form-label">Codice tessera</label>
+                    <label for="grado" class="col-form-label ">Grado</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" type="text" class="form-control" ID="codiceTessera" placeholder="Codice tessera" />
-                </div>
-            </div>
-            <div class="row mt-lg-4 mb-2">
-                <div class="col-sm-12 col-lg-6">
-                    <label for="lblArbitro" class="col-form-label">Arbitro</label>
-                </div>
-                <div class="col-sm-12 col-lg-6">
-                    <asp:CheckBox runat="server" type="text" class="form-control" ID="arbitro" placeholder="arbitro"></asp:CheckBox>
-                </div>
-            </div>
-            <div class="row mt-lg-4 mb-2">
-                <div class="col-sm-12 col-lg-6">
-                    <label for="lblSupervisore" class="col-form-label">Supervisore</label>
-                </div>
-                <div class="col-sm-12 col-lg-6">
-                    <asp:CheckBox runat="server" type="text" class="form-control" ID="supervisore" placeholder="Supervisore"></asp:CheckBox>
+                    <asp:TextBox runat="server" type="number" class="form-control " ID="grado" placeholder="Grado" />
                 </div>
             </div>
             <div class="row">
-                <asp:Button runat="server" Text="Modifica" OnClick="ModificaAnagrafica_Click" class="btnLogin mx-auto mt-3"/>
+                <asp:Button runat="server" class="btnLogin mx-auto mt-3" Text="Modifica" OnClick="ModificaAnagrafica_Click"/>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
 </body>
 </html>

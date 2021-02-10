@@ -168,6 +168,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AnagraficaAllenatore.aspx" />
     <Content Include="AnagraficaAtleta.aspx" />
     <Content Include="AnagraficaDelegato.aspx" />
     <Content Include="AnagraficaSocieta.aspx" />
@@ -180,7 +181,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="CreaTorneo.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="EliminaSquadra.aspx" />
+    <Content Include="InfoSquadra.aspx" />
     <Content Include="EliminaTorneo.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -203,6 +204,7 @@
     <Content Include="InfoTorneo.aspx" />
     <Content Include="IscrizioneSquadra.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="ModificaAnagraficaAllenatore.aspx" />
     <Content Include="ModificaAnagraficaAtleta.aspx" />
     <Content Include="ModificaAnagraficaDelegato.aspx" />
     <Content Include="ModificaAnagraficaSocieta.aspx" />
@@ -246,11 +248,19 @@
     <Content Include="Content\styles.css" />
     <Content Include="AssegnaDelegati.aspx" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="visualizzaComponentiSocieta.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Views\web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnagraficaAllenatore.aspx.cs">
+      <DependentUpon>AnagraficaAllenatore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnagraficaAllenatore.aspx.designer.cs">
+      <DependentUpon>AnagraficaAllenatore.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AnagraficaAtleta.aspx.cs">
       <DependentUpon>AnagraficaAtleta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -302,12 +312,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EliminaSquadra.aspx.cs">
-      <DependentUpon>EliminaSquadra.aspx</DependentUpon>
+    <Compile Include="InfoSquadra.aspx.cs">
+      <DependentUpon>InfoSquadra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="EliminaSquadra.aspx.designer.cs">
-      <DependentUpon>EliminaSquadra.aspx</DependentUpon>
+    <Compile Include="InfoSquadra.aspx.designer.cs">
+      <DependentUpon>InfoSquadra.aspx</DependentUpon>
     </Compile>
     <Compile Include="EliminaTorneo.aspx.cs">
       <DependentUpon>EliminaTorneo.aspx</DependentUpon>
@@ -341,6 +351,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\getToken.cs" />
+    <Compile Include="ModificaAnagraficaAllenatore.aspx.cs">
+      <DependentUpon>ModificaAnagraficaAllenatore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificaAnagraficaAllenatore.aspx.designer.cs">
+      <DependentUpon>ModificaAnagraficaAllenatore.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ModificaAnagraficaAtleta.aspx.cs">
       <DependentUpon>ModificaAnagraficaAtleta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -432,6 +449,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="visualizzaComponentiSocieta.aspx.cs">
+      <DependentUpon>visualizzaComponentiSocieta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="visualizzaComponentiSocieta.aspx.designer.cs">
+      <DependentUpon>visualizzaComponentiSocieta.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -17,7 +17,7 @@
                 <span class="sr-only">Toggle navigation</span>
                 <i class="fas fa-bars" style="color: white;"></i>
             </button>
-            <img src="Img/aibvc-logo.png" style="width: 94px;">
+            <img src="Img/aibvc-logo.png" style="width: 94px;"/>
             <div class="collapse navbar-collapse row" id="navcol-1">
                 <div class="col-md-11 col-sm-12">
                     <ul class="mx-auto nav navbar-nav">
@@ -73,6 +73,14 @@
             </div>
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
+                    <label for="citta" class="col-form-label">Città</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:TextBox runat="server" type="text" class="form-control" ID="citta" placeholder="Città"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row mt-lg-4">
+                <div class="col-sm-12 col-lg-6">
                     <label for="indirizzo" class="col-form-label">Indirizzo</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
@@ -110,6 +118,14 @@
                 </div>
                 <div class="col-sm-12 col-lg-6">
                     <asp:TextBox runat="server" type="text" class="form-control" ID="codiceAffiliazione" placeholder="Codice Affiliazione"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row mt-lg-4 mb-2">
+                <div class="col-sm-12 col-lg-6">
+                    <label for="lblAffiliata" class="col-form-label">Affiliata</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:CheckBox runat="server" type="text" class="form-control" ID="affiliata" placeholder="affiliata"></asp:CheckBox>
                 </div>
             </div>
             <div class="row mt-lg-4">
@@ -176,7 +192,6 @@
                     <asp:TextBox runat="server" type="text" class="form-control " ID="CU" placeholder="Certificazione Unica"></asp:TextBox>
                 </div>
             </div>
-
             <div class="row">
                 <asp:Button Text="Modifica" runat="server" OnClick="ModificaAnagrafica_Click" class="btnLogin mx-auto mt-3" />
             </div>
@@ -185,6 +200,5 @@
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-
 </body>
 </html>
