@@ -55,7 +55,7 @@
     </nav>
     <!--Banner-->
     <div class="page-title row">
-        <h1 class=" col-12 text-center my-auto">Modifica Anagrafica - Atleta</h1>
+        <h1 class=" col-12 text-center my-auto">Modifica Anagrafica</h1>
     </div>
     <form id="form1" runat="server">
 
@@ -91,6 +91,14 @@
             </div>
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
+                    <label for="lblcf" class="col-form-label">CF</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:TextBox ID="cf" runat="server" class="form-control" placeholder="CF"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row mt-lg-4">
+                <div class="col-sm-12 col-lg-6">
                     <label for="lbldataNascita" class="col-form-label">Data di nascita</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
@@ -115,6 +123,14 @@
             </div>
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
+                    <label for="lblemail" class="col-form-label">Email</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:TextBox ID="email" runat="server" class="form-control" placeholder="Email"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row mt-lg-4">
+                <div class="col-sm-12 col-lg-6">
                     <label for="lblIndirizzo" class="col-form-label">Indirizzo di residenza</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
@@ -135,6 +151,30 @@
                 </div>
                 <div class="col-sm-12 col-lg-6">
                     <asp:TextBox runat="server" type="text" class="form-control" ID="tel" placeholder="Numero di cellulare" />
+                </div>
+            </div>
+            <div class="row mt-lg-4">
+                <div class="col-sm-12 col-lg-6">
+                    <label for="lblTel" class="col-form-label">Codice tessera</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:TextBox runat="server" type="text" class="form-control" ID="codiceTessera" placeholder="Codice tessera" />
+                </div>
+            </div>
+            <div class="row mt-lg-4 mb-2">
+                <div class="col-sm-12 col-lg-6">
+                    <label for="lblArbitro" class="col-form-label">Arbitro</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:CheckBox runat="server" type="text" class="form-control" ID="arbitro" placeholder="arbitro"></asp:CheckBox>
+                </div>
+            </div>
+            <div class="row mt-lg-4 mb-2">
+                <div class="col-sm-12 col-lg-6">
+                    <label for="lblSupervisore" class="col-form-label">Supervisore</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:CheckBox runat="server" type="text" class="form-control" ID="supervisore" placeholder="Supervisore"></asp:CheckBox>
                 </div>
             </div>
             <div class="row">

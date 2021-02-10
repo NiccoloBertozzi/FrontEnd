@@ -11,25 +11,34 @@ namespace test
 {
 
 
-    public partial class AtletaIscrizioni1
+    public partial class visualizzaStatoTessere
     {
 
         /// <summary>
-        /// Controllo form1.
+        /// Controllo formComponentiSocieta.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formComponentiSocieta;
 
         /// <summary>
-        /// Controllo torneilist.
+        /// Controllo lblTessere.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder torneilist;
+        protected global::System.Web.UI.WebControls.Label lblTessere;
+
+        /// <summary>
+        /// Controllo visualizzaTessere.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder visualizzaTessere;
     }
 }

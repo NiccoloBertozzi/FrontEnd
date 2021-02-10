@@ -7,7 +7,7 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Creazione torneo</title>
+    <title>Iscrizione squadra</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
@@ -58,7 +58,7 @@
     <form id="form1" runat="server">
         <!--Banner-->
         <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Inserimento squadra torneo</h1>
+            <h1 class=" col-12 text-center my-auto">Iscrizione squadra al torneo</h1>
         </div>
         <div class="container">
             <div class="mr-3 ml-3 mt-3 card-container">

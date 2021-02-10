@@ -13,10 +13,9 @@ namespace test
 {
     public partial class OutputClassifica : System.Web.UI.Page
     {
-        string genere;
         protected void Page_Load(object sender, EventArgs e)
         {
-            genere = Request.QueryString["genere"];
+
         }
     }
 }

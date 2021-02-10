@@ -15,12 +15,16 @@ namespace test
         string token;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["ruolo"].ToString() == "Atleta") Response.Redirect("AnagraficaAtleta.aspx");
-            if (Session["ruolo"].ToString() == "Allenatore") Response.Redirect("AnagraficaAllenatore.aspx");
-            if (Session["ruolo"].ToString() == "Admin" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("AnagraficaDelegato.aspx");
-            token = Session["Token"].ToString();
-            int idSocieta = Convert.ToInt32(Session["idUtente"]);
-            DownloadSocieta(idSocieta);
+            if (!string.IsNullOrEmpty(Session["Token"] as string))
+            {
+                if (Session["ruolo"].ToString() == "Atleta") Response.Redirect("AnagraficaAtleta.aspx");
+                if (Session["ruolo"].ToString() == "Allenatore") Response.Redirect("AnagraficaAllenatore.aspx");
+                if (Session["ruolo"].ToString() == "Admin" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("AnagraficaDelegato.aspx");
+                token = Session["Token"].ToString();
+                int idSocieta = Convert.ToInt32(Session["idUtente"]);
+                DownloadSocieta(idSocieta);
+            }
+            else Response.Redirect("OutputTornei.aspx");
         }
 
         protected void DownloadSocieta(int idSocieta)
@@ -28,7 +32,7 @@ namespace test
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/societa/GetAnagraficaSocieta/" + idSocieta);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
-            request.AddHeader("Authorization", "Bearer  "+token+"");
+            request.AddHeader("Authorization", "Bearer  " + token + "");
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Societa");
             IRestResponse response = client.Execute(request);
             //deserializza il risultato ritornato
@@ -61,7 +65,7 @@ namespace test
                 anagraficaSocieta.Controls.Add(new Literal { Text = table.ToString() });
             }
         }
-        
+
         protected void ModificaAnagraficaSocieta_Click(object sender, EventArgs e)
         {
             Response.Redirect("ModificaAnagraficaSocieta.aspx"); //manda alla form 'ModificaAnagraficaSocieta'

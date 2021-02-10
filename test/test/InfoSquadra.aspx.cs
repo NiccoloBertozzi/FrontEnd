@@ -17,8 +17,9 @@ namespace test
         int idSquadra, idTorneo, idSupervisore;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //prende id torneo squadra e supervisore
-            token = Session["Token"].ToString();
+            if (!string.IsNullOrEmpty(Session["Token"] as string))
+            {
+                token = Session["Token"].ToString();
             idSquadra = int.Parse(Session["IdSquadra"].ToString());
             idTorneo = int.Parse(Session["IdTorneo"].ToString());
             idSupervisore = int.Parse(Session["IdUtente"].ToString());
@@ -26,6 +27,8 @@ namespace test
             {
                 DownloadInformazioniSquadra();
             }
+            }
+            else Response.Redirect("OutputTornei.aspx");
         }
 
         protected void DownloadInformazioniSquadra()

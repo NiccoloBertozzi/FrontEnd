@@ -14,8 +14,11 @@ namespace test
         //-----------------------------
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["ruolo"].ToString() == "Admin" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("OutputTorneiDelegato.aspx");
+            if (!string.IsNullOrEmpty(Session["Token"] as string))
+            {
+                if (Session["ruolo"].ToString() == "Admin" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("OutputTorneiDelegato.aspx");
             if (Session["ruolo"].ToString() == "Societa") Response.Redirect("OutputTornei.aspx");
+            if (Session["ruolo"].ToString() == "Allenatore") Response.Redirect("OutputTornei.aspx");
             idAtleta1 = Session["IdUtente"].ToString();
             token = Session["Token"].ToString();
             //-------------------SCARICO ID SOCIETA DELL'ATLETA-----
@@ -27,6 +30,8 @@ namespace test
             IRestResponse response = client.Execute(request);
             idsocieta = response.Content;
             client.ClearHandlers();
+            }
+            else Response.Redirect("OutputTornei.aspx");
             //----------------------
         }
 

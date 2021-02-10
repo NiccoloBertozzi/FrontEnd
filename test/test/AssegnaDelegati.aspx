@@ -9,7 +9,7 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Creazione torneo</title>
+    <title>Assegna delegati</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
@@ -60,7 +60,7 @@
     <form id="form2" runat="server">
         <!--Banner-->
         <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Inserimento squadra torneo</h1>
+            <h1 class=" col-12 text-center my-auto">Assegna delegati</h1>
         </div>
         <div class="container">
            <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>

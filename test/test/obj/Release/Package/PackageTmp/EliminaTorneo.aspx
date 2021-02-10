@@ -7,7 +7,7 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Elimina Iscrizione</title>
+    <title>Elimina squadra</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse row" id="navcol-1">
                 <div class="col-md-11 col-sm-12">
                     <ul class="nav navbar-nav ml-5" id="myNavUl">
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="OutputTornei.aspx">Home</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AIBVC Tour</a>
@@ -58,7 +58,7 @@
     <form id="form1" runat="server">
         <!--Banner-->
         <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Elimina Iscrizione</h1>
+            <h1 class=" col-12 text-center my-auto">Elimina squadra dal torneo</h1>
         </div>
         <div class="container form-group">
             <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
