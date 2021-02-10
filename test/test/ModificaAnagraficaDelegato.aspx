@@ -55,7 +55,7 @@
     </nav>
     <!--Banner-->
     <div class="page-title row">
-        <h1 class=" col-12 text-center my-auto">Modifica Anagrafica - Atleta</h1>
+        <h1 class=" col-12 text-center my-auto">Modifica Anagrafica</h1>
     </div>
     <form id="form1" runat="server">
 

@@ -16,6 +16,7 @@ namespace test
         {
             if (Session["ruolo"].ToString() == "Admin" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("OutputTorneiDelegato.aspx");
             if (Session["ruolo"].ToString() == "Societa") Response.Redirect("OutputTornei.aspx");
+            if (Session["ruolo"].ToString() == "Allenatore") Response.Redirect("OutputTornei.aspx");
             idAtleta1 = Session["IdUtente"].ToString();
             token = Session["Token"].ToString();
             //-------------------SCARICO ID SOCIETA DELL'ATLETA-----

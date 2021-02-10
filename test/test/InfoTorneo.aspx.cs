@@ -23,6 +23,8 @@ namespace test
                 DownloadInformazioniTorneo(idTorneo);
             }
             if (Session["ruolo"].ToString() == "Societa") btnIscriviti.Visible = false;
+            if (Session["ruolo"].ToString() == "Delegato") btnIscriviti.Visible = false;
+            if (Session["ruolo"].ToString() == "Allenatore") btnIscriviti.Visible = false;
             if (Session["ruolo"].ToString() == "Admin") btnIscriviti.Text = "Assegna Delegato";
         }
         protected void DownloadInformazioniTorneo(int idTorneo)
@@ -46,12 +48,6 @@ namespace test
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].titolo + "</label></div>" +
                     "<div class=\"col-3\"><h5 class=\"card-title\">Tipo Torneo</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].tipoTorneo + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Supervisore Torneo</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].supervisoreTorneo + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Supervisore Arbitrale</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].supervisoreArbitrale + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Direttore Competizione</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].direttoreCompetizione + "</label></div>" +
                     "<div class=\"col-3\"><h5 class=\"card-title\">Formula Torneo</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].formula + "</label></div>" +
                     "<div class=\"col-3\"><h5 class=\"card-title\">Nome Impianto</h5></div>" +
@@ -74,6 +70,12 @@ namespace test
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].numMaxTeamMainDraw + "</label></div>" +
                     "<div class=\"col-3\"><h5 class=\"card-title\">Numero Team che partecipano alle qualifiche</h5></div>" +
                     "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].numMaxTeamQualifiche + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Supervisore Torneo</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].supervisoreTorneo + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Supervisore Arbitrale</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].supervisoreArbitrale + "</label></div>" +
+                    "<div class=\"col-3\"><h5 class=\"card-title\">Direttore Competizione</h5></div>" +
+                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].direttoreCompetizione + "</label></div>" +
                     "</div>");
 
                 //Append the HTML string to Placeholder.
