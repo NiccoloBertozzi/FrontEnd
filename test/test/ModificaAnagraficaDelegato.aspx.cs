@@ -16,11 +16,15 @@ namespace test
         int idDelegato;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["ruolo"].ToString() == "Atleta") Response.Redirect("ModificaAnagraficaAtleta.aspx");
+            if (!string.IsNullOrEmpty(Session["Token"] as string))
+            {
+                if (Session["ruolo"].ToString() == "Atleta") Response.Redirect("ModificaAnagraficaAtleta.aspx");
             if (Session["ruolo"].ToString() == "Societa") Response.Redirect("ModificaAnagraficaSocieta.aspx"); 
             token = Session["Token"].ToString();
             idDelegato = Convert.ToInt32(Session["idUtente"]);
             if (!this.IsPostBack) DownloadDelegato();
+            }
+            else Response.Redirect("OutputTornei.aspx");
         }
         protected void DownloadDelegato()
         {

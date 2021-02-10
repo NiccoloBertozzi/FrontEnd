@@ -16,12 +16,16 @@ namespace test
         int idDelegato;
         public void Page_Load(object sender, EventArgs e)
         {
-            idDelegato = int.Parse(Session["IdUtente"].ToString());
+            if (!string.IsNullOrEmpty(Session["Token"] as string))
+            {
+                idDelegato = int.Parse(Session["IdUtente"].ToString());
             token = Session["Token"].ToString();
             if (!this.IsPostBack)
             {
                 DownloadTornei(token);
             }
+            }
+            else Response.Redirect("OutputTornei.aspx");
         }
         protected void DownloadTornei(string token)
         {

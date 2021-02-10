@@ -17,13 +17,17 @@ namespace test
         int idTorneo;
         protected void Page_Load(object sender, EventArgs e)
         {
-            token = Session["Token"].ToString();
+            if (!string.IsNullOrEmpty(Session["Token"] as string))
+            {
+                token = Session["Token"].ToString();
             idTorneo = int.Parse(Session["IdTorneo"].ToString());
             if (!this.IsPostBack)
             {
                 //idricevuto.Text = Session["IdUtente"].ToString();
                 DownloadInformazioniTorneo(idTorneo);
             }
+            }
+            else Response.Redirect("OutputTornei.aspx");
         }
         protected void DownloadInformazioniTorneo(int idTorneo)
         {

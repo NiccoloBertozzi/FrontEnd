@@ -15,7 +15,9 @@ namespace test
         string token;
         protected void Page_Load(object sender, EventArgs e)
         {
-            token = Session["Token"].ToString();
+            if (!string.IsNullOrEmpty(Session["Token"] as string))
+            {
+                token = Session["Token"].ToString();
             if (!this.IsPostBack)
             {
                 //idricevuto.Text = Session["IdUtente"].ToString();
@@ -26,6 +28,8 @@ namespace test
             if (Session["ruolo"].ToString() == "Delegato") btnIscriviti.Visible = false;
             if (Session["ruolo"].ToString() == "Allenatore") btnIscriviti.Visible = false;
             if (Session["ruolo"].ToString() == "Admin") btnIscriviti.Text = "Assegna Delegato";
+            }
+            else Response.Redirect("OutputTornei.aspx");
         }
         protected void DownloadInformazioniTorneo(int idTorneo)
         {
