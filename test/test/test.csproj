@@ -249,6 +249,7 @@
     <Content Include="AssegnaDelegati.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="visualizzaComponentiSocieta.aspx" />
+    <Content Include="visualizzaStatoTessere.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Views\web.config" />
@@ -456,6 +457,13 @@
     </Compile>
     <Compile Include="visualizzaComponentiSocieta.aspx.designer.cs">
       <DependentUpon>visualizzaComponentiSocieta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="visualizzaStatoTessere.aspx.cs">
+      <DependentUpon>visualizzaStatoTessere.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="visualizzaStatoTessere.aspx.designer.cs">
+      <DependentUpon>visualizzaStatoTessere.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
