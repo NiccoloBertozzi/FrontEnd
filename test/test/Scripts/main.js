@@ -1,4 +1,5 @@
 ﻿$(function () {
+    var search = new URLSearchParams(window.location.search);
     /* Nascondo tutti i form non attivi all'inizio */
     $("#delegato, #allenatore").toggle();
     
@@ -20,7 +21,7 @@
         if ($("#delegato").is(":visible")) $("#delegato").hide();
         if ($("#allenatore").is(":visible")) $("#allenatore").hide();
         $("#atleta").show();
-        window.location = "Register.aspx?ruolo=Atleta";
+        window.location = "Register.aspx?ruolo=Delegato&en=1";
     })
 
     $("#btnAllenatore").click(function () {
@@ -41,7 +42,7 @@
         if ($("#delegato").is(":visible")) $("#delegato").hide();
         $("#allenatore").show();
         if ($("#atleta").is(":visible")) $("#atleta").hide();
-        window.location = "Register.aspx?ruolo=Allenatore";
+        window.location = "Register.aspx?ruolo=Delegato&en=2";
     })
 
     $("#btnDelegato").click(function () {
@@ -62,20 +63,21 @@
         $("#delegato").show();
         if ($("#allenatore").is(":visible")) $("#allenatore").hide();
         if ($("#atleta").is(":visible")) $("#atleta").hide();
-        window.location = "Register.aspx?ruolo=Delegato";
+        window.location = "Register.aspx?ruolo=Delegato&en=3";
     })
 
-    var search = new URLSearchParams(window.location.search);
     if (search.has("ruolo")) {
-        var idTasto = search.get("ruolo");
-        if (idTasto == "Atleta") {
-            $("#btnAtleta").click();
-        }
-        else if (idTasto == "Allenatore") {
-            $("#btnAllenatore").click();
-        }
-        else if (idTasto == "Delegato") {
-            $("#btnDelegato").click();
-        }
+            var idTasto = search.get("ruolo");
+        var idEntity = search.get("en") == "" ? "1" : search.get("en");
+            if (idTasto == "Atleta" && idEntity == "1") {
+                $("#btnAtleta").click();
+            }
+            else if (idTasto == "Allenatore" && idEntity == "2") {
+                $("#btnAllenatore").click();
+            }
+            else if (idTasto == "Delegato" && idEntity == "3") {
+                $("#btnDelegato").click();
+            }
     }
+
 })
