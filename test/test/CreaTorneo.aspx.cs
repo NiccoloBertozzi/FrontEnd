@@ -14,8 +14,8 @@ namespace test
     public partial class CreaTorneo : System.Web.UI.Page
     {
         string error,token;
-        CheckBoxList cbListParametri;
-        CheckBoxList cbListImpianti;
+        CheckBoxList cbListParametri = new CheckBoxList();
+        CheckBoxList cbListImpianti = new CheckBoxList();
         protected void Page_Load(object sender, EventArgs e)
         {
             txtDataInizio.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
@@ -25,8 +25,6 @@ namespace test
             int idSocieta = Convert.ToInt32(Session["IdUtente"]); //inviare tramite get id della società
             if (!IsPostBack)
             {
-                cbListParametri = new CheckBoxList();
-                cbListImpianti = new CheckBoxList();
                 //-------------CHIAMATA API e popolazione impianti ----------------              
                 var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/GetImpianti/" + idSocieta);
                 client.Timeout = -1;
