@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ModificaAnagraficaAtleta.aspx.cs" Inherits="test.ModificaAnagraficaAtleta" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ModificaAnagraficaAllenatore.aspx.cs" Inherits="test.ModificaAnagraficaAllenatore" %>
 
 <!DOCTYPE html>
 
@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
     <link rel="stylesheet" href="Content/styles.css" />
 </head>
-
 <body>
     <!--Navigatore-->
     <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky" id="my-navbar">
@@ -176,26 +175,10 @@
             </div>
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
-                    <label for="lblDataScadCert" class="col-form-label ">Altezza</label>
+                    <label for="grado" class="col-form-label ">Grado</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" type="number" class="form-control " ID="altezza" placeholder="Altezza" />
-                </div>
-            </div>
-            <div class="row mt-lg-4">
-                <div class="col-sm-12 col-lg-6">
-                    <label for="lblPeso" class="col-form-label ">Peso</label>
-                </div>
-                <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" type="number" class="form-control " ID="peso" placeholder="Peso" />
-                </div>
-            </div>
-            <div class="row mt-lg-4">
-                <div class="col-sm-12 col-lg-6">
-                    <label for="scadCertificato" class="col-form-label">Scadenza certificato</label>
-                </div>
-                <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" class="form-control" ID="scadCertificato" placeholder="Scadenza certificato" />
+                    <asp:TextBox runat="server" type="number" class="form-control " ID="grado" placeholder="Grado" />
                 </div>
             </div>
             <div class="row">
@@ -207,5 +190,4 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
-
 </html>

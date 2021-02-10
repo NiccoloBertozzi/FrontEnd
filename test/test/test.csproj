@@ -172,7 +172,6 @@
     <Content Include="AnagraficaAtleta.aspx" />
     <Content Include="AnagraficaDelegato.aspx" />
     <Content Include="AnagraficaSocieta.aspx" />
-    <Content Include="AtletaIscrizioni.aspx" />
     <Content Include="AutorizzaTorneo.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -285,13 +284,6 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="AtletaIscrizioni.aspx.cs">
-      <DependentUpon>AtletaIscrizioni.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AtletaIscrizioni.aspx.designer.cs">
-      <DependentUpon>AtletaIscrizioni.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AutorizzaTorneo.aspx.cs">
       <DependentUpon>AutorizzaTorneo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

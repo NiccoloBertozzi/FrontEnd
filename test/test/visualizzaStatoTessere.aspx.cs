@@ -37,8 +37,8 @@ namespace test
                     table.Append("");
                 }
                 //Append the HTML string to Placeholder.
-                visualizzaTessere.Controls.Add(new Literal { Text = table.ToString() });*/
-            }
+                visualizzaTessere.Controls.Add(new Literal { Text = table.ToString() });
+            }*/
         }
     }
 }
