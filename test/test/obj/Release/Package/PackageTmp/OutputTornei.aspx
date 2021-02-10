@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v9.0" nonce="ekmMNXcv"></script>
     <script>
         function DivClicked() {
             var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
@@ -69,7 +70,7 @@
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="AnagraficaSocieta.aspx">Chi siamo</a>
+                                    <a class="dropdown-item" href="#">Chi siamo</a>
                                     <a class="dropdown-item" href="#">Affiliati</a>
                                     <a class="dropdown-item" href="#">Attività</a>
                                     <a class="dropdown-item" href="#">Come operiamo</a>

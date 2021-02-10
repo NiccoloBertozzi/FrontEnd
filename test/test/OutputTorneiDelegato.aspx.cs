@@ -16,14 +16,14 @@ namespace test
         int idDelegato;
         public void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Session["Token"] as string))
+            if (Session["Token"] != null)
             {
                 idDelegato = int.Parse(Session["IdUtente"].ToString());
-            token = Session["Token"].ToString();
-            if (!this.IsPostBack)
-            {
-                DownloadTornei(token);
-            }
+                if (!this.IsPostBack)
+                {
+                    token = Session["Token"].ToString();
+                    DownloadTornei(token);
+                }
             }
             else Response.Redirect("OutputTornei.aspx");
         }
@@ -63,7 +63,7 @@ namespace test
         protected void clickArea_Click(object sender, EventArgs e)
         {
             Session["IdTorneo"] = HiddenField1.Value;
-            Response.Redirect("InfoTorneo.aspx"); 
+            Response.Redirect("InfoTorneo.aspx");
         }
     }
 }

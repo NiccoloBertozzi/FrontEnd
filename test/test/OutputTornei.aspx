@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v9.0" nonce="ekmMNXcv"></script>
     <script>
         function DivClicked() {
             var clickArea_Click = $('#<%= btnTorneo.ClientID %>');

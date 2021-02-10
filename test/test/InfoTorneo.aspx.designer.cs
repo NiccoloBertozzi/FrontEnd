@@ -33,6 +33,15 @@ namespace test
         protected global::System.Web.UI.WebControls.PlaceHolder torneiInfo;
 
         /// <summary>
+        /// Controllo torneiinfoluogo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder torneiinfoluogo;
+
+        /// <summary>
         /// Controllo btnIscriviti.
         /// </summary>
         /// <remarks>

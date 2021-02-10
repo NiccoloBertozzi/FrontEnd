@@ -102,7 +102,7 @@
             </div>
         </form>
         <div class="row">
-            <a href="Register.aspx" class="btnRegister mx-auto">Registrati</a>
+            <a href="Register.aspx?ruolo=Atleta" class="btnRegister mx-auto">Registrati</a>
         </div>
     </div>
 
