@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <title>Modifica anagrafica</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
     <link rel="stylesheet" href="Content/styles.css" />
 </head>
@@ -58,7 +58,7 @@
     </nav>
     <!--Banner-->
     <div class="page-title row">
-        <h1 class=" col-12 text-center my-auto">Modifica Anagrafica - Societa</h1>
+        <h1 class=" col-12 text-center my-auto">Modifica anagrafica</h1>
     </div>
 
     <div class="container">

@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Tornei Iscritti</title>
+    <title>Tornei - atleta</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
