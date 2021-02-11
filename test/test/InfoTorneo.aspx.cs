@@ -15,19 +15,21 @@ namespace test
         string token;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.IsPostBack)
-            {
-                //idricevuto.Text = Session["IdUtente"].ToString();
-                int idTorneo = int.Parse(Session["IdTorneo"].ToString());
-                DownloadInformazioniTorneo(idTorneo);
-            }
             if (Session["ruolo"] != null)
             {
+                int idTorneo = int.Parse(Session["IdTorneo"].ToString());
                 if (Session["ruolo"].ToString() == "Societa") btnIscriviti.Visible = false;
                 if (Session["ruolo"].ToString() == "Delegato") btnIscriviti.Visible = false;
                 if (Session["ruolo"].ToString() == "Allenatore") btnIscriviti.Visible = false;
                 if (Session["ruolo"].ToString() == "Admin") btnIscriviti.Text = "Assegna Delegato";
             }
+            if (!this.IsPostBack)
+            {
+                //idricevuto.Text = Session["IdUtente"].ToString();
+                int idTorneo = Convert.ToInt32(Request.QueryString["id"]);
+                DownloadInformazioniTorneo(idTorneo);
+            }
+
         }
         protected void DownloadInformazioniTorneo(int idTorneo)
         {

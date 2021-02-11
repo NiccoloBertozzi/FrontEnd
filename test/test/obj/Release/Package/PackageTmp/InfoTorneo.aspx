@@ -72,7 +72,7 @@
                             <asp:PlaceHolder runat="server" ID="torneiinfoluogo"></asp:PlaceHolder>
                         </div>
                     </div>
-                    <div class="row mt-3">
+                    <div class="row my-3 justify-content-between">
                         <div class="col-6">
                             <asp:Button ID="btnIscriviti" runat="server" Text="Iscrivi squadra" OnClick="btnIscriviti_Click" CssClass="btn btn-primary" />
                         </div>
