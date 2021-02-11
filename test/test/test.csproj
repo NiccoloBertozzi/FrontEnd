@@ -210,6 +210,7 @@
     <Content Include="NuovaPassword.aspx" />
     <Content Include="OutputClassifica.aspx" />
     <Content Include="OutputTornei.aspx" />
+    <Content Include="OutputTorneiCategoria.aspx" />
     <Content Include="OutputTorneiDelegato.aspx" />
     <Content Include="OutputTorneiIscritti.aspx" />
     <Content Include="OutputTorneiNonAutorrizati.aspx" />
@@ -392,6 +393,13 @@
     </Compile>
     <Compile Include="OutputTornei.aspx.designer.cs">
       <DependentUpon>OutputTornei.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OutputTorneiCategoria.aspx.cs">
+      <DependentUpon>OutputTorneiCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OutputTorneiCategoria.aspx.designer.cs">
+      <DependentUpon>OutputTorneiCategoria.aspx</DependentUpon>
     </Compile>
     <Compile Include="OutputTorneiDelegato.aspx.cs">
       <DependentUpon>OutputTorneiDelegato.aspx</DependentUpon>
