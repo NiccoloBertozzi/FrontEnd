@@ -115,7 +115,7 @@ namespace test
         protected void clickArea_Click(object sender, EventArgs e)
         {
                 Session["IdTorneo"] = HiddenField1.Value;
-                Response.Redirect("InfoTorneo.aspx"); //rimanda alla form 'output tornei'
+                Response.Redirect("InfoTorneo.aspx?id="+ HiddenField1.Value); //rimanda alla form 'output tornei'
         }
     }
 }

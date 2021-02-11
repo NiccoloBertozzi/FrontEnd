@@ -1,0 +1,364 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+.bodylogin {
+    background-image: url('../Img/background-login.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+body.register {
+    background-image: url('../Img/background-login.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.my-navbar {
+    background: linear-gradient(90deg, #019bdd 0%, rgba(21, 68, 146, 1) 100%);
+}
+
+#my-navbar-items {
+    border: 0;
+}
+.pointer {
+    cursor: pointer;
+}
+.page-title {
+    background-image: linear-gradient(90deg, #2F2D2D 0%, rgba(56, 53, 53, 0.87) 38.54%, rgba(118, 110, 110, 0.37) 100%), url(../Img/sfondo.jpg);
+    color: rgb(255, 255, 255);
+    /* Full height */
+    height: 178px;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.page-title-login {
+    background-image: linear-gradient(90deg, #2F2D2D 0%, rgba(56, 53, 53, 0.87) 38.54%, rgba(118, 110, 110, 0.37) 100%), url(../Img/logo.png);
+    color: rgb(255, 255, 255);
+    /* Full height */
+    height: 178px;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.item-title {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.item-type {
+    color: #9D9D9D;
+}
+
+.item-cash {
+    color: #019BDD;
+}
+
+.my-button:focus {
+    outline: 0;
+}
+
+.card-container {
+    overflow: auto;
+    max-height: 70vh;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.dropdown-item:hover {
+    background-color: transparent;
+    border-bottom: 3px solid #B3A563;
+    color: white;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-menu {
+    border: 0;
+}
+
+.loginButtonTornei {
+    display: inline-block;
+    border: 0.1em solid #019bdd;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #019bdd;
+    text-shadow: 0 0.04em 0.04em #fff;
+    background-color: #FFFFFF;
+    text-align: center;
+    transition: all 0.15s;
+}
+
+.loginButtonTornei:hover {
+    text-shadow: 0 0 2em #ffffff;
+    color: #019bdd;
+    border-color: #FFFFFF;
+}
+
+.searchBox {
+    top: 50%;
+    left: 50%;
+    background: white;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+    width: 240px;
+    padding: 0 6px;
+    border: solid 2px #019bdd;
+}
+
+.searchButton {
+    color: #019bdd;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-color: transparent;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.searchInput {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 150px;
+    padding: 0 6px;
+}
+
+@media (max-width:768px) {
+    .card-img-top {
+        display: none;
+    }
+}
+
+.card-text {
+    color: #019bdd !important;
+    font-size: 500;
+}
+
+.bg {
+    background-image: url("../Img/background-login.png");
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.btnLogin {
+    background: linear-gradient(to bottom, #0091ff 5%, #0065bd 100%);
+    background-color: #0091ff;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px 25%;
+    text-decoration: none;
+}
+
+.btnRegister {
+    background: linear-gradient(to bottom, #0091ff2f 5%, #0065bd2f 100%);
+    background-color: #0091ff3d;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px 15%;
+    text-decoration: none;
+}
+
+.box {
+    width: 28%;
+}
+
+.centerContent {
+    margin-top: 25%;
+    margin-bottom: auto;
+    margin-left: 3%;
+}
+
+.loginformlabel {
+    text-align: left;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: 5px;
+    color: #0094f0;
+}
+
+div.container p {
+    text-align: left;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: 3px;
+}
+
+.loginform {
+    overflow: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.box {
+    width: 28%;
+}
+
+.centerContent {
+    margin-top: 25%;
+    margin-bottom: auto;
+    margin-left: 3%;
+}
+
+.btnRegister {
+    background: linear-gradient(to bottom, #0091ff2f 5%, #0065bd2f 100%);
+    background-color: #0091ff3d;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px 15%;
+    text-decoration: none;
+}
+
+form label.register {
+    text-align: left;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: 5px;
+    color: #0094f0;
+}
+
+#myNavUl {
+    display: flex;
+    justify-content: center;
+}
+/* Footer */
+
+.footer {
+    background-color: #2F2D2D;
+    letter-spacing: 3px;
+    color: #e4e4e4;
+    z-index: inherit;
+}
+
+    .footer h3 {
+        font-size: 50px;
+        letter-spacing: 2.4px;
+        word-spacing: 1.2px;
+        color: #e4e4e4;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .footer label {
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        word-spacing: 1.0px;
+        color: #e4e4e4;
+        font-weight: 500;
+        margin-bottom: 0px;
+    }
+
+    .footer p {
+        font-size: 16px;
+        letter-spacing: 1.5px;
+        word-spacing: 1.0px;
+        color: #e4e4e4;
+        margin-bottom: 0px
+    }
+
+@media (max-height: 800px) {
+    .footer {
+        position: static !important;
+        margin-top: 2em;
+    }
+}
+
+@media (max-width: 992px) {
+
+    @media (max-height: 990px) {
+        .footer {
+            position: static !important;
+            margin-top: 2em;
+        }
+    }
+}
+.contentInfo {
+    background-color: #ffffff;
+    border-top: 8px solid #0077aa;
+    padding-top: 40px !important;
+    padding-right: 30px !important;
+    padding-bottom: 25px !important;
+    padding-left: 30px !important;
+    box-shadow: 0px 2px 100px 0px rgb(0 0 0 / 10%);
+}
+
+    .contentInfo > h2 {
+        font-size: 40px;
+        letter-spacing: 1.2px;
+        font-weight: 700;
+    }
+
+    .contentInfo h3 {
+        font-size: 28px;
+        letter-spacing: 1.2px;
+        font-weight: 600;
+    }
+
+    .contentInfo p {
+        font-size: 18px;
+        color: #2F2D2D;
+        word-spacing: 0.5px;
+    }
+
+.btnIscriviti {
+    background: linear-gradient(to bottom, #0091ff 5%, #0065bd 100%);
+    background-color: #18222b;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px 25%;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+}
