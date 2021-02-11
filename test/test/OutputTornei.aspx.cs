@@ -114,11 +114,8 @@ namespace test
         }
         protected void clickArea_Click(object sender, EventArgs e)
         {
-            if (Session["idUtente"] != null)
-            {
                 Session["IdTorneo"] = HiddenField1.Value;
                 Response.Redirect("InfoTorneo.aspx"); //rimanda alla form 'output tornei'
-            }
         }
     }
 }

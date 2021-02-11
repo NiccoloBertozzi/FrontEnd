@@ -21,6 +21,7 @@
         if ($("#delegato").is(":visible")) $("#delegato").hide();
         if ($("#allenatore").is(":visible")) $("#allenatore").hide();
         $("#atleta").show();
+        window.location = "Register.aspx?ruolo=Delegato&en=1";
     })
 
     $("#btnAllenatore").click(function () {
@@ -41,6 +42,7 @@
         if ($("#delegato").is(":visible")) $("#delegato").hide();
         $("#allenatore").show();
         if ($("#atleta").is(":visible")) $("#atleta").hide();
+        window.location = "Register.aspx?ruolo=Delegato&en=2";
     })
 
     $("#btnDelegato").click(function () {
@@ -61,58 +63,21 @@
         $("#delegato").show();
         if ($("#allenatore").is(":visible")) $("#allenatore").hide();
         if ($("#atleta").is(":visible")) $("#atleta").hide();
+        window.location = "Register.aspx?ruolo=Delegato&en=3";
     })
 
     if (search.has("ruolo")) {
-
-        const redirectFunctions = {
-            atleta: function () {
-                window.location = "Register.aspx?ruolo=Atleta";
-            },
-            allenatore: function () {
-                window.location = "Register.aspx?ruolo=Allenatore";
-            },
-            delegato: function () {
-                window.location = "Register.aspx?ruolo=Delegato";
+            var idTasto = search.get("ruolo");
+        var idEntity = search.get("en") == "" ? "1" : search.get("en");
+            if (idTasto == "Atleta" && idEntity == "1") {
+                $("#btnAtleta").click();
             }
-        }
-
-        let btnAtleta = $("#btnAtleta");
-        let btnAllenatore = $("#btnAllenatore");
-        let btnDelegato = $("#btnDelegato");
-
-        var idTasto = search.get("ruolo");
-        if (idTasto == "Atleta") {
-            btnAtleta.click();
-            // disabilito click
-            btnAtleta.off("click");
-            btnAllenatore.off("click");
-            btnDelegato.off("click");
-
-            // abilita callback di reindirizzamento
-            btnAllenatore.click(redirectFunctions.allenatore);
-            btnDelegato.click(redirectFunctions.delegato);
-        }
-        else if (idTasto == "Allenatore") {
-            $("#btnAllenatore").click();
-
-            btnAtleta.off("click");
-            btnAllenatore.off("click");
-            btnDelegato.off("click");
-
-            btnAtleta.click(redirectFunctions.atleta);
-            btnDelegato.click(redirectFunctions.delegato);
-        }
-        else if (idTasto == "Delegato") {
-            $("#btnDelegato").click();
-
-            btnAtleta.off("click");
-            btnAllenatore.off("click");
-            btnDelegato.off("click");
-
-            btnAtleta.click(redirectFunctions.atleta);
-            btnAllenatore.click(redirectFunctions.allenatore);
-        }
+            else if (idTasto == "Allenatore" && idEntity == "2") {
+                $("#btnAllenatore").click();
+            }
+            else if (idTasto == "Delegato" && idEntity == "3") {
+                $("#btnDelegato").click();
+            }
     }
 
 })

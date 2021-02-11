@@ -17,11 +17,15 @@ namespace test
 
         public void Page_Load(object sender, EventArgs e)
         {
-            token = Session["Token"].ToString();
-            if (!this.IsPostBack)
+            if (Session["Token"] !=null)
             {
-                DownloadDataTornei(token);
+                token = Session["Token"].ToString();
+                if (!this.IsPostBack)
+                {
+                    DownloadDataTornei(token);
+                }
             }
+            else Response.Redirect("OutputTornei.aspx");
         }
         protected void DownloadDataTornei(string token)
         {

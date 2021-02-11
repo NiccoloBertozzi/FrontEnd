@@ -16,11 +16,15 @@ namespace test
         string token;
         protected void Page_Load(object sender, EventArgs e)
         {
-            token = Session["Token"].ToString();
+            if (!string.IsNullOrEmpty(Session["Token"] as string))
+            {
+                token = Session["Token"].ToString();
             if (!this.IsPostBack)
             {
                 DownloadDelegati(token);
             }
+            }
+            else Response.Redirect("OutputTornei.aspx");
         }
 
         protected void DownloadDelegati(string token)

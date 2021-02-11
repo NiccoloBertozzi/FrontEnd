@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OutputTorneiIscritti.aspx.cs" Inherits="test.OutputTorneiIscritti" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InfoTorneo.aspx.cs" Inherits="test.InfoTorneo" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -6,17 +7,10 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Tornei - atleta</title>
+    <title>Informazioni torneo</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
-    <script>
-        function DivClicked() {
-            var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
-            form1.HiddenField1.value = arguments[0];
-            clickArea_Click.click();
-        }
-    </script>
 </head>
 <body>
     <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
@@ -62,40 +56,30 @@
         </div>
     </nav>
     <form id="form1" runat="server">
-        <asp:Button runat="server" ID="btnTorneo" Style="display: none" OnClick="clickArea_Click" ClientIDMode="Static" />
-        <asp:HiddenField ID="HiddenField1" runat="server" />
         <!--Banner-->
         <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Iscrizioni Effettuate</h1>
+            <h1 class=" col-12 text-center my-auto">Informazioni torneo</h1>
         </div>
-
         <div class="container">
-            <!--CERCA-->
-            <div class="searchBox mx-2 my-2">
-                <input class="searchInput" type="text" name="" placeholder="Cerca">
-                <button class="searchButton" href="#">
-                    <i class=" fas fa-search"></i>
-                </button>
-            </div>
-            <!--Tornei-->
-            <h2 class=" col-12 text-center">Tornei attivi</h2>
-
-            <div class="card-deck">
-                <div class="row">
-                    <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>
+            <div class="row mt-4">
+                <div class="col-md-6 col-sm-12 contentInfo">
+                    <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
                 </div>
-            </div> 
-
-            <hr style="
-            background: black; 
-            margin-bottom: 10px;
-            "/>
-            
-            <h2 class=" col-12 text-center">Tornei attualmente in corso</h2>
-            <!--Tornei in corso-->
-            <div class="card-deck">
-                <div class="row">
-                    <asp:PlaceHolder runat="server" ID="inCorso"></asp:PlaceHolder>
+                <div class="col-md-5 col-sm-12 offset-md-1 mt-3 mt-md-0">
+                    <div class="row">
+                        <div class="col-12 contentInfo">
+                            <h2>Localit&agrave</h2>
+                            <asp:PlaceHolder runat="server" ID="torneiinfoluogo"></asp:PlaceHolder>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <asp:Button ID="btnIscriviti" runat="server" Text="Iscrivi squadra" OnClick="btnIscriviti_Click" CssClass="btn btn-primary" />
+                        </div>
+                        <div class="col-6">
+                            <a id="back" class="btn btn-secondary" href="javascript:history.go(-1)">Indietro</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -15,22 +15,25 @@ namespace test
         string token;
         protected void Page_Load(object sender, EventArgs e)
         {
-            token = Session["Token"].ToString();
             if (!this.IsPostBack)
             {
                 //idricevuto.Text = Session["IdUtente"].ToString();
                 int idTorneo = int.Parse(Session["IdTorneo"].ToString());
                 DownloadInformazioniTorneo(idTorneo);
             }
-            if (Session["ruolo"].ToString() == "Societa") btnIscriviti.Visible = false;
-            if (Session["ruolo"].ToString() == "Admin") btnIscriviti.Text = "Assegna Delegato";
+            if (Session["ruolo"] != null)
+            {
+                if (Session["ruolo"].ToString() == "Societa") btnIscriviti.Visible = false;
+                if (Session["ruolo"].ToString() == "Delegato") btnIscriviti.Visible = false;
+                if (Session["ruolo"].ToString() == "Allenatore") btnIscriviti.Visible = false;
+                if (Session["ruolo"].ToString() == "Admin") btnIscriviti.Text = "Assegna Delegato";
+            }
         }
         protected void DownloadInformazioniTorneo(int idTorneo)
         {
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetTorneoByID/" + idTorneo);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
-            request.AddHeader("Authorization", "Bearer " + token);
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
             IRestResponse response = client.Execute(request);
             //deserializza il risultato ritornato
@@ -38,46 +41,40 @@ namespace test
             if (deserialzied != null)
             {
                 StringBuilder table = new StringBuilder();
+                StringBuilder table2 = new StringBuilder();//usata per le info torneo riguardanti il luogo
                 table.Clear();
+                table2.Clear();
                 torneiInfo.Controls.Add(new Literal { Text = table.ToString() });
+                torneiinfoluogo.Controls.Add(new Literal { Text = table2.ToString() });
 
-                table.Append("<div class=\"row\">" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Titolo</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].titolo + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Tipo Torneo</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].tipoTorneo + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Supervisore Torneo</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].supervisoreTorneo + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Supervisore Arbitrale</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].supervisoreArbitrale + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Direttore Competizione</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].direttoreCompetizione + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Formula Torneo</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].formula + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Nome Impianto</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].nomeImpianto + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Città</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].citta + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Quota iscrizione</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].quotaIscrizione + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Punti Vittoria</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].puntiVittoria + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Montepremi</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].montepremi + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Data Inizio</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].dataInizio + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Data Fine</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].dataFine + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Genere</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].gender + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Numero Team Totali Tabellone</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].numMaxTeamMainDraw + "</label></div>" +
-                    "<div class=\"col-3\"><h5 class=\"card-title\">Numero Team che partecipano alle qualifiche</h5></div>" +
-                    "<div class=\"col-9\"><label for=\"titoloTorneo\">" + deserialzied[0].numMaxTeamQualifiche + "</label></div>" +
-                    "</div>");
+                table.Append("<h2>Info Torneo</h2>" +
+                    "<h3>Nome</h3>" +
+                    "<p>" + deserialzied[0].titolo + "</p>" +
+                    "<h3>TipoTorneo</h3>" +
+                    "<p>" + deserialzied[0].tipoTorneo + "</p>" +
+                    "<h3>Formula</h3>" +
+                    "<p>" + deserialzied[0].formula + "</p>" +
+                    "<h3>quotaIscrizione</h3>" +
+                    "<p>" + deserialzied[0].quotaIscrizione + "</p>" +
+                    "<h3>Punti Vittoria</h3>" +
+                    "<p>" + deserialzied[0].puntiVittoria + "</p>" +
+                    "<h3>Montepremi</h3>" +
+                    "<p>" + deserialzied[0].montepremi + "</p>" +
+                    "<h3>Data Inizio</h3>" +
+                    "<p>" + deserialzied[0].dataInizio + "</p>" +
+                    "<h3>Data Fine</h3>" +
+                    "<p>" + deserialzied[0].dataFine + "</p>" +
+                    "<h3>Sesso</h3>" +
+                    "<p>" + deserialzied[0].gender + "</p>");
 
+                table2.Append(" <h3>Nome Impianto</h3>" +
+                    "<p> "+ deserialzied[0].nomeImpianto +" </p> "+
+                    " <h3>Indirizzo</h3>" +
+                    "<p> " + deserialzied[0].citta + " </p> ");
+                
                 //Append the HTML string to Placeholder.
                 torneiInfo.Controls.Add(new Literal { Text = table.ToString() });
+                torneiinfoluogo.Controls.Add(new Literal { Text = table2.ToString() });
             }
         }
 

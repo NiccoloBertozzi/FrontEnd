@@ -7,7 +7,7 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Tornei</title>
+    <title>Informazioni torneo</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
@@ -58,13 +58,30 @@
     <form id="form1" runat="server">
         <!--Banner-->
         <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Informazioni Torneo</h1>
+            <h1 class=" col-12 text-center my-auto">Informazioni torneo</h1>
         </div>
-        <div class="container form-group"> <br />
-            <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
-            <div class="row justify-content-center">
-            <asp:Button ID="btnIscriviti" runat="server" Text="Iscrivi squadra" OnClick="btnIscriviti_Click" CssClass="btn btn-primary" />
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-md-6 col-sm-12 contentInfo">
+                    <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
                 </div>
+                <div class="col-md-5 col-sm-12 offset-md-1 mt-3 mt-md-0">
+                    <div class="row">
+                        <div class="col-12 contentInfo">
+                            <h2>Localit&agrave</h2>
+                            <asp:PlaceHolder runat="server" ID="torneiinfoluogo"></asp:PlaceHolder>
+                        </div>
+                    </div>
+                    <div class="row my-3 justify-content-between">
+                        <div class="col-6">
+                            <asp:Button ID="btnIscriviti" runat="server" Text="Iscrivi squadra" OnClick="btnIscriviti_Click" CssClass="btn btn-primary" />
+                        </div>
+                        <div class="col-6">
+                            <a id="back" class="btn btn-secondary" href="javascript:history.go(-1)">Indietro</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <script src="Scripts/jquery-3.4.1.min.js "></script>
         <script src="Scripts/bootstrap.min.js "></script>

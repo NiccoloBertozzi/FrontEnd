@@ -16,12 +16,16 @@ namespace test
         int idDelegato;
         public void Page_Load(object sender, EventArgs e)
         {
-            idDelegato = int.Parse(Session["IdUtente"].ToString());
-            token = Session["Token"].ToString();
-            if (!this.IsPostBack)
+            if (Session["Token"] != null)
             {
-                DownloadTornei(token);
+                idDelegato = int.Parse(Session["IdUtente"].ToString());
+                if (!this.IsPostBack)
+                {
+                    token = Session["Token"].ToString();
+                    DownloadTornei(token);
+                }
             }
+            else Response.Redirect("OutputTornei.aspx");
         }
         protected void DownloadTornei(string token)
         {
@@ -59,7 +63,7 @@ namespace test
         protected void clickArea_Click(object sender, EventArgs e)
         {
             Session["IdTorneo"] = HiddenField1.Value;
-            Response.Redirect("AutorizzaTorneo.aspx"); //rimanda alla form 'output tornei'
+            Response.Redirect("InfoTorneo.aspx");
         }
     }
 }

@@ -18,12 +18,16 @@ namespace test
 
         protected void Page_Load(object sender, EventArgs e)
 		{
-            if (Session["ruolo"].ToString() == "Atleta") Response.Redirect("ModificaAnagraficaAtleta.aspx");
+            if (!string.IsNullOrEmpty(Session["Token"] as string))
+            {
+                if (Session["ruolo"].ToString() == "Atleta") Response.Redirect("ModificaAnagraficaAtleta.aspx");
             if (Session["ruolo"].ToString() == "Admin" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("ModificaAnagraficaDelegato.aspx");
             token = Session["Token"].ToString();
             idSocieta = Convert.ToInt32(Session["idUtente"]);
             if (!this.IsPostBack)
                 DownloadSocieta(idSocieta);
+            }
+            else Response.Redirect("OutputTornei.aspx");
         }
         protected void DownloadSocieta(int idSocieta)
         {

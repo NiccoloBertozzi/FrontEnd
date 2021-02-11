@@ -15,12 +15,16 @@ namespace test
         string token;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["ruolo"].ToString() == "Admin" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("AnagraficaDelegato.aspx");
-            if (Session["ruolo"].ToString() == "Societa") Response.Redirect("AnagraficaSocieta.aspx");
-            if (Session["ruolo"].ToString() == "Allenatore") Response.Redirect("AnagraficaAllenatore.aspx");
-            token = Session["Token"].ToString();
-            int idAtleta = Convert.ToInt32(Session["idUtente"]);
-            DownloadAnagrafica(idAtleta);
+            if (!string.IsNullOrEmpty(Session["Token"] as string))
+            {
+                if (Session["ruolo"].ToString() == "Admin" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("AnagraficaDelegato.aspx");
+                if (Session["ruolo"].ToString() == "Societa") Response.Redirect("AnagraficaSocieta.aspx");
+                if (Session["ruolo"].ToString() == "Allenatore") Response.Redirect("AnagraficaAllenatore.aspx");
+                token = Session["Token"].ToString();
+                int idAtleta = Convert.ToInt32(Session["idUtente"]);
+                DownloadAnagrafica(idAtleta);
+            }
+            else Response.Redirect("OutputTornei.aspx");
         }
 
         protected void DownloadAnagrafica(int idAtleta)
