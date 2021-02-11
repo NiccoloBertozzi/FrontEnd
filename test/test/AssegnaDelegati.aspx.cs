@@ -16,7 +16,7 @@ namespace test
         string token;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Session["Token"] as string))
+            if (string.IsNullOrEmpty(Session["Token"] as string))
             {
                 token = Session["Token"].ToString();
             if (!this.IsPostBack)

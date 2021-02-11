@@ -14,22 +14,22 @@ namespace test
         //-----------------------------
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Session["Token"] as string))
+            if (string.IsNullOrEmpty(Session["Token"] as string))
             {
                 if (Session["ruolo"].ToString() == "Admin" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("OutputTorneiDelegato.aspx");
-            if (Session["ruolo"].ToString() == "Societa") Response.Redirect("OutputTornei.aspx");
-            if (Session["ruolo"].ToString() == "Allenatore") Response.Redirect("OutputTornei.aspx");
-            idAtleta1 = Session["IdUtente"].ToString();
-            token = Session["Token"].ToString();
-            //-------------------SCARICO ID SOCIETA DELL'ATLETA-----
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/atleti/GetIdSocieta/" + idAtleta1 + "");
-            client.Timeout = -1;
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("Authorization", "Bearer " + token + "");
-            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
-            IRestResponse response = client.Execute(request);
-            idsocieta = response.Content;
-            client.ClearHandlers();
+                if (Session["ruolo"].ToString() == "Societa") Response.Redirect("OutputTornei.aspx");
+                if (Session["ruolo"].ToString() == "Allenatore") Response.Redirect("OutputTornei.aspx");
+                idAtleta1 = Session["IdUtente"].ToString();
+                token = Session["Token"].ToString();
+                //-------------------SCARICO ID SOCIETA DELL'ATLETA-----
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/atleti/GetIdSocieta/" + idAtleta1 + "");
+                client.Timeout = -1;
+                var request = new RestRequest(Method.GET);
+                request.AddHeader("Authorization", "Bearer " + token + "");
+                request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
+                IRestResponse response = client.Execute(request);
+                idsocieta = response.Content;
+                client.ClearHandlers();
             }
             else Response.Redirect("OutputTornei.aspx");
             //----------------------
@@ -38,7 +38,8 @@ namespace test
         protected void btn_IscriviSquadra_Click(object sender, EventArgs e)
         {
             //se è stato trovato un atleta
-            if (nomeAtleta2.Text!="") {
+            if (nomeAtleta2.Text != "")
+            {
                 //----------------------Inserimento Squadra-------------------------//
                 var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/InserisciSquadra");
                 client.Timeout = -1;
@@ -67,7 +68,7 @@ namespace test
             if (Atleta.Text.Length >= 3)
             {
                 //Stampo il nome dell'atleta in base alla tessera selezionata
-                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AtletaTessera/" + Atleta.Text + "/Societa/"+idsocieta+"");
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AtletaTessera/" + Atleta.Text + "/Societa/" + idsocieta + "");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("Authorization", "Bearer " + token + "");

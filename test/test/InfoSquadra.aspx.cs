@@ -17,7 +17,7 @@ namespace test
         int idSquadra, idTorneo, idSupervisore;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Session["Token"] as string))
+            if (string.IsNullOrEmpty(Session["Token"] as string))
             {
                 token = Session["Token"].ToString();
             idSquadra = int.Parse(Session["IdSquadra"].ToString());

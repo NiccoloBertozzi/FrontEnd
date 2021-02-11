@@ -36,6 +36,8 @@ namespace test
                     Session["ruolo"] = response.Cookies[0].Value.ToString();
                     dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
                     Session["IdUtente"] = deserialzied.id;
+                    string x = deserialzied.token;
+                    if (x != "") x = "";
                     Session["Token"] = deserialzied.token;
                     Response.Redirect("OutputTornei.aspx"); //rimanda alla form 'output tornei'
                 }

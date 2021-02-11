@@ -18,7 +18,7 @@ namespace test
         CheckBoxList cbListImpianti = new CheckBoxList();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Session["Token"] as string))
+            if (string.IsNullOrEmpty(Session["Token"] as string))
             {
                 txtDataInizio.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
                 txtDataFine.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");
