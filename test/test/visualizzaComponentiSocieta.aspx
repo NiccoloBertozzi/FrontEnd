@@ -22,12 +22,12 @@
             var settings = {
                 "url": "https://aibvcapi.azurewebsites.net/api/v1/tornei/AllenatoriSocieta/" + idutente,
                 "method": "GET",
-                "timeout": 0,
+                "timeout": -1,
                 "withCredentials": true,
                 "headers": {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
-                    "Authorization": "Bearer " + token,
+                    "Authorization": "Bearer " + token + ""
                 },
             };
             $.ajax(settings).done(function (response) {
