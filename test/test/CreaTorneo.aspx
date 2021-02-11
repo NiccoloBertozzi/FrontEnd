@@ -84,8 +84,20 @@
                     <asp:TextBox ID="txtDataInizio" runat="server" required="true" placeholder="Inserisci data inizio torneo" CssClass="form-control" TextMode="Date"></asp:TextBox>
                 </div>
                 <div class="form-group">
+                    <label for="lblOraInizio">Ora inizio: </label>
+                    <asp:TextBox ID="txtOraInizio" runat="server" required="true" placeholder="Inserisci ora inizio torneo" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="form-group">
                     <label for="lblDataFine">Data fine: </label>
                     <asp:TextBox ID="txtDataFine" runat="server" required="true" placeholder="Inserisci data fine torneo" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label for="lblOutdoor">Outdoor</label>
+                    <asp:CheckBox ID="cbOutdoor" runat="server" CssClass="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="lblRiunioneTecnica">Riunione tecnica</label>
+                    <asp:CheckBox ID="cbRiunioneTecnica" runat="server" CssClass="form-control" />
                 </div>
                 <br />
                 <p>Gender:</p>
@@ -129,7 +141,9 @@
                 <br />
                 <div class="form-group" id="parametriSelezionati" runat="server">
                     <label for="lblIDParametri">Parametri: </label>
-                    <asp:PlaceHolder ID="cmbParametri" runat="server"></asp:PlaceHolder>
+                    <asp:PlaceHolder ID="cmbParametri" runat="server">
+                        <asp:CheckBoxList ID="cbListParametri" runat="server"></asp:CheckBoxList>
+                    </asp:PlaceHolder>
                     <br />
                 </div>
                 <br />

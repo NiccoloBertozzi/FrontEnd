@@ -64,10 +64,10 @@ namespace test
         protected void DownloadDataTorneiInCorso(string token)
         {
 
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/ToreniFiniti/" + Session["idUtente"]);
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/TorneInCorso/" + Session["idUtente"]);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
-            request.AddHeader("Authorization", "Bearer " + token);
+            request.AddHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImFsZXh0YW1hQGdtYWlsLmNvbSIsInJvbGUiOiJBdGxldGEiLCJuYmYiOjE2MTMwNjE0NTksImV4cCI6MTYxMzA2MjY1OSwiaWF0IjoxNjEzMDYxNDU5fQ.aVYwba1AfgjA4iQCO2VaIg8-rmC_zYSHIQ1DYAH3RRk");
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Atleta");
             IRestResponse response = client.Execute(request);
             //deserializza il risultato ritornato
