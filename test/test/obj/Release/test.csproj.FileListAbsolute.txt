@@ -715,7 +715,6 @@ C:\Users\Utente\Desktop\FrontEnd\test\test\bin\it\System.Web.Webpages.Deployment
 C:\Users\Utente\Desktop\FrontEnd\test\test\bin\it\System.Web.Webpages.Razor.resources.dll
 C:\Users\Utente\Desktop\FrontEnd\test\test\bin\it\System.Web.Helpers.resources.dll
 C:\Users\Utente\Desktop\FrontEnd\test\test\bin\it\System.Web.Mvc.resources.dll
-C:\Users\Utente\Desktop\FrontEnd\test\test\obj\Release\test.csprojAssemblyReference.cache
 C:\Users\Utente\Desktop\FrontEnd\test\test\obj\Release\test.csproj.CopyComplete
 C:\Users\Utente\Desktop\FrontEnd\test\test\obj\Release\test.dll
 C:\Users\Utente\Desktop\FrontEnd\test\test\obj\Release\test.pdb
@@ -913,3 +912,4 @@ C:\Users\berto\Desktop\FrontEnd\test\test\obj\Release\test.csprojAssemblyReferen
 C:\Users\berto\Desktop\FrontEnd\test\test\obj\Release\test.csproj.CopyComplete
 C:\Users\berto\Desktop\FrontEnd\test\test\obj\Release\test.dll
 C:\Users\berto\Desktop\FrontEnd\test\test\obj\Release\test.pdb
+C:\Users\Utente\Desktop\FrontEnd\test\test\obj\Release\test.csprojAssemblyReference.cache

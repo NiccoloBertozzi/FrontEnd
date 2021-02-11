@@ -39,7 +39,7 @@ namespace test
                 visualizzaAllenatori.Controls.Add(new Literal { Text = table.ToString() });
                 for (int i = 0; i < deserialized.Count; i++)
                 {
-                    table.Append("" +
+                   table.Append(""+
                         "<p> Nome atleta: " + deserialized[i].nome + "</p>" +
                         "<p> Cognome atleta: " + deserialized[i].cognome + "</p>" +
                         "<p> Sesso: " + deserialized[i].sesso + "</p>" + 
@@ -52,8 +52,8 @@ namespace test
                         "<p> Email: " + deserialized[i].email + "</p>" +
                         "<p> Telefono: " + deserialized[i].tel + "</p>" +
                         "<p> Altezza: " + deserialized[i].altezza + "</p>" +
-                        "<p> Peso: " + deserialized[i].peso + "</p>" +
-                        "<p> Data scadenza certificato: " + deserialized[i].dataScadenzaCertificato.ToString().Split(' ')[0] + "</p>");
+                        "<p> Peso: " + deserialized[i].peso + "</p>");/* +
+                        "<p> Data scadenza certificato: " + deserialized[i].dataScadenzaCertificato.ToString().Split(' ')[0] + "</p>"*/
                 }
                 //Append the HTML string to Placeholder.
                 visualizzaAllenatori.Controls.Add(new Literal { Text = table.ToString() });
@@ -77,7 +77,7 @@ namespace test
                 visualizzaAtleti.Controls.Add(new Literal { Text = table.ToString() });
                 for (int i = 0; i < deserialized.Count; i++)
                 {
-                    table.Append("" +
+                    table.Append("" + 
                         "<p> Nome atleta: " + deserialized[i].nome + "</p>" +
                         "<p> Cognome atleta: " + deserialized[i].cognome + "</p>" +
                         "<p> Sesso: " + deserialized[i].sesso + "</p>" +

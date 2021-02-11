@@ -69,8 +69,8 @@
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="AnagraficaSocieta.aspx">Chi siamo</a>
-                                    <a class="dropdown-item" href="#">Affiliati</a>
+                                    <a class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
+                                    <a class="dropdown-item" href="visualizzaComponentiSocieta.aspx">Elenco tesserati</a>
                                     <a class="dropdown-item" href="#">Attività</a>
                                     <a class="dropdown-item" href="#">Come operiamo</a>
                                     <a class="dropdown-item" href="#">Obiettivi</a>
