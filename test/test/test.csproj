@@ -210,6 +210,7 @@
     <Content Include="ModificaAnagraficaSocieta.aspx" />
     <Content Include="NuovaPassword.aspx" />
     <Content Include="OutputClassifica.aspx" />
+    <Content Include="OutputStoricoTornei.aspx" />
     <Content Include="OutputTornei.aspx" />
     <Content Include="OutputTorneiCategoria.aspx" />
     <Content Include="OutputTorneiDelegato.aspx" />
@@ -387,6 +388,13 @@
     </Compile>
     <Compile Include="OutputClassifica.aspx.designer.cs">
       <DependentUpon>OutputClassifica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OutputStoricoTornei.aspx.cs">
+      <DependentUpon>OutputStoricoTornei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OutputStoricoTornei.aspx.designer.cs">
+      <DependentUpon>OutputStoricoTornei.aspx</DependentUpon>
     </Compile>
     <Compile Include="OutputTornei.aspx.cs">
       <DependentUpon>OutputTornei.aspx</DependentUpon>
