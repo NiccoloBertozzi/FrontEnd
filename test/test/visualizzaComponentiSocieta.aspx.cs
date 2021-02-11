@@ -18,11 +18,11 @@ namespace test
             if (Session["ruolo"].ToString() == "Atleta" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("OutputTornei.aspx");
             token = Session["Token"].ToString();
             int idSocieta = Convert.ToInt32(Session["idUtente"]);
-            DownloadAllenatori(idSocieta);
+           // DownloadAllenatori(idSocieta);
             DownloadAtleti(idSocieta);
         }
 
-        protected void DownloadAllenatori(int idSocieta) //mostra tutti gli allenatori della socità
+       /*protected void DownloadAllenatori(int idSocieta) //mostra tutti gli allenatori della socità
         {
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AllenatoriSocieta/" + Session["idUtente"]);
             client.Timeout = -1;
@@ -54,17 +54,17 @@ namespace test
                         "<p> Altezza: " + deserialized[i].altezza + "</p>" +
                         "<p> Peso: " + deserialized[i].peso + "</p>");/* +
                         "<p> Data scadenza certificato: " + deserialized[i].dataScadenzaCertificato.ToString().Split(' ')[0] + "</p>"*/
-                }
+                /*}
                 //Append the HTML string to Placeholder.
                 visualizzaAllenatori.Controls.Add(new Literal { Text = table.ToString() });
             }
-        }
+        }*/
 
         protected void DownloadAtleti(int idSocieta) //mostra tutti gli atleti della socità
         {
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AtletiSocieta/" + Session["idUtente"]);
             client.Timeout = -1;
-            var request = new RestRequest(Method.POST);
+            var request = new RestRequest(Method.GET);
             request.AddHeader("Authorization", "Bearer " + token + "");
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=" + Session["ruolo"]);
             IRestResponse response = client.Execute(request);
