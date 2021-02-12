@@ -17,7 +17,7 @@
                 <span class="sr-only">Toggle navigation</span>
                 <i class="fas fa-bars" style="color: white;"></i>
             </button>
-            <img src="Img/aibvc-logo.png" style="width: 94px;" />
+            <img src="Img/aibvc-logo.png" style="width: 94px;"/>
             <div class="collapse navbar-collapse row" id="navcol-1">
                 <div class="col-md-11 col-sm-12">
                     <ul class="nav navbar-nav ml-5" id="myNavUl">
@@ -49,6 +49,9 @@
                             </div>
                         </li>
                     </ul>
+                </div>
+                <div class="col-md-1 col-sm-12">
+                    <asp:PlaceHolder runat="server" ID="AccediBtn"></asp:PlaceHolder>
                 </div>
             </div>
         </div>
