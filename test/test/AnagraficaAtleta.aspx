@@ -63,11 +63,13 @@
     </div>
     <form id="formComponentiAtleta" runat="server">
  <div class="container">
-     <div class="row mt-4">
+     <div class="card-container mr-3 ml-3 mt-3">
+       <div class="row mt-4">
         <div class="col-md-8 offset-md-2 col-sm-12 contentInfo">
             <asp:PlaceHolder runat="server" ID="anagraficaAtleta"></asp:PlaceHolder>
             <asp:Button runat="server" OnClick="ModificaAnagrafica_Click" Text="Modifica anagrafica" />
         </div>
+     </div>
      </div>
 </div>
     </form>
