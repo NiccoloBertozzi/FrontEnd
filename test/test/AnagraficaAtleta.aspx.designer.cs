@@ -15,21 +15,30 @@ namespace test
     {
 
         /// <summary>
-        /// Controllo formComponentiSocieta.
+        /// Controllo formComponentiAtleta.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formComponentiSocieta;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formComponentiAtleta;
 
         /// <summary>
-        /// Controllo anagraficaAtleta.
+        /// Controllo campiAnagrafica.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder anagraficaAtleta;
+        protected global::System.Web.UI.WebControls.PlaceHolder campiAnagrafica;
+
+        /// <summary>
+        /// Controllo ModificaAnagrafica.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ModificaAnagrafica;
     }
 }
