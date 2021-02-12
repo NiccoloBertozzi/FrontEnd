@@ -56,7 +56,7 @@ namespace test
                     "<p>" + deserialzied[0].tipoTorneo + "</p>" +
                     "<h3>Formula</h3>" +
                     "<p>" + deserialzied[0].formula + "</p>" +
-                    "<h3>quotaIscrizione</h3>" +
+                    "<h3>Quota Iscrizione</h3>" +
                     "<p>" + deserialzied[0].quotaIscrizione + "</p>" +
                     "<h3>Punti Vittoria</h3>" +
                     "<p>" + deserialzied[0].puntiVittoria + "</p>" +

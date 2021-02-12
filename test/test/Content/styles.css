@@ -362,3 +362,16 @@ form label.register {
     width: 100%;
     text-align: center;
 }
+
+/*Info Anagrafiche*/
+div.contentInfo label {
+    font-size: 20px;
+    letter-spacing: 1.2px;
+}
+
+div.contentInfo p {
+    font-size: 20px;
+    color: #2F2D2D;
+    font-weight: 500;
+    word-spacing: 0.5px;
+}

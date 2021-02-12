@@ -11,6 +11,7 @@
     <form id="formComponentiSocieta" runat="server">
         <br />
         <asp:Label runat="server" id="lblTessere" Text="Tessere: "></asp:Label><br />
+
         <asp:PlaceHolder runat="server" ID="visualizzaTessere"></asp:PlaceHolder>
     </form>
 </body>
