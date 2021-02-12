@@ -49,7 +49,7 @@
             </button>
             <img src="Img/aibvc-logo.png" style="width: 94px;">
             <div class="collapse navbar-collapse row" id="navcol-1">
-                <div class="col-md-10 col-sm-12">
+                <div class="col-md-11 col-sm-12">
                     <ul class="nav navbar-nav ml-5" id="myNavUl">
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="OutputTornei.aspx">Home</a></li>
                         <li class="nav-item" role="presentation">
@@ -81,7 +81,7 @@
                         <asp:PlaceHolder runat="server" ID="dinamicload"></asp:PlaceHolder>
                     </ul>
                 </div>
-                <div class="col-2">
+                <div class="col-1">
                     <asp:PlaceHolder runat="server" ID="AccediBtn"></asp:PlaceHolder>
                 </div>
             </div>
@@ -105,8 +105,10 @@
             </div>
             <!--Tornei-->
             <div class="card-deck">
-                <div class="row">
-                    <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>
+                <div class="card-container mr-3 ml-3 mt-3">
+                    <div class="row">
+                        <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>
+                    </div>
                 </div>
             </div>
         </div>
