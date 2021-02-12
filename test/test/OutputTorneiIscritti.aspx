@@ -38,8 +38,8 @@
                                     <a class="dropdown-item" href="#">Calendario L1</a>
                                     <a class="dropdown-item" href="#">Calendario L2</a>
                                     <a class="dropdown-item" href="#">Calendario L3</a>
-                                    <a class="dropdown-item" href="#">Classifica Maschile</a>
-                                    <a class="dropdown-item" href="#">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="#" onclick="LoadClassificaMaschile();">Classifica Maschile</a>
+                                    <a class="dropdown-item" href="#" onclick="LoadClassificaFemminile();">Classifica Femminile</a>
                                 </div>
                             </div>
                         </li>
@@ -48,7 +48,7 @@
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Chi siamo</a>
+                                    <a class="dropdown-item" href="AnagraficaAtleta.aspx">Anagrafica</a>
                                     <a class="dropdown-item" href="#">Affiliati</a>
                                     <a class="dropdown-item" href="#">Attività</a>
                                     <a class="dropdown-item" href="#">Come operiamo</a>
@@ -77,25 +77,27 @@
                     <i class=" fas fa-search"></i>
                 </button>
             </div>
-            <!--Tornei-->
-            <h2 class=" col-12 text-center">Tornei attivi</h2>
+            <div class="card-container mr-3 ml-3 mt-3">
+                <!--Tornei-->
+                <h2 class=" col-12 text-center">Tornei attivi</h2>
 
-            <div class="card-deck">
-                <div class="row">
-                    <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>
-                </div>
-            </div> 
+                <div class="card-deck">
+                    <div class="row">
+                        <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>
+                    </div>
+                </div> 
 
-            <hr style="
-            background: black; 
-            margin-bottom: 10px;
-            "/>
+                <hr style="
+                background: black; 
+                margin-bottom: 10px;
+                "/>
             
-            <h2 class=" col-12 text-center">Tornei attualmente in corso</h2>
-            <!--Tornei in corso-->
-            <div class="card-deck">
-                <div class="row">
-                    <asp:PlaceHolder runat="server" ID="inCorso"></asp:PlaceHolder>
+                <h2 class=" col-12 text-center">Tornei attualmente in corso</h2>
+                <!--Tornei in corso-->
+                <div class="card-deck">
+                    <div class="row">
+                        <asp:PlaceHolder runat="server" ID="inCorso"></asp:PlaceHolder>
+                    </div>
                 </div>
             </div>
         </div>

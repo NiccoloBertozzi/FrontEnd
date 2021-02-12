@@ -24,6 +24,15 @@ namespace test
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Controllo sp1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager sp1;
+
+        /// <summary>
         /// Controllo txtTitolo.
         /// </summary>
         /// <remarks>
@@ -222,13 +231,22 @@ namespace test
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl impiantiSelezionati;
 
         /// <summary>
-        /// Controllo cmbImpianti.
+        /// Controllo cbImpianti.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder cmbImpianti;
+        protected global::AjaxControlToolkit.ComboBox cbImpianti;
+
+        /// <summary>
+        /// Controllo idImpianto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label idImpianto;
 
         /// <summary>
         /// Controllo Button1.

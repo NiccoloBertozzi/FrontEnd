@@ -34,8 +34,8 @@
                                     <a class="dropdown-item" href="#">Calendario L1</a>
                                     <a class="dropdown-item" href="#">Calendario L2</a>
                                     <a class="dropdown-item" href="#">Calendario L3</a>
-                                    <a class="dropdown-item" href="#">Classifica Maschile</a>
-                                    <a class="dropdown-item" href="#">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="#" onclick="LoadClassificaMaschile();">Classifica Maschile</a>
+                                    <a class="dropdown-item" href="#" onclick="LoadClassificaFemminile();">Classifica Femminile</a>
                                 </div>
                             </div>
                         </li>
@@ -44,7 +44,7 @@
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Chi siamo</a>
+                                    <a class="dropdown-item" href="#">Anagrafica</a>
                                     <a class="dropdown-item" href="#">Affiliati</a>
                                     <a class="dropdown-item" href="#">Attività</a>
                                     <a class="dropdown-item" href="#">Come operiamo</a>
@@ -61,14 +61,19 @@
     <div class="page-title row">
         <h1 class=" col-12 text-center my-auto">Anagrafica Delegato</h1>
     </div>
-    <form id="formComponentiSocieta" runat="server">
-        <div>
-            <asp:PlaceHolder runat="server" ID="anagraficaDelegato"></asp:PlaceHolder>
-            <asp:Button runat="server" OnClick="ModificaAnagraficaDelegato_Click" Text="Modifica anagrafica" />
+        <form id="formComponentiDelegato" runat="server">
+ <div class="container">
+     <div class="card-container">
+         <div class="row mt-4">
+            <div class="col-md-8 offset-md-2 col-sm-12 contentInfo">
+                <asp:PlaceHolder runat="server" ID="anagraficaDelegato"></asp:PlaceHolder>
+                <asp:Button runat="server" OnClick="ModificaAnagrafica_Click" Text="Modifica anagrafica" />
+            </div>
         </div>
+     </div>
+</div>
+    </form>
         <script src="Scripts/jquery-3.4.1.min.js "></script>
         <script src="Scripts/bootstrap.min.js "></script>
-    </form>
 </body>
 </html>
-

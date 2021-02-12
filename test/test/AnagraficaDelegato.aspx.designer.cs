@@ -15,13 +15,13 @@ namespace test
     {
 
         /// <summary>
-        /// Controllo formComponentiSocieta.
+        /// Controllo formComponentiDelegato.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formComponentiSocieta;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formComponentiDelegato;
 
         /// <summary>
         /// Controllo anagraficaDelegato.
