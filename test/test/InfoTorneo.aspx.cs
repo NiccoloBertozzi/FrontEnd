@@ -12,16 +12,23 @@ namespace test
 {
     public partial class InfoTorneo : System.Web.UI.Page
     {
-        string token;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["ruolo"] != null)
             {
-                int idTorneo = int.Parse(Session["IdTorneo"].ToString());
                 if (Session["ruolo"].ToString() == "Societa") btnIscriviti.Visible = false;
                 if (Session["ruolo"].ToString() == "Delegato") btnIscriviti.Visible = false;
                 if (Session["ruolo"].ToString() == "Allenatore") btnIscriviti.Visible = false;
                 if (Session["ruolo"].ToString() == "Admin") btnIscriviti.Text = "Assegna Delegato";
+            }
+            if (Session["idUtente"] == null)
+            {
+                StringBuilder table = new StringBuilder();
+                table.Clear();
+                AccediBtn.Controls.Add(new Literal { Text = table.ToString() });
+                table.Append("<button type=\"button\" class=\"btn btn-light\" onclick=\"LoadLogin(); \">Login</button>");
+                AccediBtn.Controls.Add(new Literal { Text = table.ToString() });
+                btnIscriviti.Visible = false;
             }
             if (!this.IsPostBack)
             {
@@ -29,7 +36,6 @@ namespace test
                 int idTorneo = Convert.ToInt32(Request.QueryString["id"]);
                 DownloadInformazioniTorneo(idTorneo);
             }
-
         }
         protected void DownloadInformazioniTorneo(int idTorneo)
         {
@@ -70,10 +76,10 @@ namespace test
                     "<p>" + deserialzied[0].gender + "</p>");
 
                 table2.Append(" <h3>Nome Impianto</h3>" +
-                    "<p> "+ deserialzied[0].nomeImpianto +" </p> "+
+                    "<p> " + deserialzied[0].nomeImpianto + " </p> " +
                     " <h3>Indirizzo</h3>" +
                     "<p> " + deserialzied[0].citta + " </p> ");
-                
+
                 //Append the HTML string to Placeholder.
                 torneiInfo.Controls.Add(new Literal { Text = table.ToString() });
                 torneiinfoluogo.Controls.Add(new Literal { Text = table2.ToString() });
@@ -82,7 +88,7 @@ namespace test
 
         protected void btnIscriviti_Click(object sender, EventArgs e)
         {
-            if(Session["ruolo"].ToString() == "Admin") Response.Redirect("AssegnaDelegati.aspx");
+            if (Session["ruolo"].ToString() == "Admin") Response.Redirect("AssegnaDelegati.aspx");
             Response.Redirect("IscrizioneSquadra.aspx"); //rimanda alla form 'output tornei'
         }
     }
