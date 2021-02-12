@@ -60,6 +60,9 @@ namespace test
                 request.AddParameter("application/json", "{\r\n  \"idTorneo\": " + Session["IdTorneo"] + ",\r\n  \"idSquadra\": \"" + response.Content + "\",\r\n  \"idAllenatore\": \"" + Allenatore.Text + "\"\r\n}", ParameterType.RequestBody);
                 IRestResponse response1 = client.Execute(request);
                 //------------------------------------------------------------------//
+
+                MessageBox.Show(response.Content);
+                MessageBox.Show(response1.Content);
                 Response.Redirect("OutputTornei.aspx");
             }
         }

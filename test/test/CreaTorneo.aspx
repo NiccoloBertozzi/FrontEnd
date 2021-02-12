@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreaTorneo.aspx.cs" Inherits="test.CreaTorneo" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -56,6 +58,7 @@
         </div>
     </nav>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>
         <!--Banner-->
         <div class="page-title-login row">
             <h1 class=" col-12 text-center my-auto">Creazione torneo</h1>
@@ -148,9 +151,9 @@
                 </div>
                 <br />
                 <div class="form-group" id="impiantiSelezionati" runat="server">
-                    <label for="lblIDParametri">Impianti: </label>
-                    <asp:PlaceHolder ID="cmbImpianti" runat="server"></asp:PlaceHolder>
-                    <br />
+                    <label for="Impianti">Impianti</label><br />
+                   <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbImpianti" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="cbImpianti_TextChanged"/>
+                   <asp:Label runat="server" Text="" ID="idImpianto"></asp:Label>
                 </div>
                 <asp:Button ID="Button1" runat="server" Text="Crea torneo" OnClick="creaTorneo_Click" CssClass="btn btn-primary" />
             </div>

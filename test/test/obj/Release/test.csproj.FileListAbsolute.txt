@@ -812,7 +812,6 @@ C:\Users\Riccardo\Desktop\FrontEnd\test\test\bin\it\System.Web.Webpages.Razor.re
 C:\Users\Riccardo\Desktop\FrontEnd\test\test\bin\it\System.Web.Helpers.resources.dll
 C:\Users\Riccardo\Desktop\FrontEnd\test\test\bin\it\System.Web.Mvc.resources.dll
 C:\Users\Riccardo\Desktop\FrontEnd\test\test\obj\Release\test.csprojAssemblyReference.cache
-C:\Users\Riccardo\Desktop\FrontEnd\test\test\obj\Release\test.csproj.CoreCompileInputs.cache
 C:\Users\Riccardo\Desktop\FrontEnd\test\test\obj\Release\test.csproj.CopyComplete
 C:\Users\Riccardo\Desktop\FrontEnd\test\test\obj\Release\test.dll
 C:\Users\Riccardo\Desktop\FrontEnd\test\test\obj\Release\test.pdb
