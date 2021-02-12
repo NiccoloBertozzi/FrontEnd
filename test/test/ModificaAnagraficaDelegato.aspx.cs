@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -16,13 +17,21 @@ namespace test
         int idDelegato;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["idUtente"] == null)
+            {
+                StringBuilder table = new StringBuilder();
+                table.Clear();
+                AccediBtn.Controls.Add(new Literal { Text = table.ToString() });
+                table.Append("<button type=\"button\" class=\"btn btn-light\" onclick=\"LoadLogin(); \">Login</button>");
+                AccediBtn.Controls.Add(new Literal { Text = table.ToString() });
+            }
             if (string.IsNullOrEmpty(Session["Token"] as string))
             {
                 if (Session["ruolo"].ToString() == "Atleta") Response.Redirect("ModificaAnagraficaAtleta.aspx");
-            if (Session["ruolo"].ToString() == "Societa") Response.Redirect("ModificaAnagraficaSocieta.aspx"); 
-            token = Session["Token"].ToString();
-            idDelegato = Convert.ToInt32(Session["idUtente"]);
-            if (!this.IsPostBack) DownloadDelegato();
+                if (Session["ruolo"].ToString() == "Societa") Response.Redirect("ModificaAnagraficaSocieta.aspx");
+                token = Session["Token"].ToString();
+                idDelegato = Convert.ToInt32(Session["idUtente"]);
+                if (!this.IsPostBack) DownloadDelegato();
             }
             else Response.Redirect("OutputTornei.aspx");
         }
@@ -74,10 +83,10 @@ namespace test
             request.AddHeader("Authorization", "Bearer " + token);
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Admin");
-            request.AddParameter("application/json", "{\r\n  \"delegato\": {\r\n    \"idDelegato\": "+idDelegato+",\r\n    \"nome\": \"" + nome.Text + "\",\r\n    \"cognome\": \""+cognome.Text+"\",\r\n    \"sesso\": \""+sesso+"\",\r\n    \"cf\": \""+cf.Text+"\",\r\n    \"dataNascita\": \""+Convert.ToDateTime(dataNascita.Text)+"\",\r\n \"indirizzo\": \""+indirizzo.Text+"\",\r\n    \"cap\": \""+cap.Text+"\",\r\n    \"email\": \""+email.Text+"\",\r\n    \"tel\": \""+tel.Text+"\",\r\n    \"arbitro\": "+arbitroC+",\r\n    \"supervisore\": "+supervisoreC+",\r\n    \"codiceTessera\": \""+codiceTessera.Text+"\"\r\n  },\r\n  \"comuneNascita\": \""+comuneNascita.Text+"\",\r\n  \"comuneResidenza\": \""+comuneResidenza.Text+"\"\r\n}", ParameterType.RequestBody);
+            request.AddParameter("application/json", "{\r\n  \"delegato\": {\r\n    \"idDelegato\": " + idDelegato + ",\r\n    \"nome\": \"" + nome.Text + "\",\r\n    \"cognome\": \"" + cognome.Text + "\",\r\n    \"sesso\": \"" + sesso + "\",\r\n    \"cf\": \"" + cf.Text + "\",\r\n    \"dataNascita\": \"" + Convert.ToDateTime(dataNascita.Text) + "\",\r\n \"indirizzo\": \"" + indirizzo.Text + "\",\r\n    \"cap\": \"" + cap.Text + "\",\r\n    \"email\": \"" + email.Text + "\",\r\n    \"tel\": \"" + tel.Text + "\",\r\n    \"arbitro\": " + arbitroC + ",\r\n    \"supervisore\": " + supervisoreC + ",\r\n    \"codiceTessera\": \"" + codiceTessera.Text + "\"\r\n  },\r\n  \"comuneNascita\": \"" + comuneNascita.Text + "\",\r\n  \"comuneResidenza\": \"" + comuneResidenza.Text + "\"\r\n}", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
             if (response.StatusCode == HttpStatusCode.OK) Response.Redirect("AnagraficaDelegato.aspx");
-            else Response.Write("<script>alert('"+ response.Content +"');</script>");
+            else Response.Write("<script>alert('" + response.Content + "');</script>");
         }
     }
 }
