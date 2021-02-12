@@ -109,19 +109,19 @@
                 </div>
                 <br />
                 <div class="form-group">
-                    <label for="lblNumTeamTabellone">Numero Team Totali Tabellone: </label>
+                    <label for="lblNumTeamTabellone">Numero di squadre totali nel tabellone: </label>
                     <asp:TextBox ID="txtNumTeamTabellone" runat="server" required="true" placeholder="Inserisci il numero di Team totali del tabellone" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <label for="lblNumTeamQualifiche">Numero Team che partecipano alle qualifiche: </label>
+                    <label for="lblNumTeamQualifiche">Numero di squadre partecipanti alle qualifiche: </label>
                     <asp:TextBox ID="txtNumTeamQualifiche" runat="server" required="true" placeholder="Inserisci il numero di Team che partecipano alle qualifiche" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <label for="lblNumTeamQualificati">Numero Team che si qualificano: </label>
+                    <label for="lblNumTeamQualificati">Numero di squadre che si qualificano: </label>
                     <asp:TextBox ID="txtNumTeamQualificati" runat="server" required="true" placeholder="Inserisci il numero di Team  che si qualificano" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <label for="lblNumWildCard">Numero Team che hanno la wildCard: </label>
+                    <label for="lblNumWildCard">Numero di squadre aventi la wildCard: </label>
                     <asp:TextBox ID="txtNumWildCard" runat="server" required="true" placeholder="Inserisci il numero di Team Team che hanno la wildCard" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
@@ -134,7 +134,7 @@
                     <asp:TextBox ID="txtMontepremi" runat="server" required="true" placeholder="Inserisci il montepremi" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <label for="lblFormula">Formula  Torneo: </label>
+                    <label for="lblFormula">Formula Torneo: </label>
                     <asp:DropDownList ID="cmbFormula" runat="server" CssClass="form-control"></asp:DropDownList>
                     <br />
                 </div>
