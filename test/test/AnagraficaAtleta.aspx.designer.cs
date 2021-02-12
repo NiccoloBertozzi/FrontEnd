@@ -24,21 +24,12 @@ namespace test
         protected global::System.Web.UI.HtmlControls.HtmlForm formComponentiAtleta;
 
         /// <summary>
-        /// Controllo campiAnagrafica.
+        /// Controllo anagraficaAtleta.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder campiAnagrafica;
-
-        /// <summary>
-        /// Controllo ModificaAnagrafica.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ModificaAnagrafica;
+        protected global::System.Web.UI.WebControls.PlaceHolder anagraficaAtleta;
     }
 }

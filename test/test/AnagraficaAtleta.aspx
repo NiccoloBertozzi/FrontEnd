@@ -61,13 +61,17 @@
     <div class="page-title row">
         <h1 class=" col-12 text-center my-auto">Anagrafica Atleta</h1>
     </div>
-    <form id="formComponentiSocieta" runat="server">
-        <div>
+    <form id="formComponentiAtleta" runat="server">
+ <div class="container">
+     <div class="row mt-4">
+        <div class="col-md-8 offset-md-2 col-sm-12 contentInfo">
             <asp:PlaceHolder runat="server" ID="anagraficaAtleta"></asp:PlaceHolder>
             <asp:Button runat="server" OnClick="ModificaAnagrafica_Click" Text="Modifica anagrafica" />
         </div>
+     </div>
+</div>
+    </form>
         <script src="Scripts/jquery-3.4.1.min.js "></script>
         <script src="Scripts/bootstrap.min.js "></script>
-    </form>
 </body>
 </html>

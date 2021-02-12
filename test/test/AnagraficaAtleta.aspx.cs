@@ -41,7 +41,7 @@ namespace test
             {
                 StringBuilder table = new StringBuilder();
                 table.Clear();
-                campiAnagrafica.Controls.Add(new Literal { Text = table.ToString() });
+                anagraficaAtleta.Controls.Add(new Literal { Text = table.ToString() });
                 for(int i=0; i<16; i++)
                 {
                     table.Append("" +
@@ -51,28 +51,8 @@ namespace test
                         "</div>"
                         );
                 }
-                /*for (int i = 0; i < deserialzied.Count; i++)
-                {
-                    table.Append("" +
-                        "<p>Nome: " + deserialzied[i].nome + "</p>" +
-                        "<p>Cognome: " + deserialzied[i].cognome + "</p>" +
-                        "<p>Codice Tessera: " + deserialzied[i].codiceTessera + "</p>" +
-                        "<p>Nome Societa: " + deserialzied[i].nomeSocieta + "</p>" +
-                        "<p>Sesso: " + deserialzied[i].sesso + "</p>" +
-                        "<p>CF: " + deserialzied[i].cf + "</p>" +
-                        "<p>Data Nascita: " + deserialzied[i].dataNascita.ToString().Split(' ')[0] + "</p>" +
-                        "<p>Comune di Nascita: " + deserialzied[i].comuneNascita + "</p>" +
-                        "<p>Comune di Residenza: " + deserialzied[i].comuneResidenza + "</p>" +
-                        "<p>Indirizzo: " + deserialzied[i].indirizzo + "</p>" +
-                        "<p>CAP: " + deserialzied[i].cap + "</p>" +
-                        "<p>Email: " + deserialzied[i].email + "</p>" +
-                        "<p>Tel: " + deserialzied[i].tel + "</p>" +
-                        "<p>Altezza: " + deserialzied[i].altezza + "</p>" +
-                        "<p>Peso: " + deserialzied[i].peso + "</p>" +
-                        "<p>Data Scadenza Certificato: " + deserialzied[i].dataScadenzaCertificato.ToString().Split(' ')[0] + "</p>");
-                }*/
                 //Append the HTML string to Placeholder.
-                campiAnagrafica.Controls.Add(new Literal { Text = table.ToString() });
+                anagraficaAtleta.Controls.Add(new Literal { Text = table.ToString() });
             }
         }
         protected void ModificaAnagrafica_Click(object sender, EventArgs e)
