@@ -79,7 +79,7 @@
             </div>
             <div class="card-container mr-3 ml-3 mt-3">
                 <!--Tornei-->
-                <h2 class=" col-12 text-center">Tornei attivi</h2>
+                <h2 class=" col-12 text-center">Tornei iscritti</h2>
 
                 <div class="card-deck">
                     <div class="row">
@@ -91,14 +91,28 @@
                 background: black; 
                 margin-bottom: 10px;
                 "/>
-            
-                <h2 class=" col-12 text-center">Tornei attualmente in corso</h2>
+                
                 <!--Tornei in corso-->
+                <h2 class=" col-12 text-center">Tornei attualmente in corso</h2>
                 <div class="card-deck">
                     <div class="row">
                         <asp:PlaceHolder runat="server" ID="inCorso"></asp:PlaceHolder>
                     </div>
                 </div>
+
+                <hr style="
+                background: black; 
+                margin-bottom: 10px;
+                "/>
+
+                <!--Finiti-->
+                <h2 class=" col-12 text-center">Tornei finiti</h2>
+
+                <div class="card-deck">
+                    <div class="row">
+                        <asp:PlaceHolder runat="server" ID="finiti"></asp:PlaceHolder>
+                    </div>
+                </div> 
             </div>
         </div>
         <script src="Scripts/jquery-3.4.1.min.js "></script>

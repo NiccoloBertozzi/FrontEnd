@@ -19,12 +19,12 @@ namespace test
             if (string.IsNullOrEmpty(Session["Token"] as string))
             {
                 token = Session["Token"].ToString();
-            idTorneo = int.Parse(Session["IdTorneo"].ToString());
-            if (!this.IsPostBack)
-            {
-                DownloadInformazioniTorneo();
-                DownloadInformazioniSquadre();
-            }
+                idTorneo = int.Parse(Session["IdTorneo"].ToString());
+                if (!this.IsPostBack)
+                {
+                    DownloadInformazioniTorneo();
+                    DownloadInformazioniSquadre();
+                }
             }
             else Response.Redirect("OutputTornei.aspx");
         }
@@ -109,7 +109,7 @@ namespace test
         protected void clickArea_Click(object sender, EventArgs e)
         {
             Session["IdSquadra"] = HiddenField1.Value;
-            Response.Redirect("InfoSquadra.aspx"); 
+            Response.Redirect("InfoSquadra.aspx");
         }
         protected void AutorizzaTorneo_Click(object sender, EventArgs e)
         {
