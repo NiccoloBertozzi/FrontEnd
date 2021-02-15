@@ -11,17 +11,8 @@ namespace test
 {
 
 
-    public partial class ModificaAnagraficaSocieta
+    public partial class assegnaTessereSocieta
     {
-
-        /// <summary>
-        /// Controllo AccediBtn.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder AccediBtn;
 
         /// <summary>
         /// Controllo form1.
@@ -33,147 +24,102 @@ namespace test
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Controllo nome.
+        /// Controllo lblIdMembro.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nome;
+        protected global::System.Web.UI.WebControls.Label lblIdMembro;
 
         /// <summary>
-        /// Controllo citta.
+        /// Controllo txtIdMembri.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox citta;
+        protected global::System.Web.UI.WebControls.TextBox txtIdMembri;
 
         /// <summary>
-        /// Controllo indirizzo.
+        /// Controllo lblCodiceTessera.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox indirizzo;
+        protected global::System.Web.UI.WebControls.Label lblCodiceTessera;
 
         /// <summary>
-        /// Controllo CAP.
+        /// Controllo txtCodiceTessera.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CAP;
+        protected global::System.Web.UI.WebControls.TextBox txtCodiceTessera;
 
         /// <summary>
-        /// Controllo dataFondazione.
+        /// Controllo lblTipoTessera.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dataFondazione;
+        protected global::System.Web.UI.WebControls.Label lblTipoTessera;
 
         /// <summary>
-        /// Controllo dataAffiliazione.
+        /// Controllo txtTipoTessera.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dataAffiliazione;
+        protected global::System.Web.UI.WebControls.TextBox txtTipoTessera;
 
         /// <summary>
-        /// Controllo codiceAffiliazione.
+        /// Controllo lblDataTesseramento.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox codiceAffiliazione;
+        protected global::System.Web.UI.WebControls.Label lblDataTesseramento;
 
         /// <summary>
-        /// Controllo affiliata.
+        /// Controllo txtDataTesseramento.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox affiliata;
+        protected global::System.Web.UI.WebControls.TextBox txtDataTesseramento;
 
         /// <summary>
-        /// Controllo email.
+        /// Controllo lblAnnoTesseramento.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox email;
+        protected global::System.Web.UI.WebControls.Label lblAnnoTesseramento;
 
         /// <summary>
-        /// Controllo sito.
+        /// Controllo txtAnnoTesseramento.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox sito;
+        protected global::System.Web.UI.WebControls.TextBox txtAnnoTesseramento;
 
         /// <summary>
-        /// Controllo tel1.
+        /// Controllo btnInvio.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tel1;
-
-        /// <summary>
-        /// Controllo tel2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tel2;
-
-        /// <summary>
-        /// Controllo PEC.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PEC;
-
-        /// <summary>
-        /// Controllo PIVA.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PIVA;
-
-        /// <summary>
-        /// Controllo CF.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CF;
-
-        /// <summary>
-        /// Controllo CU.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CU;
+        protected global::System.Web.UI.WebControls.Button btnInvio;
     }
 }

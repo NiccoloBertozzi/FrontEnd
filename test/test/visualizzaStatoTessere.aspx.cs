@@ -15,6 +15,7 @@ namespace test
         string token;
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (Session["ruolo"].ToString() == "Atleta" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("OutputTornei.aspx");
             token = Session["Token"].ToString();
             int idSocieta = Convert.ToInt32(Session["idUtente"]);

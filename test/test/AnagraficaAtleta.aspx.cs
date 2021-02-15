@@ -42,25 +42,14 @@ namespace test
                 StringBuilder table = new StringBuilder();
                 table.Clear();
                 anagraficaAtleta.Controls.Add(new Literal { Text = table.ToString() });
-                for (int i = 0; i < deserialzied.Count; i++)
+                for(int i=0; i<16; i++)
                 {
                     table.Append("" +
-                        "<p>Nome: " + deserialzied[i].nome + "</p>" +
-                        "<p>Cognome: " + deserialzied[i].cognome + "</p>" +
-                        "<p>Codice Tessera: " + deserialzied[i].codiceTessera + "</p>" +
-                        "<p>Nome Societa: " + deserialzied[i].nomeSocieta + "</p>" +
-                        "<p>Sesso: " + deserialzied[i].sesso + "</p>" +
-                        "<p>CF: " + deserialzied[i].cf + "</p>" +
-                        "<p>Data Nascita: " + deserialzied[i].dataNascita.ToString().Split(' ')[0] + "</p>" +
-                        "<p>Comune di Nascita: " + deserialzied[i].comuneNascita + "</p>" +
-                        "<p>Comune di Residenza: " + deserialzied[i].comuneResidenza + "</p>" +
-                        "<p>Indirizzo: " + deserialzied[i].indirizzo + "</p>" +
-                        "<p>CAP: " + deserialzied[i].cap + "</p>" +
-                        "<p>Email: " + deserialzied[i].email + "</p>" +
-                        "<p>Tel: " + deserialzied[i].tel + "</p>" +
-                        "<p>Altezza: " + deserialzied[i].altezza + "</p>" +
-                        "<p>Peso: " + deserialzied[i].peso + "</p>" +
-                        "<p>Data Scadenza Certificato: " + deserialzied[i].dataScadenzaCertificato.ToString().Split(' ')[0] + "</p>");
+                        "<div class='row mt-3'>" +
+                        getLabel(i) +
+                        getText(deserialzied, i) +
+                        "</div>"
+                        );
                 }
                 //Append the HTML string to Placeholder.
                 anagraficaAtleta.Controls.Add(new Literal { Text = table.ToString() });
@@ -69,6 +58,52 @@ namespace test
         protected void ModificaAnagrafica_Click(object sender, EventArgs e)
         {
             Response.Redirect("ModificaAnagraficaAtleta.aspx"); //manda alla form 'ModificaAnagraficaAtleta'
+        }
+
+        protected string getLabel(int c)
+        {
+            string[] testi = { "Nome", "Cognome", "Codice Tessera", "Nome Societa", "Sesso", "CF", "Data di Nascita", "Comune di Nascita", "Comune di Residenza", "Indirizzo", "Codice Postale (CAP)", "Email", "Telefono", "Altezza", "Peso", "Scadenza Certificato" };
+            return ("<label class='col-md-5 text-center my-auto'>" +testi[c]+ "</label>");
+        }
+
+        protected string getText(dynamic data, int c)
+        {
+            switch (c) {
+
+                case 0:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].nome + "</p>";
+                case 1:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].cognome + "</p>";
+                case 2:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].codiceTessera + "</p>";
+                case 3:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].nomeSocieta + "</p>";
+                case 4:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].sesso + "</p>";
+                case 5:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].cf + "</p>";
+                case 6:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].dataNascita.ToString().Split(' ')[0] + "</p>";
+                case 7:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].comuneNascita + "</p>";
+                case 8:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].comuneResidenza + "</p>";
+                case 9:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].indirizzo + "</p>";
+                case 10:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].cap + "</p>";
+                case 11:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].email + "</p>";
+                case 12:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].tel + "</p>";
+                case 13:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].altezza + "</p>";
+                case 14:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].peso + "</p>";
+                case 15:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].dataScadenzaCertificato.ToString().Split(' ')[0] + "</p>";
+            }
+            return "Error getText";
         }
     }
 }

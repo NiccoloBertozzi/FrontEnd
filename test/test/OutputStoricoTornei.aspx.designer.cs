@@ -11,26 +11,8 @@ namespace test
 {
 
 
-    public partial class InfoTorneo
+    public partial class OutputStoricoTornei
     {
-
-        /// <summary>
-        /// Controllo dinamicload.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder dinamicload;
-
-        /// <summary>
-        /// Controllo AccediBtn.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder AccediBtn;
 
         /// <summary>
         /// Controllo form1.
@@ -42,30 +24,30 @@ namespace test
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Controllo torneiInfo.
+        /// Controllo btnTorneo.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder torneiInfo;
+        protected global::System.Web.UI.WebControls.Button btnTorneo;
 
         /// <summary>
-        /// Controllo torneiinfoluogo.
+        /// Controllo HiddenField1.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder torneiinfoluogo;
+        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
 
         /// <summary>
-        /// Controllo btnIscriviti.
+        /// Controllo torneilist.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnIscriviti;
+        protected global::System.Web.UI.WebControls.PlaceHolder torneilist;
     }
 }

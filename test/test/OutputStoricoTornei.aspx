@@ -1,18 +1,22 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AnagraficaAtleta.aspx.cs" Inherits="test.AnagraficaAtleta" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OutputStoricoTornei.aspx.cs" Inherits="test.OutputStoricoTornei" %>
 
 <!DOCTYPE html>
+<html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Tornei - storico</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
-    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-    <title>Anagrafica Atleta</title>
+    <script>
+        function DivClicked() {
+            var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
+            form1.HiddenField1.value = arguments[0];
+            clickArea_Click.click();
+        }
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
@@ -57,23 +61,35 @@
             </div>
         </div>
     </nav>
-     <!--Banner-->
-    <div class="page-title row">
-        <h1 class=" col-12 text-center my-auto">Anagrafica Atleta</h1>
-    </div>
-    <form id="formComponentiAtleta" runat="server">
- <div class="container">
-     <div class="card-container mr-3 ml-3 mt-3">
-       <div class="row mt-4">
-        <div class="col-md-8 offset-md-2 col-sm-12 contentInfo">
-            <asp:PlaceHolder runat="server" ID="anagraficaAtleta"></asp:PlaceHolder>
-            <asp:Button runat="server" OnClick="ModificaAnagrafica_Click" Text="Modifica anagrafica" />
+    <form id="form1" runat="server">
+        <asp:Button runat="server" ID="btnTorneo" Style="display: none" OnClick="clickArea_Click" ClientIDMode="Static" />
+        <asp:HiddenField ID="HiddenField1" runat="server" />
+        <!--Banner-->
+        <div class="page-title row">
+            <h1 class=" col-12 text-center my-auto">Storico tornei</h1>
         </div>
-     </div>
-     </div>
-</div>
-    </form>
+
+        <div class="container">
+            <!--CERCA-->
+            <div class="searchBox mx-2 my-2">
+                <input class="searchInput" type="text" name="" placeholder="Cerca">
+                <button class="searchButton" href="#">
+                    <i class=" fas fa-search"></i>
+                </button>
+            </div>
+            <!--Tornei-->
+            <h2 class=" col-12 text-center">Tornei</h2>
+            <div class="card-container mr-3 ml-3 mt-3">
+                <div class="card-deck">
+                    <div class="row">
+                        <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>
+                    </div>
+                </div> 
+            </div>
+        </div>
         <script src="Scripts/jquery-3.4.1.min.js "></script>
         <script src="Scripts/bootstrap.min.js "></script>
+    </form>
 </body>
 </html>
+

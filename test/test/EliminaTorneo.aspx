@@ -32,8 +32,8 @@
                                     <a class="dropdown-item" href="#">Calendario L1</a>
                                     <a class="dropdown-item" href="#">Calendario L2</a>
                                     <a class="dropdown-item" href="#">Calendario L3</a>
-                                    <a class="dropdown-item" href="#">Classifica Maschile</a>
-                                    <a class="dropdown-item" href="#">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="#" onclick="LoadClassificaMaschile();">Classifica Maschile</a>
+                                    <a class="dropdown-item" href="#" onclick="LoadClassificaFemminile();">Classifica Femminile</a>
                                 </div>
                             </div>
                         </li>
@@ -42,7 +42,7 @@
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Chi siamo</a>
+                                    <a class="dropdown-item" href="#">Anagrafica</a>
                                     <a class="dropdown-item" href="#">Affiliati</a>
                                     <a class="dropdown-item" href="#">Attività</a>
                                     <a class="dropdown-item" href="#">Come operiamo</a>
@@ -61,9 +61,11 @@
             <h1 class=" col-12 text-center my-auto">Elimina squadra dal torneo</h1>
         </div>
         <div class="container form-group">
-            <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
-            <div class="row justify-content-center">
+            <div class="card-container mr-3 ml-3 mt-3">
+               <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
+                <div class="row justify-content-center">
                 <asp:Button ID="btnelimina" runat="server" Text="Cancella squadra" OnClick="btnelimina_Click" CssClass="btn btn-primary" />
+            </div>
             </div>
         </div>
         <script src="Scripts/jquery-3.4.1.min.js "></script>

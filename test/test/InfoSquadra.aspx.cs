@@ -20,13 +20,13 @@ namespace test
             if (string.IsNullOrEmpty(Session["Token"] as string))
             {
                 token = Session["Token"].ToString();
-            idSquadra = int.Parse(Session["IdSquadra"].ToString());
-            idTorneo = int.Parse(Session["IdTorneo"].ToString());
-            idSupervisore = int.Parse(Session["IdUtente"].ToString());
-            if (!this.IsPostBack)
-            {
-                DownloadInformazioniSquadra();
-            }
+                idSquadra = int.Parse(Session["IdSquadra"].ToString());
+                idTorneo = int.Parse(Session["IdTorneo"].ToString());
+                idSupervisore = int.Parse(Session["IdUtente"].ToString());
+                if (!this.IsPostBack)
+                {
+                    DownloadInformazioniSquadra();
+                }
             }
             else Response.Redirect("OutputTornei.aspx");
         }

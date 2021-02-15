@@ -93,6 +93,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -172,6 +173,7 @@
     <Content Include="AnagraficaAtleta.aspx" />
     <Content Include="AnagraficaDelegato.aspx" />
     <Content Include="AnagraficaSocieta.aspx" />
+    <Content Include="assegnaTessereSocieta.aspx" />
     <Content Include="AutorizzaTorneo.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -209,6 +211,7 @@
     <Content Include="ModificaAnagraficaSocieta.aspx" />
     <Content Include="NuovaPassword.aspx" />
     <Content Include="OutputClassifica.aspx" />
+    <Content Include="OutputStoricoTornei.aspx" />
     <Content Include="OutputTornei.aspx" />
     <Content Include="OutputTorneiCategoria.aspx" />
     <Content Include="OutputTorneiDelegato.aspx" />
@@ -285,6 +288,13 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="assegnaTessereSocieta.aspx.cs">
+      <DependentUpon>assegnaTessereSocieta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="assegnaTessereSocieta.aspx.designer.cs">
+      <DependentUpon>assegnaTessereSocieta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AutorizzaTorneo.aspx.cs">
       <DependentUpon>AutorizzaTorneo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -386,6 +396,13 @@
     </Compile>
     <Compile Include="OutputClassifica.aspx.designer.cs">
       <DependentUpon>OutputClassifica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OutputStoricoTornei.aspx.cs">
+      <DependentUpon>OutputStoricoTornei.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OutputStoricoTornei.aspx.designer.cs">
+      <DependentUpon>OutputStoricoTornei.aspx</DependentUpon>
     </Compile>
     <Compile Include="OutputTornei.aspx.cs">
       <DependentUpon>OutputTornei.aspx</DependentUpon>

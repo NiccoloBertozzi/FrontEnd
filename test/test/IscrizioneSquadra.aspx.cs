@@ -3,6 +3,7 @@ using RestSharp;
 using System;
 using System.Net;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace test
 {
@@ -44,7 +45,7 @@ namespace test
                 var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/InserisciSquadra");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.POST);
-                request.AddHeader("Authorization", "Bearer " + token + "");
+                request.AddHeader("Authorization", "Bearer " + Session["Token"] + "");
                 request.AddHeader("Content-Type", "application/json");
                 request.AddParameter("application/json", "{\r\n  \"Atleta1\": \"" + idAtleta1 + "\",\r\n  \"Atleta2\": \"" + Atleta.Text + "\",\r\n \"NomeTeam\": \"" + txtNomeTeam.Text + "\"}", ParameterType.RequestBody);
                 IRestResponse response = client.Execute(request);
@@ -53,12 +54,15 @@ namespace test
                 client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/IscriviSquadra");
                 client.Timeout = -1;
                 request = new RestRequest(Method.POST);
-                request.AddHeader("Authorization", "Bearer " + token + "");
+                request.AddHeader("Authorization", "Bearer " + Session["Token"] + "");
                 request.AddHeader("Content-Type", "application/json");
                 request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
-                request.AddParameter("application/json", "{\r\n  \"idSquadra\": " + Convert.ToInt32(response.Content) + ",\r\n  \"idTorneo\": " + Session["IdTorneo"] + ",\r\n  \"idAllenatore\": " + Allenatore.Text + "\r\n}", ParameterType.RequestBody);
+                request.AddParameter("application/json", "{\r\n  \"idTorneo\": " + Session["IdTorneo"] + ",\r\n  \"idSquadra\": \"" + response.Content + "\",\r\n  \"idAllenatore\": \"" + Allenatore.Text + "\"\r\n}", ParameterType.RequestBody);
                 IRestResponse response1 = client.Execute(request);
                 //------------------------------------------------------------------//
+
+                MessageBox.Show(response.Content);
+                MessageBox.Show(response1.Content);
                 Response.Redirect("OutputTornei.aspx");
             }
         }

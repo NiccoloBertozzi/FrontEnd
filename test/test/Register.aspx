@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse row" id="navcol-1">
                 <div class="col-md-11 col-sm-12">
                     <ul class="nav navbar-nav ml-5" id="myNavUl">
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="OutputTornei.aspx">Home</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AIBVC Tour</a>
@@ -33,8 +33,8 @@
                                     <a class="dropdown-item" href="#">Calendario L1</a>
                                     <a class="dropdown-item" href="#">Calendario L2</a>
                                     <a class="dropdown-item" href="#">Calendario L3</a>
-                                    <a class="dropdown-item" href="#">Classifica Maschile</a>
-                                    <a class="dropdown-item" href="#">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="#" onclick="LoadClassificaMaschile();">Classifica Maschile</a>
+                                    <a class="dropdown-item" href="#" onclick="LoadClassificaFemminile();">Classifica Femminile</a>
                                 </div>
                             </div>
                         </li>
@@ -43,7 +43,7 @@
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Chi siamo</a>
+                                    <a class="dropdown-item" href="#">Anagrafica</a>
                                     <a class="dropdown-item" href="#">Affiliati</a>
                                     <a class="dropdown-item" href="#">Attività</a>
                                     <a class="dropdown-item" href="#">Come operiamo</a>
@@ -65,7 +65,8 @@
     </div>
     <!--FORM-->
     <div class="container">
-        <form id="formregister" runat="server">
+        <div class="card-container mr-3 ml-3 mt-3">
+            <form id="formregister" runat="server">
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
                     <label for="Ruolo" class="col-form-label">Ruolo</label>
@@ -253,6 +254,7 @@
                 <asp:Button CssClass="btnLogin mx-auto" ID="btnregistra" OnClick="btn_registerAtleta_Click" runat="server" Text="Registrati" />
             </div>
         </form>
+        </div>
     </div>
 
 
