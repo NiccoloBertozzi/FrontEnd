@@ -6,7 +6,7 @@
 <head runat="server">
    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Modifica Anagrafica</title>
+    <title>Anagrafica Societa'</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
@@ -56,7 +56,7 @@
     </nav>
         <!--Banner-->
         <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Iscrizioni Effettuate</h1>
+            <h1 class=" col-12 text-center my-auto">Anagrafica Societa'</h1>
         </div>
     <form id="form1" runat="server">
         <div>

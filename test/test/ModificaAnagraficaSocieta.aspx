@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Modifica anagrafica</title>
+    <title>Modifica Anagrafica</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
     <link rel="stylesheet" href="Content/styles.css" />
 </head>
@@ -50,15 +50,13 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-1 col-sm-12">
-                    <a href="Login.aspx" class="loginButtonTornei btn float-right-md float-left-sm">Accedi</a>
-                </div>
+               
             </div>
         </div>
     </nav>
     <!--Banner-->
     <div class="page-title row">
-        <h1 class=" col-12 text-center my-auto">Modifica anagrafica</h1>
+        <h1 class=" col-12 text-center my-auto">Modifica Anagrafica</h1>
     </div>
 
     <div class="container">
