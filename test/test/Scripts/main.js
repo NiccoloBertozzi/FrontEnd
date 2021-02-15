@@ -1,8 +1,8 @@
 ﻿$(function () {
     var search = new URLSearchParams(window.location.search);
     /* Nascondo tutti i form non attivi all'inizio */
-    $("#delegato, #allenatore").toggle();
-    
+    $("#delegato, #allenatore, #societa").toggle();
+
     $("#btnAtleta").click(function () {
         /* Cambio l'attivazione del bottone */
         if ($("#btnAtleta").hasClass("btn-info") == false) {
@@ -16,11 +16,17 @@
                 $("#btnAllenatore").removeClass("btn-info");
                 $("#btnAllenatore").addClass("btn-secondary");
             };
+            if ($("#btnSocieta").hasClass("btn-info") == true) {
+                $("#btnSocieta").removeClass("btn-info");
+                $("#btnSocieta").addClass("btn-secondary");
+            };
         };
         /* Cambio il modulo da visualizzare ATLETA*/
         if ($("#delegato").is(":visible")) $("#delegato").hide();
         if ($("#allenatore").is(":visible")) $("#allenatore").hide();
+        if ($("#societa").is(":visible")) $("#societa").hide();
         $("#atleta").show();
+
     })
 
     $("#btnAllenatore").click(function () {
@@ -36,11 +42,16 @@
                 $("#btnAtleta").removeClass("btn-info");
                 $("#btnAtleta").addClass("btn-secondary");
             };
+            if ($("#btnSocieta").hasClass("btn-info") == true) {
+                $("#btnSocieta").removeClass("btn-info");
+                $("#btnSocieta").addClass("btn-secondary");
+            };
         };
         /* Cambio il modulo da visualizzare ALLENATORE*/
         if ($("#delegato").is(":visible")) $("#delegato").hide();
         $("#allenatore").show();
         if ($("#atleta").is(":visible")) $("#atleta").hide();
+        if ($("#societa").is(":visible")) $("#societa").hide();
     })
 
     $("#btnDelegato").click(function () {
@@ -56,11 +67,41 @@
                 $("#btnAtleta").removeClass("btn-info");
                 $("#btnAtleta").addClass("btn-secondary");
             };
+            if ($("#btnSocieta").hasClass("btn-info") == true) {
+                $("#btnSocieta").removeClass("btn-info");
+                $("#btnSocieta").addClass("btn-secondary");
+            };
         };
         /* Cambio il modulo da visualizzare DELEGATO*/
         $("#delegato").show();
         if ($("#allenatore").is(":visible")) $("#allenatore").hide();
         if ($("#atleta").is(":visible")) $("#atleta").hide();
+        if ($("#societa").is(":visible")) $("#societa").hide();
+    })
+
+    $("#btnSocieta").click(function () {
+        /* Cambio l'attivazione del bottone */
+        if ($("#btnSocieta").hasClass("btn-info") == false) {
+            $("#btnSocieta").addClass("btn-info");
+            $("#btnSocieta").removeClass("btn-secondary");
+            if ($("#btnAllenatore").hasClass("btn-info") == true) {
+                $("#btnAllenatore").removeClass("btn-info");
+                $("#btnAllenatore").addClass("btn-secondary");
+            };
+            if ($("#btnAtleta").hasClass("btn-info") == true) {
+                $("#btnAtleta").removeClass("btn-info");
+                $("#btnAtleta").addClass("btn-secondary");
+            };
+            if ($("#btnDelegato").hasClass("btn-info") == true) {
+                $("#btnDelegato").removeClass("btn-info");
+                $("#btnDelegato").addClass("btn-secondary");
+            };
+        };
+        /* Cambio il modulo da visualizzare DELEGATO*/
+        if ($("#delegato").is(":visible")) $("#delegato").hide();
+        if ($("#allenatore").is(":visible")) $("#allenatore").hide();
+        if ($("#atleta").is(":visible")) $("#atleta").hide();
+        $("#societa").show();
     })
 
     if (search.has("ruolo")) {
