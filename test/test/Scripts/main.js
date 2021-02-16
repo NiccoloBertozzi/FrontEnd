@@ -1,7 +1,7 @@
 ﻿$(function () {
     var search = new URLSearchParams(window.location.search);
     /* Nascondo tutti i form non attivi all'inizio */
-    $("#delegato, #allenatore, #societa").toggle();
+    $("#delegato, #allenatore, #societa").hide();
 
     $("#btnAtleta").click(function () {
         /* Cambio l'attivazione del bottone */
