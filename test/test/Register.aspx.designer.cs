@@ -87,6 +87,15 @@ namespace test
         protected global::System.Web.UI.WebControls.Button btnSocieta;
 
         /// <summary>
+        /// Controllo sp1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager sp1;
+
+        /// <summary>
         /// Controllo cf.
         /// </summary>
         /// <remarks>
@@ -123,13 +132,13 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox dataNascita;
 
         /// <summary>
-        /// Controllo comuneNascita.
+        /// Controllo cbComNasc.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox comuneNascita;
+        protected global::AjaxControlToolkit.ComboBox cbComNasc;
 
         /// <summary>
         /// Controllo sesso1.
@@ -159,13 +168,13 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox tel;
 
         /// <summary>
-        /// Controllo comuneResidenza.
+        /// Controllo cbComRes.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox comuneResidenza;
+        protected global::AjaxControlToolkit.ComboBox cbComRes;
 
         /// <summary>
         /// Controllo indirizzo.
@@ -204,13 +213,13 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox password;
 
         /// <summary>
-        /// Controllo nomeSocieta.
+        /// Controllo cbNomeSocietaAtleta.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nomeSocieta;
+        protected global::AjaxControlToolkit.ComboBox cbNomeSocietaAtleta;
 
         /// <summary>
         /// Controllo dataScadenzaCertificato.
@@ -240,13 +249,13 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox peso;
 
         /// <summary>
-        /// Controllo nomesocieta2.
+        /// Controllo cbNomeSocietaAllenatore.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nomesocieta2;
+        protected global::AjaxControlToolkit.ComboBox cbNomeSocietaAllenatore;
 
         /// <summary>
         /// Controllo grado.
@@ -276,13 +285,13 @@ namespace test
         protected global::System.Web.UI.WebControls.CheckBox arbitro;
 
         /// <summary>
-        /// Controllo nomesocieta3.
+        /// Controllo nomeSocieta.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nomesocieta3;
+        protected global::System.Web.UI.WebControls.TextBox nomeSocieta;
 
         /// <summary>
         /// Controllo indirizzosoc.
@@ -393,13 +402,13 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox certUnica;
 
         /// <summary>
-        /// Controllo comResidSoc.
+        /// Controllo cbComResSoc.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox comResidSoc;
+        protected global::AjaxControlToolkit.ComboBox cbComResSoc;
 
         /// <summary>
         /// Controllo emailSoc.

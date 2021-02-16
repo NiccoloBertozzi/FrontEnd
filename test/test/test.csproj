@@ -173,7 +173,7 @@
     <Content Include="AnagraficaAtleta.aspx" />
     <Content Include="AnagraficaDelegato.aspx" />
     <Content Include="AnagraficaSocieta.aspx" />
-    <Content Include="assegnaTessereSocieta.aspx" />
+    <Content Include="AssegnaTessereSocieta.aspx" />
     <Content Include="AutorizzaTorneo.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -288,12 +288,12 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="assegnaTessereSocieta.aspx.cs">
-      <DependentUpon>assegnaTessereSocieta.aspx</DependentUpon>
+    <Compile Include="AssegnaTessereSocieta.aspx.cs">
+      <DependentUpon>AssegnaTessereSocieta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="assegnaTessereSocieta.aspx.designer.cs">
-      <DependentUpon>assegnaTessereSocieta.aspx</DependentUpon>
+    <Compile Include="AssegnaTessereSocieta.aspx.designer.cs">
+      <DependentUpon>AssegnaTessereSocieta.aspx</DependentUpon>
     </Compile>
     <Compile Include="AutorizzaTorneo.aspx.cs">
       <DependentUpon>AutorizzaTorneo.aspx</DependentUpon>

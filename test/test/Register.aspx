@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head runat="server"> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrazione</title>
@@ -75,6 +75,7 @@
             </div>
             <!--FORM COMUNE-->
         <div id="common">
+            <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>
             <div class="row mt-md-3">
                 <div class="col-12 col-lg-4  offset-lg-2">
                     <label for="lblCf" class="col-form-label">Codice Fiscale</label>
@@ -109,10 +110,10 @@
             </div>
             <div class="row mt-md-3">
                 <div class="col-12 col-lg-4  offset-lg-2">
-                    <label for="lblcomuneNascita" class="col-form-label">Comune di nascita</label>
+                    <label for="cbComNasc" class="col-form-label">Comune di nascita</label>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <asp:TextBox ID="comuneNascita" runat="server" class="form-control" placeholder="Comune di nascita"></asp:TextBox>
+                    <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbComNasc" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="cbComNasc_TextChanged"/>
                 </div>
             </div>
             <div class="row mt-md-3">
@@ -136,10 +137,10 @@
             </div>
             <div class="row mt-md-3 mb-2 ">
                 <div class="col-12 col-lg-4 offset-lg-2 ">
-                    <label for="lblcomuneResidenza " class="col-form-label ">Comune di residenza</label>
+                    <label for="cbComRes" class="col-form-label ">Comune di residenza</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="comuneResidenza" runat="server" class="form-control" placeholder="Comune di residenza"></asp:TextBox>
+                    <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbComRes" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="cbComRes_TextChanged"/>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -179,10 +180,10 @@
         <div id="atleta">
             <div class="row mt-md-3 ">
                 <div class="col-12 col-lg-4 offset-lg-2 ">
-                    <label for="lblnomeSocieta " class="col-form-label ">Nome società</label>
+                    <label for="cbNomeSocietaAtleta" class="col-form-label ">Nome società</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="nomeSocieta" runat="server" class="form-control" placeholder="Nome Società"></asp:TextBox>
+                    <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbNomeSocietaAtleta" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="nomeSocietaAtleta_TextChanged"/>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -214,10 +215,10 @@
         <div id="allenatore">
             <div class="row mt-md-3 ">
                 <div class="col-12 col-lg-4 offset-lg-2 ">
-                    <label for="lblnomeSocieta " class="col-form-label ">Nome società</label>
+                    <label for="cbNomeSocietaAllenatore" class="col-form-label ">Nome società</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="nomesocieta2" runat="server" class="form-control" placeholder="Nome Società"></asp:TextBox>
+                    <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbNomeSocietaAllenatore" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="cbNomeSocietaAllenatore_TextChanged"/>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -247,10 +248,10 @@
         <div id="societa">
             <div class="row mt-md-3 ">
                 <div class="col-12 col-lg-4 offset-lg-2 ">
-                    <label for="lblCf " class="col-form-label ">Nome Società</label>
+                    <label for="nomeSocieta" class="col-form-label ">Nome Società</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="nomesocieta3" runat="server" class="form-control" placeholder="Nome Società"></asp:TextBox>
+                    <asp:TextBox ID="nomeSocieta" runat="server" class="form-control" placeholder="Nome Società"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -351,10 +352,10 @@
             </div>
             <div class="row mt-md-3 mb-2 ">
                 <div class="col-12 col-lg-4 offset-lg-2 ">
-                    <label for="lblcomuneResidenza " class="col-form-label ">Comune di residenza</label>
+                    <label for="cbComResSoc" class="col-form-label ">Comune di residenza</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="comResidSoc" runat="server" class="form-control" placeholder="Comune di residenza"></asp:TextBox>
+                    <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbComResSoc" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="cbComResSoc_TextChanged"/>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -376,7 +377,7 @@
         </div>
         <div class="row mt-md-3 mt-3 mb-4">
             <div class="col-12 col-lg-8 offset-lg-2 ">
-                <a href="# " class="btnLogin mx-auto btn-block text-center ">Registra</a>
+                <asp:Button class="btnLogin mx-auto btn-block text-center" runat="server" Text="Registra" OnClick="btn_register_Click"/>
             </div>
         </div>
         </form>
