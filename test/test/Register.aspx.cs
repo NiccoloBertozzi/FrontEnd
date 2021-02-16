@@ -25,6 +25,8 @@ namespace test
                 parameter = "{\r\n  \"allenatore\": {\r\n";
             else if (role == "Delegato")
                 parameter = "{\r\n  \"delegato\": {\r\n";
+            else if (role == "Societa")
+                parameter = "{\r\n  \"societa\": {\r\n";
             bool check = false;//controlla se sono arrivate le credenziali
             bool check_sesso = false;//controlla se arrivato il sesso
             bool check_ruolo = false;//controlla se arrivato il ruolo

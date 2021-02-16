@@ -1,7 +1,7 @@
 ﻿$(function () {
     var search = new URLSearchParams(window.location.search);
     /* Nascondo tutti i form non attivi all'inizio */
-    $("#delegato, #allenatore, #societa").toggle();
+    $("#delegato, #allenatore, #societa").hide();
 
     $("#btnAtleta").click(function () {
         /* Cambio l'attivazione del bottone */
@@ -26,6 +26,7 @@
         if ($("#allenatore").is(":visible")) $("#allenatore").hide();
         if ($("#societa").is(":visible")) $("#societa").hide();
         $("#atleta").show();
+        if ($("#common").is(":hidden")) $("#common").show();
 
     })
 
@@ -52,6 +53,7 @@
         $("#allenatore").show();
         if ($("#atleta").is(":visible")) $("#atleta").hide();
         if ($("#societa").is(":visible")) $("#societa").hide();
+        if ($("#common").is(":hidden")) $("#common").show();
     })
 
     $("#btnDelegato").click(function () {
@@ -77,6 +79,7 @@
         if ($("#allenatore").is(":visible")) $("#allenatore").hide();
         if ($("#atleta").is(":visible")) $("#atleta").hide();
         if ($("#societa").is(":visible")) $("#societa").hide();
+        if ($("#common").is(":hidden")) $("#common").show();
     })
 
     $("#btnSocieta").click(function () {
@@ -101,6 +104,7 @@
         if ($("#delegato").is(":visible")) $("#delegato").hide();
         if ($("#allenatore").is(":visible")) $("#allenatore").hide();
         if ($("#atleta").is(":visible")) $("#atleta").hide();
+        if ($("#common").is(":visible")) $("#common").hide();
         $("#societa").show();
     })
 
