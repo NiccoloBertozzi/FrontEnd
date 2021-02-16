@@ -24,22 +24,22 @@ namespace test
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Controllo lblIdMembro.
+        /// Controllo lblIdAtleta.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdMembro;
+        protected global::System.Web.UI.WebControls.Label lblIdAtleta;
 
         /// <summary>
-        /// Controllo txtIdMembri.
+        /// Controllo txtIdAtleta.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdMembri;
+        protected global::System.Web.UI.WebControls.TextBox txtIdAtleta;
 
         /// <summary>
         /// Controllo lblCodiceTessera.
@@ -87,13 +87,13 @@ namespace test
         protected global::System.Web.UI.WebControls.Label lblDataTesseramento;
 
         /// <summary>
-        /// Controllo txtDataTesseramento.
+        /// Controllo Calendar1.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDataTesseramento;
+        protected global::System.Web.UI.WebControls.Calendar Calendar1;
 
         /// <summary>
         /// Controllo lblAnnoTesseramento.
@@ -112,6 +112,24 @@ namespace test
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAnnoTesseramento;
+
+        /// <summary>
+        /// Controllo lblImporto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblImporto;
+
+        /// <summary>
+        /// Controllo txtImporto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtImporto;
 
         /// <summary>
         /// Controllo btnInvio.

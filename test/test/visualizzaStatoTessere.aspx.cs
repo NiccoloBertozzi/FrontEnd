@@ -24,10 +24,16 @@ namespace test
 
         protected void DownloadTessere(int idSocieta) //mostra tutti gli allenatori della socità
         {
-            //codice api
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/societa/TessereSocieta/" + Session["idUtente"]);
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("Authorization", "Bearer " + token);
+            request.AddHeader("Cookie", "ruolo=Societa; ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
+            IRestResponse response = client.Execute(request);
+
 
             //deserializza il risultato ritornato
-            /*dynamic deserialized = JsonConvert.DeserializeObject(response.Content);
+            dynamic deserialized = JsonConvert.DeserializeObject(response.Content);
             if (deserialized != null)
             {
                 StringBuilder table = new StringBuilder();
@@ -35,11 +41,16 @@ namespace test
                 visualizzaTessere.Controls.Add(new Literal { Text = table.ToString() });
                 for (int i = 0; i < deserialized.Count; i++)
                 {
-                    table.Append("");
+                    table.Append("<p> Atleta: " + deserialized[i].atleta + "</p>" +
+                        "<p> Codice Tessera: " + deserialized[i].codiceTessera + "</p>" +
+                        "<p> Tipo Tessera: " + deserialized[i].tipoTessera + "</p>" +
+                        "<p> Data Tesseramento: " + deserialized[i].dataTesseramento + "</p>" +
+                        "<p> Anno Tesseramento: " + deserialized[i].annoTesseramento + "</p>" +
+                        "<p> Importo: " + deserialized[i].importo + "</p>");
                 }
                 //Append the HTML string to Placeholder.
                 visualizzaTessere.Controls.Add(new Literal { Text = table.ToString() });
-            }*/
+            }
         }
     }
 }
