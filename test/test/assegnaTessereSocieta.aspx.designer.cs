@@ -24,6 +24,15 @@ namespace test
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Controllo sp1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager sp1;
+
+        /// <summary>
         /// Controllo lblIdAtleta.
         /// </summary>
         /// <remarks>
@@ -33,13 +42,22 @@ namespace test
         protected global::System.Web.UI.WebControls.Label lblIdAtleta;
 
         /// <summary>
-        /// Controllo txtIdAtleta.
+        /// Controllo cbAtleti.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdAtleta;
+        protected global::AjaxControlToolkit.ComboBox cbAtleti;
+
+        /// <summary>
+        /// Controllo idAtleta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label idAtleta;
 
         /// <summary>
         /// Controllo lblCodiceTessera.

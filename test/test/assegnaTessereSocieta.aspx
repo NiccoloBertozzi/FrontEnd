@@ -10,10 +10,12 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>
             <asp:Label runat="server" text="Assegnazione Tessere"></asp:Label> <br />
             
-            <asp:Label runat="server" ID="lblIdAtleta" Text="Id atleta: "></asp:Label>
-            <asp:TextBox runat="server" ID="txtIdAtleta"></asp:TextBox> <br />
+            <asp:Label runat="server" ID="lblIdAtleta" Text="Atleta: "></asp:Label>
+            <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbAtleti" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="cbAtleti_TextChanged"/>
+            <asp:Label runat="server" Text="" ID="idAtleta"></asp:Label> <br />
 
             <asp:Label runat="server" ID="lblCodiceTessera" Text="Codice tessera: "></asp:Label>
             <asp:TextBox runat="server" ID="txtCodiceTessera"></asp:TextBox> <br />
