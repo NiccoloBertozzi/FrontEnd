@@ -23,7 +23,7 @@ namespace test
                 if (Session["ruolo"].ToString() == "Admin" || Session["ruolo"].ToString() == "Delegato") Response.Redirect("OutputTornei.aspx");
                 token = Session["Token"].ToString();
                 idSocieta = Convert.ToInt32(Session["idUtente"]);
-                DownloadAtletiSocieta();
+                if(!IsPostBack) DownloadAtletiSocieta();
             }
             else Response.Redirect("OutputTornei.aspx");
         }

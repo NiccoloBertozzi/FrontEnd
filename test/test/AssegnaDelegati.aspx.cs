@@ -19,10 +19,7 @@ namespace test
             if (string.IsNullOrEmpty(Session["Token"] as string))
             {
                 token = Session["Token"].ToString();
-            if (!this.IsPostBack)
-            {
-                DownloadDelegati(token);
-            }
+                if (!IsPostBack) DownloadDelegati(token);
             }
             else Response.Redirect("OutputTornei.aspx");
         }
@@ -78,7 +75,7 @@ namespace test
                 }
             }
         }
-        
+
         protected void Supervisore_TextChanged(object sender, EventArgs e)
         {
             //prende supervisore selezionato e scarica id
@@ -87,10 +84,10 @@ namespace test
                 var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDSupervisore/" + cbSupervisori.SelectedItem.Value + "/Nome/" + cbSupervisori.SelectedItem.Text.Split(' ')[1] + "/Cognome/" + cbSupervisori.SelectedItem.Text.Split(' ')[0] + "/");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.GET);
-                request.AddHeader("Authorization", "Bearer "+token+"");
+                request.AddHeader("Authorization", "Bearer " + token + "");
                 request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Atleta");
                 IRestResponse response = client.Execute(request);
-                if (response.Content!="[]")
+                if (response.Content != "[]")
                 {
                     dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
                     Session["IDSupervisore"] = deserialzied[0].idDelegato;

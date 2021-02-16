@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="assegnaTessereSocieta.aspx.cs" Inherits="test.assegnaTessereSocieta" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AssegnaTessereSocieta.aspx.cs" Inherits="test.assegnaTessereSocieta" %>
 
 <!DOCTYPE html>
 
