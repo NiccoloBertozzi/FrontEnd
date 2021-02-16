@@ -63,7 +63,7 @@ namespace test
         protected void clickArea_Click(object sender, EventArgs e)
         {
             Session["IdTorneo"] = HiddenField1.Value;
-            Response.Redirect("InfoTorneo.aspx");
+            Response.Redirect("InfoTorneo.aspx?id=" + HiddenField1.Value);
         }
     }
 }
