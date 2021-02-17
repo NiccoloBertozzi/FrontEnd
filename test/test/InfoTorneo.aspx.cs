@@ -12,8 +12,10 @@ namespace test
 {
     public partial class InfoTorneo : System.Web.UI.Page
     {
+        int idTorneo;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //controlli visualizza partite da fare
             if (Session["ruolo"] != null)
             {
                 if (Session["ruolo"].ToString() == "Societa") btnIscriviti.Visible = false;
@@ -30,12 +32,8 @@ namespace test
                 AccediBtn.Controls.Add(new Literal { Text = table.ToString() });
                 btnIscriviti.Visible = false;
             }
-            if (!this.IsPostBack)
-            {
-                //idricevuto.Text = Session["IdUtente"].ToString();
-                int idTorneo = Convert.ToInt32(Request.QueryString["id"]);
-                DownloadInformazioniTorneo(idTorneo);
-            }
+            idTorneo = Convert.ToInt32(Request.QueryString["id"]);
+            if (!this.IsPostBack) DownloadInformazioniTorneo(idTorneo);
         }
         protected void DownloadInformazioniTorneo(int idTorneo)
         {
@@ -85,11 +83,14 @@ namespace test
                 torneiinfoluogo.Controls.Add(new Literal { Text = table2.ToString() });
             }
         }
-
         protected void btnIscriviti_Click(object sender, EventArgs e)
         {
             if (Session["ruolo"].ToString() == "Admin") Response.Redirect("AssegnaDelegati.aspx");
             Response.Redirect("IscrizioneSquadra.aspx"); //rimanda alla form 'output tornei'
+        }
+        protected void partite_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("OutputPartiteTorneo.aspx?id="+idTorneo); 
         }
     }
 }
