@@ -1,19 +1,46 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InfoTorneo.aspx.cs" Inherits="test.InfoTorneo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OutputPartiteTorneo.aspx.cs" Inherits="test.OutputPartiteTorneo" %>
 
+<!DOCTYPE html>
 
-    <!DOCTYPE html>
-    <html>
-
-    <head runat="server">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Informazioni torneo</title>
-        <link rel="stylesheet" href="Content/bootstrap.min.css">
-        <link rel="stylesheet" href="Content/styles.css">
-        <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
-    </head>
-
-    <body>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Partite torneo</title>
+    <link rel="stylesheet" href="Content/bootstrap.min.css">
+    <link rel="stylesheet" href="Content/styles.css">
+    <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v9.0" nonce="ekmMNXcv"></script>
+    <script>
+        function DivClicked() {
+            var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
+            form1.HiddenField1.value = arguments[0];
+            clickArea_Click.click();
+        }
+        function LoadPage() {
+            window.location = "OutputTorneiNonAutorrizati.aspx";
+        }
+        function LoadPageDelegati() {
+            window.location = "OutputTorneiDelegato.aspx";
+        }
+        function LoadPageIscritti() {
+            window.location = "OutputTorneiIscritti.aspx";
+        }
+        function LoadCreaTorneo() {
+            window.location = "CreaTorneo.aspx";
+        }
+        function LoadClassificaMaschile() {
+            window.location = "OutputClassifica.aspx?genere=M";
+        }
+        function LoadClassificaFemminile() {
+            window.location = "OutputClassifica.aspx?genere=F";
+        }
+        function LoadLogin() {
+            window.location = "Login.aspx";
+        }
+    </script>
+</head>
+<body>
     <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
@@ -52,42 +79,33 @@
             </div>
         </div>
     </nav>
-        <form id="form1" runat="server">
-            <!--Banner-->
-            <div class="page-title row">
-                <h1 class=" col-12 text-center my-auto">Informazioni torneo</h1>
+    <form id="form1" runat="server">
+        <asp:Button runat="server" ID="btnTorneo" Style="display: none" OnClick="clickArea_Click" ClientIDMode="Static" />
+        <asp:HiddenField ID="HiddenField1" runat="server" />
+        <!--Banner-->
+        <div class="page-title row">
+            <h1 class=" col-12 text-center my-auto">Tornei</h1>
+        </div>
+
+        <div class="container">
+            <!--CERCA-->
+            <div class="searchBox mx-2 my-2">
+                <input class="searchInput" type="text" name="" placeholder="Cerca">
+                <button class="searchButton">
+                    <i class=" fas fa-search"></i>
+                </button>
             </div>
-            <div class="container">
+            <!--Partite-->
+            <div class="card-deck">
                 <div class="card-container mr-3 ml-3 mt-3">
-                    <div class="row mt-4">
-                        <div class="col-md-6 col-sm-12 contentInfo">
-                            <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
-                        </div>
-                        <div class="col-md-5 col-sm-12 offset-md-1 mt-3 mt-md-0">
-                            <div class="row">
-                                <div class="col-12 contentInfo">
-                                    <h2>Localit&agrave</h2>
-                                    <asp:PlaceHolder runat="server" ID="torneiinfoluogo"></asp:PlaceHolder>
-                                </div>
-                            </div>
-                            <div class="row my-3 justify-content-between">
-                                <div class="col-4">
-                                    <asp:Button ID="partite" runat="server" Text="Visualizza partite" OnClick="partite_Click" CssClass="btn btn-primary" />
-                                </div>
-                                <div class="col-4">
-                                    <asp:Button ID="btnIscriviti" runat="server" Text="Iscrivi squadra" OnClick="btnIscriviti_Click" CssClass="btn btn-primary" />
-                                </div>
-                                <div class="col-4">
-                                    <a id="back" class="btn btn-secondary" href="javascript:history.go(-1)">Indietro</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="row">
+                        <asp:PlaceHolder runat="server" ID="partiteList"></asp:PlaceHolder>
                     </div>
                 </div>
             </div>
-            <script src="Scripts/jquery-3.4.1.min.js "></script>
-            <script src="Scripts/bootstrap.min.js "></script>
-        </form>
-    </body>
-
-    </html>
+        </div>
+        <script src="Scripts/jquery-3.4.1.min.js "></script>
+        <script src="Scripts/bootstrap.min.js "></script>
+    </form>
+</body>
+</html>

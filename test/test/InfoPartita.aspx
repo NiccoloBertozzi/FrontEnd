@@ -1,13 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InfoTorneo.aspx.cs" Inherits="test.InfoTorneo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InfoPartita.aspx.cs" Inherits="test.InfoPartita" %>
 
+<!DOCTYPE html>
 
-    <!DOCTYPE html>
-    <html>
-
-    <head runat="server">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Informazioni torneo</title>
+        <title>Informazioni partita</title>
         <link rel="stylesheet" href="Content/bootstrap.min.css">
         <link rel="stylesheet" href="Content/styles.css">
         <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
@@ -55,7 +54,7 @@
         <form id="form1" runat="server">
             <!--Banner-->
             <div class="page-title row">
-                <h1 class=" col-12 text-center my-auto">Informazioni torneo</h1>
+                <h1 class=" col-12 text-center my-auto">Informazioni partita</h1>
             </div>
             <div class="container">
                 <div class="card-container mr-3 ml-3 mt-3">
@@ -66,16 +65,13 @@
                         <div class="col-md-5 col-sm-12 offset-md-1 mt-3 mt-md-0">
                             <div class="row">
                                 <div class="col-12 contentInfo">
-                                    <h2>Localit&agrave</h2>
-                                    <asp:PlaceHolder runat="server" ID="torneiinfoluogo"></asp:PlaceHolder>
+                                    <h2>Punti set</h2>
+                                    <asp:PlaceHolder runat="server" ID="torneiinfoset"></asp:PlaceHolder>
                                 </div>
                             </div>
                             <div class="row my-3 justify-content-between">
                                 <div class="col-4">
-                                    <asp:Button ID="partite" runat="server" Text="Visualizza partite" OnClick="partite_Click" CssClass="btn btn-primary" />
-                                </div>
-                                <div class="col-4">
-                                    <asp:Button ID="btnIscriviti" runat="server" Text="Iscrivi squadra" OnClick="btnIscriviti_Click" CssClass="btn btn-primary" />
+                                    <asp:Button ID="partite" runat="server" Text="Modifica partita" Visible="false" OnClick="partite_Click" CssClass="btn btn-primary" />
                                 </div>
                                 <div class="col-4">
                                     <a id="back" class="btn btn-secondary" href="javascript:history.go(-1)">Indietro</a>
@@ -89,5 +85,4 @@
             <script src="Scripts/bootstrap.min.js "></script>
         </form>
     </body>
-
-    </html>
+</html>

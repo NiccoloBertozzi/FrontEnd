@@ -11,7 +11,7 @@ namespace test
 {
 
 
-    public partial class InfoTorneo
+    public partial class InfoPartita
     {
 
         /// <summary>
@@ -51,13 +51,13 @@ namespace test
         protected global::System.Web.UI.WebControls.PlaceHolder torneiInfo;
 
         /// <summary>
-        /// Controllo torneiinfoluogo.
+        /// Controllo torneiinfoset.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder torneiinfoluogo;
+        protected global::System.Web.UI.WebControls.PlaceHolder torneiinfoset;
 
         /// <summary>
         /// Controllo partite.
@@ -67,14 +67,5 @@ namespace test
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button partite;
-
-        /// <summary>
-        /// Controllo btnIscriviti.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnIscriviti;
     }
 }
