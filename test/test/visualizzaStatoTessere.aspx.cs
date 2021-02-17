@@ -41,12 +41,12 @@ namespace test
                 visualizzaTessere.Controls.Add(new Literal { Text = table.ToString() });
                 for (int i = 0; i < deserialized.Count; i++)
                 {
-                    table.Append("<p> Atleta: " + deserialized[i].atleta + "</p>" +
-                        "<p> Codice Tessera: " + deserialized[i].codiceTessera + "</p>" +
-                        "<p> Tipo Tessera: " + deserialized[i].tipoTessera + "</p>" +
-                        "<p> Data Tesseramento: " + deserialized[i].dataTesseramento + "</p>" +
-                        "<p> Anno Tesseramento: " + deserialized[i].annoTesseramento + "</p>" +
-                        "<p> Importo: " + deserialized[i].importo + "</p>");
+                    table.Append("<br><p> <b>Atleta:</b> " + deserialized[i].atleta + "</p>" +
+                        "<p><b> Codice Tessera: </b>" + deserialized[i].codiceTessera + "</p>" +
+                        "<p> <b>Tipo Tessera:</b> " + deserialized[i].tipoTessera + "</p>" +
+                        "<p> <b>Data Tesseramento: </b>" + deserialized[i].dataTesseramento + "</p>" +
+                        "<p><b> Anno Tesseramento: </b>" + deserialized[i].annoTesseramento + "</p>" +
+                        "<p><b> Importo: </b>" + deserialized[i].importo + "</p>");
                 }
                 //Append the HTML string to Placeholder.
                 visualizzaTessere.Controls.Add(new Literal { Text = table.ToString() });

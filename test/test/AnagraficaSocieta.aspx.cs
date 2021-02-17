@@ -42,9 +42,10 @@ namespace test
                 StringBuilder table = new StringBuilder();
                 table.Clear();
                 anagraficaSocieta.Controls.Add(new Literal { Text = table.ToString() });
-                for (int i = 0; i < deserialzied.Count; i++)
+                for (int i = 0; i < 16; i++)
                 {
-                    table.Append("" +
+                    /*table.Append("" +
+                         "<div class='row mt-3'>" +
                         "<p> <b>Nome : </b>" + deserialzied[i].nomeSocieta + "</p>" +
                         "<p> <b>Città : </b>" + deserialzied[i].citta + "</p>" +
                         "<p> <b>Indirizzo : </b>" + deserialzied[i].indirizzo + "</p>" +
@@ -60,7 +61,8 @@ namespace test
                         "<p> <b>Pec : </b>" + deserialzied[i].pec + "</p>" +
                         "<p> <b>Partita IVA : </b>" + deserialzied[i].piva + "</p>" +
                         "<p> <b>Codice Fiscale : </b>" + deserialzied[i].cf + "</p>" +
-                        "<p> <b>CU: </b>" + deserialzied[i].cu + "</p>");
+                        "<p> <b>CU: </b>" + deserialzied[i].cu + "</p></div>");*/
+                    table.Append("" +"<div class='row mt-3'>" +getLabel(i) +getText(deserialzied,i) +"</div>");
                 }
                 anagraficaSocieta.Controls.Add(new Literal { Text = table.ToString() });
             }
@@ -69,6 +71,52 @@ namespace test
         protected void ModificaAnagraficaSocieta_Click(object sender, EventArgs e)
         {
             Response.Redirect("ModificaAnagraficaSocieta.aspx"); //manda alla form 'ModificaAnagraficaSocieta'
+        }
+        protected string getLabel(int c)
+        {
+            string[] testi = { "Nome Societa' :", "Citta' :", "Indirizzo :", "Cap :", "Data Fondazione :", "Data Affiliazione :","Codice Affiliazione :", "Affiliata :", "Email :", "Sito :", "Tell1 :", "Tell2 :", "Pec :","Partita IVA :", "Codice Fiscale :", "CU :" };
+            return ("<label class='col-md-5 text-center my-auto'><b>" + testi[c] + "</b></label>");
+        }
+
+        protected string getText(dynamic data, int c)
+        {
+            switch (c)
+            {
+                case 0:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].nomeSocieta + "</p>";
+                case 1:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].citta + "</p>";
+                case 2:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].indirizzo + "</p>";
+                case 3:
+                    return "<p class='col-md-5 text-center my-auto'>" + data[0].cap + "</p>";
+                case 4:
+                        return "<p class='col-md-5 text-center my-auto'>" + data[0].dataFondazione.ToString().Split(' ')[0] + "</p>";
+                case 5:
+                        return "<p class='col-md-5 text-center my-auto'>" + data[0].dataAffiliazione.ToString().Split(' ')[0] + "</p>";
+                case 6:
+                        return "<p class='col-md-5 text-center my-auto'>" + data[0].codiceAffiliazione + "</p>";
+                case 7:
+                        return "<p class='col-md-5 text-center my-auto'>" + data[0].affiliata + "</p>";
+                case 8:
+                        return "<p class='col-md-5 text-center my-auto'>" + data[0].email + "</p>";
+                case 9:
+                        return "<p class='col-md-5 text-center my-auto'>" + data[0].sito + "</p>";
+                case 10:
+                        return "<p class='col-md-5 text-center my-auto'>" + data[0].tel1 + "</p>";
+                case 11:
+                        return "<p class='col-md-5 text-center my-auto'>" + data[0].tel2 + "</p>";
+                case 12:
+                        return "<p class='col-md-5 text-center my-auto'>" + data[0].pec + "</p>";
+                case 13:
+                        return "<p class='col-md-5 text-center my-auto'>" + data[0].piva + "</p>";
+                case 14:
+                        return "<p class='col-md-5 text-center my-auto'>" + data[0].cf + "</p>";
+                case 15:
+                        return "<p class='col-md-5 text-center my-auto'>" + data[0].cu + "</p>";
+
+            }
+            return "Error getText";
         }
     }
 }
