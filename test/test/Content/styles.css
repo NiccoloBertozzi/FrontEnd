@@ -171,15 +171,20 @@ body {
 }
 
 .btnRegister {
-    background: linear-gradient(to bottom, #0091ff2f 5%, #0065bd2f 100%);
-    background-color: #0091ff3d;
+    background-color: white;
     border-radius: 5px;
     display: inline-block;
     cursor: pointer;
-    color: #ffffff;
+    color: #0091ff;
     font-size: 22px;
     font-weight: bold;
     padding: 10px 15%;
+    text-decoration: none;
+    border: 2px solid black;
+    border-color: #0091ff;
+}
+
+.btnRegister:hover {
     text-decoration: none;
 }
 
@@ -232,18 +237,6 @@ div.container p {
     margin-left: 3%;
 }
 
-.btnRegister {
-    background: linear-gradient(to bottom, #0091ff2f 5%, #0065bd2f 100%);
-    background-color: #0091ff3d;
-    border-radius: 5px;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-size: 22px;
-    font-weight: bold;
-    padding: 10px 15%;
-    text-decoration: none;
-}
 
 form label.register {
     text-align: left;

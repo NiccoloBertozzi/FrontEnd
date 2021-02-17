@@ -9,6 +9,14 @@
     <title>Modifica anagrafica</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
     <link rel="stylesheet" href="Content/styles.css" />
+                <script>
+        function LoadClassificaMaschile() {
+            window.location = "OutputClassifica.aspx?genere=M";
+        }
+        function LoadClassificaFemminile() {
+            window.location = "OutputClassifica.aspx?genere=F";
+        }
+        </script>
 </head>
 <body>
     <!--Navigatore-->
@@ -94,13 +102,13 @@
                 <div class="col-sm-12 col-lg-6">
                     <label for="lbldataNascita" class="col-form-label">Sesso</label>
                 </div>
-                <div class="col-sm-6 col-lg-2 form-check form-check-inline">
-                    <asp:RadioButton runat="server" name="sesso" type="radio" ID="maschio" Checked="true" />
-                    <label for="maschio" class="lblRadio">Maschio</label>
+                <div class="ml-3 col-sm-6 col-lg-2 form-check form-check-inline">
+                    <asp:RadioButton GroupName="radioSesso" runat="server" name="sesso" type="radio" ID="maschio" Checked="true" />
+                    <label for="maschio" class="lblRadio ml-1">Maschio</label>
                 </div>
-                <div class="col-sm-6 col-lg-2 form-check form-check-inline">
-                    <asp:RadioButton runat="server" name="sesso" type="radio" ID="femmina" />
-                    <label for="femmina" class="lblRadio">Femmina</label>
+                <div class="ml-3 col-sm-6 col-lg-2 form-check form-check-inline">
+                    <asp:RadioButton GroupName="radioSesso" runat="server" name="sesso" type="radio" ID="femmina" />
+                    <label for="femmina" class="lblRadio ml-1">Femmina</label>
                 </div>
             </div>
             <div class="row mt-lg-4">
