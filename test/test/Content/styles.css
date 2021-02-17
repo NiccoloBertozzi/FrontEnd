@@ -378,3 +378,6 @@ div.contentInfo p {
 .lblRadio {
     box-sizing: initial !important;
 }
+.tabletornei {
+    overflow-x: scroll;
+}

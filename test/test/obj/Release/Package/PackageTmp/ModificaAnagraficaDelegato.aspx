@@ -11,44 +11,40 @@
 </head>
 <body>
     <!--Navigatore-->
-    <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
                 <span class="sr-only">Toggle navigation</span>
                 <i class="fas fa-bars" style="color: white;"></i>
             </button>
-            <img src="Img/aibvc-logo.png" style="width: 94px;" />
+            <img src="Img/aibvc-logo.png" style="width: 94px;">
             <div class="collapse navbar-collapse row" id="navcol-1">
                 <div class="col-md-11 col-sm-12">
                     <ul class="nav navbar-nav ml-5" id="myNavUl">
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="OutputTornei.aspx">Home</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AIBVC Tour</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Indizione AIBVC Tour</a>
-                                    <a class="dropdown-item" href="#">Calendario L1</a>
-                                    <a class="dropdown-item" href="#">Calendario L2</a>
-                                    <a class="dropdown-item" href="#">Calendario L3</a>
-                                    <a class="dropdown-item" href="#">Classifica Maschile</a>
-                                    <a class="dropdown-item" href="#">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="#" onclick="LoadClassificaMaschile();">Classifica Maschile</a>
+                                    <a class="dropdown-item" href="#" onclick="LoadClassificaFemminile();">Classifica Femminile</a>
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Formazione</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Chi siamo</a>
-                                    <a class="dropdown-item" href="#">Affiliati</a>
-                                    <a class="dropdown-item" href="#">Attività</a>
-                                    <a class="dropdown-item" href="#">Come operiamo</a>
-                                    <a class="dropdown-item" href="#">Obiettivi</a>
+                                    <a class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
+                                    <a class="dropdown-item" href="visualizzaComponentiSocieta.aspx">Elenco tesserati</a>
                                 </div>
                             </div>
                         </li>
+                        <asp:PlaceHolder runat="server" ID="dinamicload"></asp:PlaceHolder>
                     </ul>
+                </div>
+                <div class="col-1">
+                    <asp:PlaceHolder runat="server" ID="AccediBtn"></asp:PlaceHolder>
                 </div>
             </div>
         </div>
@@ -58,9 +54,9 @@
         <h1 class=" col-12 text-center my-auto">Modifica Anagrafica</h1>
     </div>
     <form id="form1" runat="server">
-
         <div class="container">
-            <div class="row mt-lg-4">
+            <div class="card-container mr-3 ml-3 mt-3">
+                <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
                     <label for="nome" class="col-form-label">Nome</label>
                 </div>
@@ -179,6 +175,7 @@
             </div>
             <div class="row">
                 <asp:Button runat="server" Text="Modifica" OnClick="ModificaAnagrafica_Click" class="btnLogin mx-auto mt-3"/>
+            </div>
             </div>
         </div>
     </form>

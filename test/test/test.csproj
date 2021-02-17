@@ -218,13 +218,13 @@
     <Content Include="OutputTorneiIscritti.aspx" />
     <Content Include="OutputTorneiNonAutorrizati.aspx" />
     <Content Include="Register.aspx" />
-    <Content Include="RegisterSocieta.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\jquery-dateformat.min.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
@@ -446,13 +446,6 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RegisterSocieta.aspx.cs">
-      <DependentUpon>RegisterSocieta.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RegisterSocieta.aspx.designer.cs">
-      <DependentUpon>RegisterSocieta.aspx</DependentUpon>
     </Compile>
     <Compile Include="AssegnaDelegati.aspx.cs">
       <DependentUpon>AssegnaDelegati.aspx</DependentUpon>

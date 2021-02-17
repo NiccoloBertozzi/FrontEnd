@@ -291,7 +291,7 @@
                     <label for="lblcodAffiliazione " class="col-form-label ">Codice di affiliazione</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="codAffiliazione" runat="server" class="form-control" placeholder="Codice di affiliazione"></asp:TextBox>
+                    <asp:TextBox ID="codiceAffiliazione" runat="server" class="form-control" placeholder="Codice di affiliazione"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 mb-2 ">
@@ -307,7 +307,7 @@
                     <label for="lblTelefono1 " class="col-form-label ">Telefono 1</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="telefono1" runat="server" class="form-control" placeholder="Telefono 1"></asp:TextBox>
+                    <asp:TextBox ID="tel1" runat="server" class="form-control" placeholder="Telefono 1"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -315,7 +315,7 @@
                     <label for="lblTelefono2 " class="col-form-label ">Telefono 2</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="telefono2" runat="server" class="form-control" placeholder="Telefono 2"></asp:TextBox>
+                    <asp:TextBox ID="tel2" runat="server" class="form-control" placeholder="Telefono 2"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -331,7 +331,7 @@
                     <label for="pIVA " class="col-form-label ">Partita IVA</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="parIVA" runat="server" class="form-control" placeholder="Partita IVA"></asp:TextBox>
+                    <asp:TextBox ID="PIVA" runat="server" class="form-control" placeholder="Partita IVA"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -339,7 +339,7 @@
                     <label for="lblCf " class="col-form-label ">Codice Fiscale</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="TextBox27" runat="server" class="form-control" placeholder="Codice Fiscale"></asp:TextBox>
+                    <asp:TextBox ID="cfSoc" runat="server" class="form-control" placeholder="Codice Fiscale"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -347,7 +347,7 @@
                     <label for="lblCertUnica " class="col-form-label ">Certificazione Unica</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="certUnica" runat="server" class="form-control" placeholder="Certificazione Unica"></asp:TextBox>
+                    <asp:TextBox ID="CU" runat="server" class="form-control" placeholder="Certificazione Unica"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 mb-2 ">

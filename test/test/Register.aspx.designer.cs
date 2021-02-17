@@ -330,13 +330,13 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox dataAffiliazione;
 
         /// <summary>
-        /// Controllo codAffiliazione.
+        /// Controllo codiceAffiliazione.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox codAffiliazione;
+        protected global::System.Web.UI.WebControls.TextBox codiceAffiliazione;
 
         /// <summary>
         /// Controllo sito.
@@ -348,22 +348,22 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox sito;
 
         /// <summary>
-        /// Controllo telefono1.
+        /// Controllo tel1.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox telefono1;
+        protected global::System.Web.UI.WebControls.TextBox tel1;
 
         /// <summary>
-        /// Controllo telefono2.
+        /// Controllo tel2.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox telefono2;
+        protected global::System.Web.UI.WebControls.TextBox tel2;
 
         /// <summary>
         /// Controllo PEC.
@@ -375,31 +375,31 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox PEC;
 
         /// <summary>
-        /// Controllo parIVA.
+        /// Controllo PIVA.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox parIVA;
+        protected global::System.Web.UI.WebControls.TextBox PIVA;
 
         /// <summary>
-        /// Controllo TextBox27.
+        /// Controllo cfSoc.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox27;
+        protected global::System.Web.UI.WebControls.TextBox cfSoc;
 
         /// <summary>
-        /// Controllo certUnica.
+        /// Controllo CU.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox certUnica;
+        protected global::System.Web.UI.WebControls.TextBox CU;
 
         /// <summary>
         /// Controllo cbComResSoc.

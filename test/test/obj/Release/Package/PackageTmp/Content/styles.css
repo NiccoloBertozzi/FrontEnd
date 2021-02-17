@@ -4,16 +4,7 @@ body {
     width: 100%;
     overflow-x: hidden;
 }
-.bodylogin {
-    background-image: url('../Img/background-login.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-body.register {
-    background-image: url('../Img/background-login.png');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
+
 .my-navbar {
     background: linear-gradient(90deg, #019bdd 0%, rgba(21, 68, 146, 1) 100%);
 }
@@ -361,4 +352,32 @@ form label.register {
     text-decoration: none;
     width: 100%;
     text-align: center;
+}
+
+/*Info Anagrafiche*/
+div.contentInfo label {
+    font-size: 20px;
+    letter-spacing: 1.2px;
+}
+
+div.contentInfo p {
+    font-size: 20px;
+    color: #2F2D2D;
+    font-weight: 500;
+    word-spacing: 0.5px;
+}
+
+/*Register*/
+.banner {
+    margin: 0px 3rem;
+    font-weight: 700;
+    letter-spacing: 10px;
+    color: #0094f0;
+}
+
+.lblRadio {
+    box-sizing: initial !important;
+}
+.tabletornei {
+    overflow-x: scroll;
 }

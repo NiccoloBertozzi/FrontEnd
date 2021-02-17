@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreaTorneo.aspx.cs" Inherits="test.CreaTorneo" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 <!DOCTYPE html>
 
 <html>
@@ -11,9 +13,32 @@
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
+        <script>
+        function LoadPage() {
+            window.location = "OutputTorneiNonAutorrizati.aspx";
+        }
+        function LoadPageDelegati() {
+            window.location = "OutputTorneiDelegato.aspx";
+        }
+        function LoadPageIscritti() {
+            window.location = "OutputTorneiIscritti.aspx";
+        }
+        function LoadCreaTorneo() {
+            window.location = "CreaTorneo.aspx";
+        }
+        function LoadClassificaMaschile() {
+            window.location = "OutputClassifica.aspx?genere=M";
+        }
+        function LoadClassificaFemminile() {
+            window.location = "OutputClassifica.aspx?genere=F";
+        }
+        function LoadLogin() {
+            window.location = "Login.aspx";
+        }
+        </script>
 </head>
 <body>
-    <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
                 <span class="sr-only">Toggle navigation</span>
@@ -23,39 +48,36 @@
             <div class="collapse navbar-collapse row" id="navcol-1">
                 <div class="col-md-11 col-sm-12">
                     <ul class="nav navbar-nav ml-5" id="myNavUl">
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link active" href="OutputTornei.aspx">Home</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AIBVC Tour</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Indizione AIBVC Tour</a>
-                                    <a class="dropdown-item" href="#">Calendario L1</a>
-                                    <a class="dropdown-item" href="#">Calendario L2</a>
-                                    <a class="dropdown-item" href="#">Calendario L3</a>
-                                    <a class="dropdown-item" href="#">Classifica Maschile</a>
-                                    <a class="dropdown-item" href="#">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="#" onclick="LoadClassificaMaschile();">Classifica Maschile</a>
+                                    <a class="dropdown-item" href="#" onclick="LoadClassificaFemminile();">Classifica Femminile</a>
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="#">Formazione</a></li>
                         <li class="nav-item" role="presentation">
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Chi siamo</a>
-                                    <a class="dropdown-item" href="#">Affiliati</a>
-                                    <a class="dropdown-item" href="#">Attività</a>
-                                    <a class="dropdown-item" href="#">Come operiamo</a>
-                                    <a class="dropdown-item" href="#">Obiettivi</a>
+                                    <a class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
+                                    <a class="dropdown-item" href="visualizzaComponentiSocieta.aspx">Elenco tesserati</a>
                                 </div>
                             </div>
                         </li>
+                        <asp:PlaceHolder runat="server" ID="dinamicload"></asp:PlaceHolder>
                     </ul>
+                </div>
+                <div class="col-1">
+                    <asp:PlaceHolder runat="server" ID="AccediBtn"></asp:PlaceHolder>
                 </div>
             </div>
         </div>
     </nav>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>
         <!--Banner-->
         <div class="page-title-login row">
             <h1 class=" col-12 text-center my-auto">Creazione torneo</h1>
@@ -84,8 +106,20 @@
                     <asp:TextBox ID="txtDataInizio" runat="server" required="true" placeholder="Inserisci data inizio torneo" CssClass="form-control" TextMode="Date"></asp:TextBox>
                 </div>
                 <div class="form-group">
+                    <label for="lblOraInizio">Ora inizio: </label>
+                    <asp:TextBox ID="txtOraInizio" runat="server" required="true" placeholder="Inserisci ora inizio torneo" CssClass="form-control"></asp:TextBox>
+                </div>
+                <div class="form-group">
                     <label for="lblDataFine">Data fine: </label>
                     <asp:TextBox ID="txtDataFine" runat="server" required="true" placeholder="Inserisci data fine torneo" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <label for="lblOutdoor">Outdoor</label>
+                    <asp:CheckBox ID="cbOutdoor" runat="server" CssClass="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="lblRiunioneTecnica">Riunione tecnica</label>
+                    <asp:CheckBox ID="cbRiunioneTecnica" runat="server" CssClass="form-control" />
                 </div>
                 <br />
                 <p>Gender:</p>
@@ -97,19 +131,19 @@
                 </div>
                 <br />
                 <div class="form-group">
-                    <label for="lblNumTeamTabellone">Numero Team Totali Tabellone: </label>
+                    <label for="lblNumTeamTabellone">Numero di squadre totali nel tabellone: </label>
                     <asp:TextBox ID="txtNumTeamTabellone" runat="server" required="true" placeholder="Inserisci il numero di Team totali del tabellone" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <label for="lblNumTeamQualifiche">Numero Team che partecipano alle qualifiche: </label>
+                    <label for="lblNumTeamQualifiche">Numero di squadre partecipanti alle qualifiche: </label>
                     <asp:TextBox ID="txtNumTeamQualifiche" runat="server" required="true" placeholder="Inserisci il numero di Team che partecipano alle qualifiche" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <label for="lblNumTeamQualificati">Numero Team che si qualificano: </label>
+                    <label for="lblNumTeamQualificati">Numero di squadre che si qualificano: </label>
                     <asp:TextBox ID="txtNumTeamQualificati" runat="server" required="true" placeholder="Inserisci il numero di Team  che si qualificano" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <label for="lblNumWildCard">Numero Team che hanno la wildCard: </label>
+                    <label for="lblNumWildCard">Numero di squadre aventi la wildCard: </label>
                     <asp:TextBox ID="txtNumWildCard" runat="server" required="true" placeholder="Inserisci il numero di Team Team che hanno la wildCard" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
@@ -122,21 +156,23 @@
                     <asp:TextBox ID="txtMontepremi" runat="server" required="true" placeholder="Inserisci il montepremi" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <label for="lblFormula">Formula  Torneo: </label>
+                    <label for="lblFormula">Formula Torneo: </label>
                     <asp:DropDownList ID="cmbFormula" runat="server" CssClass="form-control"></asp:DropDownList>
                     <br />
                 </div>
                 <br />
                 <div class="form-group" id="parametriSelezionati" runat="server">
                     <label for="lblIDParametri">Parametri: </label>
-                    <asp:PlaceHolder ID="cmbParametri" runat="server"></asp:PlaceHolder>
+                    <asp:PlaceHolder ID="cmbParametri" runat="server">
+                        <asp:CheckBoxList ID="cbListParametri" runat="server"></asp:CheckBoxList>
+                    </asp:PlaceHolder>
                     <br />
                 </div>
                 <br />
                 <div class="form-group" id="impiantiSelezionati" runat="server">
-                    <label for="lblIDParametri">Impianti: </label>
-                    <asp:PlaceHolder ID="cmbImpianti" runat="server"></asp:PlaceHolder>
-                    <br />
+                    <label for="Impianti">Impianti</label><br />
+                   <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbImpianti" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="cbImpianti_TextChanged"/>
+                   <asp:Label runat="server" Text="" ID="idImpianto"></asp:Label>
                 </div>
                 <asp:Button ID="Button1" runat="server" Text="Crea torneo" OnClick="creaTorneo_Click" CssClass="btn btn-primary" />
             </div>

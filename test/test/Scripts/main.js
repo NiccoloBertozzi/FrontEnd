@@ -119,12 +119,16 @@
             },
             delegato: function () {
                 window.location = "Register.aspx?ruolo=Delegato";
+            },
+            societa: function () {
+                window.location = "Register.aspx?ruolo=Societa";
             }
         }
 
         let btnAtleta = $("#btnAtleta");
         let btnAllenatore = $("#btnAllenatore");
         let btnDelegato = $("#btnDelegato");
+        let btnSocieta = $("#btnSocieta");
 
         var idTasto = search.get("ruolo");
         if (idTasto == "Atleta") {
@@ -133,10 +137,12 @@
             btnAtleta.off("click");
             btnAllenatore.off("click");
             btnDelegato.off("click");
+            btnSocieta.off("click");
 
             // abilita callback di reindirizzamento
             btnAllenatore.click(redirectFunctions.allenatore);
             btnDelegato.click(redirectFunctions.delegato);
+            btnSocieta.click(redirectFunctions.societa);
         }
         else if (idTasto == "Allenatore") {
             $("#btnAllenatore").click();
@@ -144,9 +150,11 @@
             btnAtleta.off("click");
             btnAllenatore.off("click");
             btnDelegato.off("click");
+            btnSocieta.off("click");
 
             btnAtleta.click(redirectFunctions.atleta);
             btnDelegato.click(redirectFunctions.delegato);
+            btnSocieta.click(redirectFunctions.societa);
         }
         else if (idTasto == "Delegato") {
             $("#btnDelegato").click();
@@ -154,9 +162,24 @@
             btnAtleta.off("click");
             btnAllenatore.off("click");
             btnDelegato.off("click");
+            btnSocieta.off("click");
 
             btnAtleta.click(redirectFunctions.atleta);
             btnAllenatore.click(redirectFunctions.allenatore);
+            btnSocieta.click(redirectFunctions.societa);
+        }
+        else if (idTasto == "Societa") {
+            $("#btnSocieta").click();
+
+            btnAtleta.off("click");
+            btnAllenatore.off("click");
+            btnDelegato.off("click");
+            btnSocieta.off("click");
+
+            btnAtleta.click(redirectFunctions.atleta);
+            btnAllenatore.click(redirectFunctions.allenatore);
+            btnDelegato.click(redirectFunctions.societa);
+
         }
     }
 
