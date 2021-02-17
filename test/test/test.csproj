@@ -211,6 +211,7 @@
     <Content Include="ModificaAnagraficaAtleta.aspx" />
     <Content Include="ModificaAnagraficaDelegato.aspx" />
     <Content Include="ModificaAnagraficaSocieta.aspx" />
+    <Content Include="ModificaInfoTorneo.aspx" />
     <Content Include="NuovaPassword.aspx" />
     <Content Include="OutputClassifica.aspx" />
     <Content Include="OutputPartiteTorneo.aspx" />
@@ -399,6 +400,13 @@
     </Compile>
     <Compile Include="ModificaAnagraficaSocieta.aspx.designer.cs">
       <DependentUpon>ModificaAnagraficaSocieta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificaInfoTorneo.aspx.cs">
+      <DependentUpon>ModificaInfoTorneo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificaInfoTorneo.aspx.designer.cs">
+      <DependentUpon>ModificaInfoTorneo.aspx</DependentUpon>
     </Compile>
     <Compile Include="NuovaPassword.aspx.cs">
       <DependentUpon>NuovaPassword.aspx</DependentUpon>
