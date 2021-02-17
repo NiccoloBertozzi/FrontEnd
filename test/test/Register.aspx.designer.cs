@@ -96,15 +96,6 @@ namespace test
         protected global::System.Web.UI.ScriptManager sp1;
 
         /// <summary>
-        /// Controllo cf.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cf;
-
-        /// <summary>
         /// Controllo nome.
         /// </summary>
         /// <remarks>
@@ -139,6 +130,15 @@ namespace test
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::AjaxControlToolkit.ComboBox cbComNasc;
+
+        /// <summary>
+        /// Controllo cf.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox cf;
 
         /// <summary>
         /// Controllo sesso1.
@@ -409,6 +409,24 @@ namespace test
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::AjaxControlToolkit.ComboBox cbComResSoc;
+
+        /// <summary>
+        /// Controllo nomePresidente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox nomePresidente;
+
+        /// <summary>
+        /// Controllo nomeReferente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox nomeReferente;
 
         /// <summary>
         /// Controllo emailSoc.

@@ -171,15 +171,20 @@ body {
 }
 
 .btnRegister {
-    background: linear-gradient(to bottom, #0091ff2f 5%, #0065bd2f 100%);
-    background-color: #0091ff3d;
+    background-color: white;
     border-radius: 5px;
     display: inline-block;
     cursor: pointer;
-    color: #ffffff;
+    color: #0091ff;
     font-size: 22px;
     font-weight: bold;
     padding: 10px 15%;
+    text-decoration: none;
+    border: 2px solid black;
+    border-color: #0091ff;
+}
+
+.btnRegister:hover {
     text-decoration: none;
 }
 
@@ -232,18 +237,6 @@ div.container p {
     margin-left: 3%;
 }
 
-.btnRegister {
-    background: linear-gradient(to bottom, #0091ff2f 5%, #0065bd2f 100%);
-    background-color: #0091ff3d;
-    border-radius: 5px;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-size: 22px;
-    font-weight: bold;
-    padding: 10px 15%;
-    text-decoration: none;
-}
 
 form label.register {
     text-align: left;
@@ -380,4 +373,30 @@ div.contentInfo p {
 }
 .tabletornei {
     overflow-x: scroll;
+}
+
+input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+.ajax__combobox_textboxcontainer>input:nth-child(1) {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.ajax__combobox_buttoncontainer>input:nth-child(1) {
+
+
+
 }
