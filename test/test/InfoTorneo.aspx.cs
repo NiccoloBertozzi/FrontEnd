@@ -21,7 +21,11 @@ namespace test
                 if (Session["ruolo"].ToString() == "Societa") btnIscriviti.Visible = false;
                 if (Session["ruolo"].ToString() == "Delegato") btnIscriviti.Visible = false;
                 if (Session["ruolo"].ToString() == "Allenatore") btnIscriviti.Visible = false;
-                if (Session["ruolo"].ToString() == "Admin") btnIscriviti.Text = "Assegna Delegato";
+                if (Session["ruolo"].ToString() == "Admin")
+                {
+                    if (Session["autorizzato"] != null) if (Session["autorizzato"].ToString() == "0") autorizza.Visible = true;
+                    btnIscriviti.Text = "Assegna Delegato";
+                }
             }
             if (Session["idUtente"] == null)
             {
@@ -91,6 +95,18 @@ namespace test
         protected void partite_Click(object sender, EventArgs e)
         {
             Response.Redirect("OutputPartiteTorneo.aspx?id="+idTorneo); 
+        }
+        protected void autorizza_Click(object sender, EventArgs e)
+        {
+            string token = Session["Token"].ToString();
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/AutorizzaTorneo/" + idTorneo);
+            client.Timeout = -1;
+            var request = new RestRequest(Method.PUT);
+            request.AddHeader("Authorization", "Bearer " + token);
+            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
+            IRestResponse response = client.Execute(request);
+            Session["autorizzato"] = "";
+            Response.Redirect("OutputTornei.aspx");
         }
     }
 }

@@ -64,7 +64,8 @@ namespace test
         protected void clickArea_Click(object sender, EventArgs e)
         {
             Session["IdTorneo"] = HiddenField1.Value;
-            Response.Redirect("AutorizzaTorneo.aspx"); //rimanda alla form 'output tornei'
+            Session["autorizzato"] = "0";
+            Response.Redirect("InfoTorneo.aspx?id=" + HiddenField1.Value); //rimanda alla form 'output tornei'
         }
     }
 }

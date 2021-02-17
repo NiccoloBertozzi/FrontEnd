@@ -69,7 +69,6 @@
         <div class="container form-group">
             <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
             <div class="row justify-content-center">
-                <asp:Button ID="btnIscriviti" runat="server" Text="Autorizza torneo" OnClick="AutorizzaTorneo_Click" CssClass="btn btn-primary" />
             </div>
         </div>
         <div>
