@@ -12,6 +12,10 @@ namespace test
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["change"]!="" || Request.QueryString["change"] != null)
+            {
+                Session.Clear();
+            }
             if (Session["idUtente"] != null)
             {
                 Response.Redirect("OutputTornei.aspx"); //rimanda alla form 'output tornei'
@@ -36,8 +40,6 @@ namespace test
                     Session["ruolo"] = response.Cookies[0].Value.ToString();
                     dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
                     Session["IdUtente"] = deserialzied.id;
-                    string x = deserialzied.token;
-                    if (x != "") x = "";
                     Session["Token"] = deserialzied.token;
                     Response.Redirect("OutputTornei.aspx"); //rimanda alla form 'output tornei'
                 }

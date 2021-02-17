@@ -21,7 +21,7 @@ namespace test
                 if (Session["ruolo"].ToString() == "Societa") Response.Redirect("AnagraficaSocieta.aspx");
                 if (Session["ruolo"].ToString() == "Allenatore") Response.Redirect("AnagraficaAllenatore.aspx");
                 token = Session["Token"].ToString();
-                int idAtleta = Convert.ToInt32(Session["idUtente"]);
+                int idAtleta = Convert.ToInt32(Session["IdUtente"]);
                 DownloadAnagrafica(idAtleta);
             }
             else Response.Redirect("OutputTornei.aspx");

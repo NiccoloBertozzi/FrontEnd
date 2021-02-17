@@ -62,14 +62,6 @@ namespace test
                     dinamicload.Controls.Add(new Literal { Text = table.ToString() });
                 }
             }
-            if (Session["idUtente"] == null)
-            {
-                StringBuilder table = new StringBuilder();
-                table.Clear();
-                AccediBtn.Controls.Add(new Literal { Text = table.ToString() });
-                table.Append("<button type=\"button\" class=\"btn btn-light\" onclick=\"LoadLogin(); \">Login</button>");
-                AccediBtn.Controls.Add(new Literal { Text = table.ToString() });
-            }
             //Append the HTML string to Placeholder.
             if (!this.IsPostBack)
             {
