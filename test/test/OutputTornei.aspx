@@ -11,7 +11,134 @@
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v9.0" nonce="ekmMNXcv"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="Scripts/jquery-dateformat.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script>
+        $(document).ready(function () {
+            var date = new Date();
+            var settings = {
+                "url": "https://aibvcapi.azurewebsites.net/api/v1/tornei/GetTornei/" + jQuery.format.date(date, "yyyy-MM-dd"),
+                "method": "GET",
+                "timeout": 0,
+                "withCredentials": true,
+                "headers": {},
+            };
+            $.ajax(settings).done(function (response) {
+                $('#tabella').empty();
+                response.forEach(function (dati) {
+                    $('#tabella').append("<tr id=" + dati.idTorneo + "><td>" + (formatDate(dati.dataInizio)) + "</td><td>" + (dati.nomeImpianto) + "</td><td>" + (dati.nomeSocieta) + "</td><td>" + (dati.gender) + "</td><td>" + (dati.outdoor ? "indoor" : "outdoor") + "</td><td>" + (dati.montepremi) + "€</td><td>" + (dati.tipoTorneo) + "</td><td>" + (dati.formula) + "</td><td>" + (dati.oraInizio) + "</td><td>" + (dati.numMaxTeamMainDraw) + "</td><td>" + formatDate(dati.dataChiusuraIscrizioni) + "</td><td>" + (dati.oraInizio) + "</td></tr>");
+                });
+                $('#data-table').DataTable({
+                    "search": {
+                        "caseInsensitive": false
+                    },
+                    responsive: true,
+                    "order": [
+                        [0, "asc"]
+                    ]
+                });
+            });
+            var sesso_status = false;
+            $('input[name="gender"]').click(function () {
+                if (!sesso_status) {
+                    $('#data-table tbody tr').get().map(function (row) {
+                        if (row.children[3].innerHTML != $('input[name="gender"]:checked').val()) {
+                            var index = row.rowIndex;
+                            $("#tabella tr:nth-of-type(" + index + ")").hide();
+                            sesso_status = true;
+                        }
+                    });
+                } else {
+                    sesso_status = false;
+                    $('#reset').click();
+                }
+            });
+            $('#categoria').change(function () {
+                if ($("#categoria").val() != "All") {
+                    //createTable();
+                    $('#data-table tbody tr').get().map(function (row) {
+                        if (row.children[6].innerHTML != $("#categoria").val()) {
+                            var index = row.rowIndex;
+                            $("#tabella tr:nth-of-type(" + index + ")").hide();
+                        } else {
+                            var index = row.rowIndex;
+                            $("#tabella tr:nth-of-type(" + index + ")").show();
+                        }
+                    });
+                } else $('#reset').click();
+            });
+            $('#reset').click(function () {
+                $("#Range").val(0);
+                $("#valuenb").val(0);
+                $('#data-table tbody tr').get().map(function (row) {
+                    var index = row.rowIndex;
+                    $("#tabella tr:nth-of-type(" + index + ")").show();
+                });
+            });
+            $('#data-table tbody').on("click", "tr", function () {
+                <%Session["IdTorneo"] = HiddenField1.Value; %>
+                window.location = "InfoTorneo.aspx?id=" + $(this).attr("id");
+            });
+
+            $("#valuenb").change(function () {
+                $("#Range").val($("#valuenb").val());
+                $('#data-table tbody tr').get().map(function (row) {
+                    if (row.outerHTML.css("display") != "none") {
+                        var price = row.children[5].innerHTML;
+                        price = price.replace("€", "");
+                        if (parseFloat(price) < parseFloat($("#Range").val())) {
+                            var index = row.rowIndex;
+                            $("#data-table tbody tr:nth-of-type(" + index + ")").hide();
+                        } else {
+                            var index = row.rowIndex;
+                            $("#data-table tbody tr:nth-of-type(" + index + ")").show();
+                        }
+                    }
+                });
+            });
+            $("#Range").change(function () {
+                $("#valuenb").val($("#Range").val());
+                $('#data-table tbody tr').get().map(function (row) {
+                    var index = row.rowIndex;
+                    var price = row.children[5].innerHTML;
+                    price = price.replace("€", "");
+                    if (parseFloat(price) < parseFloat($("#Range").val())) {
+                        $("#data-table tbody tr:nth-of-type(" + index + ")").hide();
+                    } else {
+                        $("#data-table tbody tr:nth-of-type(" + index + ")").show();
+                    }
+                });
+            });
+            $('.dropdown-menu').on('click', function (event) {
+                event.stopPropagation();
+            });
+            $('body').on('click', function (event) {
+                var target = $(event.target);
+                if (target.parents('.bootstrap-select').length) {
+                    event.stopPropagation();
+                    $('.bootstrap-select.open').removeClass('open');
+                }
+            });
+        });
+
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2)
+                month = '0' + month;
+            if (day.length < 2)
+                day = '0' + day;
+
+            return [day, month, year].join('-');
+        }
         function DivClicked() {
             var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
             form1.HiddenField1.value = arguments[0];
@@ -88,23 +215,67 @@
         </div>
 
         <div class="container">
-            <!--CERCA-->
-            <div class="searchBox mx-2 my-2">
-                <input class="searchInput" type="text" name="" placeholder="Cerca">
-                <button class="searchButton">
-                    <i class=" fas fa-search"></i>
+            <div class="container mt-4">
+            <div class="dropright mb-4 float-right">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Filtri
                 </button>
-            </div>
-            <!--Tornei-->
-            <div class="card-deck">
-                <div class="card-container mr-3 ml-3 mt-3">
-                    <div class="row">
-                        <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>
+                <div class="dropdown-menu">
+                    <label>Montepremi:</label>
+                    <div class="form-group">
+                        <div class="d-inline-block">
+                            <input type="range" class="form-range" min="1000" max="5000" step="50" id="Range">
+                        </div>
+                        <div class="d-inline-block">
+                            <input type="number" min="1000" max="5000" step="50" class="form-control" id="valuenb" aria-describedby="value">
+                        </div>
                     </div>
+                    <label>Genere:</label>
+                    <div class="custom-control custom-switch">
+                        <div>
+                            <input type="checkbox" class="custom-control-input" value="M" name="gender" id="m">
+                            <label class="custom-control-label" for="m">M</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="custom-control-input" value="F" name="gender" id="f">
+                            <label class="custom-control-label" for="f">F</label>
+                        </div>
+                    </div>
+                    <label>Categoria:</label>
+                    <div class="my-3">
+                        <select id="categoria" class="form-select" aria-label="Default select example">
+                            <option>All</option>
+                            <option>L1</option>
+                            <option>L2</option>
+                            <option>L3</option>
+                        </select>
+                    </div>
+                    <button type="button" id="reset" class="btn btn-danger">Reset</button>
                 </div>
             </div>
+            <table id="data-table" class="table table-striped overflow-auto">
+                <thead>
+                    <tr class="table-primary">
+                        <th>DataInizio</th>
+                        <th>Localita</th>
+                        <th>Promoter</th>
+                        <th>Genere</th>
+                        <th>Tipo</th>
+                        <th>Montepremi</th>
+                        <th>Formula</th>
+                        <th>Formula</th>
+                        <th>Ora Inizio</th>
+                        <th>N.Coppie</th>
+                        <th>Scadenza Iscrizioni</th>
+                        <th>Pubblicazione lista</th>
+                    </tr>
+                </thead>
+                <tbody id="tabella">
+                </tbody>
+            </table>
+            <br>
         </div>
-        <script src="Scripts/jquery-3.4.1.min.js "></script>
+        </div>
         <script src="Scripts/bootstrap.min.js "></script>
     </form>
 </body>

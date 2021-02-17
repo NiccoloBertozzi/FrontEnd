@@ -78,14 +78,6 @@
             <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>
             <div class="row mt-md-3">
                 <div class="col-12 col-lg-4  offset-lg-2">
-                    <label for="lblCf" class="col-form-label">Codice Fiscale</label>
-                </div>
-                <div class="col-12 col-lg-4">
-                    <asp:TextBox ID="cf" runat="server" class="form-control" placeholder="Codice Fiscale"></asp:TextBox>
-                </div>
-            </div>
-            <div class="row mt-md-3">
-                <div class="col-12 col-lg-4  offset-lg-2">
                     <label for="lblNome" class="col-form-label">Nome</label>
                 </div>
                 <div class="col-12 col-lg-4">
@@ -114,6 +106,14 @@
                 </div>
                 <div class="col-12 col-lg-4">
                     <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbComNasc" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="cbComNasc_TextChanged"/>
+                </div>
+            </div>
+            <div class="row mt-md-3">
+                <div class="col-12 col-lg-4  offset-lg-2">
+                    <label for="lblCf" class="col-form-label">Codice Fiscale</label>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <asp:TextBox ID="cf" runat="server" class="form-control" placeholder="Codice Fiscale"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3">
@@ -291,7 +291,7 @@
                     <label for="lblcodAffiliazione " class="col-form-label ">Codice di affiliazione</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="codAffiliazione" runat="server" class="form-control" placeholder="Codice di affiliazione"></asp:TextBox>
+                    <asp:TextBox ID="codiceAffiliazione" runat="server" class="form-control" placeholder="Codice di affiliazione"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 mb-2 ">
@@ -307,7 +307,7 @@
                     <label for="lblTelefono1 " class="col-form-label ">Telefono 1</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="telefono1" runat="server" class="form-control" placeholder="Telefono 1"></asp:TextBox>
+                    <asp:TextBox ID="tel1" runat="server" class="form-control" placeholder="Telefono 1"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -315,7 +315,7 @@
                     <label for="lblTelefono2 " class="col-form-label ">Telefono 2</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="telefono2" runat="server" class="form-control" placeholder="Telefono 2"></asp:TextBox>
+                    <asp:TextBox ID="tel2" runat="server" class="form-control" placeholder="Telefono 2"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -331,7 +331,7 @@
                     <label for="pIVA " class="col-form-label ">Partita IVA</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="parIVA" runat="server" class="form-control" placeholder="Partita IVA"></asp:TextBox>
+                    <asp:TextBox ID="PIVA" runat="server" class="form-control" placeholder="Partita IVA"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -339,15 +339,15 @@
                     <label for="lblCf " class="col-form-label ">Codice Fiscale</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="TextBox27" runat="server" class="form-control" placeholder="Codice Fiscale"></asp:TextBox>
+                    <asp:TextBox ID="cfSoc" runat="server" class="form-control" placeholder="Codice Fiscale"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 ">
                 <div class="col-12 col-lg-4 offset-lg-2 ">
-                    <label for="lblCertUnica " class="col-form-label ">Certificazione Unica</label>
+                    <label for="lblCertUnica " class="col-form-label ">Codice SDI</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="certUnica" runat="server" class="form-control" placeholder="Certificazione Unica"></asp:TextBox>
+                    <asp:TextBox ID="CU" runat="server" class="form-control" placeholder="Codice SDI"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 mb-2 ">
@@ -356,6 +356,22 @@
                 </div>
                 <div class="col-12 col-lg-4 ">
                     <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbComResSoc" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="cbComResSoc_TextChanged"/>
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="nomePresidente" class="col-form-label ">Nome Presidente</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <asp:TextBox ID="nomePresidente" runat="server" class="form-control" placeholder="Nome Presidente"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="nomeReferente" class="col-form-label ">Nome Referente</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <asp:TextBox ID="nomeReferente" runat="server" class="form-control" placeholder="Nome Referente"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 ">

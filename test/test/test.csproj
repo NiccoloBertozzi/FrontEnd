@@ -182,6 +182,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="CreaTorneo.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="GestisciPartita.aspx" />
+    <Content Include="InfoPartita.aspx" />
     <Content Include="InfoSquadra.aspx" />
     <Content Include="EliminaTorneo.aspx" />
     <Content Include="favicon.ico" />
@@ -211,6 +213,7 @@
     <Content Include="ModificaAnagraficaSocieta.aspx" />
     <Content Include="NuovaPassword.aspx" />
     <Content Include="OutputClassifica.aspx" />
+    <Content Include="OutputPartiteTorneo.aspx" />
     <Content Include="OutputStoricoTornei.aspx" />
     <Content Include="OutputTornei.aspx" />
     <Content Include="OutputTorneiCategoria.aspx" />
@@ -218,13 +221,13 @@
     <Content Include="OutputTorneiIscritti.aspx" />
     <Content Include="OutputTorneiNonAutorrizati.aspx" />
     <Content Include="Register.aspx" />
-    <Content Include="RegisterSocieta.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\jquery-dateformat.min.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
@@ -316,6 +319,20 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GestisciPartita.aspx.cs">
+      <DependentUpon>GestisciPartita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestisciPartita.aspx.designer.cs">
+      <DependentUpon>GestisciPartita.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InfoPartita.aspx.cs">
+      <DependentUpon>InfoPartita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InfoPartita.aspx.designer.cs">
+      <DependentUpon>InfoPartita.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InfoSquadra.aspx.cs">
       <DependentUpon>InfoSquadra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -397,6 +414,13 @@
     <Compile Include="OutputClassifica.aspx.designer.cs">
       <DependentUpon>OutputClassifica.aspx</DependentUpon>
     </Compile>
+    <Compile Include="OutputPartiteTorneo.aspx.cs">
+      <DependentUpon>OutputPartiteTorneo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OutputPartiteTorneo.aspx.designer.cs">
+      <DependentUpon>OutputPartiteTorneo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="OutputStoricoTornei.aspx.cs">
       <DependentUpon>OutputStoricoTornei.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -446,13 +470,6 @@
     </Compile>
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RegisterSocieta.aspx.cs">
-      <DependentUpon>RegisterSocieta.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RegisterSocieta.aspx.designer.cs">
-      <DependentUpon>RegisterSocieta.aspx</DependentUpon>
     </Compile>
     <Compile Include="AssegnaDelegati.aspx.cs">
       <DependentUpon>AssegnaDelegati.aspx</DependentUpon>

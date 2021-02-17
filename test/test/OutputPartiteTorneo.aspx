@@ -1,25 +1,42 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="test.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OutputPartiteTorneo.aspx.cs" Inherits="test.OutputPartiteTorneo" %>
 
 <!DOCTYPE html>
-<html>
 
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Login</title>
+    <title>Partite torneo</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        function test() {
-            if (document.getElementById('<%= PWD.ClientID %>').type == 'password') {
-                document.getElementById('<%= PWD.ClientID %>').type = 'singleline'
-            }
-            else
-                document.getElementById('<%= PWD.ClientID %>').type = 'password'
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v9.0" nonce="ekmMNXcv"></script>
+    <script>
+        function DivClicked() {
+            var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
+            form1.HiddenField1.value = arguments[0];
+            clickArea_Click.click();
         }
-        function Register() {
-            LoadPage("Register.aspx");
+        function LoadPage() {
+            window.location = "OutputTorneiNonAutorrizati.aspx";
+        }
+        function LoadPageDelegati() {
+            window.location = "OutputTorneiDelegato.aspx";
+        }
+        function LoadPageIscritti() {
+            window.location = "OutputTorneiIscritti.aspx";
+        }
+        function LoadCreaTorneo() {
+            window.location = "CreaTorneo.aspx";
+        }
+        function LoadClassificaMaschile() {
+            window.location = "OutputClassifica.aspx?genere=M";
+        }
+        function LoadClassificaFemminile() {
+            window.location = "OutputClassifica.aspx?genere=F";
+        }
+        function LoadLogin() {
+            window.location = "Login.aspx";
         }
     </script>
 </head>
@@ -62,47 +79,33 @@
             </div>
         </div>
     </nav>
-
-    <!--BANNER-->
-    <div class="page-title row">
-        <h1 class=" col-12 text-center my-auto">Login</h1>
-    </div>
-
-    <!--FORM-->
-    <div class="container">
-        <form id="form1" runat="server">
-            <div class="row mt-lg-4">
-                <div class="col-sm-12 col-lg-6">
-                    <label for="Email" class="col-form-label">Email</label>
-                </div>
-                <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" ID="email" CssClass="form-control" TextMode="Email" placeholder="Email" required="true"></asp:TextBox>
-                </div>
-            </div>
-            <div class="row mt-lg-4">
-                <div class="col-sm-12 col-lg-6">
-                    <label for="PWD" class="col-form-label">Password</label>
-                </div>
-                <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" ID="PWD" CssClass="form-control" TextMode="Password" placeholder="Password" required="true"></asp:TextBox>
-                </div>
-            </div>
-            <div class="row my-lg-4 my-2 justify-content-center">
-                <asp:LinkButton runat="server" ID="pswdimenticata" OnClick="LabelRecovery_Click" Text="Password Dimenticata? Recupera la password"></asp:LinkButton>
-            </div>
-            <div class="row">
-                <asp:Button runat="server" ID="Accedi" CssClass="btnLogin mx-auto" OnClick="btn_accedi_Click" Text="Accedi" />
-            </div>
-            <div class="row">
-                <p class="mx-auto my-auto p-3">oppure</p>
-            </div>
-        </form>
-        <div class="row">
-            <a href="Register.aspx?ruolo=Atleta" class="btnRegister mx-auto">Registrati</a>
+    <form id="form1" runat="server">
+        <asp:Button runat="server" ID="btnTorneo" Style="display: none" OnClick="clickArea_Click" ClientIDMode="Static" />
+        <asp:HiddenField ID="HiddenField1" runat="server" />
+        <!--Banner-->
+        <div class="page-title row">
+            <h1 class=" col-12 text-center my-auto">Tornei</h1>
         </div>
-    </div>
 
-    <script src="Scripts/jquery-3.4.1.min.js "></script>
-    <script src="Scripts/bootstrap.min.js "></script>
+        <div class="container">
+            <!--CERCA-->
+            <div class="searchBox mx-2 my-2">
+                <input class="searchInput" type="text" name="" placeholder="Cerca">
+                <button class="searchButton">
+                    <i class=" fas fa-search"></i>
+                </button>
+            </div>
+            <!--Partite-->
+            <div class="card-deck">
+                <div class="card-container mr-3 ml-3 mt-3">
+                    <div class="row">
+                        <asp:PlaceHolder runat="server" ID="partiteList"></asp:PlaceHolder>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="Scripts/jquery-3.4.1.min.js "></script>
+        <script src="Scripts/bootstrap.min.js "></script>
+    </form>
 </body>
 </html>

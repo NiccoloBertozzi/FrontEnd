@@ -11,7 +11,7 @@ namespace test
 {
 
 
-    public partial class OutputTornei
+    public partial class InfoPartita
     {
 
         /// <summary>
@@ -42,21 +42,30 @@ namespace test
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Controllo btnTorneo.
+        /// Controllo torneiInfo.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnTorneo;
+        protected global::System.Web.UI.WebControls.PlaceHolder torneiInfo;
 
         /// <summary>
-        /// Controllo HiddenField1.
+        /// Controllo torneiinfoset.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
+        protected global::System.Web.UI.WebControls.PlaceHolder torneiinfoset;
+
+        /// <summary>
+        /// Controllo partite.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button partite;
     }
 }

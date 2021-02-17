@@ -11,7 +11,7 @@ namespace test
 {
 
 
-    public partial class OutputTornei
+    public partial class OutputPartiteTorneo
     {
 
         /// <summary>
@@ -58,5 +58,14 @@ namespace test
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
+
+        /// <summary>
+        /// Controllo partiteList.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder partiteList;
     }
 }

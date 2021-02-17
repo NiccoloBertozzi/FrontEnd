@@ -95,7 +95,7 @@ namespace test
                 if (c is TextBox)
                 {
                     TextBox textBox = c as TextBox;
-                    if (textBox.Text != string.Empty && textBox.ID != "password")//Creo object body
+                    if (textBox.Text != string.Empty && textBox.ID != "password" && textBox.ID != "pswSoc")//Creo object body
                         parameter += " \"" + textBox.ID + "\": \"" + textBox.Text + "\",\r\n";
                 }
                 else if (c is RadioButton)//sesso
@@ -115,9 +115,11 @@ namespace test
                 }
             }
             parameter = parameter.ToString().Substring(0, parameter.ToString().Length - 3);//elimino ultimi 3 caratteri
-            parameter += "},\r\n  \"cred\": {\r\n \"" + password.ID + "\": \"" + password.Text + "\",\r\n";
-            if (role == "Atleta" || role == "Allenatore") parameter += "\"nomeSocieta\":\"" + Session["nomeSocieta"].ToString() + "\",\r\n";
-            parameter += "\"comuneNascita\":\"" + Session["comNascita"].ToString() + "\",\r\n\"comuneResidenza\":\"" + Session["comResidenza"].ToString() + "\"\r\n}\r\n}";
+            if(role == "Societa") parameter += "},\r\n  \"cred\": {\r\n \"password\": \"" + pswSoc.Text + "\",\r\n";
+            else parameter += "},\r\n  \"cred\": {\r\n \"password\": \"" + password.Text + "\",\r\n";
+            if (role == "Atleta" || role == "Allenatore" || role == "Societa") parameter += "\"nomeSocieta\":\"" + Session["nomeSocieta"].ToString() + "\",\r\n";
+            if (role != "Societa") parameter += "\"comuneNascita\":\"" + Session["comNascita"].ToString() + "\",\r\n";
+            parameter+="\"comuneResidenza\":\"" + Session["comResidenza"].ToString() + "\"\r\n}\r\n}";
             var client = new RestClient();
             //----------------------Registrazione-------------------------//
             if (role == "Atleta")
@@ -126,6 +128,8 @@ namespace test
                 client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/LoginRegister/RegistraAllenatore");
             else if (role == "Delegato")
                 client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/LoginRegister/RegistraDelegato");
+            else if (role == "Societa")
+                client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/LoginRegister/RegistraSocieta");
             client.Timeout = -1;
             var request = new RestRequest(Method.POST);
             request.AddHeader("Content-Type", "application/json");
