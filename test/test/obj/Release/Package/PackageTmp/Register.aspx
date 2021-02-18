@@ -264,6 +264,14 @@
             </div>
             <div class="row mt-md-3 ">
                 <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lblNome " class="col-form-label ">Citta</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <asp:TextBox ID="citta" runat="server" class="form-control" placeholder="Citta"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
                     <label for="lblCAP " class="col-form-label ">Codice postale (CAP)</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
@@ -360,18 +368,18 @@
             </div>
             <div class="row mt-md-3 ">
                 <div class="col-12 col-lg-4 offset-lg-2 ">
-                    <label for="nomePresidente" class="col-form-label ">Nome Presidente</label>
+                    <label for="Presidente" class="col-form-label ">Nome Presidente</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="nomePresidente" runat="server" class="form-control" placeholder="Nome Presidente"></asp:TextBox>
+                    <asp:TextBox ID="Presidente" runat="server" class="form-control" placeholder="Nome Presidente"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 ">
                 <div class="col-12 col-lg-4 offset-lg-2 ">
-                    <label for="nomeReferente" class="col-form-label ">Nome Referente</label>
+                    <label for="Referente" class="col-form-label ">Nome Referente</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="nomeReferente" runat="server" class="form-control" placeholder="Nome Referente"></asp:TextBox>
+                    <asp:TextBox ID="Referente" runat="server" class="form-control" placeholder="Nome Referente"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 ">

@@ -303,6 +303,15 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox indirizzosoc;
 
         /// <summary>
+        /// Controllo citta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generato automaticamente.
+        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox citta;
+
+        /// <summary>
         /// Controllo capsoc.
         /// </summary>
         /// <remarks>
@@ -411,22 +420,22 @@ namespace test
         protected global::AjaxControlToolkit.ComboBox cbComResSoc;
 
         /// <summary>
-        /// Controllo nomePresidente.
+        /// Controllo Presidente.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nomePresidente;
+        protected global::System.Web.UI.WebControls.TextBox Presidente;
 
         /// <summary>
-        /// Controllo nomeReferente.
+        /// Controllo Referente.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nomeReferente;
+        protected global::System.Web.UI.WebControls.TextBox Referente;
 
         /// <summary>
         /// Controllo emailSoc.
