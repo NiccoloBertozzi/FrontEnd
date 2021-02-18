@@ -1,28 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AutorizzaTorneo.aspx.cs" Inherits="test.AutorizzaTorneo" %>
-
-
-
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InfoPartita.aspx.cs" Inherits="test.InfoPartita" %>
 
 <!DOCTYPE html>
-<html>
 
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Autorizza torneo</title>
-    <link rel="stylesheet" href="Content/bootstrap.min.css">
-    <link rel="stylesheet" href="Content/styles.css">
-    <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
-    <script>
-        function DivClicked() {
-            var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
-            form1.HiddenField1.value = arguments[0];
-            clickArea_Click.click();
-        }
-    </script>
-</head>
-<body>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Informazioni partita</title>
+        <link rel="stylesheet" href="Content/bootstrap.min.css">
+        <link rel="stylesheet" href="Content/styles.css">
+        <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
     <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
@@ -61,23 +51,38 @@
             </div>
         </div>
     </nav>
-    <form id="form1" runat="server">
-        <!--Banner-->
-        <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Autorizza torneo</h1>
-        </div>
-        <div class="container form-group">
-            <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
-            <div class="row justify-content-center">
+        <form id="form1" runat="server">
+            <!--Banner-->
+            <div class="page-title row">
+                <h1 class=" col-12 text-center my-auto">Informazioni partita</h1>
             </div>
-        </div>
-        <div>
-            <asp:PlaceHolder runat="server" ID="squadre"></asp:PlaceHolder>
-            <asp:Button runat="server" ID="btnTorneo" Style="display: none" OnClick="clickArea_Click" ClientIDMode="Static" />
-            <asp:HiddenField ID="HiddenField1" runat="server" />
-        </div>
-        <script src="Scripts/jquery-3.4.1.min.js "></script>
-        <script src="Scripts/bootstrap.min.js "></script>
-    </form>
-</body>
+            <div class="container">
+                <div class="card-container mr-3 ml-3 mt-3">
+                    <div class="row mt-4">
+                        <div class="col-md-6 col-sm-12 contentInfo">
+                            <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
+                        </div>
+                        <div class="col-md-5 col-sm-12 offset-md-1 mt-3 mt-md-0">
+                            <div class="row">
+                                <div class="col-12 contentInfo">
+                                    <h2>Punti set</h2>
+                                    <asp:PlaceHolder runat="server" ID="torneiinfoset"></asp:PlaceHolder>
+                                </div>
+                            </div>
+                            <div class="row my-3 justify-content-between">
+                                <div class="col-4">
+                                    <asp:Button ID="partite" runat="server" Text="Modifica partita" Visible="false" OnClick="partite_Click" CssClass="btn btn-primary" />
+                                </div>
+                                <div class="col-4">
+                                    <a id="back" class="btn btn-secondary" href="javascript:history.go(-1)">Indietro</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="Scripts/jquery-3.4.1.min.js "></script>
+            <script src="Scripts/bootstrap.min.js "></script>
+        </form>
+    </body>
 </html>

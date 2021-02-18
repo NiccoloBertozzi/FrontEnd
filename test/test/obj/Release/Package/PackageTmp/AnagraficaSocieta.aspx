@@ -55,10 +55,10 @@
             <h1 class=" col-12 text-center my-auto">Anagrafica Societa'</h1>
         </div>
     <form id="form1" runat="server">
-        <div class="card-container mr-3 ml-3 mt-3">
+        <center><div class="card-container mr-3 ml-3 mt-3">
             <asp:PlaceHolder runat="server" ID="anagraficaSocieta"></asp:PlaceHolder>
-            <asp:Button runat="server" OnClick="ModificaAnagraficaSocieta_Click" Text="Modifica anagrafica" />
-        </div>
+            <asp:Button runat="server" OnClick="ModificaAnagraficaSocieta_Click" Text="Modifica anagrafica" class="btnLogin mx-auto mt-3"/>
+        </div></center>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     

@@ -1,24 +1,42 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AutorizzaTorneo.aspx.cs" Inherits="test.AutorizzaTorneo" %>
-
-
-
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OutputPartiteTorneo.aspx.cs" Inherits="test.OutputPartiteTorneo" %>
 
 <!DOCTYPE html>
-<html>
 
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Autorizza torneo</title>
+    <title>Partite torneo</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v9.0" nonce="ekmMNXcv"></script>
     <script>
         function DivClicked() {
             var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
             form1.HiddenField1.value = arguments[0];
             clickArea_Click.click();
+        }
+        function LoadPage() {
+            window.location = "OutputTorneiNonAutorrizati.aspx";
+        }
+        function LoadPageDelegati() {
+            window.location = "OutputTorneiDelegato.aspx";
+        }
+        function LoadPageIscritti() {
+            window.location = "OutputTorneiIscritti.aspx";
+        }
+        function LoadCreaTorneo() {
+            window.location = "CreaTorneo.aspx";
+        }
+        function LoadClassificaMaschile() {
+            window.location = "OutputClassifica.aspx?genere=M";
+        }
+        function LoadClassificaFemminile() {
+            window.location = "OutputClassifica.aspx?genere=F";
+        }
+        function LoadLogin() {
+            window.location = "Login.aspx";
         }
     </script>
 </head>
@@ -62,19 +80,29 @@
         </div>
     </nav>
     <form id="form1" runat="server">
+        <asp:Button runat="server" ID="btnTorneo" Style="display: none" OnClick="clickArea_Click" ClientIDMode="Static" />
+        <asp:HiddenField ID="HiddenField1" runat="server" />
         <!--Banner-->
         <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Autorizza torneo</h1>
+            <h1 class=" col-12 text-center my-auto">Tornei</h1>
         </div>
-        <div class="container form-group">
-            <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
-            <div class="row justify-content-center">
+
+        <div class="container">
+            <!--CERCA-->
+            <div class="searchBox mx-2 my-2">
+                <input class="searchInput" type="text" name="" placeholder="Cerca">
+                <button class="searchButton">
+                    <i class=" fas fa-search"></i>
+                </button>
             </div>
-        </div>
-        <div>
-            <asp:PlaceHolder runat="server" ID="squadre"></asp:PlaceHolder>
-            <asp:Button runat="server" ID="btnTorneo" Style="display: none" OnClick="clickArea_Click" ClientIDMode="Static" />
-            <asp:HiddenField ID="HiddenField1" runat="server" />
+            <!--Partite-->
+            <div class="card-deck">
+                <div class="card-container mr-3 ml-3 mt-3">
+                    <div class="row">
+                        <asp:PlaceHolder runat="server" ID="partiteList"></asp:PlaceHolder>
+                    </div>
+                </div>
+            </div>
         </div>
         <script src="Scripts/jquery-3.4.1.min.js "></script>
         <script src="Scripts/bootstrap.min.js "></script>

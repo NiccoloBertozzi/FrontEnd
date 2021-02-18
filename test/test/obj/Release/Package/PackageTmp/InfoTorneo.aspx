@@ -71,10 +71,16 @@
                                 </div>
                             </div>
                             <div class="row my-3 justify-content-between">
-                                <div class="col-6">
+                                <div class="col-3">
+                                    <asp:Button ID="autorizza" runat="server" Text="Autorizza torneo" Visible="false" OnClick="autorizza_Click" CssClass="btn btn-primary" />
+                                </div>
+                                <div class="col-3">
+                                    <asp:Button ID="partite" runat="server" Text="Visualizza partite" OnClick="partite_Click" CssClass="btn btn-primary" />
+                                </div>
+                                <div class="col-3">
                                     <asp:Button ID="btnIscriviti" runat="server" Text="Iscrivi squadra" OnClick="btnIscriviti_Click" CssClass="btn btn-primary" />
                                 </div>
-                                <div class="col-6">
+                                <div class="col-3">
                                     <a id="back" class="btn btn-secondary" href="javascript:history.go(-1)">Indietro</a>
                                 </div>
                             </div>

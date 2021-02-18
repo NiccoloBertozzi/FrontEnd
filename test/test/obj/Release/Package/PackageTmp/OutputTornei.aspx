@@ -124,8 +124,15 @@
                     $('.bootstrap-select.open').removeClass('open');
                 }
             });
+            loginbtn();
         });
-
+        function loginbtn() {
+            var id = '<%= Session["IdUtente"] %>';
+            if ( id !="") {
+                $("#btnlogin").text("Log out");
+            }
+            else $("#btnlogin").text("Log in");
+        }
         function formatDate(date) {
             var d = new Date(date),
                 month = '' + (d.getMonth() + 1),
@@ -140,7 +147,6 @@
             return [day, month, year].join('-');
         }
         function DivClicked() {
-            var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
             form1.HiddenField1.value = arguments[0];
             clickArea_Click.click();
         }
@@ -163,7 +169,9 @@
             window.location = "OutputClassifica.aspx?genere=F";
         }
         function LoadLogin() {
-            window.location = "Login.aspx";
+            var id = '<%= Session["IdUtente"] %>';
+            if (id != "") window.location = "Login.aspx?change=1";
+            else window.location = "Login.aspx";
         }
     </script>
 </head>
@@ -201,7 +209,7 @@
                     </ul>
                 </div>
                 <div class="col-1">
-                    <asp:PlaceHolder runat="server" ID="AccediBtn"></asp:PlaceHolder>
+                    <button type="button" id="btnlogin" class="btn btn-light" onclick="LoadLogin();"></button>
                 </div>
             </div>
         </div>

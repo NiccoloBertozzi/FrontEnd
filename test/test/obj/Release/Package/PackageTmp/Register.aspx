@@ -78,14 +78,6 @@
             <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>
             <div class="row mt-md-3">
                 <div class="col-12 col-lg-4  offset-lg-2">
-                    <label for="lblCf" class="col-form-label">Codice Fiscale</label>
-                </div>
-                <div class="col-12 col-lg-4">
-                    <asp:TextBox ID="cf" runat="server" class="form-control" placeholder="Codice Fiscale"></asp:TextBox>
-                </div>
-            </div>
-            <div class="row mt-md-3">
-                <div class="col-12 col-lg-4  offset-lg-2">
                     <label for="lblNome" class="col-form-label">Nome</label>
                 </div>
                 <div class="col-12 col-lg-4">
@@ -114,6 +106,14 @@
                 </div>
                 <div class="col-12 col-lg-4">
                     <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbComNasc" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="cbComNasc_TextChanged"/>
+                </div>
+            </div>
+            <div class="row mt-md-3">
+                <div class="col-12 col-lg-4  offset-lg-2">
+                    <label for="lblCf" class="col-form-label">Codice Fiscale</label>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <asp:TextBox ID="cf" runat="server" class="form-control" placeholder="Codice Fiscale"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3">
@@ -344,10 +344,10 @@
             </div>
             <div class="row mt-md-3 ">
                 <div class="col-12 col-lg-4 offset-lg-2 ">
-                    <label for="lblCertUnica " class="col-form-label ">Certificazione Unica</label>
+                    <label for="lblCertUnica " class="col-form-label ">Codice SDI</label>
                 </div>
                 <div class="col-12 col-lg-4 ">
-                    <asp:TextBox ID="CU" runat="server" class="form-control" placeholder="Certificazione Unica"></asp:TextBox>
+                    <asp:TextBox ID="CU" runat="server" class="form-control" placeholder="Codice SDI"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 mb-2 ">
@@ -356,6 +356,22 @@
                 </div>
                 <div class="col-12 col-lg-4 ">
                     <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbComResSoc" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="cbComResSoc_TextChanged"/>
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="nomePresidente" class="col-form-label ">Nome Presidente</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <asp:TextBox ID="nomePresidente" runat="server" class="form-control" placeholder="Nome Presidente"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="nomeReferente" class="col-form-label ">Nome Referente</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <asp:TextBox ID="nomeReferente" runat="server" class="form-control" placeholder="Nome Referente"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-md-3 ">
