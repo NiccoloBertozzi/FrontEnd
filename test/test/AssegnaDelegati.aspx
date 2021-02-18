@@ -55,8 +55,8 @@
     </nav>
     <form id="form2" runat="server">
         <!--Banner-->
-        <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Assegna delegati</h1>
+        <div class="row mt-3 mb-3">
+            <h1 class=" col-12 text-center my-auto banner">Assegna delegati</h1>
         </div>
         <div class="container">
            <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>

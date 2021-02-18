@@ -52,8 +52,8 @@
         </div>
     </nav>
         <!--Banner-->
-        <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Stato Tessere</h1>
+        <div class="row mt-3 mb-3">
+            <h1 class=" col-12 text-center my-auto banner">Stato Tessere</h1>
         </div>
     <form id="formComponentiSocieta" runat="server">
         <br />

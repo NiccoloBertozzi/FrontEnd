@@ -53,8 +53,8 @@
     </nav>
         <form id="form1" runat="server">
             <!--Banner-->
-            <div class="page-title row">
-                <h1 class=" col-12 text-center my-auto">Informazioni partita</h1>
+            <div class="row mt-3 mb-3">
+                <h1 class=" col-12 text-center my-auto banner">Informazioni partita</h1>
             </div>
             <div class="container">
                 <div class="card-container mr-3 ml-3 mt-3">
