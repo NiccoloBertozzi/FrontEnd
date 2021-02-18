@@ -19,6 +19,7 @@ namespace test
             //controlli visualizza partite da fare
             if (Session["ruolo"] != null)
             {
+                token = Session["Token"].ToString();
                 if (Session["ruolo"].ToString() == "Societa") btnIscriviti.Visible = false;
                 if (Session["ruolo"].ToString() == "Delegato") btnIscriviti.Visible = false;
                 if (Session["ruolo"].ToString() == "Allenatore") btnIscriviti.Visible = false;
@@ -41,9 +42,12 @@ namespace test
 
             idTorneo = Convert.ToInt32(Request.QueryString["id"]);
             if (!this.IsPostBack)
-                DownloadInformazioniTorneo(idTorneo);
+            {
+                DownloadInformazioniTorneo();
+                if(token != null) DownloadInformazioniSquadre();
+            }
         }
-        protected void DownloadInformazioniTorneo(int idTorneo)
+        protected void DownloadInformazioniTorneo()
         {
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetTorneoByID/" + idTorneo);
             client.Timeout = -1;
@@ -91,7 +95,6 @@ namespace test
                 torneiinfoluogo.Controls.Add(new Literal { Text = table2.ToString() });
             }
         }
-
         protected void DownloadInformazioniSquadre()
         {
             token = Session["Token"].ToString();
@@ -136,6 +139,11 @@ namespace test
             IRestResponse response = client.Execute(request);
             Session["autorizzato"] = "";
             Response.Redirect("OutputTornei.aspx");
+        }
+        protected void clickArea_Click(object sender, EventArgs e)
+        {
+            Session["IdSquadra"] = HiddenField1.Value;
+            Response.Redirect("InfoSquadra.aspx?id=" + idTorneo);
         }
     }
 }
