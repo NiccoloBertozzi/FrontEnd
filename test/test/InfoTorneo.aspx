@@ -57,6 +57,10 @@
             <div class="page-title row">
                 <h1 class=" col-12 text-center my-auto">Informazioni torneo</h1>
             </div>
+            <div>
+            <!--Placeholder squadre-->
+            <asp:PlaceHolder runat="server" ID="squadre"></asp:PlaceHolder>
+        </div>
             <div class="container">
                 <div class="card-container mr-3 ml-3 mt-3">
                     <div class="row mt-4">
@@ -92,5 +96,4 @@
             <script src="Scripts/bootstrap.min.js "></script>
         </form>
     </body>
-
     </html>

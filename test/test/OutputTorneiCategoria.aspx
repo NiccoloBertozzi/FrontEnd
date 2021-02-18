@@ -217,8 +217,8 @@
         <asp:Button runat="server" ID="btnTorneo" Style="display: none" OnClick="clickArea_Click" ClientIDMode="Static" />
         <asp:HiddenField ID="HiddenField1" runat="server" />
         <!--Banner-->
-        <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Tornei</h1>
+        <div class="row mt-3 mb-3">
+            <h1 class=" col-12 text-center my-auto banner">Tornei</h1>
         </div>
         <div class="container">
             <div class="container mt-4">

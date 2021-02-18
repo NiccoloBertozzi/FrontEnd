@@ -40,8 +40,8 @@
     </nav>
 
     <!--BANNER-->
-    <div class="page-title row">
-        <h1 class=" col-12 text-center my-auto">Login</h1>
+    <div class="row mt-3 mb-3">
+        <h1 class=" col-12 text-center my-auto banner">Login</h1>
     </div>
 
     <!--FORM-->

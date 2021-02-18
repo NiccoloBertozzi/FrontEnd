@@ -12,9 +12,11 @@ namespace test
 {
     public partial class InfoTorneo : System.Web.UI.Page
     {
+        string token;
         int idTorneo;
         protected void Page_Load(object sender, EventArgs e)
         {
+            token = Session["Token"].ToString();
             //controlli visualizza partite da fare
             if (Session["ruolo"] != null)
             {
@@ -37,7 +39,8 @@ namespace test
                 btnIscriviti.Visible = false;
             }
             idTorneo = Convert.ToInt32(Request.QueryString["id"]);
-            if (!this.IsPostBack) DownloadInformazioniTorneo(idTorneo);
+            if (!this.IsPostBack)
+                DownloadInformazioniTorneo(idTorneo);
         }
         protected void DownloadInformazioniTorneo(int idTorneo)
         {
@@ -85,6 +88,31 @@ namespace test
                 //Append the HTML string to Placeholder.
                 torneiInfo.Controls.Add(new Literal { Text = table.ToString() });
                 torneiinfoluogo.Controls.Add(new Literal { Text = table2.ToString() });
+                DownloadInformazioniSquadre();
+            }
+        }
+
+        protected void DownloadInformazioniSquadre()
+        {
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/SquadreTorneo/" + idTorneo);
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("Authorization", "Bearer " + token);
+            request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Societa");
+            IRestResponse response = client.Execute(request);
+            //deserializza il risultato ritornato
+            dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
+            if (deserialzied != null)
+            {
+                StringBuilder table3 = new StringBuilder();
+                table3.Clear();
+                squadre.Controls.Add(new Literal { Text = table3.ToString() });
+                for (int i = 0; i < deserialzied.Count; i++)
+                {
+                    table3.Append("<div id=\"" + deserialzied[i].idSquadra + "\" onclick=\"javascript:DivClicked(" + deserialzied[i].idSquadra + "); return true;\"> <p> Squadra: " + deserialzied[i].nomeTeam + "</p></div>");
+                }
+                //Append the HTML string to Placeholder.
+                squadre.Controls.Add(new Literal { Text = table3.ToString() });
             }
         }
         protected void btnIscriviti_Click(object sender, EventArgs e)
@@ -94,7 +122,7 @@ namespace test
         }
         protected void partite_Click(object sender, EventArgs e)
         {
-            Response.Redirect("OutputPartiteTorneo.aspx?id="+idTorneo); 
+            Response.Redirect("OutputPartiteTorneo.aspx?id=" + idTorneo);
         }
         protected void autorizza_Click(object sender, EventArgs e)
         {
@@ -110,4 +138,3 @@ namespace test
         }
     }
 }
-

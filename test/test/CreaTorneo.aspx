@@ -70,8 +70,8 @@
     <form id="form1" runat="server">
         <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>
         <!--Banner-->
-        <div class="page-title-login row">
-            <h1 class=" col-12 text-center my-auto">Creazione torneo</h1>
+        <div class="row mt-3 mb-3">
+            <h1 class=" col-12 text-center my-auto banner">Creazione torneo</h1>
         </div>
         <!--Inserimento parametri-->
         <div class="container">
