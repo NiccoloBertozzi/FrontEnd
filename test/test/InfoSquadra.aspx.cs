@@ -21,7 +21,7 @@ namespace test
             {
                 token = Session["Token"].ToString();
                 idSquadra = int.Parse(Session["IdSquadra"].ToString());
-                idTorneo = int.Parse(Session["IdTorneo"].ToString());
+                idTorneo = Convert.ToInt32(Request.QueryString["id"]);
                 idSupervisore = int.Parse(Session["IdUtente"].ToString());
                 if (!this.IsPostBack)
                 {

@@ -16,10 +16,11 @@ namespace test
         int idTorneo;
         protected void Page_Load(object sender, EventArgs e)
         {
-            token = Session["Token"].ToString();
+            idTorneo = Convert.ToInt32(Request.QueryString["id"]);
             //controlli visualizza partite da fare
             if (Session["ruolo"] != null)
             {
+                token = Session["Token"].ToString();
                 if (Session["ruolo"].ToString() == "Societa") btnIscriviti.Visible = false;
                 if (Session["ruolo"].ToString() == "Delegato") btnIscriviti.Visible = false;
                 if (Session["ruolo"].ToString() == "Allenatore") btnIscriviti.Visible = false;
@@ -38,11 +39,13 @@ namespace test
                 AccediBtn.Controls.Add(new Literal { Text = table.ToString() });
                 btnIscriviti.Visible = false;
             }
-            idTorneo = Convert.ToInt32(Request.QueryString["id"]);
             if (!this.IsPostBack)
-                DownloadInformazioniTorneo(idTorneo);
+            {
+                DownloadInformazioniTorneo();
+                if(token != null) DownloadInformazioniSquadre();
+            }
         }
-        protected void DownloadInformazioniTorneo(int idTorneo)
+        protected void DownloadInformazioniTorneo()
         {
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetTorneoByID/" + idTorneo);
             client.Timeout = -1;
@@ -88,10 +91,8 @@ namespace test
                 //Append the HTML string to Placeholder.
                 torneiInfo.Controls.Add(new Literal { Text = table.ToString() });
                 torneiinfoluogo.Controls.Add(new Literal { Text = table2.ToString() });
-                DownloadInformazioniSquadre();
             }
         }
-
         protected void DownloadInformazioniSquadre()
         {
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/SquadreTorneo/" + idTorneo);
@@ -135,6 +136,11 @@ namespace test
             IRestResponse response = client.Execute(request);
             Session["autorizzato"] = "";
             Response.Redirect("OutputTornei.aspx");
+        }
+        protected void clickArea_Click(object sender, EventArgs e)
+        {
+            Session["IdSquadra"] = HiddenField1.Value;
+            Response.Redirect("InfoSquadra.aspx?id=" + idTorneo);
         }
     }
 }
