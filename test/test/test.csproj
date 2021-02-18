@@ -197,6 +197,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\AIBVCwa - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\AIBVCwa - ReadOnly - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\AIBVCwa - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Img\aibvc-logo.png" />
