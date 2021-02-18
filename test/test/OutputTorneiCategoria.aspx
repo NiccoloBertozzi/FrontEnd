@@ -73,16 +73,15 @@
             $("#valuenb").change(function () {
                 $("#Range").val($("#valuenb").val());
                 $('#data-table tbody tr').get().map(function (row) {
-                    if (row.outerHTML.css("display") != "none") {
-                        var price = row.children[5].innerHTML;
-                        price = price.replace("€", "");
-                        if (parseFloat(price) < parseFloat($("#Range").val())) {
-                            var index = row.rowIndex;
-                            $("#data-table tbody tr:nth-of-type(" + index + ")").hide();
-                        } else {
-                            var index = row.rowIndex;
-                            $("#data-table tbody tr:nth-of-type(" + index + ")").show();
-                        }
+                    var index = row.rowIndex;
+                    var price = row.children[5].innerHTML;
+                    price = price.replace("€", "");
+                    if (parseFloat(price) < parseFloat($("#Range").val())) {
+                        var index = row.rowIndex;
+                        $("#data-table tbody tr:nth-of-type(" + index + ")").hide();
+                    } else {
+                        var index = row.rowIndex;
+                        $("#data-table tbody tr:nth-of-type(" + index + ")").show();
                     }
                 });
             });
@@ -221,57 +220,66 @@
             <h1 class=" col-12 text-center my-auto banner">Tornei</h1>
         </div>
         <div class="container">
-            <div class="container mt-4">
-                <div class="dropright mb-4 float-right">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                        Filtri
-                    </button>
-                    <div class="dropdown-menu">
-                        <label>Montepremi:</label>
-                        <div class="form-group">
-                            <div class="d-inline-block">
-                                <input type="range" class="form-range" min="1000" max="5000" step="50" id="Range">
-                            </div>
-                            <div class="d-inline-block">
-                                <input type="number" min="1000" max="5000" step="50" class="form-control" id="valuenb" aria-describedby="value">
-                            </div>
+            <div class="row">
+                <div class="col-md-5 col-sm-12">
+                    <div class="row justify-content-center">
+                        <div class="col-3">
+                            <label class="my-1">Montepremi:</label>
                         </div>
-                        <label>Genere:</label>
-                        <div class="custom-control custom-switch">
-                            <div>
-                                <input type="checkbox" class="custom-control-input" value="M" name="gender" id="m">
-                                <label class="custom-control-label" for="m">M</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" class="custom-control-input" value="F" name="gender" id="f">
-                                <label class="custom-control-label" for="f">F</label>
-                            </div>
+                        <div class="col-5">
+                            <input type="range" class="form-range my-2" min="1000" max="5000" step="50" id="Range">
                         </div>
-                        <button type="button" id="reset" class="btn btn-danger">Reset</button>
+                        <div class="col-4">
+                            <input type="number" min="1000" max="5000" step="50" class="form-control form-control-sm" id="valuenb" aria-describedby="value">
+                        </div>
                     </div>
                 </div>
-                <table id="data-table" class="table table-striped overflow-auto">
-                    <thead>
-                        <tr class="table-primary">
-                            <th>DataInizio</th>
-                            <th>Localita</th>
-                            <th>Promoter</th>
-                            <th>Genere</th>
-                            <th>Tipo</th>
-                            <th>Montepremi</th>
-                            <th>Formula</th>
-                            <th>Formula</th>
-                            <th>Ora Inizio</th>
-                            <th>N.Coppie</th>
-                            <th>Scadenza Iscrizioni</th>
-                            <th>Pubblicazione lista</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tabella">
-                    </tbody>
-                </table>
-                <br>
+                <div class="col-md-5 col-sm-9">
+                    <div class="row">
+                        <div class="col-3">
+                            <label>Genere:</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="custom-control custom-switch">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <input type="checkbox" class="custom-control-input" value="M" name="gender" id="m">
+                                        <label class="custom-control-label" for="m">M</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="checkbox" class="custom-control-input" value="F" name="gender" id="f">
+                                        <label class="custom-control-label" for="f">F</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-3">
+                    <button type="button" id="reset" class="btn btn-danger mb-2">Reset</button>
+                </div>
             </div>
+            <table id="data-table" class="table table-striped overflow-auto">
+                <thead>
+                    <tr class="table-primary">
+                        <th>DataInizio</th>
+                        <th>Localita</th>
+                        <th>Promoter</th>
+                        <th>Genere</th>
+                        <th>Tipo</th>
+                        <th>Montepremi</th>
+                        <th>Formula</th>
+                        <th>Formula</th>
+                        <th>Ora Inizio</th>
+                        <th>N.Coppie</th>
+                        <th>Scadenza Iscrizioni</th>
+                        <th>Pubblicazione lista</th>
+                    </tr>
+                </thead>
+                <tbody id="tabella">
+                </tbody>
+            </table>
+            <br>
         </div>
         <script src="Scripts/bootstrap.min.js "></script>
     </form>
