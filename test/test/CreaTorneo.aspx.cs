@@ -17,6 +17,17 @@ namespace test
         CheckBoxList cbListImpianti = new CheckBoxList();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["ruolo"] != null)
+            {
+                if (Session["ruolo"].ToString() == "Societa")
+                {
+                    StringBuilder table = new StringBuilder();
+                    table.Clear();
+                    dinamicload.Controls.Add(new Literal { Text = table.ToString() });
+                    table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active pointer\" onclick=\"LoadCreaTorneo(); \">CreaTorneo</a></li>");
+                    dinamicload.Controls.Add(new Literal { Text = table.ToString() });
+                }
+            }
             if (string.IsNullOrEmpty(Session["Token"] as string))
             {
                 txtDataInizio.Text = DateTime.Now.Date.ToString("yyyy-MM-dd");

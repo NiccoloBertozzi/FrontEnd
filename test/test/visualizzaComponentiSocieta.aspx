@@ -8,10 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
-    <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
-    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="Scripts/jquery-dateformat.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <title>Componenti Societa</title>
     <script>
         $(document).ready(function () {
@@ -22,23 +25,88 @@
             var settings = {
                 "url": "https://aibvcapi.azurewebsites.net/api/v1/tornei/AllenatoriSocieta/" + idutente,
                 "method": "GET",
-                "timeout": -1,
+                "timeout": 0,
                 "withCredentials": true,
-                "headers": {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
-                    "Authorization": "Bearer " + token + ""
-                },
+                "headers": {},
             };
             $.ajax(settings).done(function (response) {
                 response.forEach(function (dati) {
                     $('#tabella').append("<tr><td>" + (dati.nome) + "</td><td>" + (dati.cognome) + "</td><td>" + (dati.sesso) + "</td></tr>");
                 });
                 $('#data-table-allenatori').DataTable({
-                    "order": [[2, "desc"]]
+                    "search": {
+                        "caseInsensitive": false
+                    },
+                    "order": [[0, "desc"]]
                 });
             });
+            var settings = {
+                "url": "https://aibvcapi.azurewebsites.net/api/v1/tornei/AtletiSocieta/" + idutente,
+                "method": "GET",
+                "timeout": 0,
+                "withCredentials": true,
+                "headers": {},
+            };
+            $.ajax(settings).done(function (response) {
+                response.forEach(function (dati) {
+                    $('#tabella-atleta').append("<tr><td>" + (dati.nome) + "</td><td>" + (dati.cognome) + "</td><td>" + (dati.sesso) + "</td></tr>");
+                });
+                $('#data-table-atleta').DataTable({
+                    "search": {
+                        "caseInsensitive": false
+                    },
+                    "order": [[0, "desc"]]
+                });
+            });
+
+            $('tbody').on("click", "tr", function () {
+                window.location = "AssegnaTessereSocieta.aspx";
+            });
+            loginbtn();
+            societaload();
         });
+        function loginbtn() {
+            var id = '<%= Session["IdUtente"] %>';
+            if (id != "") {
+                $("#tesseratisocieta").hide();
+                $("#btnlogin").text("Log out");
+            }
+            else $("#btnlogin").text("Log in");
+        }
+        function societaload() {
+            var id = '<%= Session["ruolo"] %>';
+            if (id != "Societa" || id == "") {
+                $("#tesseratiSocieta").hide();
+                $("#iscrittisocieta").hide();
+            }
+            else {
+                $("#tesseratiSocieta").show();
+                $("#iscrittisocieta").show();
+            }
+        }
+        function LoadPage() {
+            window.location = "OutputTorneiNonAutorrizati.aspx";
+        }
+        function LoadPageDelegati() {
+            window.location = "OutputTorneiDelegato.aspx";
+        }
+        function LoadPageIscritti() {
+            window.location = "OutputTorneiIscritti.aspx";
+        }
+        function LoadCreaTorneo() {
+            window.location = "CreaTorneo.aspx";
+        }
+        function LoadClassificaMaschile() {
+            window.location = "OutputClassifica.aspx?genere=M";
+        }
+        function LoadClassificaFemminile() {
+            window.location = "OutputClassifica.aspx?genere=F";
+        }
+        function LoadLogin() {
+            var id = '<%= Session["IdUtente"] %>';
+            if (id != "") window.location = "Login.aspx?change=1";
+            else window.location = "Login.aspx";
+        }
     </script>
 </head>
 <body>
@@ -67,7 +135,8 @@
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
                                     <a class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
-                                    <a class="dropdown-item" href="visualizzaComponentiSocieta.aspx">Elenco tesserati</a>
+                                    <a id="iscrittisocieta" class="dropdown-item" href="visualizzaComponentiSocieta.aspx">Elenco Iscritti</a>
+                                    <a id="tesseratiSocieta" class="dropdown-item" href="visualizzaStatoTessere.aspx">Elenco tesserati</a>
                                 </div>
                             </div>
                         </li>
@@ -75,38 +144,49 @@
                     </ul>
                 </div>
                 <div class="col-1">
-                    <asp:PlaceHolder runat="server" ID="AccediBtn"></asp:PlaceHolder>
+                    <button type="button" id="btnlogin" class="btn btn-light" onclick="LoadLogin();"></button>
                 </div>
             </div>
         </div>
     </nav>
     <!--Banner-->
     <div class="page-title row">
-        <h1 class=" col-12 text-center my-auto">Iscrizioni Effettuate</h1>
+        <h1 class=" col-12 text-center my-auto">Elenco Iscrizioni</h1>
     </div>
     <form id="formComponentiSocieta" runat="server">
-        <br />
-        <div title="Allenatori">
-            <asp:Label runat="server" ID="lblAllenatori" Text="Allenatori: "></asp:Label><br />
-            <asp:PlaceHolder runat="server" ID="visualizzaAllenatori"></asp:PlaceHolder>
-            <table id="data-table-allenatori">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Cognome</th>
-                        <th>Sesso</th>
-                    </tr>
-                </thead>
-                <tbody id="tabella">
-                </tbody>
-            </table>
+        <div class="container">
+            <br />
+            <div title="Allenatori">
+                <asp:Label runat="server" ID="lblAllenatori" Text="Allenatori: "></asp:Label><br />
+                <asp:PlaceHolder runat="server" ID="visualizzaAllenatori"></asp:PlaceHolder>
+                <table id="data-table-allenatori" class="table table-striped overflow-auto">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Cognome</th>
+                            <th>Sesso</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabella">
+                    </tbody>
+                </table>
+            </div>
+            <br />
+            <div title="Atleti">
+                <asp:Label runat="server" ID="lblAtleti" Text="Atleti: "></asp:Label><br />
+                <table id="data-table-atleta" class="table table-striped overflow-auto">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Cognome</th>
+                            <th>Sesso</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabella-atleta">
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <br />
-        <div title="Atleti">
-            <asp:Label runat="server" ID="lblAtleti" Text="Atleti: "></asp:Label><br />
-            <asp:PlaceHolder runat="server" ID="visualizzaAtleti"></asp:PlaceHolder>
-        </div>
-        <script src="Scripts/jquery-3.4.1.min.js "></script>
         <script src="Scripts/bootstrap.min.js "></script>
     </form>
 </body>

@@ -4,16 +4,150 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
     <title>Tornei</title>
-    <link rel="stylesheet" href="Content/bootstrap.min.css"/>
-    <link rel="stylesheet" href="Content/styles.css"/>
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="Content/styles.css" />
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v9.0" nonce="ekmMNXcv"></script>
-        <script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="Scripts/jquery-dateformat.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var parametri = new URLSearchParams(window.location.search);
+            var tipo = parametri.get('tipo');
+            var settings = {
+                "url": "https://aibvcapi.azurewebsites.net/api/v1/tornei/GetTorneiTipo/" + tipo + "",
+                "method": "GET",
+                "timeout": 0,
+                "withCredentials": true,
+                "headers": {},
+            };
+            $.ajax(settings).done(function (response) {
+                $('#tabella').empty();
+                response.forEach(function (dati) {
+                    $('#tabella').append("<tr id=" + dati.idTorneo + "><td>" + (formatDate(dati.dataInizio)) + "</td><td>" + (dati.nomeImpianto) + "</td><td>" + (dati.nomeSocieta) + "</td><td>" + (dati.gender) + "</td><td>" + (dati.outdoor ? "indoor" : "outdoor") + "</td><td>" + (dati.montepremi) + "€</td><td>" + (dati.tipoTorneo) + "</td><td>" + (dati.formula) + "</td><td>" + (dati.oraInizio) + "</td><td>" + (dati.numMaxTeamMainDraw) + "</td><td>" + (formatDate(dati.dataChiusuraIscrizioni)) + "</td><td>" + (dati.oraInizio) + "</td></tr>");
+                });
+                $('#data-table').DataTable({
+                    "search": {
+                        "caseInsensitive": false
+                    },
+                    responsive: true,
+                    "order": [
+                        [0, "asc"]
+                    ]
+                });
+            });
+            var sesso_status = false;
+            $('input[name="gender"]').click(function () {
+                if (!sesso_status) {
+                    $('#data-table tbody tr').get().map(function (row) {
+                        if (row.children[3].innerHTML != $('input[name="gender"]:checked').val()) {
+                            var index = row.rowIndex;
+                            $("#tabella tr:nth-of-type(" + index + ")").hide();
+                            sesso_status = true;
+                        }
+                    });
+                } else {
+                    sesso_status = false;
+                    $('#reset').click();
+                }
+            });
+            $('#reset').click(function () {
+                $("#Range").val(0);
+                $("#valuenb").val(0);
+                $('#data-table tbody tr').get().map(function (row) {
+                    var index = row.rowIndex;
+                    $("#tabella tr:nth-of-type(" + index + ")").show();
+                });
+            });
+            $('#data-table tbody').on("click", "tr", function () {
+                <%Session["IdTorneo"] = HiddenField1.Value; %>
+                window.location = "InfoTorneo.aspx?id=" + $(this).attr("id");
+            });
+            $("#valuenb").change(function () {
+                $("#Range").val($("#valuenb").val());
+                $('#data-table tbody tr').get().map(function (row) {
+                    if (row.outerHTML.css("display") != "none") {
+                        var price = row.children[5].innerHTML;
+                        price = price.replace("€", "");
+                        if (parseFloat(price) < parseFloat($("#Range").val())) {
+                            var index = row.rowIndex;
+                            $("#data-table tbody tr:nth-of-type(" + index + ")").hide();
+                        } else {
+                            var index = row.rowIndex;
+                            $("#data-table tbody tr:nth-of-type(" + index + ")").show();
+                        }
+                    }
+                });
+            });
+            $("#Range").change(function () {
+                $("#valuenb").val($("#Range").val());
+                $('#data-table tbody tr').get().map(function (row) {
+                    var index = row.rowIndex;
+                    var price = row.children[5].innerHTML;
+                    price = price.replace("€", "");
+                    if (parseFloat(price) < parseFloat($("#Range").val())) {
+                        $("#data-table tbody tr:nth-of-type(" + index + ")").hide();
+                    } else {
+                        $("#data-table tbody tr:nth-of-type(" + index + ")").show();
+                    }
+                });
+            });
+            $('.dropdown-menu').on('click', function (event) {
+                event.stopPropagation();
+            });
+            $('body').on('click', function (event) {
+                var target = $(event.target);
+                if (target.parents('.bootstrap-select').length) {
+                    event.stopPropagation();
+                    $('.bootstrap-select.open').removeClass('open');
+                }
+            });
+            loginbtn();
+            societaload();
+        });
+        function loginbtn() {
+            var id = '<%= Session["IdUtente"] %>';
+            if (id != "") {
+                $("#tesseratisocieta").hide();
+                $("#btnlogin").text("Log out");
+            }
+            else {
+                $("#btnlogin").text("Log in");
+                $("#organizzazione").hide();
+            }
+        }
+        function societaload() {
+            var id = '<%= Session["ruolo"] %>';
+            if (id != "Societa" || id == "") {
+                $("#tesseratiSocieta").hide();
+                $("#iscrittisocieta").hide();
+            }
+            else {
+                $("#tesseratiSocieta").show();
+                $("#iscrittisocieta").show();
+            }
+        }
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2)
+                month = '0' + month;
+            if (day.length < 2)
+                day = '0' + day;
+
+            return [day, month, year].join('-');
+        }
         function DivClicked() {
-            var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
             form1.HiddenField1.value = arguments[0];
             clickArea_Click.click();
         }
@@ -29,16 +163,12 @@
         function LoadCreaTorneo() {
             window.location = "CreaTorneo.aspx";
         }
-        function LoadClassificaMaschile() {
-            window.location = "OutputClassifica.aspx?genere=M";
-        }
-        function LoadClassificaFemminile() {
-            window.location = "OutputClassifica.aspx?genere=F";
-        }
         function LoadLogin() {
-            window.location = "Login.aspx";
+            var id = '<%= Session["IdUtente"] %>';
+            if (id != "") window.location = "Login.aspx?change=1";
+            else window.location = "Login.aspx";
         }
-        </script>
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
@@ -56,17 +186,21 @@
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AIBVC Tour</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#" onclick="LoadClassificaMaschile();">Classifica Maschile</a>
-                                    <a class="dropdown-item" href="#" onclick="LoadClassificaFemminile();">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="OutputClassifica.aspx?genere=M">Classifica Maschile</a>
+                                    <a class="dropdown-item" href="OutputClassifica.aspx?genere=F">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=1">L1</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=2">L2</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=3">L3</a>
                                 </div>
                             </div>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <div class="dropdown show">
+                            <div class="dropdown show" id="organizzazione">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
                                     <a class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
-                                    <a class="dropdown-item" href="visualizzaComponentiSocieta.aspx">Elenco tesserati</a>
+                                    <a id="iscrittisocieta" class="dropdown-item" href="visualizzaComponentiSocieta.aspx">Elenco Iscritti</a>
+                                    <a id="tesseratiSocieta" class="dropdown-item" href="visualizzaStatoTessere.aspx">Elenco tesserati</a>
                                 </div>
                             </div>
                         </li>
@@ -74,7 +208,7 @@
                     </ul>
                 </div>
                 <div class="col-1">
-                    <asp:PlaceHolder runat="server" ID="AccediBtn"></asp:PlaceHolder>
+                    <button type="button" id="btnlogin" class="btn btn-light" onclick="LoadLogin();"></button>
                 </div>
             </div>
         </div>
@@ -86,25 +220,59 @@
         <div class="page-title row">
             <h1 class=" col-12 text-center my-auto">Tornei</h1>
         </div>
-
         <div class="container">
-            <!--CERCA-->
-            <div class="searchBox mx-2 my-2">
-                <input class="searchInput" type="text" name="" placeholder="Cerca">
-                <button class="searchButton">
-                    <i class=" fas fa-search"></i>
-                </button>
-            </div>
-            <!--Tornei-->
-            <div class="card-deck">
-                <div class="card-container mr-3 ml-3 mt-3">
-                    <div class="row">
-                        <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>
+            <div class="container mt-4">
+                <div class="dropright mb-4 float-right">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                        Filtri
+                    </button>
+                    <div class="dropdown-menu">
+                        <label>Montepremi:</label>
+                        <div class="form-group">
+                            <div class="d-inline-block">
+                                <input type="range" class="form-range" min="1000" max="5000" step="50" id="Range">
+                            </div>
+                            <div class="d-inline-block">
+                                <input type="number" min="1000" max="5000" step="50" class="form-control" id="valuenb" aria-describedby="value">
+                            </div>
+                        </div>
+                        <label>Genere:</label>
+                        <div class="custom-control custom-switch">
+                            <div>
+                                <input type="checkbox" class="custom-control-input" value="M" name="gender" id="m">
+                                <label class="custom-control-label" for="m">M</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" class="custom-control-input" value="F" name="gender" id="f">
+                                <label class="custom-control-label" for="f">F</label>
+                            </div>
+                        </div>
+                        <button type="button" id="reset" class="btn btn-danger">Reset</button>
                     </div>
                 </div>
+                <table id="data-table" class="table table-striped overflow-auto">
+                    <thead>
+                        <tr class="table-primary">
+                            <th>DataInizio</th>
+                            <th>Localita</th>
+                            <th>Promoter</th>
+                            <th>Genere</th>
+                            <th>Tipo</th>
+                            <th>Montepremi</th>
+                            <th>Formula</th>
+                            <th>Formula</th>
+                            <th>Ora Inizio</th>
+                            <th>N.Coppie</th>
+                            <th>Scadenza Iscrizioni</th>
+                            <th>Pubblicazione lista</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabella">
+                    </tbody>
+                </table>
+                <br>
             </div>
         </div>
-        <script src="Scripts/jquery-3.4.1.min.js "></script>
         <script src="Scripts/bootstrap.min.js "></script>
     </form>
 </body>

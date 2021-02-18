@@ -24,15 +24,6 @@ namespace test
         protected global::System.Web.UI.WebControls.PlaceHolder dinamicload;
 
         /// <summary>
-        /// Controllo AccediBtn.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder AccediBtn;
-
-        /// <summary>
         /// Controllo formComponentiSocieta.
         /// </summary>
         /// <remarks>
@@ -42,21 +33,21 @@ namespace test
         protected global::System.Web.UI.HtmlControls.HtmlForm formComponentiSocieta;
 
         /// <summary>
-        /// Controllo lblTessere.
+        /// Controllo lbltessere.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTessere;
+        protected global::System.Web.UI.WebControls.Label lbltessere;
 
         /// <summary>
-        /// Controllo visualizzaTessere.
+        /// Controllo visualizzaAllenatori.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder visualizzaTessere;
+        protected global::System.Web.UI.WebControls.PlaceHolder visualizzaAllenatori;
     }
 }
