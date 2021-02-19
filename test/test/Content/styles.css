@@ -2,7 +2,7 @@ html,
 body {
     height: 100%;
     width: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .my-navbar {
@@ -61,7 +61,28 @@ body {
 }
 
 ::-webkit-scrollbar {
+    width: 30px;
+    height: 18px;
+    display: initial;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 6px;
+    border: 12px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    -webkit-border-radius: 100px;
+    background-color: rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
     display: none;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
 }
 
 .dropdown-item:hover {
@@ -221,10 +242,6 @@ div.container p {
 
 .loginform {
     overflow: scroll;
-}
-
-::-webkit-scrollbar {
-    display: none;
 }
 
 .box {
