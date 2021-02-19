@@ -66,28 +66,28 @@ namespace test
                 torneiinfoluogo.Controls.Add(new Literal { Text = table2.ToString() });
 
                 table.Append("<h2>Info Torneo</h2>" +
-                    "<h3>Nome</h3>" +
+                    "<h4>Nome</h4>" +
                     "<p>" + deserialzied[0].titolo + "</p>" +
-                    "<h3>TipoTorneo</h3>" +
+                    "<h4>TipoTorneo</h4>" +
                     "<p>" + deserialzied[0].tipoTorneo + "</p>" +
-                    "<h3>Formula</h3>" +
+                    "<h4>Formula</h4>" +
                     "<p>" + deserialzied[0].formula + "</p>" +
-                    "<h3>Quota Iscrizione</h3>" +
+                    "<h4>Quota Iscrizione</h4>" +
                     "<p>" + deserialzied[0].quotaIscrizione + "</p>" +
-                    "<h3>Punti Vittoria</h3>" +
+                    "<h4>Punti Vittoria</h4>" +
                     "<p>" + deserialzied[0].puntiVittoria + "</p>" +
-                    "<h3>Montepremi</h3>" +
+                    "<h4>Montepremi</h4>" +
                     "<p>" + deserialzied[0].montepremi + "</p>" +
-                    "<h3>Data Inizio</h3>" +
+                    "<h4>Data Inizio</h4>" +
                     "<p>" + deserialzied[0].dataInizio + "</p>" +
-                    "<h3>Data Fine</h3>" +
+                    "<h4>Data Fine</h4>" +
                     "<p>" + deserialzied[0].dataFine + "</p>" +
-                    "<h3>Sesso</h3>" +
+                    "<h4>Sesso</h4>" +
                     "<p>" + deserialzied[0].gender + "</p>");
 
-                table2.Append(" <h3>Nome Impianto</h3>" +
+                table2.Append(" <h4>Nome Impianto</h4>" +
                     "<p> " + deserialzied[0].nomeImpianto + " </p> " +
-                    " <h3>Indirizzo</h3>" +
+                    " <h4>Indirizzo</h4>" +
                     "<p> " + deserialzied[0].citta + " </p> ");
 
                 //Append the HTML string to Placeholder.
