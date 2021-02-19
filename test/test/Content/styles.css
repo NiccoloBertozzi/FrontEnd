@@ -411,8 +411,26 @@ input[type="radio"] {
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.ajax__combobox_buttoncontainer>input:nth-child(1) {
-
-
-
+.ajax__combobox_textboxcontainer > input:nth-child(1):focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
 }
+
+.ajax__combobox_buttoncontainer > button:nth-child(1) {
+    background-color: #f0f0f0;
+    border: 1px solid #d1d1d1;
+    display: inline-block;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0px 1px 5px #2f6627;
+    margin-top: 4px;
+}
+
+    .ajax__combobox_buttoncontainer > button:nth-child(1):hover {
+        background-color: #d1d1d1;
+        border: 1px solid #878787;
+    }

@@ -275,7 +275,7 @@
                     <button type="button" id="reset" class="btn btn-danger mb-2">Reset</button>
                 </div>
             </div>
-            <table id="data-table" class="table table-striped overflow-auto">
+            <table id="data-table" class="table table-striped overflow-auto table-hover">
                 <thead>
                     <tr class="table-primary">
                         <th>DataInizio</th>
