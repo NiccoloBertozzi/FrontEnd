@@ -1157,7 +1157,6 @@ D:\5G\Cevoli\FrontEnd\test\test\obj\Release\test.csproj.CopyComplete
 D:\5G\Cevoli\FrontEnd\test\test\obj\Release\test.dll
 D:\5G\Cevoli\FrontEnd\test\test\obj\Release\test.pdb
 C:\Users\King Bosso\Desktop\Scuola\Informatica\GitHub\FrontEnd\test\test\bin\AjaxControlToolkit.dll
-C:\Users\Riccardo\Desktop\FrontEnd\test\test\obj\Release\test.csproj.CoreCompileInputs.cache
 C:\Users\monte\OneDrive\Desktop\FrontEnd\test\test\bin\test.dll.config
 C:\Users\monte\OneDrive\Desktop\FrontEnd\test\test\bin\test.dll
 C:\Users\monte\OneDrive\Desktop\FrontEnd\test\test\bin\test.pdb

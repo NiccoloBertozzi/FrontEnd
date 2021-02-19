@@ -121,6 +121,7 @@ namespace test
         }
         protected void btnIscriviti_Click(object sender, EventArgs e)
         {
+            Session["idTorneo"] = idTorneo;
             if (Session["ruolo"].ToString() == "Admin") Response.Redirect("AssegnaDelegati.aspx");
             Response.Redirect("IscrizioneSquadra.aspx"); //rimanda alla form 'output tornei'
         }
