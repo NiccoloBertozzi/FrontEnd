@@ -76,7 +76,7 @@
                    <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbDirettore" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="Direttore_TextChanged"/>
                    <asp:Label runat="server" Text="" ID="Nomedirettore"></asp:Label>
                 </div>
-                <asp:Button ID="btnassegnasupervisore" OnClick="btnassegnasupervisore_Click" runat="server" Text="Assegna delegati" /><br />
+                <asp:Button ID="btnassegnasupervisore"  CssClass="btn btn-primary" OnClick="btnassegnasupervisore_Click" runat="server" Text="Assegna delegati" /><br />
             </div>
         </div>
         <script src="Scripts/jquery-3.4.1.min.js "></script>
