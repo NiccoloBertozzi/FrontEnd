@@ -436,3 +436,10 @@ input[type="radio"] {
         background-color: #d1d1d1;
         border: 1px solid #878787;
     }
+
+
+/*Parametri nel crea torneo*/
+
+#parametriSelezionati table label {
+    margin-left: 10px;
+}

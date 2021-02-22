@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreaTorneo.aspx.cs" Inherits="test.CreaTorneo" %>
+
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
 <!DOCTYPE html>
@@ -77,6 +78,10 @@
         <div class="container">
             <div class="mr-3 ml-3 mt-3 card-container">
                 <div class="form-group">
+                    <label for="lblTipoTorneo">Tipo Torneo: </label>
+                    <asp:DropDownList ID="cmbTipoTorneo" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="cmbTipoTorneo_SelectedIndexChanged"></asp:DropDownList>
+                </div>
+                <div class="form-group">
                     <label for="titoloTorneo">Titolo torneo</label>
                     <asp:TextBox ID="txtTitolo" runat="server" required="true" placeholder="Inserisci il titolo del torneo" CssClass="form-control"></asp:TextBox>
                 </div>
@@ -86,7 +91,10 @@
                 </div>
                 <div class="form-group">
                     <label for="lblPuntiVitt">Punti vittoria set: </label>
-                    <asp:TextBox ID="txtPuntiVitt" runat="server" required="true" placeholder="Inserisci punti vittoria set" CssClass="form-control"></asp:TextBox>
+                    <asp:DropDownList ID="dlPuntiVittoria" runat="server" CssClass="form-control">
+                        <asp:ListItem Selected="True" Value="15">15</asp:ListItem>
+                        <asp:ListItem Value="21">21</asp:ListItem>
+                    </asp:DropDownList>                
                 </div>
                 <div class="form-group">
                     <label for="lblDataChiusuraIscr">Data chiusura iscrizioni: </label>
@@ -106,11 +114,17 @@
                 </div>
                 <div class="form-group">
                     <label for="lblOutdoor">Outdoor</label>
-                    <asp:CheckBox ID="cbOutdoor" runat="server" CssClass="form-control" />
+                    <asp:DropDownList ID="dlOutdoor" runat="server" CssClass="form-control">
+                        <asp:ListItem Selected="True" Value="No">No</asp:ListItem>
+                        <asp:ListItem Value="Si">Sì</asp:ListItem>
+                    </asp:DropDownList>
                 </div>
                 <div class="form-group">
                     <label for="lblRiunioneTecnica">Riunione tecnica</label>
-                    <asp:CheckBox ID="cbRiunioneTecnica" runat="server" CssClass="form-control" />
+                    <asp:DropDownList ID="dlRiunioneTecnica" runat="server" CssClass="form-control">
+                        <asp:ListItem Selected="True" Value="No">No</asp:ListItem>
+                        <asp:ListItem Value="Si">Sì</asp:ListItem>
+                    </asp:DropDownList>
                 </div>
                 <br />
                 <p>Gender:</p>
@@ -138,32 +152,22 @@
                     <asp:TextBox ID="txtNumWildCard" runat="server" required="true" placeholder="Inserisci il numero di Team Team che hanno la wildCard" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
-                    <label for="lblTipoTorneo">Tipo Torneo: </label>
-                    <asp:DropDownList ID="cmbTipoTorneo" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="cmbTipoTorneo_SelectedIndexChanged"></asp:DropDownList>
-                    <br />
-                </div>
-                <div class="form-group">
                     <label for="lblMontepremi">Montepremi: </label>
                     <asp:TextBox ID="txtMontepremi" runat="server" required="true" placeholder="Inserisci il montepremi" CssClass="form-control"></asp:TextBox>
                 </div>
                 <div class="form-group">
                     <label for="lblFormula">Formula Torneo: </label>
                     <asp:DropDownList ID="cmbFormula" runat="server" CssClass="form-control"></asp:DropDownList>
-                    <br />
                 </div>
                 <br />
                 <div class="form-group" id="parametriSelezionati" runat="server">
                     <label for="lblIDParametri">Parametri: </label>
-                    <asp:PlaceHolder ID="cmbParametri" runat="server">
-                        <asp:CheckBoxList ID="cbListParametri" runat="server"></asp:CheckBoxList>
-                    </asp:PlaceHolder>
-                    <br />
+                    <asp:CheckBoxList ID="cbListParametri" runat="server" > </asp:CheckBoxList>
                 </div>
                 <br />
                 <div class="form-group" id="impiantiSelezionati" runat="server">
                     <label for="Impianti">Impianti</label><br />
                     <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbImpianti" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="cbImpianti_TextChanged" />
-                    <asp:Label runat="server" Text="" ID="idImpianto"></asp:Label>
                 </div>
                 <asp:Button ID="Button1" runat="server" Text="Crea torneo" OnClick="creaTorneo_Click" CssClass="btn btn-primary" />
             </div>
