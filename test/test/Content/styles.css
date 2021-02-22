@@ -328,7 +328,7 @@ form label.register {
     padding-right: 30px !important;
     padding-bottom: 25px !important;
     padding-left: 30px !important;
-    box-shadow: 0px 2px 100px 0px rgb(0 0 0 / 10%);
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 40%);
 }
 
 #infotorneo .contentInfo > h2 {
@@ -339,16 +339,17 @@ form label.register {
     font-weight: 500;
 }
 
-#infotorneo .contentInfo h4 {
+#infotorneo .contentInfo .head {
     letter-spacing: 1.2px;
-    color: #4a4a4a;
+    color: #0077aa;
+    font-size: large;
 }
 
 #infotorneo .contentInfo p {
-    font-size: 18px;
+    font-size: x-large;
     color: #2F2D2D;
     word-spacing: 0.5px;
-    color: #4a4a4a;
+    margin-bottom: 0px;
 }
 
 .btnIscriviti {
@@ -432,7 +433,7 @@ input[type="radio"] {
     margin-top: 4px;
 }
 
-    .ajax__combobox_buttoncontainer > button:nth-child(1):hover {
-        background-color: #d1d1d1;
-        border: 1px solid #878787;
-    }
+.ajax__combobox_buttoncontainer > button:nth-child(1):hover {
+    background-color: #d1d1d1;
+    border: 1px solid #878787;
+}
