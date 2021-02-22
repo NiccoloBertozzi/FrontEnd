@@ -259,11 +259,11 @@
                             <div class="custom-control custom-switch">
                                 <div class="row">
                                     <div class="col-3">
-                                        <input type="checkbox" class="custom-control-input" value="M" name="gender" id="m">
+                                        <input type="checkbox" class="custom-control-input" value="M" name="gender" id="m" checked>
                                         <label class="custom-control-label" for="m">M</label>
                                     </div>
                                     <div class="col-3">
-                                        <input type="checkbox" class="custom-control-input" value="F" name="gender" id="f">
+                                        <input type="checkbox" class="custom-control-input" value="F" name="gender" id="f" checked>
                                         <label class="custom-control-label" for="f">F</label>
                                     </div>
                                 </div>
@@ -275,7 +275,7 @@
                     <button type="button" id="reset" class="btn btn-danger mb-2">Reset</button>
                 </div>
             </div>
-            <table id="data-table" class="table table-striped overflow-auto">
+            <table id="data-table" class="table table-striped overflow-auto table-hover">
                 <thead>
                     <tr class="table-primary">
                         <th>DataInizio</th>

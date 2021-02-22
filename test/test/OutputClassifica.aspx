@@ -47,12 +47,14 @@
                 "withCredentials": true,
                 "headers": {},
             };
+            var index = 0;
             $.ajax(settings).done(function (response) {
                 response.forEach(function (dati) {
-                    $('#tabella').append("<tr><td>" + (dati.nome) + "</td><td>" + (dati.cognome) + "</td><td>" + (dati.punteggi) + "</td></tr>");
+                    index++;
+                    $('#tabella').append("<tr><td>"+index+"</td><td>" + (dati.nome) + "</td><td>" + (dati.cognome) + "</td><td>" + (dati.punteggi) + "</td></tr>");
                 });
                 $('#data-table').DataTable({
-                    "order": [[2, "desc"]]
+                    "order": [[3, "desc"]]
                 });
             });
         });
@@ -109,6 +111,7 @@
                     <table id="data-table" class="table table-striped overflow-auto">
                         <thead>
                             <tr class="table-primary">
+                                <th>#</th>
                                 <th>Nome</th>
                                 <th>Cognome</th>
                                 <th>Punteggio</th>
