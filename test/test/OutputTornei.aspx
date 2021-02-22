@@ -235,7 +235,7 @@
             <h1 class=" col-12 text-center my-auto banner">Tornei</h1>
         </div>
 
-        <div class="card-container ml-3 mr-3">
+        <div class="card-container ml-5 mr-5 mx-auto" id="myContentOutputTornei">
             <div class="row">
                 <div class="col-md-5 col-sm-12">
                     <div class="row justify-content-center">
@@ -275,28 +275,30 @@
                     <button type="button" id="reset" class="btn btn-danger mb-2">Reset</button>
                 </div>
             </div>
-            <table id="data-table" class="table table-striped table-hover">
-                <thead>
-                    <tr class="table-primary">
-                        <th>DataInizio</th>
-                        <th>Localita</th>
-                        <th>Promoter</th>
-                        <th>Genere</th>
-                        <th>Tipo</th>
-                        <th>Montepremi</th>
-                        <th>Formula</th>
-                        <th>Formula</th>
-                        <th>Ora Inizio</th>
-                        <th>N.Coppie</th>
-                        <th>Scadenza Iscrizioni</th>
-                        <th>Pubblicazione lista</th>
-                    </tr>
-                </thead>
-                <tbody id="tabella">
-                </tbody>
-            </table>
+            <div id="scrollable">
+                <table id="data-table" class="table table-striped table-hover">
+                    <thead>
+                        <tr class="table-primary">
+                            <th>DataInizio</th>
+                            <th>Localita</th>
+                            <th>Promoter</th>
+                            <th>Genere</th>
+                            <th>Tipo</th>
+                            <th>Montepremi</th>
+                            <th>Formula</th>
+                            <th>Formula</th>
+                            <th>Ora Inizio</th>
+                            <th>N.Coppie</th>
+                            <th>Scadenza Iscrizioni</th>
+                            <th>Pubblicazione lista</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabella">
+                    </tbody>
+                </table>
+            </div>
+
             <br>
-        </div>
         </div>
         <script src="Scripts/bootstrap.min.js "></script>
     </form>

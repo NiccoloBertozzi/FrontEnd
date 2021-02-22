@@ -57,7 +57,7 @@ body {
 .card-container {
     overflow: auto;
     max-height: 80vh;
-    overflow-x: hidden;
+    /*overflow-x: hidden;*/
 }
 
 ::-webkit-scrollbar {
@@ -162,6 +162,9 @@ body {
 @media (max-width:768px) {
     .card-img-top {
         display: none;
+    }
+    #myContentOutputTornei {
+        max-width: 95vw !important;
     }
 }
 
@@ -436,3 +439,8 @@ input[type="radio"] {
         background-color: #d1d1d1;
         border: 1px solid #878787;
     }
+
+#myContentOutputTornei{
+    max-width: 70vw;
+}
+

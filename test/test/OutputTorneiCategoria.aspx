@@ -219,7 +219,7 @@
         <div class="row mt-3 mb-3">
             <h1 class=" col-12 text-center my-auto banner">Tornei</h1>
         </div>
-        <div class="card-container">
+        <div class="card-container ml-5 mr-5 mx-auto" id="myContentOutputTornei">
             <div class="row">
                 <div class="col-md-5 col-sm-12">
                     <div class="row justify-content-center">
