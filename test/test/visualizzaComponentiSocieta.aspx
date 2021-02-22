@@ -28,7 +28,9 @@
                     "method": "GET",
                     "timeout": 0,
                     "withCredentials": true,
-                    "headers": {},
+                    "headers": {
+                        "Authorization": "Bearer " + token
+                    },
                 };
                 $.ajax(settings).done(function(response) {
                     response.forEach(function(dati) {
@@ -48,7 +50,9 @@
                     "method": "GET",
                     "timeout": 0,
                     "withCredentials": true,
-                    "headers": {},
+                    "headers": {
+                        "Authorization": "Bearer " + token
+                    },
                 };
                 $.ajax(settings).done(function(response) {
                     response.forEach(function(dati) {

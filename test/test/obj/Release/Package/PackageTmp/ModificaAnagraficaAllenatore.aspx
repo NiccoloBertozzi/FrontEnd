@@ -59,8 +59,8 @@
         </div>
     </nav>
     <!--Banner-->
-    <div class="page-title row">
-        <h1 class=" col-12 text-center my-auto">Modifica anagrafica</h1>
+    <div class="row mt-3 mb-3">
+        <h1 class=" col-12 text-center my-auto banner">Modifica anagrafica</h1>
     </div>
 
     <div class="container">

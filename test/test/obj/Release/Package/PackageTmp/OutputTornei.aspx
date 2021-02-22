@@ -73,8 +73,8 @@
                 } else $('#reset').click();
             });
             $('#reset').click(function () {
-                $("#Range").val(0);
-                $("#valuenb").val(0);
+                $("#Range").val(5000);
+                $("#valuenb").val(5000);
                 $('#data-table tbody tr').get().map(function (row) {
                     var index = row.rowIndex;
                     $("#tabella tr:nth-of-type(" + index + ")").show();
@@ -88,16 +88,15 @@
             $("#valuenb").change(function () {
                 $("#Range").val($("#valuenb").val());
                 $('#data-table tbody tr').get().map(function (row) {
-                    if (row.outerHTML.css("display") != "none") {
-                        var price = row.children[5].innerHTML;
-                        price = price.replace("€", "");
-                        if (parseFloat(price) < parseFloat($("#Range").val())) {
-                            var index = row.rowIndex;
-                            $("#data-table tbody tr:nth-of-type(" + index + ")").hide();
-                        } else {
-                            var index = row.rowIndex;
-                            $("#data-table tbody tr:nth-of-type(" + index + ")").show();
-                        }
+                    var index = row.rowIndex;
+                    var price = row.children[5].innerHTML;
+                    price = price.replace("€", "");
+                    if (parseFloat(price) < parseFloat($("#Range").val())) {
+                        var index = row.rowIndex;
+                        $("#data-table tbody tr:nth-of-type(" + index + ")").hide();
+                    } else {
+                        var index = row.rowIndex;
+                        $("#data-table tbody tr:nth-of-type(" + index + ")").show();
                     }
                 });
             });
@@ -125,13 +124,29 @@
                 }
             });
             loginbtn();
+            societaload();
         });
         function loginbtn() {
             var id = '<%= Session["IdUtente"] %>';
-            if ( id !="") {
+            if (id != "") {
+                $("#tesseratisocieta").hide();
                 $("#btnlogin").text("Log out");
             }
-            else $("#btnlogin").text("Log in");
+            else {
+                $("#btnlogin").text("Log in");
+                $("#organizzazione").hide();
+            }
+        }
+        function societaload() {
+            var id = '<%= Session["ruolo"] %>';
+            if (id != "Societa" || id == "") {
+                $("#tesseratiSocieta").hide();
+                $("#iscrittisocieta").hide();
+            }
+            else {
+                $("#tesseratiSocieta").show();
+                $("#iscrittisocieta").show();
+            }
         }
         function formatDate(date) {
             var d = new Date(date),
@@ -162,12 +177,6 @@
         function LoadCreaTorneo() {
             window.location = "CreaTorneo.aspx";
         }
-        function LoadClassificaMaschile() {
-            window.location = "OutputClassifica.aspx?genere=M";
-        }
-        function LoadClassificaFemminile() {
-            window.location = "OutputClassifica.aspx?genere=F";
-        }
         function LoadLogin() {
             var id = '<%= Session["IdUtente"] %>';
             if (id != "") window.location = "Login.aspx?change=1";
@@ -191,17 +200,21 @@
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AIBVC Tour</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#" onclick="LoadClassificaMaschile();">Classifica Maschile</a>
-                                    <a class="dropdown-item" href="#" onclick="LoadClassificaFemminile();">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="OutputClassifica.aspx?genere=M">Classifica Maschile</a>
+                                    <a class="dropdown-item" href="OutputClassifica.aspx?genere=F">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=1">L1</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=2">L2</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=3">L3</a>
                                 </div>
                             </div>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <div class="dropdown show">
+                            <div class="dropdown show" id="organizzazione">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
-                                    <a class="dropdown-item" href="visualizzaComponentiSocieta.aspx">Elenco tesserati</a>
+                                    <a id="anagrafica" class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
+                                    <a id="iscrittisocieta" class="dropdown-item" href="visualizzaComponentiSocieta.aspx">Elenco Iscritti</a>
+                                    <a id="tesseratiSocieta" class="dropdown-item" href="visualizzaStatoTessere.aspx">Elenco tesserati</a>
                                 </div>
                             </div>
                         </li>
@@ -218,47 +231,48 @@
         <asp:Button runat="server" ID="btnTorneo" Style="display: none" OnClick="clickArea_Click" ClientIDMode="Static" />
         <asp:HiddenField ID="HiddenField1" runat="server" />
         <!--Banner-->
-        <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Tornei</h1>
+        <div class="row mt-3 mb-3">
+            <h1 class=" col-12 text-center my-auto banner">Tornei</h1>
         </div>
 
         <div class="container">
-            <div class="container mt-4">
-            <div class="dropright mb-4 float-right">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                  Filtri
-                </button>
-                <div class="dropdown-menu">
-                    <label>Montepremi:</label>
-                    <div class="form-group">
-                        <div class="d-inline-block">
-                            <input type="range" class="form-range" min="1000" max="5000" step="50" id="Range">
+            <div class="row">
+                <div class="col-md-5 col-sm-12">
+                    <div class="row justify-content-center">
+                        <div class="col-3">
+                            <label class="my-1">Montepremi:</label>
                         </div>
-                        <div class="d-inline-block">
-                            <input type="number" min="1000" max="5000" step="50" class="form-control" id="valuenb" aria-describedby="value">
+                        <div class="col-5">
+                            <input type="range" class="form-range my-2" min="1000" max="5000" step="50" id="Range">
+                        </div>
+                        <div class="col-4">
+                            <input type="number" min="1000" max="5000" step="50" class="form-control form-control-sm" id="valuenb" aria-describedby="value">
                         </div>
                     </div>
-                    <label>Genere:</label>
-                    <div class="custom-control custom-switch">
-                        <div>
-                            <input type="checkbox" class="custom-control-input" value="M" name="gender" id="m">
-                            <label class="custom-control-label" for="m">M</label>
+                </div>
+                <div class="col-md-5 col-sm-9">
+                    <div class="row">
+                        <div class="col-3">
+                            <label>Genere:</label>
                         </div>
-                        <div>
-                            <input type="checkbox" class="custom-control-input" value="F" name="gender" id="f">
-                            <label class="custom-control-label" for="f">F</label>
+                        <div class="col-9">
+                            <div class="custom-control custom-switch">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <input type="checkbox" class="custom-control-input" value="M" name="gender" id="m">
+                                        <label class="custom-control-label" for="m">M</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="checkbox" class="custom-control-input" value="F" name="gender" id="f">
+                                        <label class="custom-control-label" for="f">F</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <label>Categoria:</label>
-                    <div class="my-3">
-                        <select id="categoria" class="form-select" aria-label="Default select example">
-                            <option>All</option>
-                            <option>L1</option>
-                            <option>L2</option>
-                            <option>L3</option>
-                        </select>
-                    </div>
-                    <button type="button" id="reset" class="btn btn-danger">Reset</button>
+                </div>
+                <div class="col-md-2 col-sm-3">
+                    <button type="button" id="reset" class="btn btn-danger mb-2">Reset</button>
                 </div>
             </div>
             <table id="data-table" class="table table-striped overflow-auto">
