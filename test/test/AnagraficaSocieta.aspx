@@ -4,14 +4,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-   <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Anagrafica Società</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
 </head>
-<body>  
+<body>
     <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
@@ -50,19 +50,25 @@
             </div>
         </div>
     </nav>
-        <!--Banner-->
-        <div class="row mt-3 mb-3">
-            <h1 class=" col-12 text-center my-auto banner">Anagrafica Società</h1>
-        </div>
+    <!--Banner-->
+    <div class="row mt-3 mb-3">
+        <h1 class=" col-12 text-center my-auto banner">Anagrafica Società</h1>
+    </div>
     <form id="form1" runat="server">
-        <center><div class="card-container mr-3 ml-3 mt-3">
-            <asp:PlaceHolder runat="server" ID="anagraficaSocieta"></asp:PlaceHolder>
-            <asp:Button runat="server" OnClick="ModificaAnagraficaSocieta_Click" Text="Modifica anagrafica" class="btnLogin mx-auto mt-3"/>
-        </div></center>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    
+        <div class="container">
+            <div class="card-container mr-3 ml-3 mt-3">
+                <div class="row mt-4">
+                    <div class="col-md-8 offset-md-2 col-sm-12 contentInfo">
+                        <asp:PlaceHolder runat="server" ID="anagraficaSocieta"></asp:PlaceHolder>
+                        <asp:Button runat="server" OnClick="ModificaAnagraficaSocieta_Click" Text="Modifica anagrafica" class="btnLogin mx-auto mt-3" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
     </form>
-    
+
 </body>
 </html>
