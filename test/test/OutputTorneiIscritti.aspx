@@ -464,18 +464,16 @@
         <div class="row mt-3 mb-3">
             <h1 class=" col-12 text-center my-auto banner">Iscrizioni Effettuate</h1>
         </div>
+        <div class="row py-2">
+                        <div class="btn-toolbar mx-auto" role="toolbar">
+                            <div class="btn-group" role="group">
+                                <button type="button" id="iscrittibtn" class="btn btn-primary btnTorneiIscritti">Iscritti</button>
+                                <button type="button" id="incorsobtn" class="btn btn-secondary btnTorneiIscritti">In Corso</button>
+                                <button type="button" id="finitibtn" class="btn btn-secondary btnTorneiIscritti">Finiti</button>
+                            </div>
+                        </div>
+                    </div>
         <div class="card-container ml-5 mr-5 mx-auto" id="myContentOutputTornei">
-            <div class="row">
-                <div class="col-4">
-                    <button type="button" id="iscrittibtn" class="btn btn-primary w-100">Iscritti</button>
-                </div>
-                <div class="col-4">
-                    <button type="button" id="incorsobtn" class="btn btn-primary w-100">In Corso</button>
-                </div>
-                <div class="col-4">
-                    <button type="button" id="finitibtn" class="btn btn-primary w-100">Finiti</button>
-                </div>
-            </div>
             <div id="iscritti">
                 <div class="row">
                     <h2 class=" col-12 text-center">Tornei iscritti</h2>
@@ -673,6 +671,7 @@
             </div>
         </div>
         <script src="Scripts/bootstrap.min.js "></script>
+        <script src="Scripts/main.js"></script>
     </form>
 </body>
 </html>

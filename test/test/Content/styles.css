@@ -479,3 +479,9 @@ input[type="radio"] {
 .conCenter {
     margin-top: 150px;
 }
+
+/*Info Tornei Iscritti*/
+
+.btnTorneiIscritti{
+    width: 100px;
+}
