@@ -535,7 +535,7 @@
                                 <th>Pubblicazione lista</th>
                             </tr>
                         </thead>
-                        <tbody id="tabella-iscritti">
+                        <tbody id="tabella-iscritti" class="pointer">
                         </tbody>
                     </table>
                 </div>

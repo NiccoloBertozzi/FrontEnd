@@ -271,7 +271,7 @@
                     <button type="button" id="reset" class="btn btn-danger mb-2">Reset</button>
                 </div>
             </div>
-            <div id="scrollable">
+            <div class="table-responsive">
                 <table id="data-table" class="table table-striped table-hover">
                     <thead>
                         <tr class="table-primary">
@@ -289,7 +289,7 @@
                             <th>Pubblicazione lista</th>
                         </tr>
                     </thead>
-                    <tbody id="tabella">
+                    <tbody id="tabella" class="pointer">
                     </tbody>
                 </table>
             </div>

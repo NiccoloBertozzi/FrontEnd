@@ -283,7 +283,7 @@
                         <th>Pubblicazione lista</th>
                     </tr>
                 </thead>
-                <tbody id="tabella">
+                <tbody id="tabella" class="pointer">
                 </tbody>
             </table>
             <br>
