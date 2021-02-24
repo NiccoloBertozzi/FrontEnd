@@ -37,6 +37,7 @@ namespace test
                 table.Append("<button type=\"button\" class=\"btn btn-light\" onclick=\"LoadLogin(); \">Login</button>");
                 AccediBtn.Controls.Add(new Literal { Text = table.ToString() });
                 btnIscriviti.Visible = false;
+                partite.Visible = false;
             }
             else DownloadInformazioniSquadre();
 
@@ -66,23 +67,23 @@ namespace test
                 torneiinfoluogo.Controls.Add(new Literal { Text = table2.ToString() });
 
                 table.Append("<h2>Info Torneo</h2>" +
-                    "<h4>Nome</h4>" +
+                    "<p class='head'>Nome</p>" +
                     "<p>" + deserialzied[0].titolo + "</p>" +
-                    "<h4>TipoTorneo</h4>" +
+                    "<p class='head'>TipoTorneo</p>" +
                     "<p>" + deserialzied[0].tipoTorneo + "</p>" +
-                    "<h4>Formula</h4>" +
+                    "<p class='head'>Formula</p>" +
                     "<p>" + deserialzied[0].formula + "</p>" +
-                    "<h4>Quota Iscrizione</h4>" +
+                    "<p class='head'>Quota Iscrizione</p>" +
                     "<p>" + deserialzied[0].quotaIscrizione + "</p>" +
-                    "<h4>Punti Vittoria</h4>" +
+                    "<p class='head'>Punti Vittoria</p>" +
                     "<p>" + deserialzied[0].puntiVittoria + "</p>" +
-                    "<h4>Montepremi</h4>" +
+                    "<p class='head'>Montepremi</p>" +
                     "<p>" + deserialzied[0].montepremi + "</p>" +
-                    "<h4>Data Inizio</h4>" +
+                    "<p class='head'>Data Inizio</p>" +
                     "<p>" + deserialzied[0].dataInizio + "</p>" +
-                    "<h4>Data Fine</h4>" +
+                    "<p class='head'>Data Fine</p>" +
                     "<p>" + deserialzied[0].dataFine + "</p>" +
-                    "<h4>Sesso</h4>" +
+                    "<p class='head'>Sesso</p>" +
                     "<p>" + deserialzied[0].gender + "</p>");
 
                 table2.Append(" <h4>Nome Impianto</h4>" +
