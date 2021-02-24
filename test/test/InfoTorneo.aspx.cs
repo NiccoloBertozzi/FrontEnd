@@ -37,6 +37,7 @@ namespace test
                 table.Append("<button type=\"button\" class=\"btn btn-light\" onclick=\"LoadLogin(); \">Login</button>");
                 AccediBtn.Controls.Add(new Literal { Text = table.ToString() });
                 btnIscriviti.Visible = false;
+                partite.Visible = false;
             }
             else DownloadInformazioniSquadre();
 

@@ -89,7 +89,7 @@
             if (id != "") window.location = "Login.aspx?change=1";
             else window.location = "Login.aspx";
         }
-</script>
+     </script>
 </head>
 <body>
      <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
