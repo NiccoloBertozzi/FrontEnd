@@ -6,10 +6,13 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Anagrafica Società</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <title>Anagrafica Società</title>
 </head>
 <body>
     <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
@@ -27,17 +30,19 @@
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AIBVC Tour</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#" onclick="LoadClassificaMaschile();">Classifica Maschile</a>
-                                    <a class="dropdown-item" href="#" onclick="LoadClassificaFemminile();">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="OutputClassifica.aspx?genere=M">Classifica Maschile</a>
+                                    <a class="dropdown-item" href="OutputClassifica.aspx?genere=F">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=1">L1</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=2">L2</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=3">L3</a>
                                 </div>
                             </div>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <div class="dropdown show">
+                            <div class="dropdown show" id="organizzazione">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
-                                    <a class="dropdown-item" href="visualizzaComponentiSocieta.aspx">Elenco tesserati</a>
+                                    <a id="anagrafica" class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
                                 </div>
                             </div>
                         </li>
@@ -60,13 +65,15 @@
                 <div class="row mt-4">
                     <div class="col-md-8 offset-md-2 col-sm-12 contentInfo">
                         <asp:PlaceHolder runat="server" ID="anagraficaSocieta"></asp:PlaceHolder>
-                        <asp:Button runat="server" OnClick="ModificaAnagraficaSocieta_Click" Text="Modifica anagrafica" class="btnLogin mx-auto mt-3" />
+                        <div class="row justify-content-center my-4">
+                            <asp:Button runat="server" OnClick="ModificaAnagraficaSocieta_Click" Text="Modifica anagrafica" class="btn btn-primary" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="Scripts/jquery-3.4.1.min.js "></script>
+        <script src="Scripts/bootstrap.min.js "></script>
 
     </form>
 

@@ -26,17 +26,19 @@
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AIBVC Tour</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#" onclick="LoadClassificaMaschile();">Classifica Maschile</a>
-                                    <a class="dropdown-item" href="#" onclick="LoadClassificaFemminile();">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="OutputClassifica.aspx?genere=M">Classifica Maschile</a>
+                                    <a class="dropdown-item" href="OutputClassifica.aspx?genere=F">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=1">L1</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=2">L2</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=3">L3</a>
                                 </div>
                             </div>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <div class="dropdown show">
+                            <div class="dropdown show" id="organizzazione">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
-                                    <a class="dropdown-item" href="visualizzaComponentiSocieta.aspx">Elenco tesserati</a>
+                                    <a id="anagrafica" class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
                                 </div>
                             </div>
                         </li>
@@ -85,7 +87,7 @@
                 <div class="col-sm-12 col-lg-6">
                     <label for="lblCAP" class="col-form-label">Codice Postale (CAP)</label>
                 </div>
-                <div class="col-sm-6 col-lg-2 form-check form-check-inline">
+                <div class="col-sm-12 col-lg-6">
                     <asp:TextBox runat="server" type="text" class="form-control" ID="CAP" placeholder="Codice Postale (CAP)"></asp:TextBox>
                 </div>
 
@@ -193,7 +195,7 @@
         </form>
         </div>
     </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="Scripts/jquery-3.4.1.min.js "></script>
+    <script src="Scripts/bootstrap.min.js "></script>
 </body>
 </html>
