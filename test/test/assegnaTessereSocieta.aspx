@@ -94,7 +94,7 @@
                 <asp:TextBox runat="server" ID="txtImporto"></asp:TextBox>
                 <br />
 
-                <asp:Button runat="server" ID="btnInvio" Text="invio" OnClick="btnInvio_Click" />
+                <asp:Button runat="server" ID="btnInvio" Text="invio" OnClick="btnInvio_Click" class="btnLogin mx-auto mt-3" />
 </form>
             </div>
         </div>
