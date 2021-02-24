@@ -459,3 +459,23 @@ input[type="radio"] {
 #myContentOutputTornei {
     max-width: 70vw;
 }
+
+/*Login*/
+@media (min-width: 530px) {
+    .boxlogin {
+        width: 500px;
+        background-color: #f8f8f8ec;
+        border: 2px solid rgba(0,0,0,0.20);
+        border-radius: 25px;
+    }
+}
+
+@media (max-height: 850px) {
+    .conCenter {
+        margin-top: 30px !important;
+    }
+}
+
+.conCenter {
+    margin-top: 150px;
+}
