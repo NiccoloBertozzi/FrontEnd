@@ -57,8 +57,8 @@
         </div>
     </nav>
     <!--Banner-->
-    <div class="row mt-3 mb-3">
-        <h1 class=" col-12 text-center my-auto banner">Modifica info torneo</h1>
+    <div class="page-title row">
+        <h1 class=" col-12 text-center my-auto">Modifica info torneo</h1>
     </div>
 
     <div class="container">

@@ -2,11 +2,11 @@ html,
 body {
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .my-navbar {
-    background-color: #154492;
+    background: linear-gradient(90deg, #019bdd 0%, rgba(21, 68, 146, 1) 100%);
 }
 
 #my-navbar-items {
@@ -56,33 +56,12 @@ body {
 
 .card-container {
     overflow: auto;
-    max-height: 80vh;
+    max-height: 70vh;
     overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
-    width: 30px;
-    height: 18px;
-    display: initial;
-}
-
-::-webkit-scrollbar-thumb {
-    height: 6px;
-    border: 12px solid rgba(0, 0, 0, 0);
-    background-clip: padding-box;
-    -webkit-border-radius: 100px;
-    background-color: rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
-}
-
-::-webkit-scrollbar-button {
-    width: 0;
-    height: 0;
     display: none;
-}
-
-::-webkit-scrollbar-corner {
-    background-color: transparent;
 }
 
 .dropdown-item:hover {
@@ -244,6 +223,10 @@ div.container p {
     overflow: scroll;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .box {
     width: 28%;
 }
@@ -331,25 +314,23 @@ form label.register {
     box-shadow: 0px 2px 100px 0px rgb(0 0 0 / 10%);
 }
 
-#infotorneo .contentInfo > h2 {
-    letter-spacing: 1.2px;
-    color: #333;
-    padding-bottom: 10px;
-    line-height: 1em;
-    font-weight: 500;
-}
+    .contentInfo > h2 {
+        font-size: 40px;
+        letter-spacing: 1.2px;
+        font-weight: 700;
+    }
 
-#infotorneo .contentInfo h4 {
-    letter-spacing: 1.2px;
-    color: #4a4a4a;
-}
+    .contentInfo h3 {
+        font-size: 28px;
+        letter-spacing: 1.2px;
+        font-weight: 600;
+    }
 
-#infotorneo .contentInfo p {
-    font-size: 18px;
-    color: #2F2D2D;
-    word-spacing: 0.5px;
-    color: #4a4a4a;
-}
+    .contentInfo p {
+        font-size: 18px;
+        color: #2F2D2D;
+        word-spacing: 0.5px;
+    }
 
 .btnIscriviti {
     background: linear-gradient(to bottom, #0091ff 5%, #0065bd 100%);
@@ -381,6 +362,7 @@ div.contentInfo p {
 
 /*Register*/
 .banner {
+    margin: 0px 3rem;
     font-weight: 700;
     letter-spacing: 10px;
     color: #0094f0;
@@ -413,26 +395,8 @@ input[type="radio"] {
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.ajax__combobox_textboxcontainer > input:nth-child(1):focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #80bdff;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
-}
+.ajax__combobox_buttoncontainer>input:nth-child(1) {
 
-.ajax__combobox_buttoncontainer > button:nth-child(1) {
-    background-color: #f0f0f0;
-    border: 1px solid #d1d1d1;
-    display: inline-block;
-    font-size: 22px;
-    font-weight: bold;
-    text-decoration: none;
-    text-shadow: 0px 1px 5px #2f6627;
-    margin-top: 4px;
-}
 
-    .ajax__combobox_buttoncontainer > button:nth-child(1):hover {
-        background-color: #d1d1d1;
-        border: 1px solid #878787;
-    }
+
+}

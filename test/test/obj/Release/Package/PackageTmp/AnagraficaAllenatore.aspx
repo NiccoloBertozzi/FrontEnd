@@ -63,8 +63,8 @@
         </div>
     </nav>
      <!--Banner-->
-    <div class="row mt-3 mb-3">
-        <h1 class=" col-12 text-center my-auto banner">Anagrafica Allenatore</h1>
+    <div class="page-title row">
+        <h1 class=" col-12 text-center my-auto">Anagrafica Allenatore</h1>
     </div>
     <form id="formComponentiSocieta" runat="server">
         <div class="card-container mr-3 ml-3 mt-3">

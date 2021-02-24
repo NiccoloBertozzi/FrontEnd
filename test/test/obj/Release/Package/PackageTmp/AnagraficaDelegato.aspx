@@ -54,22 +54,20 @@
         </div>
     </nav>
      <!--Banner-->
-    <div class="row mt-3 mb-3">
-        <h1 class=" col-12 text-center my-auto banner">Anagrafica Delegato</h1>
+    <div class="page-title row">
+        <h1 class=" col-12 text-center my-auto">Anagrafica Delegato</h1>
     </div>
         <form id="formComponentiDelegato" runat="server">
-         <div class="container">
-             <div class="card-container mr-3 ml-3 mt-3">
-                 <div class="row mt-4">
-                    <div class="col-md-8 offset-md-2 col-sm-12 contentInfo">
-                        <asp:PlaceHolder runat="server" ID="anagraficaDelegato"></asp:PlaceHolder>
-                        <div class="row justify-content-left my-4">
-                            <asp:Button runat="server" CssClass="btn btn-primary" OnClick="ModificaAnagrafica_Click" Text="Modifica anagrafica" />
-                        </div>
-                    </div>
-                </div>
-             </div>
+ <div class="container">
+     <div class="card-container">
+         <div class="row mt-4">
+            <div class="col-md-8 offset-md-2 col-sm-12 contentInfo">
+                <asp:PlaceHolder runat="server" ID="anagraficaDelegato"></asp:PlaceHolder>
+                <asp:Button runat="server" OnClick="ModificaAnagrafica_Click" Text="Modifica anagrafica" />
+            </div>
         </div>
+     </div>
+</div>
     </form>
         <script src="Scripts/jquery-3.4.1.min.js "></script>
         <script src="Scripts/bootstrap.min.js "></script>

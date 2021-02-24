@@ -53,8 +53,8 @@
     </nav>
     <form id="form1" runat="server">
         <!--Banner-->
-        <div class="row mt-3 mb-3">
-            <h1 class=" col-12 text-center my-auto banner">Iscrizione squadra al torneo</h1>
+        <div class="page-title row">
+            <h1 class=" col-12 text-center my-auto">Iscrizione squadra al torneo</h1>
         </div>
         <div class="container">
             <div class="mr-3 ml-3 mt-3 card-container">

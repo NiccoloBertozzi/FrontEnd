@@ -54,8 +54,8 @@
         </div>
     </nav>
     <!--Banner-->
-    <div class="row mt-3 mb-3">
-        <h1 class=" col-12 text-center my-auto banner">Anagrafica Atleta</h1>
+    <div class="page-title row">
+        <h1 class=" col-12 text-center my-auto">Anagrafica Atleta</h1>
     </div>
     <form id="formComponentiAtleta" runat="server">
         <div class="container">
@@ -63,7 +63,7 @@
                 <div class="row mt-4">
                     <div class="col-md-8 offset-md-2 col-sm-12 contentInfo">
                         <asp:PlaceHolder runat="server" ID="anagraficaAtleta"></asp:PlaceHolder>
-                        <div class="row justify-content-left my-4">
+                        <div class="row justify-content-center my-4">
                             <asp:Button runat="server" CssClass="btn btn-primary" OnClick="ModificaAnagrafica_Click" Text="Modifica anagrafica" />
                         </div>
                     </div>

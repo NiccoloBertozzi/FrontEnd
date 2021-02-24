@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreaTorneo.aspx.cs" Inherits="test.CreaTorneo" %>
+
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
 <!DOCTYPE html>
@@ -12,10 +13,16 @@
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-        });
+        <script>
+        function LoadPage() {
+            window.location = "OutputTorneiNonAutorrizati.aspx";
+        }
+        function LoadPageDelegati() {
+            window.location = "OutputTorneiDelegato.aspx";
+        }
+        function LoadPageIscritti() {
+            window.location = "OutputTorneiIscritti.aspx";
+        }
         function LoadCreaTorneo() {
             window.location = "CreaTorneo.aspx";
         }
@@ -28,7 +35,7 @@
         function LoadLogin() {
             window.location = "Login.aspx";
         }
-    </script>
+        </script>
 </head>
 <body>
     <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
@@ -56,13 +63,15 @@
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
                                     <a class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
-                                    <a id="iscrittisocieta" class="dropdown-item" href="visualizzaComponentiSocieta.aspx">Elenco Iscritti</a>
-                                    <a id="tesseratiSocieta" class="dropdown-item" href="visualizzaStatoTessere.aspx">Elenco tesserati</a>
+                                    <a class="dropdown-item" href="visualizzaComponentiSocieta.aspx">Elenco tesserati</a>
                                 </div>
                             </div>
                         </li>
                         <asp:PlaceHolder runat="server" ID="dinamicload"></asp:PlaceHolder>
                     </ul>
+                </div>
+                <div class="col-1">
+                    <asp:PlaceHolder runat="server" ID="AccediBtn"></asp:PlaceHolder>
                 </div>
             </div>
         </div>
@@ -70,8 +79,8 @@
     <form id="form1" runat="server">
         <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>
         <!--Banner-->
-        <div class="row mt-3 mb-3">
-            <h1 class=" col-12 text-center my-auto banner">Creazione torneo</h1>
+        <div class="page-title-login row">
+            <h1 class=" col-12 text-center my-auto">Creazione torneo</h1>
         </div>
         <!--Inserimento parametri-->
         <div class="container">
@@ -162,12 +171,13 @@
                 <br />
                 <div class="form-group" id="impiantiSelezionati" runat="server">
                     <label for="Impianti">Impianti</label><br />
-                    <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbImpianti" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="cbImpianti_TextChanged" />
-                    <asp:Label runat="server" Text="" ID="idImpianto"></asp:Label>
+                   <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbImpianti" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="cbImpianti_TextChanged"/>
+                   <asp:Label runat="server" Text="" ID="idImpianto"></asp:Label>
                 </div>
                 <asp:Button ID="Button1" runat="server" Text="Crea torneo" OnClick="creaTorneo_Click" CssClass="btn btn-primary" />
             </div>
         </div>
+        <script src="Scripts/jquery-3.4.1.min.js "></script>
         <script src="Scripts/bootstrap.min.js "></script>
     </form>
 </body>
