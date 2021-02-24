@@ -17,19 +17,19 @@ namespace test
         int idTorneo;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Token"] != null && Session["IdTorneo"] != null)
+            if (string.IsNullOrEmpty(Session["Token"] as string))
             {
-                if (Session["ruolo"].ToString() != "Societa" && Session["ruolo"].ToString() != "Admin") Response.Redirect("OutputTornei.aspx");
-                else
-                {
-                    token = Session["Token"].ToString();
-                    idTorneo = int.Parse(Session["IdTorneo"].ToString());
-                    if (!this.IsPostBack) DownloadInformazioniTorneo();
-                }
+                token = Session["Token"].ToString();
+            idTorneo = int.Parse(Session["IdTorneo"].ToString());
+            if (!this.IsPostBack)
+            {
+                //idricevuto.Text = Session["IdUtente"].ToString();
+                DownloadInformazioniTorneo(idTorneo);
+            }
             }
             else Response.Redirect("OutputTornei.aspx");
         }
-        protected void DownloadInformazioniTorneo()
+        protected void DownloadInformazioniTorneo(int idTorneo)
         {
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetTorneoByID/" + idTorneo);
             client.Timeout = -1;
@@ -88,10 +88,10 @@ namespace test
         protected void btnelimina_Click(object sender, EventArgs e)
         {
             //PRENDO ID SQUADRA 
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/atleti/GetIdSquadra/" + Session["idUtente"] + "/Torneo/" + idTorneo + "");
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/atleti/GetIdSquadra/"+Session["idUtente"]+"/Torneo/"+ idTorneo + "");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
-            request.AddHeader("Authorization", "Bearer " + token + "");
+            request.AddHeader("Authorization", "Bearer "+token+"");
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Atleta");
             IRestResponse response = client.Execute(request);
             if (response.StatusCode == HttpStatusCode.OK)
@@ -105,7 +105,7 @@ namespace test
                 request.AddHeader("Content-Type", "application/json");
                 string prova = "{\r\n    \"idTorneo\":" + idTorneo + ",\r\n    \"idSquadra\":" + idsquadra + "\r\n}";
                 request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Atleta");
-                request.AddParameter("application/json", prova, ParameterType.RequestBody);
+                request.AddParameter("application/json",prova, ParameterType.RequestBody);
                 IRestResponse response1 = client.Execute(request);
             }
             else Response.Write("<script>alert('Impossibile annullare l'iscrizione: il torneo è già iniziato');</script>");

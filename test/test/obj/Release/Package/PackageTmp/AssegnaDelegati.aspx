@@ -55,8 +55,8 @@
     </nav>
     <form id="form2" runat="server">
         <!--Banner-->
-        <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Assegna delegati</h1>
+        <div class="row mt-3 mb-3">
+            <h1 class=" col-12 text-center my-auto banner">Assegna delegati</h1>
         </div>
         <div class="container">
            <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>
@@ -76,7 +76,7 @@
                    <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbDirettore" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="Direttore_TextChanged"/>
                    <asp:Label runat="server" Text="" ID="Nomedirettore"></asp:Label>
                 </div>
-                <asp:Button ID="btnassegnasupervisore" OnClick="btnassegnasupervisore_Click" runat="server" Text="Assegna delegati" /><br />
+                <asp:Button ID="btnassegnasupervisore"  CssClass="btn btn-primary" OnClick="btnassegnasupervisore_Click" runat="server" Text="Assegna delegati" /><br />
             </div>
         </div>
         <script src="Scripts/jquery-3.4.1.min.js "></script>

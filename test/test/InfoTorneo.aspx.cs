@@ -37,7 +37,6 @@ namespace test
                 table.Append("<button type=\"button\" class=\"btn btn-light\" onclick=\"LoadLogin(); \">Login</button>");
                 AccediBtn.Controls.Add(new Literal { Text = table.ToString() });
                 btnIscriviti.Visible = false;
-                partite.Visible = false;
             }
             else DownloadInformazioniSquadre();
 
@@ -67,28 +66,28 @@ namespace test
                 torneiinfoluogo.Controls.Add(new Literal { Text = table2.ToString() });
 
                 table.Append("<h2>Info Torneo</h2>" +
-                    "<p class='head'>Nome<p>" +
+                    "<h4>Nome</h4>" +
                     "<p>" + deserialzied[0].titolo + "</p>" +
-                    "<p class='head mt-3'>TipoTorneo</p>" +
+                    "<h4>TipoTorneo</h4>" +
                     "<p>" + deserialzied[0].tipoTorneo + "</p>" +
-                    "<p class='head mt-3'>Formula</p>" +
+                    "<h4>Formula</h4>" +
                     "<p>" + deserialzied[0].formula + "</p>" +
-                    "<p class='head mt-3'>Quota Iscrizione</p>" +
+                    "<h4>Quota Iscrizione</h4>" +
                     "<p>" + deserialzied[0].quotaIscrizione + "</p>" +
-                    "<p class='head mt-3'>Punti Vittoria</p>" +
+                    "<h4>Punti Vittoria</h4>" +
                     "<p>" + deserialzied[0].puntiVittoria + "</p>" +
-                    "<p class='head mt-3'>Montepremi</p>" +
+                    "<h4>Montepremi</h4>" +
                     "<p>" + deserialzied[0].montepremi + "</p>" +
-                    "<p class='head mt-3'>Data Inizio</p>" +
+                    "<h4>Data Inizio</h4>" +
                     "<p>" + deserialzied[0].dataInizio + "</p>" +
-                    "<p class='head mt-3'>Data Fine</p>" +
+                    "<h4>Data Fine</h4>" +
                     "<p>" + deserialzied[0].dataFine + "</p>" +
-                    "<p class='head mt-3'>Sesso</p>" +
+                    "<h4>Sesso</h4>" +
                     "<p>" + deserialzied[0].gender + "</p>");
 
-                table2.Append(" <p class='head'>Nome Impianto</p>" +
+                table2.Append(" <h4>Nome Impianto</h4>" +
                     "<p> " + deserialzied[0].nomeImpianto + " </p> " +
-                    "<p class='head'>Indirizzo</p>" +
+                    " <h4>Indirizzo</h4>" +
                     "<p> " + deserialzied[0].citta + " </p> ");
 
                 //Append the HTML string to Placeholder.

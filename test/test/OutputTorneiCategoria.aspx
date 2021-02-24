@@ -5,10 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Tornei</title>
-    <link rel="stylesheet" href="Content/bootstrap.min.css" />
-    <link rel="stylesheet" href="Content/styles.css" />
+    <link rel="stylesheet" href="Content/bootstrap.min.css">
+    <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="Scripts/jquery-dateformat.min.js"></script>
@@ -21,6 +21,10 @@
         $(document).ready(function () {
             var parametri = new URLSearchParams(window.location.search);
             var tipo = parametri.get('tipo');
+            if (tipo != 1) {
+                $('#montepremi').hide();
+            }
+            var date = new Date();
             var settings = {
                 "url": "https://aibvcapi.azurewebsites.net/api/v1/tornei/GetTorneiTipo/" + tipo + "",
                 "method": "GET",
@@ -31,7 +35,12 @@
             $.ajax(settings).done(function (response) {
                 $('#tabella').empty();
                 response.forEach(function (dati) {
-                    $('#tabella').append("<tr id=" + dati.idTorneo + "><td>" + (formatDate(dati.dataInizio)) + "</td><td>" + (dati.nomeImpianto) + "</td><td>" + (dati.nomeSocieta) + "</td><td>" + (dati.gender) + "</td><td>" + (dati.outdoor ? "indoor" : "outdoor") + "</td><td>" + (dati.montepremi) + "€</td><td>" + (dati.tipoTorneo) + "</td><td>" + (dati.formula) + "</td><td>" + (dati.oraInizio) + "</td><td>" + (dati.numMaxTeamMainDraw) + "</td><td>" + (formatDate(dati.dataChiusuraIscrizioni)) + "</td><td>" + (dati.oraInizio) + "</td></tr>");
+                    var x = jQuery.format.date(date, "yyyy-MM-dd");
+                    if ((dati.dataFine) < x) {
+                        $('#tabella').append("<tr style=\"background-color:#cfe2f3;\" id=" + dati.idTorneo + "><td>" + (formatDate(dati.dataInizio)) + "</td><td>" + (dati.nomeImpianto) + "</td><td>" + (dati.nomeSocieta) + "</td><td>" + (dati.gender) + "</td><td>" + (dati.outdoor ? "indoor" : "outdoor") + "</td><td>" + (dati.montepremi) + "€</td><td>" + (dati.tipoTorneo) + "</td><td>" + (dati.formula) + "</td><td>" + (dati.oraInizio) + "</td><td>" + (dati.numMaxTeamMainDraw) + "</td><td>" + formatDate(dati.dataChiusuraIscrizioni) + "</td><td>" + (dati.oraInizio) + "</td></tr>");
+                    }
+                    else
+                        $('#tabella').append("<tr id=" + dati.idTorneo + "><td>" + (formatDate(dati.dataInizio)) + "</td><td>" + (dati.nomeImpianto) + "</td><td>" + (dati.nomeSocieta) + "</td><td>" + (dati.gender) + "</td><td>" + (dati.outdoor ? "indoor" : "outdoor") + "</td><td>" + (dati.montepremi) + "€</td><td>" + (dati.tipoTorneo) + "</td><td>" + (dati.formula) + "</td><td>" + (dati.oraInizio) + "</td><td>" + (dati.numMaxTeamMainDraw) + "</td><td>" + formatDate(dati.dataChiusuraIscrizioni) + "</td><td>" + (dati.oraInizio) + "</td></tr>");
                 });
                 $('#data-table').DataTable({
                     "search": {
@@ -59,8 +68,8 @@
                 }
             });
             $('#reset').click(function () {
-                $("#Range").val(0);
-                $("#valuenb").val(0);
+                $("#Range").val(5000);
+                $("#valuenb").val(5000);
                 $('#data-table tbody tr').get().map(function (row) {
                     var index = row.rowIndex;
                     $("#tabella tr:nth-of-type(" + index + ")").show();
@@ -76,7 +85,7 @@
                     var index = row.rowIndex;
                     var price = row.children[5].innerHTML;
                     price = price.replace("€", "");
-                    if (parseFloat(price) < parseFloat($("#Range").val())) {
+                    if (parseFloat(price) > parseFloat($("#Range").val())) {
                         var index = row.rowIndex;
                         $("#data-table tbody tr:nth-of-type(" + index + ")").hide();
                     } else {
@@ -91,7 +100,7 @@
                     var index = row.rowIndex;
                     var price = row.children[5].innerHTML;
                     price = price.replace("€", "");
-                    if (parseFloat(price) < parseFloat($("#Range").val())) {
+                    if (parseFloat(price) > parseFloat($("#Range").val())) {
                         $("#data-table tbody tr:nth-of-type(" + index + ")").hide();
                     } else {
                         $("#data-table tbody tr:nth-of-type(" + index + ")").show();
@@ -219,9 +228,9 @@
         <div class="row mt-3 mb-3">
             <h1 class=" col-12 text-center my-auto banner">Tornei</h1>
         </div>
-        <div class="container">
+        <div class="card-container ml-5 mr-5 mx-auto" id="myContentOutputTornei">
             <div class="row">
-                <div class="col-md-5 col-sm-12">
+                <div id="montepremi" class="col-md-5 col-sm-12">
                     <div class="row justify-content-center">
                         <div class="col-3">
                             <label class="my-1">Montepremi:</label>
@@ -230,7 +239,7 @@
                             <input type="range" class="form-range my-2" min="1000" max="5000" step="50" id="Range">
                         </div>
                         <div class="col-4">
-                            <input type="number" min="1000" max="5000" step="50" class="form-control form-control-sm" id="valuenb" aria-describedby="value">
+                            <input type="number" min="100" max="5000" step="50" class="form-control form-control-sm" id="valuenb" aria-describedby="value">
                         </div>
                     </div>
                 </div>
@@ -259,7 +268,7 @@
                     <button type="button" id="reset" class="btn btn-danger mb-2">Reset</button>
                 </div>
             </div>
-            <table id="data-table" class="table table-striped overflow-auto">
+            <table id="data-table" class="table table-striped">
                 <thead>
                     <tr class="table-primary">
                         <th>DataInizio</th>

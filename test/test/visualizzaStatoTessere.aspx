@@ -29,7 +29,9 @@
                  "method": "GET",
                  "timeout": 0,
                  "withCredentials": true,
-                 "headers": {},
+                 "headers": {
+                     "Authorization": "Bearer " + token
+                 },
              };
              $.ajax(settings).done(function (response) {
                  response.forEach(function (dati) {
@@ -87,7 +89,7 @@
             if (id != "") window.location = "Login.aspx?change=1";
             else window.location = "Login.aspx";
         }
-     </script>
+</script>
 </head>
 <body>
      <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
