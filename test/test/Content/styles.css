@@ -345,16 +345,17 @@ form label.register {
     font-weight: 500;
 }
 
-#infotorneo .contentInfo h4 {
+#infotorneo .contentInfo .head {
+    margin-bottom: 4px;
+    font-size: 20px;
     letter-spacing: 1.2px;
     color: #4a4a4a;
 }
 
 #infotorneo .contentInfo p {
-    font-size: 18px;
-    color: #2F2D2D;
+    font-size: 24px;
     word-spacing: 0.5px;
-    color: #4a4a4a;
+    color: #0077aa;
 }
 
 .btnIscriviti {
