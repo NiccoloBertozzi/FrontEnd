@@ -105,7 +105,7 @@
                     <label for="lblDataAffiliazione" class="col-form-label">Data Affiliazione</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" type="text" class="form-control" ID="dataAffiliazione" placeholder="Data Affiliazione"></asp:TextBox>
+                    <asp:TextBox runat="server"  class="form-control" ID="dataAffiliazione" placeholder="Data Affiliazione"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-lg-4 mb-2">
