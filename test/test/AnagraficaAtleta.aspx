@@ -65,7 +65,7 @@
                 <div class="row mt-4">
                     <div class="col-md-8 offset-md-2 col-sm-12 contentInfo">
                         <asp:PlaceHolder runat="server" ID="anagraficaAtleta"></asp:PlaceHolder>
-                        <div class="row justify-content-left my-4">
+                        <div class="row justify-content-center my-4">
                             <asp:Button runat="server" CssClass="btn btn-primary" OnClick="ModificaAnagrafica_Click" Text="Modifica anagrafica" />
                         </div>
                     </div>
