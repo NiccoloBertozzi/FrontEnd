@@ -15,7 +15,7 @@
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky-top" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
                 <span class="sr-only">Toggle navigation</span>

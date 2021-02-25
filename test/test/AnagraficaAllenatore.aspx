@@ -24,7 +24,7 @@
         </script>
 </head>
 <body>
-    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky-top" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
                 <span class="sr-only">Toggle navigation</span>
@@ -69,9 +69,17 @@
         <h1 class=" col-12 text-center my-auto banner">Anagrafica Allenatore</h1>
     </div>
     <form id="formComponentiSocieta" runat="server">
-        <div class="card-container mr-3 ml-3 mt-3">
-            <asp:PlaceHolder runat="server" ID="anagraficaAllenatore"></asp:PlaceHolder>
-            <asp:Button runat="server" OnClick="ModificaAnagrafica_Click" Text="Modifica anagrafica" />
+        <div class="container">
+            <div class="card-container mr-3 ml-3 mt-3">
+                <div class="row mt-4">
+                    <div class="col-md-8 offset-md-2 col-sm-12 mb-3 contentInfo">
+                        <asp:PlaceHolder runat="server" ID="anagraficaAllenatore"></asp:PlaceHolder>
+                        <div class="row justify-content-center my-4">
+                            <asp:Button runat="server" CssClass="btn btn-primary" OnClick="ModificaAnagrafica_Click" Text="Modifica anagrafica" />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <script src="Scripts/jquery-3.4.1.min.js "></script>
         <script src="Scripts/bootstrap.min.js "></script>

@@ -144,6 +144,9 @@
                                     <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
                                         <a class="dropdown-item" href="#" onclick="LoadClassificaMaschile();">Classifica Maschile</a>
                                         <a class="dropdown-item" href="#" onclick="LoadClassificaFemminile();">Classifica Femminile</a>
+                                        <a class="dropdown-item" href="OutputTorneiCategoria?tipo=1">L1</a>
+                                        <a class="dropdown-item" href="OutputTorneiCategoria?tipo=2">L2</a>
+                                        <a class="dropdown-item" href="OutputTorneiCategoria?tipo=3">L3</a>
                                     </div>
                                 </div>
                             </li>
@@ -167,8 +170,8 @@
             </div>
         </nav>
         <!--Banner-->
-        <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Elenco Iscrizioni</h1>
+        <div class="row mt-3 mb-3">
+            <h1 class=" col-12 text-center my-auto banner">Elenco Iscrizioni</h1>
         </div>
         <form id="formComponentiSocieta" runat="server">
             <div class="container">
