@@ -39,43 +39,49 @@
         </div>
     </nav>
 
-    <!--BANNER-->
-    <div class="row mt-3 mb-3">
-        <h1 class=" col-12 text-center my-auto banner">Login</h1>
-    </div>
-
     <!--FORM-->
-    <div class="container">
-        <form id="form1" runat="server">
-            <div class="row mt-lg-4">
-                <div class="col-sm-12 col-lg-6">
-                    <label for="Email" class="col-form-label">Email</label>
+    <div class="container-fluid conCenter">
+            <div class="boxlogin mx-auto mb-3">
+                <form id="form1" runat="server">
+                <div class="row mt-3 mb-3 p-3">
+                    <h1 class=" col-12 text-center my-auto banner">Accedi</h1>
                 </div>
-                <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" ID="email" CssClass="form-control" TextMode="Email" placeholder="Email" required="true"></asp:TextBox>
+                <div class="row px-4 pt-2">
+                    <div class="col-12">
+                        <label for="Email" class="col-form-label">Email</label>
+                    </div>
+                </div>
+                <div class="row px-4 py-1">
+                    <div class="col-12">
+                        <asp:TextBox runat="server" ID="email" CssClass="form-control" TextMode="Email" placeholder="Email" required="true"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="row mt-2 px-4 py-1">
+                    <div class="col-12">
+                        <label for="PWD" class="col-form-label">Password</label>
+                    </div>
+                </div>
+                <div class="row px-4 pb-2">
+                    <div class="col-12">
+                        <asp:TextBox runat="server" ID="PWD" CssClass="form-control" TextMode="Password" placeholder="Password" required="true"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="row mt-2 py-1">
+                    <asp:Button runat="server" ID="Accedi" CssClass="btnLogin mx-auto" OnClick="btn_accedi_Click" Text="Accedi" />
+                </div>
+                <div class="row px-4 py-1">
+                    <div class="col-12 text-center">
+                        <asp:LinkButton runat="server" ID="pswdimenticata" OnClick="LabelRecovery_Click" Text="Password Dimenticata? Recupera la password"></asp:LinkButton>
+                    </div>
+                </div>
+                <div class="row py-1">
+                    <p class="mx-auto my-auto">oppure</p>
+                </div>
+                </form>
+                <div class="row pb-3 pt-1">
+                    <a href="Register.aspx?ruolo=Atleta" class="btnRegister mx-auto">Registrati</a>
                 </div>
             </div>
-            <div class="row mt-lg-4">
-                <div class="col-sm-12 col-lg-6">
-                    <label for="PWD" class="col-form-label">Password</label>
-                </div>
-                <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" ID="PWD" CssClass="form-control" TextMode="Password" placeholder="Password" required="true"></asp:TextBox>
-                </div>
-            </div>
-            <div class="row my-lg-4 my-2 justify-content-center">
-                <asp:LinkButton runat="server" ID="pswdimenticata" OnClick="LabelRecovery_Click" Text="Password Dimenticata? Recupera la password"></asp:LinkButton>
-            </div>
-            <div class="row">
-                <asp:Button runat="server" ID="Accedi" CssClass="btnLogin mx-auto" OnClick="btn_accedi_Click" Text="Accedi" />
-            </div>
-            <div class="row">
-                <p class="mx-auto my-auto p-3">oppure</p>
-            </div>
-        </form>
-        <div class="row">
-            <a href="Register.aspx?ruolo=Atleta" class="btnRegister mx-auto">Registrati</a>
-        </div>
     </div>
 
     <script src="Scripts/jquery-3.4.1.min.js "></script>

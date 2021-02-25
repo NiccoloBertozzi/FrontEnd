@@ -9,34 +9,65 @@
     <title>Partite torneo</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
-    <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v9.0" nonce="ekmMNXcv"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script>
+        $(document).ready(function () {
+            var token = '<%= Session["Token"] %>';
+            var parametri = new URLSearchParams(window.location.search);
+            var id = parametri.get('id');
+            var settings = {
+                "url": "https://aibvcapi.azurewebsites.net/api/v1/tornei/GetPartiteTorneo/" + id,
+                "method": "GET",
+                "timeout": 0,
+                "withCredentials": true,
+                "headers": {
+                    "Authorization": "Bearer " + token
+                },
+            };
+            $.ajax(settings).done(function (response) {
+                $('#tabella').empty();
+                response.forEach(function (dati) {
+                    $('#tabella').append("<tr id=" + dati.numPartita + "><td>" + (formatDate(dati.dataPartita)) + "</td><td>" + dati.fase + "</td><td>" + dati.nomeTeam +"-"+dati.nomeTeam1+"</td><td>" + dati.risultato + "</td></tr>");
+                });
+                $('#data-table').DataTable({
+                    "search": {
+                        "caseInsensitive": false
+                    },
+                    responsive: true,
+                    "order": [
+                        [0, "asc"]
+                    ]
+                });
+            });
+            $('#data-table tbody').on("click", "tr", function () {
+                <%Session["IdTorneo"] = HiddenField1.Value; %>
+                window.location = "InfoPartita.aspx?id=" + id + "&partita=" + $(this).attr("id");
+            });
+        });
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2)
+                month = '0' + month;
+            if (day.length < 2)
+                day = '0' + day;
+
+            return [day, month, year].join('-');
+        }
         function DivClicked() {
             var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
             form1.HiddenField1.value = arguments[0];
             clickArea_Click.click();
         }
-        function LoadPage() {
-            window.location = "OutputTorneiNonAutorrizati.aspx";
-        }
-        function LoadPageDelegati() {
-            window.location = "OutputTorneiDelegato.aspx";
-        }
-        function LoadPageIscritti() {
-            window.location = "OutputTorneiIscritti.aspx";
-        }
-        function LoadCreaTorneo() {
-            window.location = "CreaTorneo.aspx";
-        }
-        function LoadClassificaMaschile() {
-            window.location = "OutputClassifica.aspx?genere=M";
-        }
-        function LoadClassificaFemminile() {
-            window.location = "OutputClassifica.aspx?genere=F";
-        }
         function LoadLogin() {
-            window.location = "Login.aspx";
+            var id = '<%= Session["IdUtente"] %>';
+            if (id != "") window.location = "Login.aspx?change=1";
+            else window.location = "Login.aspx";
         }
     </script>
 </head>
@@ -48,7 +79,7 @@
                 <i class="fas fa-bars" style="color: white;"></i>
             </button>
             <img src="Img/aibvc-logo.png" style="width: 94px;">
-            <div class="collapse navbar-collapse row" id="navcol-1">
+             <div class="collapse navbar-collapse row" id="navcol-1">
                 <div class="col-md-11 col-sm-12">
                     <ul class="nav navbar-nav ml-5" id="myNavUl">
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="OutputTornei.aspx">Home</a></li>
@@ -56,17 +87,19 @@
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AIBVC Tour</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#" onclick="LoadClassificaMaschile();">Classifica Maschile</a>
-                                    <a class="dropdown-item" href="#" onclick="LoadClassificaFemminile();">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="OutputClassifica.aspx?genere=M">Classifica Maschile</a>
+                                    <a class="dropdown-item" href="OutputClassifica.aspx?genere=F">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=1">L1</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=2">L2</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=3">L3</a>
                                 </div>
                             </div>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <div class="dropdown show">
+                            <div class="dropdown show" id="organizzazione">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
-                                    <a class="dropdown-item" href="visualizzaComponentiSocieta.aspx">Elenco tesserati</a>
+                                    <a id="anagrafica" class="dropdown-item" href="AnagraficaDelegato.aspx">Anagrafica</a>
                                 </div>
                             </div>
                         </li>
@@ -74,37 +107,35 @@
                     </ul>
                 </div>
                 <div class="col-1">
-                    <asp:PlaceHolder runat="server" ID="AccediBtn"></asp:PlaceHolder>
+                    <button type="button" id="btnlogin" class="btn btn-light" onclick="LoadLogin();">Logout</button>
                 </div>
             </div>
         </div>
     </nav>
     <form id="form1" runat="server">
-        <asp:Button runat="server" ID="btnTorneo" Style="display: none" OnClick="clickArea_Click" ClientIDMode="Static" />
+        <asp:Button runat="server" ID="btnTorneo" Style="display: none" ClientIDMode="Static" />
         <asp:HiddenField ID="HiddenField1" runat="server" />
         <!--Banner-->
         <div class="row mt-3 mb-3">
             <h1 class=" col-12 text-center my-auto banner">Tornei</h1>
         </div>
-
-        <div class="container">
-            <!--CERCA-->
-            <div class="searchBox mx-2 my-2">
-                <input class="searchInput" type="text" name="" placeholder="Cerca">
-                <button class="searchButton">
-                    <i class=" fas fa-search"></i>
-                </button>
+<div class="card-container ml-5 mr-5 mx-auto" id="myContentOutputTornei">
+            <div class="table-responsive">
+                <table id="data-table" class="table table-striped table-hover">
+                    <thead>
+                        <tr class="table-primary">
+                            <th>Data Partita</th>
+                            <th>Fase</th>
+                            <th>Gara</th>
+                            <th>Risultato</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabella" class="pointer">
+                    </tbody>
+                </table>
             </div>
-            <!--Partite-->
-            <div class="card-deck">
-                <div class="card-container mr-3 ml-3 mt-3">
-                    <div class="row">
-                        <asp:PlaceHolder runat="server" ID="partiteList"></asp:PlaceHolder>
-                    </div>
-                </div>
-            </div>
+            <br>
         </div>
-        <script src="Scripts/jquery-3.4.1.min.js "></script>
         <script src="Scripts/bootstrap.min.js "></script>
     </form>
 </body>
