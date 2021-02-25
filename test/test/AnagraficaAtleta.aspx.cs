@@ -62,7 +62,7 @@ namespace test
 
         protected string getLabel(int c)
         {
-            string[] testi = { "Nome", "Cognome", "Codice Tessera", "Nome Societa", "Sesso", "CF", "Data di Nascita", "Comune di Nascita", "Comune di Residenza", "Indirizzo", "Codice Postale (CAP)", "Email", "Telefono", "Altezza", "Peso", "Scadenza Certificato" };
+            string[] testi = { "Nome:", "Cognome:", "Codice Tessera:", "Nome Societa:", "Sesso:", "CF:", "Data di Nascita:", "Comune di Nascita:", "Comune di Residenza:", "Indirizzo:", "Codice Postale (CAP):", "Email:", "Telefono:", "Altezza:", "Peso:", "Scadenza Certificato:" };
             return ("<label class='col-md-4 offset-md-2 my-auto'>" +testi[c]+ "</label>");
         }
 

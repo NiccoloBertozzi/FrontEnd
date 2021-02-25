@@ -63,7 +63,7 @@
         <div class="container">
             <div class="mr-3 ml-3 mt-3 mb-5">
                 <div class="row mt-4">
-                    <div class="col-md-8 offset-md-2 col-sm-12 contentInfo">
+                    <div class="col-md-8 offset-md-2 col-sm-12 mb-3 contentInfo">
                         <asp:PlaceHolder runat="server" ID="anagraficaSocieta"></asp:PlaceHolder>
                         <div class="row justify-content-center my-4">
                             <asp:Button runat="server" OnClick="ModificaAnagraficaSocieta_Click" Text="Modifica anagrafica" class="btn btn-primary" />
@@ -74,8 +74,6 @@
         </div>
         <script src="Scripts/jquery-3.4.1.min.js "></script>
         <script src="Scripts/bootstrap.min.js "></script>
-
     </form>
-
 </body>
 </html>
