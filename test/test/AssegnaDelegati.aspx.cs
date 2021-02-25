@@ -149,7 +149,7 @@ namespace test
             IRestResponse response = client.Execute(request);
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                Response.Redirect("InfoTorneo.aspx"); //rimanda alla form 'output tornei'
+                Response.Redirect("OutputTornei.aspx"); //rimanda alla form 'output tornei'
             }
         }
     }

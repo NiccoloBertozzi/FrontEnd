@@ -10,11 +10,142 @@
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="Scripts/jquery-dateformat.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script>
+        $(document).ready(function () {
+            var token = '<%= Session["Token"] %>';
+            var delegato = '<%= Session["IdUtente"] %>';
+            var settings = {
+                "url": "https://aibvcapi.azurewebsites.net/api/v1/tornei/GetTorneiSvoltiBySupervisore/"+delegato,
+                "method": "GET",
+                "timeout": 0,
+                "withCredentials": true,
+                "headers": {
+                    "Authorization": "Bearer " + token
+                },
+            };
+            $.ajax(settings).done(function (response) {
+                $('#tabella').empty();
+                response.forEach(function (dati) {
+                    $('#tabella').append("<tr id=" + dati.idTorneo + "><td>" + (formatDate(dati.dataInizio)) + "</td><td>" + (dati.nomeImpianto) + "</td><td>" + (dati.nomeSocieta) + "</td><td>" + (dati.gender) + "</td><td>" + (dati.outdoor ? "indoor" : "outdoor") + "</td><td>" + (dati.montepremi) + "€</td><td>" + (dati.tipoTorneo) + "</td><td>" + (dati.formula) + "</td><td>" + (dati.oraInizio) + "</td><td>" + (dati.numMaxTeamMainDraw) + "</td><td>" + formatDate(dati.dataChiusuraIscrizioni) + "</td><td>" + (dati.oraInizio) + "</td></tr>");
+                });
+                $('#data-table').DataTable({
+                    "search": {
+                        "caseInsensitive": false
+                    },
+                    responsive: true,
+                    "order": [
+                        [0, "asc"]
+                    ]
+                });
+            });
+            var sesso_status = false;
+            $('input[name="gender"]').click(function () {
+                if (!sesso_status) {
+                    $('#data-table tbody tr').get().map(function (row) {
+                        if (row.children[3].innerHTML != $('input[name="gender"]:checked').val()) {
+                            var index = row.rowIndex;
+                            $("#tabella tr:nth-of-type(" + index + ")").hide();
+                            sesso_status = true;
+                        }
+                    });
+                } else {
+                    sesso_status = false;
+                    $('#reset').click();
+                }
+            });
+            $('#categoria').change(function () {
+                if ($("#categoria").val() != "All") {
+                    //createTable();
+                    $('#data-table tbody tr').get().map(function (row) {
+                        if (row.children[6].innerHTML != $("#categoria").val()) {
+                            var index = row.rowIndex;
+                            $("#tabella tr:nth-of-type(" + index + ")").hide();
+                        } else {
+                            var index = row.rowIndex;
+                            $("#tabella tr:nth-of-type(" + index + ")").show();
+                        }
+                    });
+                } else $('#reset').click();
+            });
+            $('#reset').click(function () {
+                $("#Range").val(5000);
+                $("#valuenb").val(5000);
+                $('#data-table tbody tr').get().map(function (row) {
+                    var index = row.rowIndex;
+                    $("#tabella tr:nth-of-type(" + index + ")").show();
+                });
+            });
+            $('#data-table tbody').on("click", "tr", function () {
+                <%Session["IdTorneo"] = HiddenField1.Value; %>
+                window.location = "InfoTorneo.aspx?id=" + $(this).attr("id");
+            });
+
+            $("#valuenb").change(function () {
+                $("#Range").val($("#valuenb").val());
+                $('#data-table tbody tr').get().map(function (row) {
+                    var index = row.rowIndex;
+                    var price = row.children[5].innerHTML;
+                    price = price.replace("€", "");
+                    if (parseFloat(price) < parseFloat($("#Range").val())) {
+                        var index = row.rowIndex;
+                        $("#data-table tbody tr:nth-of-type(" + index + ")").hide();
+                    } else {
+                        var index = row.rowIndex;
+                        $("#data-table tbody tr:nth-of-type(" + index + ")").show();
+                    }
+                });
+            });
+            $("#Range").change(function () {
+                $("#valuenb").val($("#Range").val());
+                $('#data-table tbody tr').get().map(function (row) {
+                    var index = row.rowIndex;
+                    var price = row.children[5].innerHTML;
+                    price = price.replace("€", "");
+                    if (parseFloat(price) < parseFloat($("#Range").val())) {
+                        $("#data-table tbody tr:nth-of-type(" + index + ")").hide();
+                    } else {
+                        $("#data-table tbody tr:nth-of-type(" + index + ")").show();
+                    }
+                });
+            });
+            $('.dropdown-menu').on('click', function (event) {
+                event.stopPropagation();
+            });
+            $('body').on('click', function (event) {
+                var target = $(event.target);
+                if (target.parents('.bootstrap-select').length) {
+                    event.stopPropagation();
+                    $('.bootstrap-select.open').removeClass('open');
+                }
+            });
+        });
+        function formatDate(date) {
+            var d = new Date(date),
+                month = '' + (d.getMonth() + 1),
+                day = '' + d.getDate(),
+                year = d.getFullYear();
+
+            if (month.length < 2)
+                month = '0' + month;
+            if (day.length < 2)
+                day = '0' + day;
+
+            return [day, month, year].join('-');
+        }
         function DivClicked() {
             var clickArea_Click = $('#<%= btnTorneo.ClientID %>');
             form1.HiddenField1.value = arguments[0];
             clickArea_Click.click();
+        }
+        function LoadLogin() {
+            var id = '<%= Session["IdUtente"] %>';
+            if (id != "") window.location = "Login.aspx?change=1";
+            else window.location = "Login.aspx";
         }
     </script>
 </head>
@@ -46,7 +177,7 @@
                             <div class="dropdown show" id="organizzazione">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a id="anagrafica" class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
+                                    <a id="anagrafica" class="dropdown-item" href="AnagraficaDelegato.aspx">Anagrafica</a>
                                 </div>
                             </div>
                         </li>
@@ -54,7 +185,7 @@
                     </ul>
                 </div>
                 <div class="col-1">
-                    <asp:PlaceHolder runat="server" ID="AccediBtn"></asp:PlaceHolder>
+                    <button type="button" id="btnlogin" class="btn btn-light" onclick="LoadLogin();">Log out</button>
                 </div>
             </div>
         </div>
@@ -66,25 +197,70 @@
         <div class="row mt-3 mb-3">
             <h1 class=" col-12 text-center my-auto banner">I tuoi tornei</h1>
         </div>
-
-        <div class="container">
-            <!--CERCA-->
-            <div class="searchBox mx-2 my-2">
-                <input class="searchInput" type="text" name="" placeholder="Cerca">
-                <button class="searchButton" href="#">
-                    <i class=" fas fa-search"></i>
-                </button>
-            </div>
-            <!--Tornei-->
-            <div class="card-deck">
-                <div class="card-container mr-3 ml-3 mt-3">
-                    <div class="row">
-                        <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>
+        <div class="card-container ml-5 mr-5 mx-auto" id="myContentOutputTornei">
+            <div class="row">
+                <div class="col-md-5 col-sm-12">
+                    <div class="row justify-content-center">
+                        <div class="col-3">
+                            <label class="my-1">Montepremi:</label>
+                        </div>
+                        <div class="col-5">
+                            <input type="range" class="form-range my-2" min="1000" max="5000" step="50" id="Range">
+                        </div>
+                        <div class="col-4">
+                            <input type="number" min="1000" max="5000" step="50" class="form-control form-control-sm" id="valuenb" aria-describedby="value">
+                        </div>
                     </div>
                 </div>
+                <div class="col-md-5 col-sm-9">
+                    <div class="row">
+                        <div class="col-3">
+                            <label>Genere:</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="custom-control custom-switch">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <input type="checkbox" class="custom-control-input" value="M" name="gender" id="m">
+                                        <label class="custom-control-label" for="m">M</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="checkbox" class="custom-control-input" value="F" name="gender" id="f">
+                                        <label class="custom-control-label" for="f">F</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-sm-3">
+                    <button type="button" id="reset" class="btn btn-danger mb-2">Reset</button>
+                </div>
             </div>
+            <div class="table-responsive">
+                <table id="data-table" class="table table-striped table-hover">
+                    <thead>
+                        <tr class="table-primary">
+                            <th>DataInizio</th>
+                            <th>Localita</th>
+                            <th>Promoter</th>
+                            <th>Genere</th>
+                            <th>Tipo</th>
+                            <th>Montepremi</th>
+                            <th>Formula</th>
+                            <th>Formula</th>
+                            <th>Ora Inizio</th>
+                            <th>N.Coppie</th>
+                            <th>Scadenza Iscrizioni</th>
+                            <th>Pubblicazione lista</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabella" class="pointer">
+                    </tbody>
+                </table>
+            </div>
+            <br>
         </div>
-        <script src="Scripts/jquery-3.4.1.min.js "></script>
         <script src="Scripts/bootstrap.min.js "></script>
     </form>
 </body>
