@@ -37,7 +37,7 @@ namespace test
                         StringBuilder table = new StringBuilder();
                         table.Clear();
                         dinamicload.Controls.Add(new Literal { Text = table.ToString() });
-                        table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active pointer\" onclick=\"LoadCreaTorneo(); \">CreaTorneo</a></li>");
+                        table.Append("<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link active pointer\" onclick=\"LoadCreaTorneo(); \">Crea Torneo</a></li>");
                         dinamicload.Controls.Add(new Literal { Text = table.ToString() });
                     }
                 } 

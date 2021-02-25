@@ -473,7 +473,7 @@
                             </div>
                         </div>
                     </div>
-        <div class="ml-5 mr-5 mx-auto" id="myContentOutputTornei">
+        <div class="ml-5 mr-5 mx-auto mb-5" id="myContentOutputTornei">
             <div id="iscritti">
                 <div class="row">
                     <h2 class=" col-12 text-center">Tornei iscritti</h2>

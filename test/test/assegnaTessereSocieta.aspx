@@ -60,7 +60,7 @@
     <!--Form Assegna Tessere-->
     
         <div class="container">
-            <div class="mr-3 ml-3 mt-3 mx-auto">
+            <div class="mr-3 ml-3 mt-3 mb-5">
                 <form id="form1" runat="server">
                 <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>
                 <!--<asp:Label runat="server" text="Assegnazione Tessere"></asp:Label> <br />-->

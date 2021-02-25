@@ -59,7 +59,7 @@
             <h1 class=" col-12 text-center my-auto banner">Elimina squadra dal torneo</h1>
         </div>
         <div class="container form-group">
-            <div class="mr-3 ml-3 mt-3">
+            <div class="mr-3 ml-3 mt-3 mb-5">
                <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
                 <div class="row justify-content-center">
                 <asp:Button ID="btnelimina" runat="server" Text="Cancella squadra" OnClick="btnelimina_Click" CssClass="btn btn-primary" />

@@ -62,7 +62,7 @@
         </div>
         <div class="container">
            <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>
-           <div class="mr-3 ml-3 mt-3">
+           <div class="mr-3 ml-3 mt-3 mb-5">
                 <div class="form-group">
                    <label for="Supervisore">Assegna Supervisori</label><br />
                    <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbSupervisori" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="Supervisore_TextChanged"/>

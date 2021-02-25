@@ -61,7 +61,7 @@
     </div>
         <form id="formComponentiDelegato" runat="server">
          <div class="container">
-             <div class="mr-3 ml-3 mt-3">
+             <div class="mr-3 ml-3 mt-3 mb-5">
                  <div class="row mt-4">
                     <div class="col-md-8 offset-md-2 col-sm-12 contentInfo">
                         <asp:PlaceHolder runat="server" ID="anagraficaDelegato"></asp:PlaceHolder>

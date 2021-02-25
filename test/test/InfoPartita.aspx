@@ -104,7 +104,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mr-3 ml-3 mt-3">
+            <div class="mr-3 ml-3 mt-3 mb-5">
                 <div class="row m-0">
                     <div class="col-12 text-right">
                         <asp:Button ID="partite" runat="server" Text="Modifica partita" Visible="false" OnClick="partite_Click" CssClass="btn btn-primary mr-3" />

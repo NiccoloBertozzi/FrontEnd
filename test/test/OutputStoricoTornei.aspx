@@ -77,7 +77,7 @@
             </div>
             <!--Tornei-->
             <h2 class=" col-12 text-center">Tornei</h2>
-            <div class="mr-3 ml-3 mt-3">
+            <div class="mr-3 ml-3 mt-3 mb-5">
                 <div class="card-deck">
                     <div class="row">
                         <asp:PlaceHolder runat="server" ID="torneilist"></asp:PlaceHolder>

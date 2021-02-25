@@ -108,7 +108,7 @@
         </div>
         <!--Tabella-->
         <div class="container">
-            <div class="mr-3 ml-3 mt-3">
+            <div class="mr-3 ml-3 mt-3 mb-5">
                 <div>
                     <table id="data-table" class="table table-striped overflow-auto">
                         <thead>

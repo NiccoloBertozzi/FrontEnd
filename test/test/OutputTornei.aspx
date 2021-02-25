@@ -231,7 +231,7 @@
             <h1 class=" col-12 text-center my-auto banner">Tornei</h1>
         </div>
 
-        <div class="ml-5 mr-5 mx-auto" id="myContentOutputTornei">
+        <div class="ml-5 mr-5 mx-auto mb-5" id="myContentOutputTornei">
             <div class="row">
                 <div class="col-md-5 col-sm-12">
                     <div class="row d-flex flex-row">

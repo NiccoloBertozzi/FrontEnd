@@ -59,7 +59,7 @@
             <h1 class=" col-12 text-center my-auto banner">Iscrizione squadra al torneo</h1>
         </div>
         <div class="container">
-            <div class="mr-3 ml-3 mt-3">
+            <div class="mr-3 ml-3 mt-3 mb-5">
                 <!-- Nome Team -->
                 <div class="form-group">
                     <label for="titoloTorneo" id="nometeam">Nome squadra</label>
