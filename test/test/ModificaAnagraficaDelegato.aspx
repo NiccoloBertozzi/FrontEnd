@@ -70,7 +70,7 @@
     </div>
     <form id="form1" runat="server">
         <div class="container">
-            <div class="card-container mr-3 ml-3 mt-3">
+            <div class="mr-3 ml-3 mt-3 mb-5">
                 <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
                     <label for="nome" class="col-form-label">Nome</label>

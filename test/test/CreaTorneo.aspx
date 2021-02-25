@@ -77,7 +77,7 @@
         </div>
         <!--Inserimento parametri-->
         <div class="container">
-            <div class="mr-3 ml-3 mt-3 card-container">
+            <div class="mr-3 ml-3 mt-3">
                 <div class="form-group">
                     <label for="lblTipoTorneo">Tipo Torneo: </label>
                     <asp:DropDownList ID="cmbTipoTorneo" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="cmbTipoTorneo_SelectedIndexChanged"></asp:DropDownList>

@@ -58,7 +58,7 @@
             <h1 class=" col-12 text-center my-auto banner">Gestisci partita</h1>
         </div>
         <div class="container">
-            <div class="card-container mr-3 ml-3 mt-3">
+            <div class="mr-3 ml-3 mt-3">
                 <div class="row mt-4">
                     <div class="col-md-6 col-sm-12 contentInfo">
                         <h2>Informazioni Torneo</h2>

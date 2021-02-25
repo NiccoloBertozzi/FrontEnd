@@ -67,7 +67,7 @@
             <h1 class=" col-12 text-center my-auto banner">Informazioni torneo</h1>
         </div>
         <div class="container" id="infotorneo">
-            <div class="card-container mr-3 ml-3 mt-3">
+            <div class="mr-3 ml-3 mt-3">
                 <div class="row mt-4 mb-3">
                     <div class="col-md-6 col-sm-12 contentInfo">
                         <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
