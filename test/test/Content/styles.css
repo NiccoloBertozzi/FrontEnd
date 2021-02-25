@@ -478,3 +478,11 @@ input[type="radio"] {
 .btnTorneiIscritti{
     width: 100px;
 }
+
+/*Info partita*/
+.punteggio {
+    font-family: "oswaldregular", "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 3rem;
+    line-height: 3rem;
+    color: #555;
+}
