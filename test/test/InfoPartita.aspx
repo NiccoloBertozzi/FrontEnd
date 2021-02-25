@@ -58,33 +58,33 @@
         <div class="row mt-3 mb-3">
             <h1 class=" col-12 text-center my-auto banner">Informazioni partita</h1>
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid mb-5">
             <div class="contentInfo m-3 p-2">
                 <div class="row col-12 m-0 p-1 text-center" style="background-color: #edebeb;">
                     <div class="col-4 align-self-center">
                         <div class="row">
-                            <div class="col-4 align-self-center text-left">
+                            <div class="col-lg-6 align-self-center text-left">
                                 <p runat="server" class="m-0 font-weight-bold" id="nomeT">
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4 text-center">
+                    <div class="col-4 align-self-center text-center">
                         <p class="m-0 font-weight-bold" runat="server" id="tipoT">
                         </p>
                     </div>
                     <div class="col-4 align-self-center" style="text-align-last: end;">
                         <div class="row justify-content-end">
-                            <div class="col-4 align-self-center text-left" runat="server" id="dataT">
+                            <div class="col-lg-6 align-self-center text-left" runat="server" id="dataT">
                             </div>
-                            <div class="col-4 align-self-center text-left" runat="server" id="oraT">
+                            <div class="col-lg-6 align-self-center text-left" runat="server" id="oraT">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row col-12 p-5 m-0 text-center">
+                <div class="row col-12 m-0 mb-1 mt-1 mb-lg-5 mt-lg-5 text-center">
                     <div class="col-lg-4 align-self-center">
-                        <h2 class="m-0 font-weight-bold" runat="server" id="team1"></h2>
+                        <h2 class="mb-4 mb-lg-0 mt-4 mt-lg-0 font-weight-bold" runat="server" id="team1"></h2>
                     </div>
                     <div class="col-lg-4">
                         <div class="row text-center">
@@ -100,14 +100,14 @@
                         </div>
                     </div>
                     <div class="col-lg-4 align-self-center">
-                        <h2 class="m-0 font-weight-bold" runat="server" id="team2"></h2>
+                        <h2 class="mb-4 mb-lg-0 mt-4 mt-lg-0 font-weight-bold" runat="server" id="team2"></h2>
                     </div>
                 </div>
             </div>
             <div class="card-container mr-3 ml-3 mt-3">
                 <div class="row m-0">
                     <div class="col-12 text-right">
-                        <asp:Button ID="partite" runat="server" Text="Modifica partita" Visible="false" OnClick="partite_Click" CssClass="btn btn-primary" />
+                        <asp:Button ID="partite" runat="server" Text="Modifica partita" Visible="false" OnClick="partite_Click" CssClass="btn btn-primary mr-3" />
                         <a id="back" class="btn btn-secondary" href="javascript:history.go(-1)">Indietro</a>
                     </div>
                 </div>
