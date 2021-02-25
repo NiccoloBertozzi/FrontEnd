@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky-top" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
                 <span class="sr-only">Toggle navigation</span>
@@ -63,8 +63,8 @@
     </nav>
     <form id="form1" runat="server">
         <!--Banner-->
-        <div class="page-title row">
-            <h1 class=" col-12 text-center my-auto">Informazioni torneo</h1>
+        <div class="row mt-3 mb-3">
+            <h1 class=" col-12 text-center my-auto banner">Informazioni torneo</h1>
         </div>
         <div class="container" id="infotorneo">
             <div class="card-container mr-3 ml-3 mt-3">
@@ -80,16 +80,22 @@
                             </div>
                         </div>
                         <div class="row my-3 justify-content-between">
-                            <div class="col-3">
-                                <asp:Button ID="autorizza" runat="server" Text="Autorizza torneo" Visible="false" OnClick="autorizza_Click" CssClass="btn btn-primary" />
+                            <div class="col-12">
+                                <asp:Button ID="autorizza" runat="server" Text="Autorizza torneo" Visible="false" OnClick="autorizza_Click" CssClass="btn btn-primary btn-block" />
                             </div>
-                            <div class="col-3">
-                                <asp:Button ID="partite" runat="server" Text="Visualizza partite" OnClick="partite_Click" CssClass="btn btn-primary" />
+                        </div>
+                        <div class="row my-3 justify-content-between">
+                            <div class="col-12">
+                                <asp:Button ID="partite" runat="server" Text="Visualizza partite" OnClick="partite_Click" CssClass="btn btn-primary btn-block btn-block" />
                             </div>
-                            <div class="col-3">
-                                <asp:Button ID="btnIscriviti" runat="server" Text="Iscrivi squadra" OnClick="btnIscriviti_Click" CssClass="btn btn-primary" />
+                        </div>
+                        <div class="row my-3 justify-content-between">
+                            <div class="col-12">
+                                <asp:Button ID="btnIscriviti" runat="server" Text="Iscrivi squadra" OnClick="btnIscriviti_Click" CssClass="btn btn-primary btn-block" />
                             </div>
-                            <div class="col-3">
+                        </div>
+                        <div class="row my-3 justify-content-between">
+                             <div class="col-3">
                                 <a id="back" class="btn btn-secondary" href="javascript:history.go(-1)">Indietro</a>
                             </div>
                         </div>
