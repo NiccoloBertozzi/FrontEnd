@@ -9,7 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="card-container mr-3 ml-3 mt-3">
+        <div class="mr-3 ml-3 mt-3 mb-5">
             <asp:PlaceHolder runat="server" ID="squadraInfo"></asp:PlaceHolder>
             <asp:Button runat="server" Text="Assegna WC" OnClick="AssegnaWC_Click"/>
             <asp:Button runat="server" Text="Cancella squadra" OnClick="EliminaSquadra_Click"/>

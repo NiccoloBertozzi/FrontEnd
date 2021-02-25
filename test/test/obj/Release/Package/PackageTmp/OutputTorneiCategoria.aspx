@@ -21,6 +21,7 @@
             var tipo = parametri.get('tipo');
             if (tipo != 1) {
                 $('#montepremi').hide();
+                $('#reset').hide();
             }
             var date = new Date();
             var settings = {
@@ -177,7 +178,7 @@
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky-top" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
                 <span class="sr-only">Toggle navigation</span>
@@ -226,7 +227,7 @@
         <div class="row mt-3 mb-3">
             <h1 class=" col-12 text-center my-auto banner">Tornei</h1>
         </div>
-        <div class="card-container ml-5 mr-5 mx-auto" id="myContentOutputTornei">
+        <div class="ml-5 mr-5 mx-auto mb-5" id="myContentOutputTornei">
             <div class="row">
                 <div id="montepremi" class="col-md-5 col-sm-12">
                     <div class="row justify-content-center">
@@ -262,7 +263,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2 col-sm-3">
+                <div id="reset" class="col-md-2 col-sm-3">
                     <button type="button" id="reset" class="btn btn-danger mb-2">Reset</button>
                 </div>
             </div>

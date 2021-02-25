@@ -72,7 +72,7 @@
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky-top" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
                 <span class="sr-only">Toggle navigation</span>
@@ -119,7 +119,7 @@
         <div class="row mt-3 mb-3">
             <h1 class=" col-12 text-center my-auto banner">Tornei</h1>
         </div>
-<div class="card-container ml-5 mr-5 mx-auto" id="myContentOutputTornei">
+        <div class="ml-5 mr-5 mx-auto mb-5" id="myContentOutputTornei">
             <div class="table-responsive">
                 <table id="data-table" class="table table-striped table-hover">
                     <thead>

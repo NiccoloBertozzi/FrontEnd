@@ -21,7 +21,7 @@
 
 <body>
     <!--Navigatore-->
-    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky-top" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
                 <span class="sr-only">Toggle navigation</span>
@@ -67,7 +67,7 @@
     </div>
 
     <div class="container">
-        <div class="card-container mr-3 ml-3 mt-3">
+        <div class="mr-3 ml-3 mt-3 mb-5">
             <form id="form1" runat="server">
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">

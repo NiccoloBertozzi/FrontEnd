@@ -417,7 +417,7 @@
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky-top" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
                 <span class="sr-only">Toggle navigation</span>
@@ -473,7 +473,7 @@
                             </div>
                         </div>
                     </div>
-        <div class="card-container ml-5 mr-5 mx-auto" id="myContentOutputTornei">
+        <div class="ml-5 mr-5 mx-auto mb-5" id="myContentOutputTornei">
             <div id="iscritti">
                 <div class="row">
                     <h2 class=" col-12 text-center">Tornei iscritti</h2>

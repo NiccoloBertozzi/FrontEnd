@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky-top" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
                 <span class="sr-only">Toggle navigation</span>
@@ -60,7 +60,7 @@
     <!--Form Assegna Tessere-->
     
         <div class="container">
-            <div class="card-container mr-3 ml-3 mt-3 mx-auto">
+            <div class="mr-3 ml-3 mt-3 mb-5">
                 <form id="form1" runat="server">
                 <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>
                 <!--<asp:Label runat="server" text="Assegnazione Tessere"></asp:Label> <br />-->

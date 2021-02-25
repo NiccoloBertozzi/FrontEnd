@@ -15,7 +15,7 @@
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky-top" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
                 <span class="sr-only">Toggle navigation</span>
@@ -62,7 +62,7 @@
         </div>
         <div class="container">
            <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>
-           <div class="mr-3 ml-3 mt-3 card-container">
+           <div class="mr-3 ml-3 mt-3 mb-5">
                 <div class="form-group">
                    <label for="Supervisore">Assegna Supervisori</label><br />
                    <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbSupervisori" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="Supervisore_TextChanged"/>

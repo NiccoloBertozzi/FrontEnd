@@ -12,9 +12,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="Scripts/jquery-dateformat.min.js"></script>
         <link href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
         <title>Componenti Societa</title>
         <script>
@@ -71,6 +69,17 @@
                 $('tbody').on("click", "tr", function() {
                     window.location = "AssegnaTessereSocieta.aspx";
                 });
+                $("#Atleti").show();
+                $("#Allenatori").hide();
+
+                $('#btnatleta').click(function () {
+                    $("#Atleti").show();
+                    $("#Allenatori").hide();
+                });
+                $('#btnallentaore').click(function () {
+                    $("#Atleti").hide();
+                    $("#Allenatori").show();
+                });
                 loginbtn();
                 societaload();
             });
@@ -123,11 +132,12 @@
                 if (id != "") window.location = "Login.aspx?change=1";
                 else window.location = "Login.aspx";
             }
+
         </script>
     </head>
 
     <body>
-        <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+        <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky-top" id="my-navbar">
             <div class="container-fluid">
                 <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
                 <span class="sr-only">Toggle navigation</span>
@@ -174,9 +184,17 @@
             <h1 class=" col-12 text-center my-auto banner">Elenco Iscrizioni</h1>
         </div>
         <form id="formComponentiSocieta" runat="server">
+                    <div class="row py-2">
+                        <div class="btn-toolbar mx-auto" role="toolbar">
+                            <div class="btn-group" role="group">
+                                <button type="button" id="btnatleta" class="btn btn-primary btnTorneiIscritti">Atleta</button>
+                                <button type="button" id="btnallentaore" class="btn btn-secondary btnTorneiIscritti">Allenatore</button>
+                            </div>
+                        </div>
+                    </div>
             <div class="container">
                 <br />
-                <div title="Allenatori">
+                <div title="Allenatori" id="Allenatori">
                     <asp:Label runat="server" ID="lblAllenatori" Text="Allenatori: "></asp:Label><br />
                     <asp:PlaceHolder runat="server" ID="visualizzaAllenatori"></asp:PlaceHolder>
                     <table id="data-table-allenatori" class="table table-striped overflow-auto">
@@ -192,7 +210,7 @@
                     </table>
                 </div>
                 <br />
-                <div title="Atleti">
+                <div title="Atleti" id="Atleti">
                     <asp:Label runat="server" ID="lblAtleti" Text="Atleti: "></asp:Label><br />
                     <table id="data-table-atleta" class="table table-striped overflow-auto">
                         <thead>
@@ -208,6 +226,7 @@
                 </div>
             </div>
             <script src="Scripts/bootstrap.min.js "></script>
+                    <script src="Scripts/main.js "></script>
         </form>
     </body>
 

@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky-top" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
                 <span class="sr-only">Toggle navigation</span>
@@ -59,7 +59,7 @@
             <h1 class=" col-12 text-center my-auto banner">Iscrizione squadra al torneo</h1>
         </div>
         <div class="container">
-            <div class="mr-3 ml-3 mt-3 card-container">
+            <div class="mr-3 ml-3 mt-3 mb-5">
                 <!-- Nome Team -->
                 <div class="form-group">
                     <label for="titoloTorneo" id="nometeam">Nome squadra</label>

@@ -61,7 +61,7 @@
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky-top" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
                 <span class="sr-only">Toggle navigation</span>
@@ -84,14 +84,6 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="nav-item" role="presentation">
-                            <div class="dropdown show" id="organizzazione">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
-                                <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a id="anagrafica" class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
-                                </div>
-                            </div>
-                        </li>
                         <asp:PlaceHolder runat="server" ID="dinamicload"></asp:PlaceHolder>
                     </ul>
                 </div>
@@ -108,7 +100,7 @@
         </div>
         <!--Tabella-->
         <div class="container">
-            <div class="mr-3 ml-3 mt-3 card-container">
+            <div class="mr-3 ml-3 mt-3 mb-5">
                 <div>
                     <table id="data-table" class="table table-striped overflow-auto">
                         <thead>

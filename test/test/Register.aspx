@@ -25,26 +25,6 @@
                 <div class="col-md-11 col-sm-12">
                     <ul class="nav navbar-nav ml-5" id="myNavUl">
                         <li class="nav-item" role="presentation"><a class="nav-link active" href="OutputTornei.aspx">Home</a></li>
-                        <li class="nav-item" role="presentation">
-                            <div class="dropdown show">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AIBVC Tour</a>
-                                <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="OutputClassifica.aspx?genere=M">Classifica Maschile</a>
-                                    <a class="dropdown-item" href="OutputClassifica.aspx?genere=F">Classifica Femminile</a>
-                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=1">L1</a>
-                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=2">L2</a>
-                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=3">L3</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <div class="dropdown show" id="organizzazione">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
-                                <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a id="anagrafica" class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
-                                </div>
-                            </div>
-                        </li>
                         <asp:PlaceHolder runat="server" ID="dinamicload"></asp:PlaceHolder>
                     </ul>
                 </div>

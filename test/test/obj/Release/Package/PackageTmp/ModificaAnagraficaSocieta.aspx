@@ -11,7 +11,7 @@
 </head>
 <body>
     <!--Navigatore-->
-    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky-top" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
                 <span class="sr-only">Toggle navigation</span>
@@ -57,7 +57,7 @@
     </div>
 
     <div class="container">
-        <div class="card-container mr-3 ml-3 mt-3">
+        <div class="mr-3 ml-3 mt-3 mb-5">
             <form id="form1" runat="server">
             <div class="row mt-lg-4">
                 <div class="col-sm-12 col-lg-6">
@@ -110,10 +110,10 @@
             </div>
             <div class="row mt-lg-4 mb-2">
                 <div class="col-sm-12 col-lg-6">
-                    <label for="lblcodiceAffiliazione" class="col-form-label">CodiceAffiliazione</label>
+                    <label for="lblcodiceAffiliazione" class="col-form-label">Codice Affiliazione</label>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                    <asp:TextBox runat="server" type="text" class="form-control" ID="codiceAffiliazione" placeholder="Codice Affiliazione"></asp:TextBox>
+                    <asp:TextBox runat="server" type="text" class="form-control" ID="codiceAffiliazione" MaxLength="10" placeholder="Codice Affiliazione"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-lg-4 mb-2">
@@ -186,6 +186,22 @@
                 </div>
                 <div class="col-sm-12 col-lg-6">
                     <asp:TextBox runat="server" type="text" class="form-control " ID="CU" placeholder="Certificazione Unica"></asp:TextBox>
+                </div>
+            </div>
+            <div class="row mt-lg-4">
+                <div class="col-sm-12 col-lg-6">
+                    <label for="lblPresidente" class="col-form-label ">Presidente</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:TextBox runat="server" type="text" class="form-control " ID="presidente" placeholder="Presidente"></asp:TextBox>
+                </div>
+            </div>
+                <div class="row mt-lg-4">
+                <div class="col-sm-12 col-lg-6">
+                    <label for="lblReferente" class="col-form-label ">Referente</label>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <asp:TextBox runat="server" type="text" class="form-control " ID="referente" placeholder="Referente"></asp:TextBox>
                 </div>
             </div>
             <div class="row">
