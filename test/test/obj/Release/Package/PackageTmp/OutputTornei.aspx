@@ -10,19 +10,15 @@
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v9.0" nonce="ekmMNXcv"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="Scripts/jquery-dateformat.min.js"></script>
     <link href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function () {
-            var date = new Date();
             var settings = {
-                "url": "https://aibvcapi.azurewebsites.net/api/v1/tornei/GetTornei/" + jQuery.format.date(date, "yyyy-MM-dd"),
+                "url": "https://aibvcapi.azurewebsites.net/api/v1/tornei/GetTornei",
                 "method": "GET",
                 "timeout": 0,
                 "withCredentials": true,
@@ -31,8 +27,8 @@
             $.ajax(settings).done(function (response) {
                 $('#tabella').empty();
                 response.forEach(function (dati) {
-                    $('#tabella').append("<tr id=" + dati.idTorneo + "><td>" + (formatDate(dati.dataInizio)) + "</td><td>" + (dati.nomeImpianto) + "</td><td>" + (dati.nomeSocieta) + "</td><td>" + (dati.gender) + "</td><td>" + (dati.outdoor ? "indoor" : "outdoor") + "</td><td>" + (dati.montepremi) + "€</td><td>" + (dati.tipoTorneo) + "</td><td>" + (dati.formula) + "</td><td>" + (dati.oraInizio) + "</td><td>" + (dati.numMaxTeamMainDraw) + "</td><td>" + formatDate(dati.dataChiusuraIscrizioni) + "</td><td>" + (dati.oraInizio) + "</td></tr>");
-                });
+                        $('#tabella').append("<tr id=" + dati.idTorneo + "><td>" + (formatDate(dati.dataInizio)) + "</td><td>" + (dati.nomeImpianto) + "</td><td>" + (dati.nomeSocieta) + "</td><td>" + (dati.gender) + "</td><td>" + (dati.outdoor ? "indoor" : "outdoor") + "</td><td>" + (dati.montepremi) + "€</td><td>" + (dati.tipoTorneo) + "</td><td>" + (dati.formula) + "</td><td>" + (dati.oraInizio) + "</td><td>" + (dati.numMaxTeamMainDraw) + "</td><td>" + formatDate(dati.dataChiusuraIscrizioni) + "</td><td>" + (dati.oraInizio) + "</td></tr>");
+                    });
                 $('#data-table').DataTable({
                     "search": {
                         "caseInsensitive": false
@@ -235,7 +231,7 @@
             <h1 class=" col-12 text-center my-auto banner">Tornei</h1>
         </div>
 
-        <div class="container">
+        <div class="card-container ml-5 mr-5 mx-auto" id="myContentOutputTornei">
             <div class="row">
                 <div class="col-md-5 col-sm-12">
                     <div class="row justify-content-center">
@@ -259,11 +255,11 @@
                             <div class="custom-control custom-switch">
                                 <div class="row">
                                     <div class="col-3">
-                                        <input type="checkbox" class="custom-control-input" value="M" name="gender" id="m" checked>
+                                        <input type="checkbox" class="custom-control-input" value="M" name="gender" id="m">
                                         <label class="custom-control-label" for="m">M</label>
                                     </div>
                                     <div class="col-3">
-                                        <input type="checkbox" class="custom-control-input" value="F" name="gender" id="f" checked>
+                                        <input type="checkbox" class="custom-control-input" value="F" name="gender" id="f">
                                         <label class="custom-control-label" for="f">F</label>
                                     </div>
                                 </div>
@@ -275,28 +271,30 @@
                     <button type="button" id="reset" class="btn btn-danger mb-2">Reset</button>
                 </div>
             </div>
-            <table id="data-table" class="table table-striped overflow-auto table-hover">
-                <thead>
-                    <tr class="table-primary">
-                        <th>DataInizio</th>
-                        <th>Localita</th>
-                        <th>Promoter</th>
-                        <th>Genere</th>
-                        <th>Tipo</th>
-                        <th>Montepremi</th>
-                        <th>Formula</th>
-                        <th>Formula</th>
-                        <th>Ora Inizio</th>
-                        <th>N.Coppie</th>
-                        <th>Scadenza Iscrizioni</th>
-                        <th>Pubblicazione lista</th>
-                    </tr>
-                </thead>
-                <tbody id="tabella">
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table id="data-table" class="table table-striped table-hover">
+                    <thead>
+                        <tr class="table-primary">
+                            <th>DataInizio</th>
+                            <th>Localita</th>
+                            <th>Promoter</th>
+                            <th>Genere</th>
+                            <th>Tipo</th>
+                            <th>Montepremi</th>
+                            <th>Formula</th>
+                            <th>Formula</th>
+                            <th>Ora Inizio</th>
+                            <th>N.Coppie</th>
+                            <th>Scadenza Iscrizioni</th>
+                            <th>Pubblicazione lista</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabella" class="pointer">
+                    </tbody>
+                </table>
+            </div>
+
             <br>
-        </div>
         </div>
         <script src="Scripts/bootstrap.min.js "></script>
     </form>

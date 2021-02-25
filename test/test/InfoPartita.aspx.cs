@@ -34,56 +34,20 @@ namespace test
             dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
             if (deserialzied != null)
             {
-                StringBuilder table = new StringBuilder();
-                StringBuilder table2 = new StringBuilder();
-                table.Clear();
-                table2.Clear();
-                torneiInfo.Controls.Add(new Literal { Text = table.ToString() });
-                torneiinfoset.Controls.Add(new Literal { Text = table2.ToString() });
                 for (int i = 0; i < deserialzied.Count; i++)
                 {
-                    if (deserialzied[i].numPartita == Request.QueryString["partita"])
+                    if (deserialzied[i].numPartita == numPartita)
                     {
-                        table.Append("<h2>Info Torneo</h2>" +
-                                            "<h3>Nome squadra 1</h3>" +
-                                            "<p>" + deserialzied[i].nomeTeam + "</p>" +
-                                            "<h3>Nome squadra 2</h3>" +
-                                            "<p>" + deserialzied[i].nomeTeam1 + "</p>" +
-                                            "<h3>Arbitro</h3>" +
-                                            "<p>" + deserialzied[i].arbitro1 + ", " + deserialzied[i].arbitro2 + "</p>" +
-                                            "<h3>Fase</h3>" +
-                                            "<p>" + deserialzied[i].fase + "</p>" +
-                                            "<h3>Campo</h3>" +
-                                            "<p>" + deserialzied[i].campo + "</p>" +
-                                            "<h3>Data partita</h3>" +
-                                            "<p>" + deserialzied[i].dataPartita + "</p>" +
-                                            "<h3>Ora partita</h3>" +
-                                            "<p>" + deserialzied[i].oraPartita + "</p>" +
-                                            "<h3>Risultato</h3>" +
-                                            "<p>" + deserialzied[i].risultato + "</p>" +
-                                            "<h3>Durata</h3>" +
-                                            "<p>" + deserialzied[i].durata + "</p>");
-
-                        table2.Append(" <h3>T1S1</h3>" +
-                                            "<p> " + deserialzied[i].pT1S1 + " </p> " +
-                                            "<h3>T1S2</h3>" +
-                                            "<p> " + deserialzied[i].pT2S1 + " </p> " +
-                                            "<h3>T2S1</h3>" +
-                                            "<p> " + deserialzied[i].pT1S2 + " </p> " +
-                                            "<h3>T2S2</h3>" +
-                                            "<p> " + deserialzied[i].pT2S2 + " </p> " +
-                                            "<h3>T3S1</h3>" +
-                                            "<p> " + deserialzied[i].pT1S3 + " </p> " +
-                                            "<h3>T3S2</h3>" +
-                                            "<p> " + deserialzied[i].pT2S3 + " </p> " +
-                                            "<h3>setS1</h3>" +
-                                            "<p> " + deserialzied[i].setSQ1 + " </p> " +
-                                            "<h3>setS2</h3>" +
-                                            "<p> " + deserialzied[i].setSQ2 + " </p> ");
+                        nomeT.InnerText = deserialzied[i].titolo;
+                        team1.InnerText = deserialzied[i].nomeTeam;
+                        team2.InnerText = deserialzied[i].nomeTeam1;
+                        tipoT.InnerText = deserialzied[i].fase;
+                        dataT.InnerText = deserialzied[i].dataPartita.ToString().Split(' ')[0];
+                        oraT.InnerText = deserialzied[i].oraPartita.ToString().Split(':')[0] + ":" + deserialzied[i].oraPartita.ToString().Split(':')[1];
+                        punteggioT.InnerText = deserialzied[i].risultato;
+                        setT.InnerText = deserialzied[i].pT1S1 + " - " + deserialzied[i].pT2S1 + "⠀⠀⠀" +  deserialzied[i].pT1S2 + " - " + deserialzied[i].pT2S2 + "⠀⠀⠀" + deserialzied[i].pT1S3 + " - " + deserialzied[i].pT2S3;
                     }
                 }
-                torneiInfo.Controls.Add(new Literal { Text = table.ToString() });
-                torneiinfoset.Controls.Add(new Literal { Text = table2.ToString() });
             }
         }
         protected void partite_Click(object sender, EventArgs e)
