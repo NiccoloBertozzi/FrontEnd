@@ -47,19 +47,21 @@
                 "withCredentials": true,
                 "headers": {},
             };
+            var index = 0;
             $.ajax(settings).done(function (response) {
                 response.forEach(function (dati) {
-                    $('#tabella').append("<tr><td>" + (dati.nome) + "</td><td>" + (dati.cognome) + "</td><td>" + (dati.punteggi) + "</td></tr>");
+                    index++;
+                    $('#tabella').append("<tr><td>"+index+"</td><td>" + (dati.nome) + "</td><td>" + (dati.cognome) + "</td><td>" + (dati.punteggi) + "</td></tr>");
                 });
                 $('#data-table').DataTable({
-                    "order": [[2, "desc"]]
+                    "order": [[3, "desc"]]
                 });
             });
         });
     </script>
 </head>
 <body>
- <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
+    <nav class="navbar navbar-dark navbar-expand-md my-navbar" id="my-navbar">
         <div class="container-fluid">
             <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
                 <span class="sr-only">Toggle navigation</span>
@@ -74,17 +76,19 @@
                             <div class="dropdown show">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AIBVC Tour</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#" onclick="LoadClassificaMaschile();">Classifica Maschile</a>
-                                    <a class="dropdown-item" href="#" onclick="LoadClassificaFemminile();">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="OutputClassifica.aspx?genere=M">Classifica Maschile</a>
+                                    <a class="dropdown-item" href="OutputClassifica.aspx?genere=F">Classifica Femminile</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=1">L1</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=2">L2</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=3">L3</a>
                                 </div>
                             </div>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <div class="dropdown show">
+                            <div class="dropdown show" id="organizzazione">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Organizzazione</a>
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
-                                    <a class="dropdown-item" href="visualizzaComponentiSocieta.aspx">Elenco tesserati</a>
+                                    <a id="anagrafica" class="dropdown-item" href="AnagraficaSocieta.aspx">Anagrafica</a>
                                 </div>
                             </div>
                         </li>
@@ -109,6 +113,7 @@
                     <table id="data-table" class="table table-striped overflow-auto">
                         <thead>
                             <tr class="table-primary">
+                                <th>#</th>
                                 <th>Nome</th>
                                 <th>Cognome</th>
                                 <th>Punteggio</th>

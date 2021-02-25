@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreaTorneo.aspx.cs" Inherits="test.CreaTorneo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ModificaInformazioniTorneo.aspx.cs" Inherits="test.ModificaInformazioniTorneo" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
@@ -9,7 +9,7 @@
 <head runat="server">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Creazione torneo</title>
+    <title>Modifica torneo</title>
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
@@ -73,7 +73,7 @@
         <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>
         <!--Banner-->
         <div class="row mt-3 mb-3">
-            <h1 class=" col-12 text-center my-auto banner">Creazione torneo</h1>
+            <h1 class=" col-12 text-center my-auto banner">Modifica torneo</h1>
         </div>
         <!--Inserimento parametri-->
         <div class="container">
@@ -170,7 +170,7 @@
                     <label for="Impianti">Impianti</label><br />
                     <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbImpianti" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="cbImpianti_TextChanged" />
                 </div>
-                <asp:Button ID="Button1" runat="server" Text="Crea torneo" OnClick="creaTorneo_Click" CssClass="btn btn-primary" />
+                <asp:Button ID="Button1" runat="server" Text="Modifica informazioni torneo" OnClick="ModificaInfoTorneo_Click" CssClass="btn btn-primary" />
             </div>
         </div>
         <script src="Scripts/bootstrap.min.js "></script>

@@ -4,13 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Informazioni partita</title>
-        <link rel="stylesheet" href="Content/bootstrap.min.css">
-        <link rel="stylesheet" href="Content/styles.css">
-        <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
-    </head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Informazioni partita</title>
+    <link rel="stylesheet" href="Content/bootstrap.min.css">
+    <link rel="stylesheet" href="Content/styles.css">
+    <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
+</head>
 
     <body>
     <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky-top" id="my-navbar">
@@ -53,38 +53,68 @@
             </div>
         </div>
     </nav>
-        <form id="form1" runat="server">
-            <!--Banner-->
-            <div class="row mt-3 mb-3">
-                <h1 class=" col-12 text-center my-auto banner">Informazioni partita</h1>
-            </div>
-            <div class="container">
-                <div class="card-container mr-3 ml-3 mt-3">
-                    <div class="row mt-4">
-                        <div class="col-md-6 col-sm-12 contentInfo">
-                            <asp:PlaceHolder runat="server" ID="torneiInfo"></asp:PlaceHolder>
-                        </div>
-                        <div class="col-md-5 col-sm-12 offset-md-1 mt-3 mt-md-0">
-                            <div class="row">
-                                <div class="col-12 contentInfo">
-                                    <h2>Punti set</h2>
-                                    <asp:PlaceHolder runat="server" ID="torneiinfoset"></asp:PlaceHolder>
-                                </div>
+    <form id="form1" runat="server">
+        <!--Banner-->
+        <div class="row mt-3 mb-3">
+            <h1 class=" col-12 text-center my-auto banner">Informazioni partita</h1>
+        </div>
+        <div class="container-fluid">
+            <div class="contentInfo m-3 p-2">
+                <div class="row col-12 m-0 p-1 text-center" style="background-color: #edebeb;">
+                    <div class="col-4 align-self-center">
+                        <div class="row">
+                            <div class="col-4 align-self-center text-left">
+                                <p runat="server" class="m-0 font-weight-bold" id="nomeT">
+                                </p>
                             </div>
-                            <div class="row my-3 justify-content-between">
-                                <div class="col-4">
-                                    <asp:Button ID="partite" runat="server" Text="Modifica partita" Visible="false" OnClick="partite_Click" CssClass="btn btn-primary" />
-                                </div>
-                                <div class="col-4">
-                                    <a id="back" class="btn btn-secondary" href="javascript:history.go(-1)">Indietro</a>
-                                </div>
+                        </div>
+                    </div>
+                    <div class="col-4 text-center">
+                        <p class="m-0 font-weight-bold" runat="server" id="tipoT">
+                        </p>
+                    </div>
+                    <div class="col-4 align-self-center" style="text-align-last: end;">
+                        <div class="row justify-content-end">
+                            <div class="col-4 align-self-center text-left" runat="server" id="dataT">
+                            </div>
+                            <div class="col-4 align-self-center text-left" runat="server" id="oraT">
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row col-12 p-5 m-0 text-center">
+                    <div class="col-lg-4 align-self-center">
+                        <h2 class="m-0 font-weight-bold" runat="server" id="team1"></h2>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="row text-center">
+                            <div class="col-12">
+                                <h2 class="m-0 font-weight-bold punteggio" runat="server" id="punteggioT"></h2>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-12">
+                                <p class="m-2" runat="server" id="setT">
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 align-self-center">
+                        <h2 class="m-0 font-weight-bold" runat="server" id="team2"></h2>
+                    </div>
+                </div>
             </div>
-            <script src="Scripts/jquery-3.4.1.min.js "></script>
-            <script src="Scripts/bootstrap.min.js "></script>
-        </form>
-    </body>
+            <div class="card-container mr-3 ml-3 mt-3">
+                <div class="row m-0">
+                    <div class="col-12 text-right">
+                        <asp:Button ID="partite" runat="server" Text="Modifica partita" Visible="false" OnClick="partite_Click" CssClass="btn btn-primary" />
+                        <a id="back" class="btn btn-secondary" href="javascript:history.go(-1)">Indietro</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="Scripts/jquery-3.4.1.min.js "></script>
+        <script src="Scripts/bootstrap.min.js "></script>
+    </form>
+</body>
 </html>

@@ -183,4 +183,55 @@
         }
     }
 
+
+    /* Cambio i colori dei Button nell'OutputTorneiIscritti.aspx */
+    $("#iscrittibtn").click(function () {
+        /* Cambio l'attivazione del bottone */
+        if ($("#iscrittibtn").hasClass("btn-primary") == false) {
+            $("#iscrittibtn").addClass("btn-primary");
+            $("#iscrittibtn").removeClass("btn-secondary");
+            if ($("#incorsobtn").hasClass("btn-primary") == true) {
+                $("#incorsobtn").removeClass("btn-primary");
+                $("#incorsobtn").addClass("btn-secondary");
+            };
+            if ($("#finitibtn").hasClass("btn-primary") == true) {
+                $("#finitibtn").removeClass("btn-primary");
+                $("#finitibtn").addClass("btn-secondary");
+            };
+        }
+    })
+
+    $("#incorsobtn").click(function () {
+        /* Cambio l'attivazione del bottone */
+        if ($("#incorsobtn").hasClass("btn-primary") == false) {
+            $("#incorsobtn").addClass("btn-primary");
+            $("#incorsobtn").removeClass("btn-secondary");
+            if ($("#iscrittibtn").hasClass("btn-primary") == true) {
+                $("#iscrittibtn").removeClass("btn-primary");
+                $("#iscrittibtn").addClass("btn-secondary");
+            };
+            if ($("#finitibtn").hasClass("btn-primary") == true) {
+                $("#finitibtn").removeClass("btn-primary");
+                $("#finitibtn").addClass("btn-secondary");
+            };
+        };
+    })
+
+    $("#finitibtn").click(function () {
+        /* Cambio l'attivazione del bottone */
+        if ($("#finitibtn").hasClass("btn-primary") == false) {
+            $("#finitibtn").addClass("btn-primary");
+            $("#finitibtn").removeClass("btn-secondary");
+            if ($("#iscrittibtn").hasClass("btn-primary") == true) {
+                $("#iscrittibtn").removeClass("btn-primary");
+                $("#iscrittibtn").addClass("btn-secondary");
+            };
+            if ($("#incorsobtn").hasClass("btn-primary") == true) {
+                $("#incorsobtn").removeClass("btn-primary");
+                $("#incorsobtn").addClass("btn-secondary");
+            };
+        };
+    })
+
+
 })
