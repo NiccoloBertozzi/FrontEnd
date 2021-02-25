@@ -67,6 +67,8 @@ namespace test
                     PIVA.Text = deserialzied[i].piva;
                     CF.Text = deserialzied[i].cf;
                     CU.Text = deserialzied[i].cu;
+                    presidente.Text = deserialzied[i].presidente;
+                    referente.Text = deserialzied[i].referente;
                 }
             }
         }
@@ -80,10 +82,11 @@ namespace test
             request.AddHeader("Authorization", "Bearer " + token);
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Admin");
-            request.AddParameter("application/json", "{\r\n  \"societa\": {\r\n    \"idSocieta\": " + idSocieta + ",\r\n \"nomeSocieta\": \"" + nome.Text + "\",\r\n    \"indirizzo\": \"" + indirizzo.Text + "\",\r\n    \"cap\": \"" + CAP.Text + "\",\r\n    \"dataFondazione\": \"" + Convert.ToDateTime(dataFondazione.Text) + "\",\r\n    \"dataAffiliazione\": \"" + Convert.ToDateTime(dataAffiliazione.Text) + "\",\r\n    \"codiceAffiliazione\": \"" + codiceAffiliazione.Text + "\",\r\n    \"affiliata\": " + affiliataS + ",\r\n    \"email\": \"" + email.Text + "\",\r\n    \"sito\": \"" + sito.Text + "\",\r\n    \"tel1\": \"" + tel1.Text + "\",\r\n    \"tel2\": \"" + tel2.Text + "\",\r\n    \"pec\": \"" + PEC.Text + "\",\r\n    \"piva\": \"" + PIVA.Text + "\",\r\n    \"cf\": \"" + CF.Text + "\",\r\n    \"cu\": \"" + CU.Text + "\"\r\n  },\r\n  \"comuneSocieta\": \"" + citta.Text + "\"\r\n}", ParameterType.RequestBody);
+            request.AddParameter("application/json", "{\r\n  \"societa\": {\r\n    \"idSocieta\": " + idSocieta + ",\r\n \"nomeSocieta\": \"" + nome.Text + "\",\r\n    \"indirizzoSoc\": \"" + indirizzo.Text + "\",\r\n  \"citta\": \"" + citta.Text + "\",\r\n  \"capSoc\": \"" + CAP.Text + "\",\r\n    \"dataFondazione\": \"" + Convert.ToDateTime(dataFondazione.Text) + "\",\r\n    \"dataAffiliazione\": \"" + Convert.ToDateTime(dataAffiliazione.Text) + "\",\r\n    \"codiceAffiliazione\": \"" + codiceAffiliazione.Text + "\",\r\n    \"affiliata\": " + affiliataS + ",\r\n    \"emailSoc\": \"" + email.Text + "\",\r\n    \"sito\": \"" + sito.Text + "\",\r\n    \"tel1\": \"" + tel1.Text + "\",\r\n    \"tel2\": \"" + tel2.Text + "\",\r\n    \"pec\": \"" + PEC.Text + "\",\r\n    \"piva\": \"" + PIVA.Text + "\",\r\n    \"cfSoc\": \"" + CF.Text + "\",\r\n  \"referente\": \"" + referente.Text + "\",\r\n  \"presidente\": \"" + presidente.Text + "\",\r\n  \"cu\": \"" + CU.Text + "\"\r\n  },\r\n  \"comuneSocieta\": \"" + citta.Text + "\"\r\n}", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
+            string error = "{\r\n  \"societa\": {\r\n    \"idSocieta\": " + idSocieta + ",\r\n \"nomeSocieta\": \"" + nome.Text + "\",\r\n    \"indirizzoSoc\": \"" + indirizzo.Text + "\",\r\n  \"citta\": \"" + citta.Text + "\",\r\n  \"capSoc\": \"" + CAP.Text + "\",\r\n    \"dataFondazione\": \"" + Convert.ToDateTime(dataFondazione.Text) + "\",\r\n    \"dataAffiliazione\": \"" + Convert.ToDateTime(dataAffiliazione.Text) + "\",\r\n    \"codiceAffiliazione\": \"" + codiceAffiliazione.Text + "\",\r\n    \"affiliata\": " + affiliataS + ",\r\n    \"emailSoc\": \"" + email.Text + "\",\r\n    \"sito\": \"" + sito.Text + "\",\r\n    \"tel1\": \"" + tel1.Text + "\",\r\n    \"tel2\": \"" + tel2.Text + "\",\r\n    \"pec\": \"" + PEC.Text + "\",\r\n    \"piva\": \"" + PIVA.Text + "\",\r\n    \"cfSoc\": \"" + CF.Text + "\",\r\n  \"referente\": \"" + referente.Text + "\",\r\n  \"presidente\": \"" + presidente.Text + "\",\r\n  \"cu\": \"" + CU.Text + "\"\r\n  },\r\n  \"comuneSocieta\": \"" + citta.Text + "\"\r\n}";
             if (response.StatusCode == HttpStatusCode.OK) Response.Redirect("AnagraficaSocieta.aspx");
-            else Response.Write("<script>alert('" + response.Content + "');</script>");
+            else Response.Write("<script>alert('" + error + "');</script>");
         }
     }
 }

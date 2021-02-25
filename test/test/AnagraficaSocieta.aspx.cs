@@ -32,7 +32,7 @@ namespace test
             var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/societa/GetAnagraficaSocieta/" + idSocieta);
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
-            request.AddHeader("Authorization", "Bearer  " + token + "");
+            request.AddHeader("Authorization", "Bearer  " + token);
             request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Societa");
             IRestResponse response = client.Execute(request);
             //deserializza il risultato ritornato
@@ -42,79 +42,62 @@ namespace test
                 StringBuilder table = new StringBuilder();
                 table.Clear();
                 anagraficaSocieta.Controls.Add(new Literal { Text = table.ToString() });
-                for (int i = 0; i < 16; i++)
+                for (int i = 0; i < 18; i++)
                 {
-                    /*table.Append("" +
-                         "<div class='row mt-3'>" +
-                        "<p> <b>Nome : </b>" + deserialzied[i].nomeSocieta + "</p>" +
-                        "<p> <b>Città : </b>" + deserialzied[i].citta + "</p>" +
-                        "<p> <b>Indirizzo : </b>" + deserialzied[i].indirizzo + "</p>" +
-                        "<p> <b>Cap : </b>" + deserialzied[i].cap + "</p>" +
-                        "<p> <b>Data Fondazione : </b>" + deserialzied[i].dataFondazione.ToString().Split(' ')[0] + "</p>" +
-                        "<p> <b>Data Affiliazione : </b>" + deserialzied[i].dataAffiliazione.ToString().Split(' ')[0] + "</p>" +
-                        "<p> <b>Codice Affiliazione : </b>" + deserialzied[i].codiceAffiliazione + "</p>" +
-                        "<p> <b>Affiliata : </b>" + deserialzied[i].affiliata + "</p>" +
-                        "<p> <b>Email : </b>" + deserialzied[i].email + "</p>" +
-                        "<p> <b>Sito : </b>" + deserialzied[i].sito + "</p>" +
-                        "<p> <b>Tell1 : </b>" + deserialzied[i].tel1 + "</p>" +
-                        "<p> <b>Tell2 : </b>" + deserialzied[i].tel2 + "</p>" +
-                        "<p> <b>Pec : </b>" + deserialzied[i].pec + "</p>" +
-                        "<p> <b>Partita IVA : </b>" + deserialzied[i].piva + "</p>" +
-                        "<p> <b>Codice Fiscale : </b>" + deserialzied[i].cf + "</p>" +
-                        "<p> <b>CU: </b>" + deserialzied[i].cu + "</p></div>");*/
-                    table.Append("" +"<div class='row mt-3'>" +getLabel(i) +getText(deserialzied,i) +"</div>");
+                    table.Append("" + "<div class='row mt-3'>" + getLabel(i) + getText(deserialzied, i) + "</div>");
                 }
                 anagraficaSocieta.Controls.Add(new Literal { Text = table.ToString() });
             }
         }
-
         protected void ModificaAnagraficaSocieta_Click(object sender, EventArgs e)
         {
             Response.Redirect("ModificaAnagraficaSocieta.aspx"); //manda alla form 'ModificaAnagraficaSocieta'
         }
         protected string getLabel(int c)
         {
-            string[] testi = { "Nome Societa' :", "Citta' :", "Indirizzo :", "Cap :", "Data Fondazione :", "Data Affiliazione :","Codice Affiliazione :", "Affiliata :", "Email :", "Sito :", "Tell1 :", "Tell2 :", "Pec :","Partita IVA :", "Codice Fiscale :", "CU :" };
-            return ("<label class='col-md-5 text-center my-auto'><b>" + testi[c] + "</b></label>");
+            string[] testi = { "Nome Societa':", "Citta':", "Indirizzo:", "Cap:", "Data Fondazione:", "Data Affiliazione:", "Codice Affiliazione:", "Affiliata:", "Email:", "Sito:", "Tell1:", "Tell2:", "Pec:", "Partita IVA:", "Codice Fiscale:", "CU:", "Presidente:", "Referente:" };
+            return ("<label class='col-md-4 offset-md-2 my-auto'>" + testi[c] + "</label>");
         }
-
         protected string getText(dynamic data, int c)
         {
             switch (c)
             {
                 case 0:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].nomeSocieta + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].nomeSocieta + "</p>";
                 case 1:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].citta + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].citta + "</p>";
                 case 2:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].indirizzo + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].indirizzo + "</p>";
                 case 3:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].cap + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].cap + "</p>";
                 case 4:
-                        return "<p class='col-md-5 text-center my-auto'>" + data[0].dataFondazione.ToString().Split(' ')[0] + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].dataFondazione.ToString().Split(' ')[0] + "</p>";
                 case 5:
-                        return "<p class='col-md-5 text-center my-auto'>" + data[0].dataAffiliazione.ToString().Split(' ')[0] + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].dataAffiliazione.ToString().Split(' ')[0] + "</p>";
                 case 6:
-                        return "<p class='col-md-5 text-center my-auto'>" + data[0].codiceAffiliazione + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].codiceAffiliazione + "</p>";
                 case 7:
-                        return "<p class='col-md-5 text-center my-auto'>" + data[0].affiliata + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].affiliata + "</p>";
                 case 8:
-                        return "<p class='col-md-5 text-center my-auto'>" + data[0].email + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].email + "</p>";
                 case 9:
-                        return "<p class='col-md-5 text-center my-auto'>" + data[0].sito + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].sito + "</p>";
                 case 10:
-                        return "<p class='col-md-5 text-center my-auto'>" + data[0].tel1 + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].tel1 + "</p>";
                 case 11:
-                        return "<p class='col-md-5 text-center my-auto'>" + data[0].tel2 + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].tel2 + "</p>";
                 case 12:
-                        return "<p class='col-md-5 text-center my-auto'>" + data[0].pec + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].pec + "</p>";
                 case 13:
-                        return "<p class='col-md-5 text-center my-auto'>" + data[0].piva + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].piva + "</p>";
                 case 14:
-                        return "<p class='col-md-5 text-center my-auto'>" + data[0].cf + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].cf + "</p>";
                 case 15:
-                        return "<p class='col-md-5 text-center my-auto'>" + data[0].cu + "</p>";
-
+                    return "<p class='col-md-4 my-auto'>" + data[0].cu + "</p>";
+                case 16:
+                    return "<p class='col-md-4 my-auto'>" + data[0].presidente + "</p>";
+                case 17:
+                    return "<p class='col-md-4 my-auto'>" + data[0].referente + "</p>";
             }
             return "Error getText";
         }

@@ -63,7 +63,7 @@
          <div class="container">
              <div class="mr-3 ml-3 mt-3 mb-5">
                  <div class="row mt-4">
-                    <div class="col-md-8 offset-md-2 col-sm-12 contentInfo">
+                    <div class="col-md-8 offset-md-2 col-sm-12 mb-3 contentInfo">
                         <asp:PlaceHolder runat="server" ID="anagraficaDelegato"></asp:PlaceHolder>
                         <div class="row justify-content-center my-4">
                             <asp:Button runat="server" CssClass="btn btn-primary" OnClick="ModificaAnagrafica_Click" Text="Modifica anagrafica" />
