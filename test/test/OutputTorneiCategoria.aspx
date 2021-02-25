@@ -21,6 +21,7 @@
             var tipo = parametri.get('tipo');
             if (tipo != 1) {
                 $('#montepremi').hide();
+                $('#reset').hide();
             }
             var date = new Date();
             var settings = {
@@ -262,7 +263,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2 col-sm-3">
+                <div id="reset" class="col-md-2 col-sm-3">
                     <button type="button" id="reset" class="btn btn-danger mb-2">Reset</button>
                 </div>
             </div>

@@ -232,6 +232,27 @@
             };
         };
     })
-
+    $("#btnatleta").click(function () {
+        /* Cambio l'attivazione del bottone */
+        if ($("#btnatleta").hasClass("btn-primary") == false) {
+            $("#btnatleta").addClass("btn-primary");
+            $("#btnatleta").removeClass("btn-secondary");
+            if ($("#btnallentaore").hasClass("btn-primary") == true) {
+                $("#btnallentaore").removeClass("btn-primary");
+                $("#btnallentaore").addClass("btn-secondary");
+            };
+        };
+    })
+    $("#btnallentaore").click(function () {
+        /* Cambio l'attivazione del bottone */
+        if ($("#btnallentaore").hasClass("btn-primary") == false) {
+            $("#btnallentaore").addClass("btn-primary");
+            $("#btnallentaore").removeClass("btn-secondary");
+            if ($("#btnatleta").hasClass("btn-primary") == true) {
+                $("#btnatleta").removeClass("btn-primary");
+                $("#btnatleta").addClass("btn-secondary");
+            };
+        };
+    })
 
 })

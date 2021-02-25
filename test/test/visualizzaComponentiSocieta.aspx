@@ -69,6 +69,17 @@
                 $('tbody').on("click", "tr", function() {
                     window.location = "AssegnaTessereSocieta.aspx";
                 });
+                $("#Atleti").show();
+                $("#Allenatori").hide();
+
+                $('#btnatleta').click(function () {
+                    $("#Atleti").show();
+                    $("#Allenatori").hide();
+                });
+                $('#btnallentaore').click(function () {
+                    $("#Atleti").hide();
+                    $("#Allenatori").show();
+                });
                 loginbtn();
                 societaload();
             });
@@ -121,6 +132,7 @@
                 if (id != "") window.location = "Login.aspx?change=1";
                 else window.location = "Login.aspx";
             }
+
         </script>
     </head>
 
@@ -172,9 +184,17 @@
             <h1 class=" col-12 text-center my-auto banner">Elenco Iscrizioni</h1>
         </div>
         <form id="formComponentiSocieta" runat="server">
+                    <div class="row py-2">
+                        <div class="btn-toolbar mx-auto" role="toolbar">
+                            <div class="btn-group" role="group">
+                                <button type="button" id="btnatleta" class="btn btn-primary btnTorneiIscritti">Atleta</button>
+                                <button type="button" id="btnallentaore" class="btn btn-secondary btnTorneiIscritti">Allenatore</button>
+                            </div>
+                        </div>
+                    </div>
             <div class="container">
                 <br />
-                <div title="Allenatori">
+                <div title="Allenatori" id="Allenatori">
                     <asp:Label runat="server" ID="lblAllenatori" Text="Allenatori: "></asp:Label><br />
                     <asp:PlaceHolder runat="server" ID="visualizzaAllenatori"></asp:PlaceHolder>
                     <table id="data-table-allenatori" class="table table-striped overflow-auto">
@@ -190,7 +210,7 @@
                     </table>
                 </div>
                 <br />
-                <div title="Atleti">
+                <div title="Atleti" id="Atleti">
                     <asp:Label runat="server" ID="lblAtleti" Text="Atleti: "></asp:Label><br />
                     <table id="data-table-atleta" class="table table-striped overflow-auto">
                         <thead>
@@ -206,6 +226,7 @@
                 </div>
             </div>
             <script src="Scripts/bootstrap.min.js "></script>
+                    <script src="Scripts/main.js "></script>
         </form>
     </body>
 
