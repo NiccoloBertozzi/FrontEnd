@@ -130,6 +130,8 @@ namespace test
         {
             Response.Redirect("OutputPartiteTorneo.aspx?id=" + idTorneo);
         }
+
+
         protected void autorizza_Click(object sender, EventArgs e)
         {
             string token = Session["Token"].ToString();

@@ -13,6 +13,7 @@ namespace test
 {
     public partial class ModificaInformazioniTorneo : System.Web.UI.Page
     {
+        int idTorneo;
         string error, token;
         CheckBoxList cbListImpianti = new CheckBoxList();
         protected void Page_Load(object sender, EventArgs e)
@@ -32,8 +33,9 @@ namespace test
                     token = Session["Token"].ToString();
                     if (!IsPostBack)
                     {
+                        idTorneo = Convert.ToInt32(Request.QueryString["id"]);
                         //-------------CHIAMATA API e popolazione impianti ----------------              
-                        var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/societa/GetAllImpianti");
+                        var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetTorneoByID/" + idTorneo);
                         client.Timeout = -1;
                         var request = new RestRequest(Method.GET);
                         request.AddHeader("Authorization", "Bearer " + token);
@@ -47,6 +49,21 @@ namespace test
                             for (int i = 0; i < deserialzied.Count; i++)
                             {
                                 cbImpianti.Items.Add(new ListItem(Convert.ToString(deserialzied[i].nomeImpianto), Convert.ToString(deserialzied[i].idImpianto)));
+                            }
+
+                            for (int i = 0; i < deserialzied.Count; i++)
+                            {
+                                txtTitolo.Text = deserialzied[i].titolo;
+                                txtQuotaIscr.Text = deserialzied[i].quotaIscrizione;
+                                txtOraInizio.Text = deserialzied[i].oraInizio;
+                                txtNumWildCard.Text = deserialzied[i].numWildCard;
+                                txtNumTeamTabellone.Text = deserialzied[i].numMaxTeamMainDraw;
+                                txtNumTeamQualifiche.Text = deserialzied[i].numMaxTeamQualifiche;
+                                txtNumTeamQualificati.Text = deserialzied[i].numTeamQualificati;
+                                txtMontepremi.Text = deserialzied[i].montepremi;
+                                txtDataInizio.Text = deserialzied[i].dataInizio.ToString("MM/dd/yyyy");
+                                txtDataFine.Text = deserialzied[i].dataFine.ToString("yyyy/MM/dd");
+                                //txtDataChiusuraIscr.Text = deserialzied[i].dataChiusuraIscrizioni.ToString("dd/MM/yyyy");
                             }
                         }
                         //------------------------------------------
