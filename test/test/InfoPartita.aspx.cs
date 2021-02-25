@@ -45,7 +45,7 @@ namespace test
                         dataT.InnerText = deserialzied[i].dataPartita.ToString().Split(' ')[0];
                         oraT.InnerText = deserialzied[i].oraPartita.ToString().Split(':')[0] + ":" + deserialzied[i].oraPartita.ToString().Split(':')[1];
                         punteggioT.InnerText = deserialzied[i].risultato;
-                        setT.InnerText = deserialzied[i].pT1S1 + " - " + deserialzied[i].pT2S1 + "⠀⠀⠀" +  deserialzied[i].pT1S2 + " - " + deserialzied[i].pT2S2 + "⠀⠀⠀" + deserialzied[i].pT1S3 + " - " + deserialzied[i].pT2S3;
+                        setT.InnerText = deserialzied[i].pT1S1 + "⠀-⠀" + deserialzied[i].pT2S1 + "⠀⠀⠀" +  deserialzied[i].pT1S2 + "⠀-⠀" + deserialzied[i].pT2S2 + "⠀⠀⠀" + deserialzied[i].pT1S3 + "⠀-⠀" + deserialzied[i].pT2S3;
                     }
                 }
             }
