@@ -58,7 +58,7 @@ namespace test
             request.AddHeader("Authorization", "Bearer " + token);
             request.AddHeader("Content-Type", "application/json");
             request.AddHeader("Cookie", "ruolo=Societa; ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6");
-            request.AddParameter("application/json", "{\r\n    \"IDAtleta\": " + Session["IdAtletaSelezionato"].ToString() + ",\r\n    \"IDSocieta\":" + idSocieta + ",\r\n    \"CodiceTessera\":\"" + txtCodiceTessera.Text + "\",\r\n    \"TipoTessera\":\"" + txtTipoTessera.Text + "\",\r\n    \"DataTesseramento\":\"" + Calendar1.SelectedDate.Date.ToString("yyyy-MM-dd") + "\",\r\n    \"AnnoTesseramento\":" + txtAnnoTesseramento.Text + ",\r\n    \"Importo\":" + txtImporto.Text + "\r\n}", ParameterType.RequestBody);
+            request.AddParameter("application/json", "{\r\n    \"IDAtleta\": " + Session["IdAtletaSelezionato"].ToString() + ",\r\n    \"IDSocieta\":" + idSocieta + ",\r\n    \"CodiceTessera\":\"" + txtCodiceTessera.Text + "\",\r\n    \"TipoTessera\":\"" + txtTipoTessera.Text + "\",\r\n    \"DataTesseramento\":\"" + Convert.ToDateTime(txtDataTesseramento.Text).Date.ToString("yyyy-MM-dd") + "\",\r\n    \"AnnoTesseramento\":" + txtAnnoTesseramento.Text + ",\r\n    \"Importo\":" + txtImporto.Text + "\r\n}", ParameterType.RequestBody);
             IRestResponse response = client.Execute(request);
             if (response.StatusCode == System.Net.HttpStatusCode.OK) Response.Redirect("OutputTornei.aspx");
             else Response.Write("<script> alert('" + response.Content + "') </script>");

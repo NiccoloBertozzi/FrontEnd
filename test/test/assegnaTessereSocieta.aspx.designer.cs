@@ -51,15 +51,6 @@ namespace test
         protected global::System.Web.UI.ScriptManager sp1;
 
         /// <summary>
-        /// lblIdAtleta control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdAtleta;
-
-        /// <summary>
         /// cbAtleti control.
         /// </summary>
         /// <remarks>
@@ -78,15 +69,6 @@ namespace test
         protected global::System.Web.UI.WebControls.Label idAtleta;
 
         /// <summary>
-        /// lblCodiceTessera control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCodiceTessera;
-
-        /// <summary>
         /// txtCodiceTessera control.
         /// </summary>
         /// <remarks>
@@ -94,15 +76,6 @@ namespace test
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCodiceTessera;
-
-        /// <summary>
-        /// lblTipoTessera control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTipoTessera;
 
         /// <summary>
         /// txtTipoTessera control.
@@ -114,31 +87,13 @@ namespace test
         protected global::System.Web.UI.WebControls.TextBox txtTipoTessera;
 
         /// <summary>
-        /// lblDataTesseramento control.
+        /// txtDataTesseramento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDataTesseramento;
-
-        /// <summary>
-        /// Calendar1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Calendar1;
-
-        /// <summary>
-        /// lblAnnoTesseramento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAnnoTesseramento;
+        protected global::System.Web.UI.WebControls.TextBox txtDataTesseramento;
 
         /// <summary>
         /// txtAnnoTesseramento control.
@@ -148,15 +103,6 @@ namespace test
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAnnoTesseramento;
-
-        /// <summary>
-        /// lblImporto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblImporto;
 
         /// <summary>
         /// txtImporto control.
