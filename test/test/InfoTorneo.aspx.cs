@@ -69,7 +69,7 @@ namespace test
                 table.Append("<h2>Info Torneo</h2>" +
                     "<p class='head'>Nome</p>" +
                     "<p>" + deserialzied[0].titolo + "</p>" +
-                    "<p class='head'>TipoTorneo</p>" +
+                    "<p class='head'>Tipo Torneo</p>" +
                     "<p>" + deserialzied[0].tipoTorneo + "</p>" +
                     "<p class='head'>Formula</p>" +
                     "<p>" + deserialzied[0].formula + "</p>" +
@@ -86,9 +86,9 @@ namespace test
                     "<p class='head'>Sesso</p>" +
                     "<p>" + deserialzied[0].gender + "</p>");
 
-                table2.Append(" <h4>Nome Impianto</h4>" +
+                table2.Append("<p class='head'>Nome Impianto</p>" +
                     "<p> " + deserialzied[0].nomeImpianto + " </p> " +
-                    " <h4>Indirizzo</h4>" +
+                    " <p class='head'>Indirizzo</p>" +
                     "<p> " + deserialzied[0].citta + " </p> ");
 
                 //Append the HTML string to Placeholder.
