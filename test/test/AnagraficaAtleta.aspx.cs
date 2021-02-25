@@ -63,7 +63,7 @@ namespace test
         protected string getLabel(int c)
         {
             string[] testi = { "Nome", "Cognome", "Codice Tessera", "Nome Societa", "Sesso", "CF", "Data di Nascita", "Comune di Nascita", "Comune di Residenza", "Indirizzo", "Codice Postale (CAP)", "Email", "Telefono", "Altezza", "Peso", "Scadenza Certificato" };
-            return ("<label class='col-md-5 text-center my-auto'>" +testi[c]+ "</label>");
+            return ("<label class='col-md-4 offset-md-2 my-auto'>" +testi[c]+ "</label>");
         }
 
         protected string getText(dynamic data, int c)
@@ -71,37 +71,37 @@ namespace test
             switch (c) {
 
                 case 0:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].nome + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].nome + "</p>";
                 case 1:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].cognome + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].cognome + "</p>";
                 case 2:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].codiceTessera + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].codiceTessera + "</p>";
                 case 3:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].nomeSocieta + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].nomeSocieta + "</p>";
                 case 4:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].sesso + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].sesso + "</p>";
                 case 5:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].cf + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].cf + "</p>";
                 case 6:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].dataNascita.ToString().Split(' ')[0] + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].dataNascita.ToString().Split(' ')[0] + "</p>";
                 case 7:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].comuneNascita + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].comuneNascita + "</p>";
                 case 8:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].comuneResidenza + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].comuneResidenza + "</p>";
                 case 9:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].indirizzo + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].indirizzo + "</p>";
                 case 10:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].cap + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].cap + "</p>";
                 case 11:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].email + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].email + "</p>";
                 case 12:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].tel + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].tel + "</p>";
                 case 13:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].altezza + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].altezza + "</p>";
                 case 14:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].peso + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].peso + "</p>";
                 case 15:
-                    return "<p class='col-md-5 text-center my-auto'>" + data[0].dataScadenzaCertificato.ToString().Split(' ')[0] + "</p>";
+                    return "<p class='col-md-4 my-auto'>" + data[0].dataScadenzaCertificato.ToString().Split(' ')[0] + "</p>";
             }
             return "Error getText";
         }
