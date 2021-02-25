@@ -179,6 +179,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="ModificaInformazioniTorneo.aspx" />
     <Content Include="CreaTorneo.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="GestisciPartita.aspx" />
@@ -212,7 +213,6 @@
     <Content Include="ModificaAnagraficaAtleta.aspx" />
     <Content Include="ModificaAnagraficaDelegato.aspx" />
     <Content Include="ModificaAnagraficaSocieta.aspx" />
-    <Content Include="ModificaInfoTorneo.aspx" />
     <Content Include="NuovaPassword.aspx" />
     <Content Include="OutputClassifica.aspx" />
     <Content Include="OutputPartiteTorneo.aspx" />
@@ -299,6 +299,13 @@
     </Compile>
     <Compile Include="AssegnaTessereSocieta.aspx.designer.cs">
       <DependentUpon>AssegnaTessereSocieta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificaInformazioniTorneo.aspx.cs">
+      <DependentUpon>ModificaInformazioniTorneo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificaInformazioniTorneo.aspx.designer.cs">
+      <DependentUpon>ModificaInformazioniTorneo.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreaTorneo.aspx.cs">
       <DependentUpon>CreaTorneo.aspx</DependentUpon>
@@ -394,13 +401,6 @@
     </Compile>
     <Compile Include="ModificaAnagraficaSocieta.aspx.designer.cs">
       <DependentUpon>ModificaAnagraficaSocieta.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ModificaInfoTorneo.aspx.cs">
-      <DependentUpon>ModificaInfoTorneo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ModificaInfoTorneo.aspx.designer.cs">
-      <DependentUpon>ModificaInfoTorneo.aspx</DependentUpon>
     </Compile>
     <Compile Include="NuovaPassword.aspx.cs">
       <DependentUpon>NuovaPassword.aspx</DependentUpon>
