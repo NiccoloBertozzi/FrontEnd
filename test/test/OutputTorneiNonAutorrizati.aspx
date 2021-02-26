@@ -81,6 +81,7 @@
             });
             $('#data-table tbody').on("click", "tr", function () {
                 <%Session["IdTorneo"] = HiddenField1.Value; %>
+            <%Session["autorizzato"] = "0"; %>
                 window.location = "InfoTorneo.aspx?id=" + $(this).attr("id");
             });
 
