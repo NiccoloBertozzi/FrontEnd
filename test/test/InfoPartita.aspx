@@ -83,23 +83,25 @@
                     </div>
                 </div>
                 <div class="row col-12 m-0 mb-1 mt-1 mb-lg-5 mt-lg-5 text-center">
-                    <div class="col-lg-4 align-self-center">
+                    <div class="col-xl-4 align-self-center">
                         <h2 class="mb-4 mb-lg-0 mt-4 mt-lg-0 font-weight-bold" runat="server" id="team1"></h2>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-xl-4">
                         <div class="row text-center">
                             <div class="col-12">
                                 <h2 class="m-0 font-weight-bold punteggio" runat="server" id="punteggioT"></h2>
                             </div>
                         </div>
                         <div class="row text-center">
-                            <div class="col-12">
-                                <p class="m-2" runat="server" id="setT">
+                            <p class="my-2 col-md-4 col-12" runat="server" id="setT1">
                                 </p>
-                            </div>
+                                <p class="my-2 col-md-4 col-12" runat="server" id="setT2">
+                                </p>
+                                <p class="my-2 col-md-4 col-12" runat="server" id="setT3">
+                                </p>
                         </div>
                     </div>
-                    <div class="col-lg-4 align-self-center">
+                    <div class="col-xl-4 align-self-center">
                         <h2 class="mb-4 mb-lg-0 mt-4 mt-lg-0 font-weight-bold" runat="server" id="team2"></h2>
                     </div>
                 </div>
