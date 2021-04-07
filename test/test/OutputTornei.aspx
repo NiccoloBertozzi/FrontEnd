@@ -39,21 +39,24 @@
                     ]
                 });
             });
-            var sesso_status = false;
+
+            let isRangeOver = false;
             $('input[name="gender"]').click(function () {
-                if (!sesso_status) {
-                    $('#data-table tbody tr').get().map(function (row) {
-                        if (row.children[3].innerHTML != $('input[name="gender"]:checked').val()) {
-                            var index = row.rowIndex;
-                            $("#tabella tr:nth-of-type(" + index + ")").hide();
-                            sesso_status = true;
-                        }
-                    });
+                let sessoSelezionato = $(this).val();
+                if ($(this).prop('checked')) {
+                    let colSesso = $('#data-table tbody tr td:nth-of-type(4):contains(' + sessoSelezionato + ')');
+                    if (!isRangeOver) {
+                        colSesso.closest('tr').show();
+                    }
                 } else {
-                    sesso_status = false;
-                    $('#reset').click();
+                    let colSesso = $('#data-table tbody tr td:nth-of-type(4):contains(' + sessoSelezionato + ')');
+                    colSesso.closest('tr').hide();
                 }
             });
+
+            // Maschio di default...
+            $('input[name="gender"]:first').prop('checked', true);
+
             $('#categoria').change(function () {
                 if ($("#categoria").val() != "All") {
                     //createTable();
@@ -69,12 +72,9 @@
                 } else $('#reset').click();
             });
             $('#reset').click(function () {
-                $("#Range").val(5000);
-                $("#valuenb").val(5000);
-                $('#data-table tbody tr').get().map(function (row) {
-                    var index = row.rowIndex;
-                    $("#tabella tr:nth-of-type(" + index + ")").show();
-                });
+                $("#Range").val(3000);
+                $("#valuenb").val(3000);
+                $('#data-table tbody tr').show()
             });
             $('#data-table tbody').on("click", "tr", function () {
                 <%Session["IdTorneo"] = HiddenField1.Value; %>
@@ -102,10 +102,12 @@
                     var index = row.rowIndex;
                     var price = row.children[5].innerHTML;
                     price = price.replace("€", "");
-                    if (parseFloat(price) < parseFloat($("#Range").val())) {
+                    if (parseFloat(price) <= parseFloat($("#Range").val())) {
                         $("#data-table tbody tr:nth-of-type(" + index + ")").hide();
+                        isRangeOver = true;
                     } else {
                         $("#data-table tbody tr:nth-of-type(" + index + ")").show();
+                        isRangeOver = false;
                     }
                 });
             });
