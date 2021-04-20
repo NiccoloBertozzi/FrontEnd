@@ -39,21 +39,24 @@
                     ]
                 });
             });
-            var sesso_status = false;
+
+            let isRangeOver = false;
             $('input[name="gender"]').click(function () {
-                if (!sesso_status) {
-                    $('#data-table tbody tr').get().map(function (row) {
-                        if (row.children[3].innerHTML != $('input[name="gender"]:checked').val()) {
-                            var index = row.rowIndex;
-                            $("#tabella tr:nth-of-type(" + index + ")").hide();
-                            sesso_status = true;
-                        }
-                    });
+                let sessoSelezionato = $(this).val();
+                if ($(this).prop('checked')) {
+                    let colSesso = $('#data-table tbody tr td:nth-of-type(4):contains(' + sessoSelezionato + ')');
+                    if (!isRangeOver) {
+                        colSesso.closest('tr').show();
+                    }
                 } else {
-                    sesso_status = false;
-                    $('#reset').click();
+                    let colSesso = $('#data-table tbody tr td:nth-of-type(4):contains(' + sessoSelezionato + ')');
+                    colSesso.closest('tr').hide();
                 }
             });
+
+            // Maschio di default...
+            $('input[name="gender"]:first').prop('checked', true);
+
             $('#categoria').change(function () {
                 if ($("#categoria").val() != "All") {
                     //createTable();
@@ -69,12 +72,9 @@
                 } else $('#reset').click();
             });
             $('#reset').click(function () {
-                $("#Range").val(5000);
-                $("#valuenb").val(5000);
-                $('#data-table tbody tr').get().map(function (row) {
-                    var index = row.rowIndex;
-                    $("#tabella tr:nth-of-type(" + index + ")").show();
-                });
+                $("#Range").val(3000);
+                $("#valuenb").val(3000);
+                $('#data-table tbody tr').show()
             });
             $('#data-table tbody').on("click", "tr", function () {
                 <%Session["IdTorneo"] = HiddenField1.Value; %>
@@ -102,10 +102,12 @@
                     var index = row.rowIndex;
                     var price = row.children[5].innerHTML;
                     price = price.replace("€", "");
-                    if (parseFloat(price) < parseFloat($("#Range").val())) {
+                    if (parseFloat(price) <= parseFloat($("#Range").val())) {
                         $("#data-table tbody tr:nth-of-type(" + index + ")").hide();
+                        isRangeOver = true;
                     } else {
                         $("#data-table tbody tr:nth-of-type(" + index + ")").show();
+                        isRangeOver = false;
                     }
                 });
             });
@@ -232,43 +234,37 @@
         </div>
 
         <div class="ml-5 mr-5 mx-auto mb-5" id="myContentOutputTornei">
-            <div class="row">
-                <div class="col-md-5 col-sm-12">
-                    <div class="row d-flex flex-row">
-                        <div class="col-3">
-                            <label class="my-1">Montepremi:</label>
+            <div class="row filterNav py-1 mb-3">
+                <div class="col-5 my-auto">
+                    <div class="row mx-auto">
+                        <div class="col-12 col-md-6 col-xl-3 text-center">
+                            <label class="align-middle">Montepremi:</label>
                         </div>
-                        <div class="col-5">
-                            <input type="range" class="form-range my-2" min="1000" max="5000" step="50" id="Range">
+                        <div class="col-12 col-md-6 col-xl-3 mb-2 mb-xl-0 text-center">
+                            <input type="range" class="form-range align-middle" min="1000" max="5000" step="50" id="Range">
                         </div>
-                        <div class="col-4">
+                        <div class="col-12 col-md-6 col-xl-3 pl-xl-0 mx-auto">
                             <input type="number" min="1000" max="5000" step="50" class="form-control form-control-sm" id="valuenb" aria-describedby="value">
                         </div>
                     </div>
                 </div>
-                <div class="col-md-5 col-sm-9">
-                    <div class="row">
-                        <div class="col-3">
-                            <label>Genere:</label>
+                <div class="col-3 custom-switch my-auto px-0">
+                    <div class="row mx-auto">
+                        <div class="col-12 col-xl-3 mr-xl-2 ml-lg-4">
+                             <label class="my-auto">Genere:</label>
                         </div>
-                        <div class="col-9">
-                            <div class="custom-control custom-switch">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <input type="checkbox" class="custom-control-input" value="M" name="gender" id="m">
-                                        <label class="custom-control-label" for="m">M</label>
-                                    </div>
-                                    <div class="col-3">
-                                        <input type="checkbox" class="custom-control-input" value="F" name="gender" id="f">
-                                        <label class="custom-control-label" for="f">F</label>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-6 col-xl-2 ml-xl-3">
+                            <input type="checkbox" class="custom-control-input" value="M" name="gender" id="m">
+                            <label class="custom-control-label" for="m">M</label>
+                        </div>
+                        <div class="col-6 col-xl-2 ml-xl-1">
+                            <input type="checkbox" class="custom-control-input" value="F" name="gender" id="f">
+                            <label class="custom-control-label" for="f">F</label>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2 col-sm-3">
-                    <button type="button" id="reset" class="btn btn-danger mb-2">Reset</button>
+                <div class="col-1 my-auto ml-auto mr-5 mr-lg-2">
+                    <button type="button" id="reset" class="btn btn-danger my-auto">Reset</button>
                 </div>
             </div>
             <div class="table-responsive">

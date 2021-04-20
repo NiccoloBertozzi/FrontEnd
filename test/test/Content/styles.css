@@ -463,3 +463,10 @@ input[type="radio"] {
     line-height: 3rem;
     color: #555;
 }
+
+/*Output Tornei*/
+.filterNav {
+    background-color: #f8f8f8ec;
+    border-radius: 25px;
+    border: 2px solid rgba(0,0,0,0.20);
+}
