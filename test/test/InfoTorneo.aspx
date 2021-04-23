@@ -95,6 +95,11 @@
                             </div>
                         </div>
                         <div class="row my-3 justify-content-between">
+                            <div class="col-12">
+                                <asp:Button ID="creaTabellone" runat="server" Text="Crea Tabellone" Visible="false" OnClick="btnCreaTabellone_Click" CssClass="btn btn-primary btn-block" />
+                            </div>
+                        </div>
+                        <div class="row my-3 justify-content-between">
                              <div class="col-3">
                                 <a id="back" class="btn btn-secondary" href="javascript:history.go(-1)">Indietro</a>
                             </div>

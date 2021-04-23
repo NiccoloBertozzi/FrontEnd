@@ -16,12 +16,29 @@ namespace test
         int idTorneo;
         protected void Page_Load(object sender, EventArgs e)
         {
+            idTorneo = Convert.ToInt32(Request.QueryString["id"]);
             //controlli visualizza partite da fare
             if (Session["ruolo"] != null)
             {
                 token = Session["Token"].ToString();
                 if (Session["ruolo"].ToString() == "Societa") btnIscriviti.Visible = false;
-                if (Session["ruolo"].ToString() == "Delegato") btnIscriviti.Visible = false;
+                if (Session["ruolo"].ToString() == "Delegato")
+                {
+                    btnIscriviti.Visible = false;
+                    //controllo che sia il delegato di quel torneo
+                    token = Session["Token"].ToString();
+                    var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/ControlloChiusuraIscrizioni/" + idTorneo+"/Supervisore/"+ Session["IdUtente"] + "");
+                    client.Timeout = -1;
+                    var request = new RestRequest(Method.GET);
+                    request.AddHeader("Authorization", "Bearer " + token);
+                    request.AddHeader("Cookie", "ARRAffinity=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ARRAffinitySameSite=e7fc3e897f5be57469671ac828c06570ef8d3ea8fb2416293fd2acc3f67e0ee6; ruolo=Delegato");
+                    IRestResponse response = client.Execute(request);
+                    dynamic deserialzied = JsonConvert.DeserializeObject(response.Content);
+                    if (deserialzied != null)
+                    {
+                        creaTabellone.Visible = true;
+                    }
+                }
                 if (Session["ruolo"].ToString() == "Allenatore") btnIscriviti.Visible = false;
                 if (Session["ruolo"].ToString() == "Admin")
                 {
@@ -41,7 +58,6 @@ namespace test
             }
             else DownloadInformazioniSquadre();
 
-            idTorneo = Convert.ToInt32(Request.QueryString["id"]);
             if (!this.IsPostBack)
             {
                 DownloadInformazioniTorneo();
@@ -85,7 +101,6 @@ namespace test
                     "<p>" + deserialzied[0].dataFine + "</p>" +
                     "<p class='head'>Sesso</p>" +
                     "<p>" + deserialzied[0].gender + "</p>");
-
                 table2.Append("<p class='head'>Nome Impianto</p>" +
                     "<p> " + deserialzied[0].nomeImpianto + " </p> " +
                     " <p class='head'>Indirizzo</p>" +
@@ -148,6 +163,10 @@ namespace test
         {
             Session["IdSquadra"] = HiddenField1.Value;
             Response.Redirect("InfoSquadra.aspx?id=" + idTorneo);
+        }
+        protected void btnCreaTabellone_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

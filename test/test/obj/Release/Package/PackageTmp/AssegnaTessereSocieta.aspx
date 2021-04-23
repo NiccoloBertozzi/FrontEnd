@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="Content/bootstrap.min.css">
     <link rel="stylesheet" href="Content/styles.css">
     <script src="https://kit.fontawesome.com/95609c6d0f.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-dark navbar-expand-md my-navbar sticky-top" id="my-navbar">
@@ -62,42 +63,34 @@
         <div class="container">
             <div class="mr-3 ml-3 mt-3 mb-5">
                 <form id="form1" runat="server">
-                <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>
-                <!--<asp:Label runat="server" text="Assegnazione Tessere"></asp:Label> <br />-->
-
-                <b>
-                    <asp:Label runat="server" ID="lblIdAtleta" Text="Atleta: "></asp:Label></b><br />
-                <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbAtleti" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="cbAtleti_TextChanged" />
-                <br />
-                <b>
-                    <asp:Label runat="server" Text="" ID="idAtleta"></asp:Label></b><br />
-
-                <b>
-                    <asp:Label runat="server" ID="lblCodiceTessera" Text="Codice tessera: "></asp:Label></b><br />
-                <asp:TextBox runat="server" ID="txtCodiceTessera"></asp:TextBox>
-                <br />
-
-                <b>
-                    <asp:Label runat="server" ID="lblTipoTessera" Text="Tipo tessera: "></asp:Label></b><br />
-                <asp:TextBox runat="server" ID="txtTipoTessera"></asp:TextBox>
-                <br />
-
-                <b>
-                    <asp:Label runat="server" ID="lblDataTesseramento" Text="Data di tesseramento: "></asp:Label></b><br />
-                <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>
-
-                <b>
-                    <asp:Label runat="server" ID="lblAnnoTesseramento" Text="Anno di tesseramento: "></asp:Label></b><br />
-                <asp:TextBox runat="server" ID="txtAnnoTesseramento"></asp:TextBox>
-                <br />
-
-                <b>
-                    <asp:Label runat="server" ID="lblImporto" Text="Importo: "></asp:Label></b><br />
-                <asp:TextBox runat="server" ID="txtImporto"></asp:TextBox>
-                <br />
-
-                <asp:Button runat="server" ID="btnInvio" Text="invio" OnClick="btnInvio_Click" class="btnLogin mx-auto mt-3" />
-</form>
+                    <asp:ScriptManager ID="sp1" runat="server"></asp:ScriptManager>
+                    <div class="form-group">
+                        <label for="lblIdAtleta">Atleta: </label> <br/>
+                        <ajaxToolkit:ComboBox AutoPostBack="true" required="true" ID="cbAtleti" runat="server" AutoCompleteMode="SuggestAppend" DropDownStyle="DropDownList" OnTextChanged="cbAtleti_TextChanged"/> <br/>
+                        <asp:Label runat="server" Text="" ID="idAtleta"></asp:Label>
+                    </div>
+                    <div class="form-group">
+                        <label for="lblCodiceTessera">Codice tessera: </label>
+                        <asp:TextBox runat="server" ID="txtCodiceTessera" required="true" placeholder="Inserisci codice tessera" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label for="lblTipoTessera">Tipo tessera: </label>
+                        <asp:TextBox runat="server" ID="txtTipoTessera" required="true" placeholder="Inserisci tipo tessera" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label for="lblDataTesseramento">Data di tesseramento: </label>
+                        <asp:TextBox ID="txtDataTesseramento" runat="server" required="true" placeholder="Inserisci data di tesseramento" CssClass="form-control" TextMode="Date"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label for="lblAnnoTesseramento">Anno di tesseramento: </label>
+                        <asp:TextBox ID="txtAnnoTesseramento" runat="server" required="true" placeholder="Inserisci anno di tesseramento" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label for="lblImporto">Importo: </label>
+                        <asp:TextBox ID="txtImporto" runat="server" required="true" placeholder="Inserisci importo" CssClass="form-control"></asp:TextBox>
+                    </div>
+                    <asp:Button runat="server" ID="btnInvio" Text="Assegna" OnClick="btnInvio_Click" class="btn btn-primary" />
+                </form>
             </div>
         </div>
     
