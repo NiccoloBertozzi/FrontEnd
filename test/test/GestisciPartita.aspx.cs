@@ -38,8 +38,8 @@ namespace test
                 {
                     if (deserialzied[i].numPartita == Request.QueryString["partita"])
                     {
-                        NomeTeam1.Text = deserialzied[i].nomeTeam;
-                        NomeTeam2.Text = deserialzied[i].nomeTeam1;
+                        NomeTeam1.Text = deserialzied[i].team1;
+                        NomeTeam2.Text = deserialzied[i].team2;
                         Arbitri.Text = deserialzied[i].arbitro1 + ", " + deserialzied[i].arbitro2;
                         Fase.Text = deserialzied[i].fase;
                         Campo.Text = deserialzied[i].campo;
@@ -61,6 +61,18 @@ namespace test
         }
         protected void ModificaPartita_Click(object sender, EventArgs e)
         {
+            var client = new RestClient("https://localhost:44339/api/v1/supervisore/AggiornaRisultati");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.PUT);
+            request.AddHeader("Authorization", "Bearer "+token);
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("application/json", "{\r\n  \"idTorneo\": "+ idTorneo + ",\r\n  \"idPartita\": 1874,\r\n  \"numPartita\":"+ numPartita + "," +
+                "\r\n  \"pt1s3\": "+ T1S3.Text + ",\r\n  \"pt1s2\": "+ T1S2.Text + "," +
+                "\r\n  \"pt1s1\": "+ T1S1.Text + ",\r\n  \"pt2s3\": "+ T2S3.Text + "," +
+                "\r\n  \"pt2s2\":"+ T2S2.Text + ",\r\n  \"pt2s1\": "+ T2S1.Text + "," +
+                "\r\n  \"numSet\": "+ NumSet.Text+ "\r\n}", ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+            if (response.StatusCode.ToString() == "Set aggiornato con successo!") Response.Redirect("OutputPartiteTorneo.aspx?id=" + idTorneo);
 
         }
     }

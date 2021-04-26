@@ -101,6 +101,8 @@
                                 <asp:TextBox ID="SetQ1" runat="server"></asp:TextBox>
                                 <h3>SetQ2</h3>
                                 <asp:TextBox ID="SetQ2" runat="server"></asp:TextBox>
+                                <h3>Num Set</h3>
+                                <asp:TextBox ID="NumSet" runat="server"></asp:TextBox>
                             </div>
                         </div>
                         <div class="row my-3 justify-content-between">
