@@ -14,7 +14,7 @@ namespace test
         {
             if (Request.QueryString["change"]!="" || Request.QueryString["change"] != null)
             {
-                Session.Clear();
+                Session.Clear();//pulisco sessioni
             }
             if (Session["idUtente"] != null)
             {
