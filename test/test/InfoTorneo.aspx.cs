@@ -3,6 +3,7 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.UI;
@@ -81,7 +82,11 @@ namespace test
                 table2.Clear();
                 torneiInfo.Controls.Add(new Literal { Text = table.ToString() });
                 torneiinfoluogo.Controls.Add(new Literal { Text = table2.ToString() });
-
+                DateTime datainizio, datafine;
+                datainizio = Convert.ToDateTime(deserialzied[0].dataInizio);
+                datafine = Convert.ToDateTime(deserialzied[0].dataFine);
+                Session["datainzio"] = datainizio.Date.ToString("yyyy-MM-dd");
+                Session["datafine"] = datafine.Date.ToString("yyyy-MM-dd");
                 table.Append("<h2>Info Torneo</h2>" +
                     "<p class='head'>Nome</p>" +
                     "<p>" + deserialzied[0].titolo + "</p>" +
@@ -145,8 +150,6 @@ namespace test
         {
             Response.Redirect("OutputPartiteTorneo.aspx?id=" + idTorneo);
         }
-
-
         protected void autorizza_Click(object sender, EventArgs e)
         {
             string token = Session["Token"].ToString();
@@ -166,7 +169,30 @@ namespace test
         }
         protected void btnCreaTabellone_Click(object sender, EventArgs e)
         {
-            
+            //crea lista ingresso
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/CreaListaIngresso/"+idTorneo+"/"+ Session["idUtente"]);
+            client.Timeout = -1;
+            var request = new RestRequest(Method.POST);
+            request.AddHeader("Authorization", "Bearer "+token);
+            request.AddHeader("Cookie", "ARRAffinity=08c542de9c69df304db89085a4be8d076030733c2e6e8b2f44fd02f2435e1112; ARRAffinitySameSite=08c542de9c69df304db89085a4be8d076030733c2e6e8b2f44fd02f2435e1112; ruolo=Delegato");
+            IRestResponse response = client.Execute(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                //creo torneo qualifiche
+                client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/CreaTorneoQualifiche/" + idTorneo + "/" + Session["datainzio"] + "/" + Session["datafine"] + "/" + Session["datafine"] + "");
+                client.Timeout = -1;
+                request = new RestRequest(Method.POST);
+                request.AddHeader("Authorization", "Bearer " + token);
+                request.AddHeader("Cookie", "ARRAffinity=08c542de9c69df304db89085a4be8d076030733c2e6e8b2f44fd02f2435e1112; ARRAffinitySameSite=08c542de9c69df304db89085a4be8d076030733c2e6e8b2f44fd02f2435e1112; ruolo=Delegato");
+                response = client.Execute(request);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    //rimuovo le sessioni
+                    Session.Remove("datainizio");
+                    Session.Remove("datafine");
+                    Response.Redirect("OutputTorneiDelegato.aspx");
+                }
+            }
         }
     }
 }

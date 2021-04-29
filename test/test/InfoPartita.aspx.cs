@@ -42,7 +42,7 @@ namespace test
                         team1.InnerText = deserialzied[i].nomeTeam;
                         team2.InnerText = deserialzied[i].nomeTeam1;
                         tipoT.InnerText = deserialzied[i].fase;
-                        dataT.InnerText = deserialzied[i].dataPartita.ToString().Split(' ')[0];
+                        dataT.InnerText = Convert.ToDateTime(deserialzied[i].dataPartita).ToString().Split(' ')[0];
                         oraT.InnerText = deserialzied[i].oraPartita.ToString().Split(':')[0] + ":" + deserialzied[i].oraPartita.ToString().Split(':')[1];
                         punteggioT.InnerText = deserialzied[i].risultato;
                         setT1.InnerText = deserialzied[i].pT1S1 + "⠀-⠀" + deserialzied[i].pT2S1;
