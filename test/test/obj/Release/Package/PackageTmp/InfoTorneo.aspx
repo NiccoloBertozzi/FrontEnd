@@ -38,9 +38,9 @@
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
                                     <a class="dropdown-item" href="OutputClassifica.aspx?genere=M">Classifica Maschile</a>
                                     <a class="dropdown-item" href="OutputClassifica.aspx?genere=F">Classifica Femminile</a>
-                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=1">L1</a>
-                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=2">L2</a>
-                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=3">L3</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=L1">L1</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=L2">L2</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=L3">L3</a>
                                 </div>
                             </div>
                         </li>
@@ -92,6 +92,11 @@
                         <div class="row my-3 justify-content-between">
                             <div class="col-12">
                                 <asp:Button ID="btnIscriviti" runat="server" Text="Iscrivi squadra" OnClick="btnIscriviti_Click" CssClass="btn btn-primary btn-block" />
+                            </div>
+                        </div>
+                        <div class="row my-3 justify-content-between">
+                            <div class="col-12">
+                                <asp:Button ID="creaTabellone" runat="server" Text="Crea Tabellone" Visible="false" OnClick="btnCreaTabellone_Click" CssClass="btn btn-primary btn-block" />
                             </div>
                         </div>
                         <div class="row my-3 justify-content-between">

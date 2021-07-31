@@ -40,25 +40,21 @@ namespace test
                     {
                         NomeTeam1.Text = deserialzied[i].team1;
                         NomeTeam2.Text = deserialzied[i].team2;
-                        Arbitri.Text = deserialzied[i].arbitro1 + ", " + deserialzied[i].arbitro2;
                         Fase.Text = deserialzied[i].fase;
-                        Campo.Text = deserialzied[i].campo;
-                        Data.SelectedDate = deserialzied[i].dataPartita;
-                        Ora.Text = deserialzied[i].oraPartita;
+                        Data.Text = deserialzied[i].dataPartita;
                         Risultato.Text = deserialzied[i].risultato;
-                        Durata.Text = deserialzied[i].durata;
                         T1S1.Text = deserialzied[i].pT1S1;
                         T2S1.Text = deserialzied[i].pT2S1;
                         T1S2.Text = deserialzied[i].pT1S2;
                         T2S2.Text = deserialzied[i].pT2S2;
                         T1S3.Text = deserialzied[i].pT1S3;
                         T2S3.Text = deserialzied[i].pT2S3;
-                        SetQ1.Text = deserialzied[i].setSQ1;
-                        SetQ2.Text = deserialzied[i].setSQ2;
+                        NumSet.Text = (Convert.ToInt32(deserialzied[i].setSQ1) + Convert.ToInt32(deserialzied[i].setSQ2) + 1).ToString();
                     }
                 }
             }
         }
+
         protected void ModificaPartita_Click(object sender, EventArgs e)
         {
             //get id partita

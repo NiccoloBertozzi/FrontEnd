@@ -27,7 +27,7 @@ namespace test
         protected void DownloadDelegati(string token)
         {
             //download Supervisori
-            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetSupervisori");
+            var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/supervisore/GetSupervisori");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             request.AddHeader("Authorization", "Bearer " + token);
@@ -43,7 +43,7 @@ namespace test
                 }
             }
             //download arbitri
-            client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetArbitri");
+            client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/supervisore/GetArbitri");
             client.Timeout = -1;
             request = new RestRequest(Method.GET);
             request.AddHeader("Authorization", "Bearer " + token);
@@ -59,7 +59,7 @@ namespace test
                 }
             }
             //download direttori
-            client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetDirettori");
+            client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/supervisore/GetDirettori");
             client.Timeout = -1;
             request = new RestRequest(Method.GET);
             request.AddHeader("Authorization", "Bearer " + token);
@@ -81,7 +81,7 @@ namespace test
             //prende supervisore selezionato e scarica id
             if (cbSupervisori.SelectedItem.Value.Length > 11)
             {
-                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDSupervisore/" + cbSupervisori.SelectedItem.Value + "/Nome/" + cbSupervisori.SelectedItem.Text.Split(' ')[1] + "/Cognome/" + cbSupervisori.SelectedItem.Text.Split(' ')[0] + "/");
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/supervisore/GetIDSupervisore/" + cbSupervisori.SelectedItem.Value + "/Nome/" + cbSupervisori.SelectedItem.Text.Split(' ')[1] + "/Cognome/" + cbSupervisori.SelectedItem.Text.Split(' ')[0] + "/");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.GET);
                 request.AddHeader("Authorization", "Bearer " + token + "");
@@ -101,7 +101,7 @@ namespace test
             //prende arbitro selezionato e scarica id
             if (cbArbitro.SelectedItem.Value.Length > 11)
             {
-                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDArbitro/" + cbArbitro.SelectedItem.Value + "/Nome/" + cbArbitro.SelectedItem.Text.Split(' ')[1] + "/Cognome/" + cbArbitro.SelectedItem.Text.Split(' ')[0] + "/");
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/supervisore/GetIDArbitro/" + cbArbitro.SelectedItem.Value + "/Nome/" + cbArbitro.SelectedItem.Text.Split(' ')[1] + "/Cognome/" + cbArbitro.SelectedItem.Text.Split(' ')[0] + "/");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.GET);
                 request.AddHeader("Authorization", "Bearer " + token + "");
@@ -121,7 +121,7 @@ namespace test
             //prende direttore selezionato e scarica id
             if (cbDirettore.SelectedItem.Value.Length > 11)
             {
-                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/GetIDDirettore/" + cbDirettore.SelectedItem.Value + "/Nome/" + cbDirettore.SelectedItem.Text.Split(' ')[1] + "/Cognome/" + cbDirettore.SelectedItem.Text.Split(' ')[0] + "/");
+                var client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/supervisore/GetIDDirettore/" + cbDirettore.SelectedItem.Value + "/Nome/" + cbDirettore.SelectedItem.Text.Split(' ')[1] + "/Cognome/" + cbDirettore.SelectedItem.Text.Split(' ')[0] + "/");
                 client.Timeout = -1;
                 var request = new RestRequest(Method.GET);
                 request.AddHeader("Authorization", "Bearer " + token + "");

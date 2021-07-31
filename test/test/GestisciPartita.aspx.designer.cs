@@ -60,31 +60,13 @@ namespace test
         protected global::System.Web.UI.WebControls.Label NomeTeam2;
 
         /// <summary>
-        /// Controllo Arbitri.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Arbitri;
-
-        /// <summary>
         /// Controllo Fase.
         /// </summary>
         /// <remarks>
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Fase;
-
-        /// <summary>
-        /// Controllo Campo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Campo;
+        protected global::System.Web.UI.WebControls.Label Fase;
 
         /// <summary>
         /// Controllo Data.
@@ -93,16 +75,7 @@ namespace test
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar Data;
-
-        /// <summary>
-        /// Controllo Ora.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Ora;
+        protected global::System.Web.UI.WebControls.Label Data;
 
         /// <summary>
         /// Controllo Risultato.
@@ -111,16 +84,7 @@ namespace test
         /// Campo generato automaticamente.
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Risultato;
-
-        /// <summary>
-        /// Controllo Durata.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Durata;
+        protected global::System.Web.UI.WebControls.Label Risultato;
 
         /// <summary>
         /// Controllo T1S1.
@@ -175,24 +139,6 @@ namespace test
         /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox T2S3;
-
-        /// <summary>
-        /// Controllo SetQ1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SetQ1;
-
-        /// <summary>
-        /// Controllo SetQ2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generato automaticamente.
-        /// Per la modifica, spostare la dichiarazione di campo dal file di progettazione al file code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SetQ2;
 
         /// <summary>
         /// Controllo NumSet.

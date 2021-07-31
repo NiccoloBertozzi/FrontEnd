@@ -21,6 +21,16 @@
         function Register() {
             LoadPage("Register.aspx");
         }
+        function showPassword() {
+            var x = document.getElementById("PWD");
+            if (x.type === "password") {
+                x.type = "text";
+            }
+            else
+            {
+                x.type = "password";
+            }
+        }
     </script>
 </head>
 <body>
@@ -64,6 +74,11 @@
                 <div class="row px-4 pb-2">
                     <div class="col-12">
                         <asp:TextBox runat="server" ID="PWD" CssClass="form-control" TextMode="Password" placeholder="Password" required="true"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="row px-4 pb-2">
+                    <div class="col-12">
+                        <input class="mr-2" type="checkbox" onclick="showPassword()">Mostra password
                     </div>
                 </div>
                 <div class="row mt-2 py-1">

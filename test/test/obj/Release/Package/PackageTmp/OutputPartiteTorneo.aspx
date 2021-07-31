@@ -29,12 +29,13 @@
             $.ajax(settings).done(function (response) {
                 $('#tabella').empty();
                 response.forEach(function (dati) {
-                    $('#tabella').append("<tr id=" + dati.numPartita + "><td>" + (formatDate(dati.dataPartita)) + "</td><td>" + dati.fase + "</td><td>" + dati.nomeTeam +"-"+dati.nomeTeam1+"</td><td>" + dati.risultato + "</td></tr>");
+                    $('#tabella').append("<tr id=" + dati.numPartita + "><td>" + (formatDate(dati.dataPartita)) + "</td><td>" + dati.fase + "</td><td>" + dati.team1 + "-" + dati.team2 + "</td><td>" + dati.setSQ1 + "-" + dati.setSQ2+ "</td></tr>");
                 });
                 $('#data-table').DataTable({
                     "search": {
-                        "caseInsensitive": false
+                        "caseInsensitive": false,
                     },
+                    "pageLength": 100,
                     responsive: true,
                     "order": [
                         [0, "asc"]
@@ -117,7 +118,7 @@
         <asp:HiddenField ID="HiddenField1" runat="server" />
         <!--Banner-->
         <div class="row mt-3 mb-3">
-            <h1 class=" col-12 text-center my-auto banner">Tornei</h1>
+            <h1 runat="server" id="titoloTorneo" class=" col-12 text-center my-auto banner"></h1>
         </div>
         <div class="ml-5 mr-5 mx-auto mb-5" id="myContentOutputTornei">
             <div class="table-responsive">

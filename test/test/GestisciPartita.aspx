@@ -66,41 +66,29 @@
                         <asp:Label runat="server" ID="NomeTeam1"></asp:Label>
                         <h3>Nome squadra 2</h3>
                         <asp:Label runat="server" ID="NomeTeam2"></asp:Label>
-                        <h3>Arbitro</h3>
-                        <asp:Label runat="server" ID="Arbitri"></asp:Label>
                         <h3>Fase</h3>
-                        <asp:TextBox runat="server" ID="Fase"></asp:TextBox>
-                        <h3>Campo</h3>
-                        <asp:TextBox runat="server" ID="Campo"></asp:TextBox>
+                        <asp:Label runat="server" ID="Fase"></asp:Label>
                         <h3>Data partita</h3>
-                        <asp:Calendar runat="server" ID="Data"></asp:Calendar>
-                        <h3>Ora partita</h3>
-                        <asp:TextBox TextMode="Time" runat="server" ID="Ora"></asp:TextBox>
+                        <asp:Label runat="server" ID="Data"></asp:Label>
                         <h3>Risultato</h3>
-                        <asp:TextBox runat="server" ID="Risultato"></asp:TextBox>
-                        <h3>Durata</h3>
-                        <asp:TextBox runat="server" ID="Durata"></asp:TextBox>
+                        <asp:Label runat="server" ID="Risultato"></asp:Label>
                     </div>
                     <div class="col-md-5 col-sm-12 offset-md-1 mt-3 mt-md-0">
                         <div class="row">
                             <div class="col-12 contentInfo">
                                 <h2>Modifica punti set</h2>
-                                <h3>T1S1</h3>
+                                <h3>Team1 Set1</h3>
                                 <asp:TextBox ID="T1S1" TextMode="Number" runat="server" min="0" step="1"></asp:TextBox>
-                                <h3>T2S1</h3>
+                                <h3>Team2 Set1</h3>
                                 <asp:TextBox ID="T2S1" TextMode="Number" runat="server" min="0" step="1"></asp:TextBox>
-                                <h3>T1S2</h3>
+                                <h3>Team1 Set2</h3>
                                 <asp:TextBox ID="T1S2" TextMode="Number" runat="server" min="0" step="1"></asp:TextBox>
-                                <h3>T2S2</h3>
+                                <h3>Team2 Set2</h3>
                                 <asp:TextBox ID="T2S2" TextMode="Number" runat="server" min="0" step="1"></asp:TextBox>
-                                <h3>T1S3</h3>
+                                <h3>Team1 Set3</h3>
                                 <asp:TextBox ID="T1S3" TextMode="Number" runat="server" min="0" step="1"></asp:TextBox>
-                                <h3>T2S3</h3>
+                                <h3>Team2 Set3</h3>
                                 <asp:TextBox ID="T2S3" TextMode="Number" runat="server" min="0" step="1"></asp:TextBox>
-                                <h3>SetQ1</h3>
-                                <asp:TextBox ID="SetQ1" runat="server"></asp:TextBox>
-                                <h3>SetQ2</h3>
-                                <asp:TextBox ID="SetQ2" runat="server"></asp:TextBox>
                                 <h3>Num Set</h3>
                                 <asp:TextBox ID="NumSet" runat="server"></asp:TextBox>
                             </div>

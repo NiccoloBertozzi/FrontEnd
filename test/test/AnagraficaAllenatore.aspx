@@ -41,9 +41,9 @@
                                 <div class="dropdown-menu my-navbar" aria-labelledby="dropdownMenuLink">
                                     <a class="dropdown-item" href="OutputClassifica.aspx?genere=M">Classifica Maschile</a>
                                     <a class="dropdown-item" href="OutputClassifica.aspx?genere=F">Classifica Femminile</a>
-                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=1">L1</a>
-                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=2">L2</a>
-                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=3">L3</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=L1">L1</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=L2">L2</a>
+                                    <a class="dropdown-item" href="OutputTorneiCategoria?tipo=L3">L3</a>
                                 </div>
                             </div>
                         </li>
