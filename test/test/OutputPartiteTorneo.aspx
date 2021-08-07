@@ -29,7 +29,7 @@
             $.ajax(settings).done(function (response) {
                 $('#tabella').empty();
                 response.forEach(function (dati) {
-                    $('#tabella').append("<tr id=" + dati.numPartita + "><td>" + (formatDate(dati.dataPartita)) + "</td><td>" + dati.fase + "</td><td>" + dati.team1 + "-" + dati.team2 + "</td><td>" + dati.setSQ1 + "-" + dati.setSQ2+ "</td></tr>");
+                    $('#tabella').append("<tr id=" + dati.numPartita + "><td>" + (formatDate(dati.dataPartita)) + "</td><td>" + dati.fase + "</td><td>" + dati.team1 + " vs " + dati.team2 + "</td><td>" + dati.setSQ1 + "-" + dati.setSQ2+ "</td></tr>");
                 });
                 $('#data-table').DataTable({
                     "search": {

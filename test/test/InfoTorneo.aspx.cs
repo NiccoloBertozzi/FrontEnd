@@ -88,7 +88,7 @@ namespace test
                 datafine = Convert.ToDateTime(deserialzied[0].dataFine);
                 Session["datainzio"] = datainizio.Date.ToString("yyyy-MM-dd");
                 Session["datafine"] = datafine.Date.ToString("yyyy-MM-dd");
-                numqualifiche = deserialzied[0].numMaxTeamQualifiche;
+                Session["numqualifiche"] = deserialzied[0].numMaxTeamQualifiche;
                 table.Append("<h2>Info Torneo</h2>" +
                     "<p class='head'>Nome</p>" +
                     "<p>" + deserialzied[0].titolo + "</p>" +
@@ -178,7 +178,7 @@ namespace test
             request.AddHeader("Authorization", "Bearer "+token);
             request.AddHeader("Cookie", "ARRAffinity=08c542de9c69df304db89085a4be8d076030733c2e6e8b2f44fd02f2435e1112; ARRAffinitySameSite=08c542de9c69df304db89085a4be8d076030733c2e6e8b2f44fd02f2435e1112; ruolo=Delegato");
             IRestResponse response = client.Execute(request);
-            if (response.StatusCode == HttpStatusCode.OK && Convert.ToInt32(numqualifiche)>0)
+            if (response.StatusCode == HttpStatusCode.OK && Convert.ToInt32(Session["numqualifiche"]) >0)
             {
                 //creo torneo qualifiche
                 client = new RestClient("https://aibvcapi.azurewebsites.net/api/v1/tornei/CreaTorneoQualifiche/" + idTorneo + "/" + Session["datainzio"] + "/" + Session["datafine"] + "/" + Session["datafine"] + "");
@@ -192,6 +192,7 @@ namespace test
                     //rimuovo le sessioni
                     Session.Remove("datainizio");
                     Session.Remove("datafine");
+                    Session.Remove("numqualifiche");
                     Response.Redirect("OutputTorneiDelegato.aspx");
                 }
             }
