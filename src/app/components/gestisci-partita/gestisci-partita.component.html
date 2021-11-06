@@ -1,0 +1,57 @@
+<form id="form1" [formGroup]="formrcrea">
+    <!--Banner-->
+    <div class="row mt-3 mb-3">
+        <h1 class=" col-12 text-center my-4 banner">Gestisci partita</h1>
+    </div>
+    <div class="container">
+        <div class="mr-3 ml-3 mt-3 mb-5">
+            <div class="row mt-4">
+                <div class="col-md-6 col-sm-12 contentInfo">
+                    <h3>Squadra 1</h3>
+                    <label>{{partita[0].team1}}</label>
+                    <h3>Squadra 2</h3>
+                    <label>{{partita[0].team2}}</label>
+                    <h3>Fase</h3>
+                    <label>{{partita[0].fase}}</label>
+                    <h3>Data partita</h3>
+                    <input type="date" formControlName="dataPartita">
+                    <h3>Ora partita</h3>
+                    <input type="time" formControlName="oraPartita">
+                    <h3>Campo</h3>
+                    <input type="number" formControlName="campo">
+                    <h3>Risultato</h3>
+                    <label>{{partita[0].risultato}}</label>
+                    <br>
+                    <input type="button" ID="ModificaPartita" value="Modifica Info partita" (click)="ModificaInfo()" class="btn btn-primary my-3" />
+                </div>
+                <div class="col-md-5 col-sm-12 offset-md-1 mt-3 mt-md-0">
+                    <div class="row">
+                        <div class="col-12 contentInfo">
+                            <h3>Team1 Set1</h3>
+                            <input type="number" min="0" step="1" formControlName="pt1s1" name="pt1s1">
+                            <h3>Team2 Set1</h3>
+                            <input type="number" min="0" step="1" formControlName="pt2s1" name="pt2s1">
+                            <h3>Team1 Set2</h3>
+                            <input type="number" min="0" step="1" formControlName="pt1s2" name="pt1s2">
+                            <h3>Team2 Set2</h3>
+                            <input type="number" min="0" step="1" formControlName="pt2s2" name="pt2s2">
+                            <h3>Team1 Set3</h3>
+                            <input type="number" min="0" step="1" formControlName="pt1s3" name="pt1s3">
+                            <h3>Team2 Set3</h3>
+                            <input type="number" min="0" step="1" formControlName="pt2s3" name="pt2s3">
+                            <h3>Num Set</h3>
+                            <label>{{total}}</label>
+                            <br>
+                            <input type="button" ID="ModificaPartita" value="Modifica risultati partita" (click)="ModificaRisultati()" class="btn btn-primary my-3" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <a id="back" class="btn btn-secondary my-4" href="javascript:history.go(-1)">Indietro</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

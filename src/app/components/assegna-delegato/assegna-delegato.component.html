@@ -1,0 +1,31 @@
+<form id="form2" [formGroup]="formassegna">
+    <!--Banner-->
+    <div class="row mt-3 mb-3">
+        <h1 class=" col-12 text-center my-auto banner">Assegna delegati</h1>
+    </div>
+    <div class="container">
+        <div class="me-3 ms-3 mt-3 mb-5">
+            <div class="form-group">
+                <label for="lblTipoTorneo">Assegna Supervisori: </label>
+                <select id="cmbTipoTorneo" class="form-control" formControlName="IdSupervisore">
+            <option *ngFor="let c of Supervisore" [ngValue]="c.idDelegato">{{c.delegato +' '+c.cf}}</option>
+        </select>
+            </div>
+            <div class="form-group">
+                <label for="lblTipoTorneo">Assegna Supervisore Arbitrare: </label>
+                <select id="cmbTipoTorneo" class="form-control" formControlName="IdSupArbitrale">
+            <option *ngFor="let c of Arbitro" [ngValue]="c.idDelegato">{{c.delegato +' '+c.cf}}</option>
+        </select>
+            </div>
+            <div class="form-group">
+                <label for="lblTipoTorneo">Assegna Direttore di competizione: </label>
+                <select id="cmbTipoTorneo" class="form-control" formControlName="IdDirettore">
+            <option *ngFor="let c of Direttore" [ngValue]="c.idDelegato">{{c.delegato +' '+c.cf}}</option>
+        </select>
+            </div>
+            <input type="button" class="btn btn-primary mt-3" (click)="AssegnaDelegato()" value="Assegna delegati" />
+        </div>
+    </div>
+    <script src="Scripts/jquery-3.4.1.min.js "></script>
+    <script src="Scripts/bootstrap.min.js "></script>
+</form>

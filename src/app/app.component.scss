@@ -1,0 +1,28 @@
+.my-navbar {
+    background-color: #154492;
+}
+
+#my-navbar-items {
+    border: 0;
+}
+
+img {
+    cursor: pointer;
+}
+
+a {
+    color: rgba(255, 255, 255, 0.877) !important;
+}
+
+.dropdown-menu {
+    background-color: #154492;
+}
+
+.dropdown-item:hover {
+    background-color: transparent;
+    border-bottom: 3px solid rgb(255, 187, 0);
+}
+
+ul {
+    list-style-type: none;
+}

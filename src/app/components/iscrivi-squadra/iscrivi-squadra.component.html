@@ -1,0 +1,52 @@
+<form [formGroup]="formrcrea">
+    <!--Banner-->
+    <div class="row mt-3 mb-3">
+        <h1 class=" col-12 text-center my-auto banner">Iscrizione squadra al torneo</h1>
+    </div>
+    <div class="container">
+        <div class="mr-3 ml-3 mt-3 mb-5">
+            <!-- Nome Team -->
+            <div class="form-group mt-3">
+                <label for="titoloTorneo" id="nometeam">Nome squadra</label>
+                <p>{{nomesquadra}}</p>
+            </div>
+            <!-- Codice Primo  Atleta -->
+            <div class="form-group mt-3">
+                <mat-label>Codice/Nome Cognome primo atleta</mat-label>
+                <mat-select (selectionChange)="onChange()" class="form-control" formControlName="atleta1">
+                    <input type="text" class="p-2" autocomplete="off" matInput placeholder="Search" #multiUserSearch1 (input)="onInputChange1()">
+                    <mat-option *ngFor="let c of Atleti" [value]="c">{{c.codiceTessera + ' '+ c.nome + ' '+ c.cognome}}</mat-option>
+                </mat-select>
+            </div>
+            <!-- Codice Secondo Atleta -->
+            <div class="form-group mt-3">
+                <mat-label>Codice/Nome Cognome secondo atleta</mat-label>
+                <mat-select (selectionChange)="onChange()" class="form-control" formControlName="atleta2">
+                    <input type="text" class="p-2" autocomplete="off" matInput placeholder="Search" #multiUserSearch2 (input)="onInputChange2()">
+                    <mat-option *ngFor="let c of Atleti" [value]="c">{{c.codiceTessera + ' '+ c.nome + ' '+ c.cognome}}</mat-option>
+                </mat-select>
+            </div>
+            <!-- Codice Secondo Atleta -->
+            <div class="form-group my-3">
+                <mat-label>Codice/Nome Cognome allenatore</mat-label>
+                <mat-select (selectionChange)="onChange()" class="form-control" formControlName="allenatore">
+                    <input type="text" class="p-2" autocomplete="off" matInput placeholder="Search" #multiUserSearchAllenatore (input)="onInputChangeAllenatore()">
+                    <mat-option *ngFor="let c of Allenatori" [value]="c">{{c.codiceTessera + ' '+ c.nome + ' '+ c.cognome}}</mat-option>
+                </mat-select>
+            </div>
+            <!-- WildCard -->
+            <div class="form-group mt-3">
+                <label for="lblwc" class="col-form-label">Wild Card</label><br>
+                <div class="my-auto">
+                    <input id="si" type="radio" formControlName="wildcard" value="true" />
+                    <label for="si">Si</label>
+                </div>
+                <div class="my-auto">
+                    <input id="no" type="radio" formControlName="wildcard" value="false" />
+                    <label for="no">No</label>
+                </div>
+            </div>
+            <input type="submit" name="btn_IscriviSquadra" value="Iscriviti al Torneo" id="btn_IscriviSquadra" (click)="Iscrivi()" class="btn btn-primary my-3" />
+        </div>
+    </div>
+</form>

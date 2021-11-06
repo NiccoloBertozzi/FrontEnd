@@ -1,0 +1,34 @@
+<nav class="navbar navbar-dark navbar-expand-md my-navbar sticky-top" id="my-navbar">
+    <div class="container-fluid">
+        <button data-toggle="collapse" class="navbar-toggler my-button" data-target="#navcol-1" id="my-navbar-items">
+            <span class="sr-only">Toggle navigation</span>
+            <fa-icon [icon]="faIcon" style="color: white;"></fa-icon>
+        </button>
+        <img src="../assets/img/aibvc-logo.png" style="width: 94px;" (click)="Change('OutputTornei/L1')">
+        <div class="collapse navbar-collapse row" id="navcol-1">
+            <div class="col-md-11 col-sm-12">
+                <ul class="nav navbar-nav ml-5 justify-content-center" id="myNavUl" routerLinkActive="active">
+                    <li class="nav-item dropdown" role="presentation">
+                        <a class="nav-link dropdown-toggle" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">AIBVC Tour</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" [routerLink]="" (click)="Change('Classifica/M')">Classifica Maschile</a>
+                            <a class="dropdown-item" [routerLink]="" (click)="Change('Classifica/F')">Classifica Femminile</a>
+                            <a class="dropdown-item" (click)="Change('OutputTornei/L1')">L1</a>
+                            <a class="dropdown-item" (click)="Change('OutputTornei/L2')">L2</a>
+                            <a class="dropdown-item" (click)="Change('OutputTornei/L3')">L3</a>
+                        </div>
+                    </li>
+                    <li class="nav-item" *ngFor="let link of links">
+                        <a class="nav-link" (click)="Change(link.path)" [routerLink]="">{{ link.text }}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-1">
+                <div class="nav-item" *ngIf="isLoggedIn">
+                    <button type="button" id="btnlogin" (click)="LogOut();" class="btn btn-light">Log out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<router-outlet></router-outlet>

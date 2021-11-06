@@ -1,0 +1,122 @@
+<form [formGroup]="formrcrea">
+    <!--Banner-->
+    <div class="row mt-3 mb-3">
+        <h1 class=" col-12 text-center my-auto banner">Creazione torneo</h1>
+    </div>
+    <div class="container">
+        <div class="mr-3 ml-3 mt-3 mb-5">
+            <div class="form-group mt-3">
+                <label for="lblTipoTorneo">Tipo Torneo: </label>
+                <select id="cmbTipoTorneo" class="form-control" formControlName="tipoTorneo">
+                    <option *ngFor="let c of TipiTorneo" [ngValue]="c.idTipoTorneo">{{c.descrizione}}</option>
+                </select>
+            </div>
+            <div class="form-group mt-3">
+                <label for="titoloTorneo">Titolo torneo</label>
+                <input name="txtTitolo" formControlName="titolo" type="text" id="txtTitolo" class="form-control" required="true" placeholder="Inserisci il titolo del torneo" />
+            </div>
+            <div class="form-group mt-3">
+                <label for="tour">Tour</label>
+                <input name="txttour" formControlName="tour" type="text" id="txtour" class="form-control" required="true" placeholder="Inserisci il tour del torneo" />
+            </div>
+            <div class="form-group mt-3">
+                <label for="lblQuotaIscr">Quota iscrizione a coppia: </label>
+                <input name="txtQuotaIscr" formControlName="quotaIscrizione" type="text" id="txtQuotaIscr" class="form-control" required="true" placeholder="Inserisci la quota di iscrizione a coppia" />
+            </div>
+            <div class="form-group mt-3">
+                <label for="lblPuntiVitt">Punti vittoria set: </label>
+                <select name="dlPuntiVittoria" id="dlPuntiVittoria" class="form-control" formControlName="puntiVittoria">
+                    <option selected="selected" value="15">15</option>
+                    <option value="21">21</option>
+                </select>
+            </div>
+            <div class="form-group mt-3">
+                <label for="lblDataChiusuraIscr">Data chiusura iscrizioni: </label>
+                <input name="txtDataChiusuraIscr" type="date" formControlName="dataChiusuraIscrizioni" id="txtDataChiusuraIscr" class="form-control" required="true" placeholder="Inserisci data chiusura iscrizioni" />
+            </div>
+            <div class="form-group mt-3">
+                <label for="lblDataInizio">Data inizio: </label>
+                <input name="txtDataInizio" type="date" formControlName="dataInizio" id="txtDataInizio" class="form-control" required="true" placeholder="Inserisci data inizio torneo" />
+            </div>
+            <div class="form-group mt-3">
+                <label for="lblOraInizio">Ora inizio: </label>
+                <input name="txtOraInizio" type="time" id="txtOraInizio" formControlName="oraInizio" class="form-control" required="true" placeholder="Inserisci ora inizio torneo" />
+            </div>
+            <div class="form-group mt-3">
+                <label for="lblDataFine">Data fine: </label>
+                <input name="txtDataFine" type="date" formControlName="dataFine" id="txtDataFine" class="form-control" required="true" placeholder="Inserisci data fine torneo" />
+            </div>
+            <div class="form-group mt-3">
+                <label for="lblOutdoor">Outdoor</label>
+                <select name="dlOutdoor" id="dlOutdoor" class="form-control" formControlName="outdoor">
+                    <option selected="selected" value="false">No</option>
+                    <option value="true">S&#236;</option>
+                </select>
+            </div>
+            <div class="form-group mt-3">
+                <label for="lblRiunioneTecnica">Riunione tecnica</label>
+                <select name="dlRiunioneTecnica" id="dlRiunioneTecnica" class="form-control" formControlName="riunioneTecnica">
+                    <option selected="selected" value="false">No</option>
+                    <option value="true">S&#236;</option>
+                </select>
+            </div>
+            <div class="form-group mt-3">
+                <label for="lblSesso" class="col-form-label">Sesso</label><br>
+                <div class="my-auto">
+                    <input id="sesso1" type="radio" formControlName="genere" value="M" />
+                    <label for="sesso1">Maschio</label>
+                </div>
+                <div class="my-auto">
+                    <input id="sesso2" type="radio" formControlName="genere" value="F" />
+                    <label for="sesso2">Femmina</label>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="lblNumTeamTabellone">Numero di squadre totali nel tabellone: </label>
+                <input name="txtNumTeamTabellone" type="text" formControlName="numMaxTeamMainDraw" id="txtNumTeamTabellone" class="form-control" required="true" placeholder="Inserisci il numero di Team totali del tabellone" />
+            </div>
+            <div class="form-group mt-3">
+                <label for="lblNumTeamQualifiche">Numero di squadre partecipanti alle qualifiche: </label>
+                <input name="txtNumTeamQualifiche" type="text" formControlName="numMaxTeamQualifiche" id="txtNumTeamQualifiche" class="form-control" required="true" placeholder="Inserisci il numero di Team che partecipano alle qualifiche" />
+            </div>
+            <div class="form-group mt-3">
+                <label for="lblNumTeamQualificati">Numero di squadre che si qualificano: </label>
+                <input name="txtNumTeamQualificati" type="text" formControlName="numTeamQualificati" id="txtNumTeamQualificati" class="form-control" required="true" placeholder="Inserisci il numero di Team  che si qualificano" />
+            </div>
+            <div class="form-group mt-3">
+                <label for="lblNumWildCard">Numero di squadre aventi la wildCard: </label>
+                <input name="txtNumWildCard" type="text" formControlName="numWildCard" id="txtNumWildCard" class="form-control" required="true" placeholder="Inserisci il numero di Team Team che hanno la wildCard" />
+            </div>
+            <div class="form-group mt-3">
+                <label for="lblMontepremi">Montepremi: </label>
+                <input name="txtMontepremi" type="text" formControlName="montepremi" id="txtMontepremi" class="form-control" required="true" placeholder="Inserisci il montepremi" />
+            </div>
+            <!--FORMULA-->
+            <div class="form-group mt-3">
+                <label for="lblFormulaTorneo">Formula Torneo: </label>
+                <select id="cmbFormulaTorneo" class="form-control" formControlName="formulaTorneo">
+                    <option *ngFor="let c of FormulaTorneo" [ngValue]="c.idFormula">{{c.formula}}</option>
+                </select>
+            </div>
+            <!--PARAMETRI-->
+            <div class="form-group mt-3">
+                <label for="lblParametriTorneo">Parametri Torneo: </label>
+                <div *ngFor="let object of ParametroTorneo">
+                    <input type="checkbox" [value]="object.nomeParametro" (change)="onCheckboxChange($event)"> {{object.nomeParametro}}
+                </div>
+                <!--IMPIANTI-->
+                <div class="form-group mt-3">
+                    <label for="lblTipoTorneo">Impianti Torneo: </label>
+                    <select id="cmbTipoTorneo" class="form-control" formControlName="idImpianto">
+                    <option *ngFor="let c of Impianti" [ngValue]="c.idImpianto">{{c.nomeImpianto}}</option>
+                </select>
+                </div>
+            </div>
+            <div class="row md-3 mt-4 mb-4">
+                <div class="col-12 col-lg-8 offset-lg-2 text-center">
+                    <input type="submit" name="creat" value="Crea Torneo" (click)="Crea_Click()" class="btnLogin mx-auto btn-block text-center" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

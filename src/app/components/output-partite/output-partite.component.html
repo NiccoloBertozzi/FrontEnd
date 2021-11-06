@@ -1,0 +1,98 @@
+<!--Banner-->
+<div class="row my-2">
+    <h1 class=" col-12 text-center ms-auto banner">Partite</h1>
+</div>
+<div class="myContentOutputTornei ml-5 mr-5 mx-auto">
+    <div class="d-flex">
+        <div class="ms-auto p-0">
+            <mat-form-field>
+                <input matInput type="text" (keyup)="applyFilterOne($event)" placeholder="Cerca">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table mat-table [dataSource]="dataSource" #PartitaSort="matSort" matSort class="table table-hover mx-auto">
+
+            <!-- dataInizio Column -->
+            <ng-container matColumnDef="datapartita">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Data Partita </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.dataPartita | date:'shortDate'}} </td>
+            </ng-container>
+
+            <!-- nomeImpianto Column -->
+            <ng-container matColumnDef="fase">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Nome Impianto </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.fase}} </td>
+            </ng-container>
+
+            <!-- nomeSocieta Column -->
+            <ng-container matColumnDef="team">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Gara </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.team1}} vs {{element.team2}} </td>
+            </ng-container>
+            <!-- nomeSocieta Column -->
+            <ng-container matColumnDef="set">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Risultato </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.setSQ1}} - {{element.setSQ2}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" id={{row.idpartita}} (click)="getRecord(row)"></tr>
+        </table>
+    </div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons #PartitaPaginator="matPaginator"></mat-paginator>
+</div>
+<div class="row">
+    <div class="col-12 exlbutton">
+        <button class="mx-5 btn-success btn btn-sm" type="button" (click)="downloadExcel()" title="Download">
+            <fa-icon [icon]="faFileExcel"></fa-icon>&nbsp;Download Testa di Serie
+        </button>
+    </div>
+</div>
+<!--Banner-->
+<div class="row my-2">
+    <h1 class=" col-12 text-center ms-auto mt-3 banner">Classifica</h1>
+</div>
+<div class="myContentOutputTornei ml-5 mr-5 mx-auto mb-5">
+    <div class="d-flex">
+        <div class="ms-auto p-0">
+            <mat-form-field>
+                <input matInput type="text" (keyup)="applyFilterTwo($event)" placeholder="Cerca">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table mat-table [dataSource]="dataSourceClassifica" #ClassificaSort="matSort" matSort class="table table-hover mx-auto">
+
+            <!-- cod1 Column -->
+            <ng-container matColumnDef="cA1">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Codice.1 </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.cA1}} </td>
+            </ng-container>
+
+            <!-- cod2 Column -->
+            <ng-container matColumnDef="cA2">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Codice.2 </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.cA2}} </td>
+            </ng-container>
+
+            <!-- rank Column -->
+            <ng-container matColumnDef="rank">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Rank </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.rank}} </td>
+            </ng-container>
+            <!-- team Column -->
+            <ng-container matColumnDef="team">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Team </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.team}} </td>
+            </ng-container>
+            <!-- punti Column -->
+            <ng-container matColumnDef="punti">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Punti </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.punti}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumnsClassifica"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnsClassifica;" id={{row.rank}} [hidden]="row.team=='Bye'"></tr>
+        </table>
+    </div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons #ClassificaPaginator="matPaginator"></mat-paginator>
+</div>

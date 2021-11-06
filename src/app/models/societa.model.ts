@@ -1,0 +1,23 @@
+export class Societa{
+    idSocieta!:number;
+    nomeSocieta!:string;
+    idcomune!:number;
+    indirizzo!:string;
+    citta!:number;
+    cap!:string;
+    dataFondazione!:number;
+    dataAffiliazione!:string;
+    codiceAffiliazione!:number;
+    affiliata!:string;
+    email!:number;
+    sito!:string;
+    presidente!:number;
+    tel1!:string;
+    referente!:number;
+    tel2!:string;
+    pec!:number;
+    piva!:string;
+    cf!:number;
+    cu!:string;
+    url_luogo!:string;
+}

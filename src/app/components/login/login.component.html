@@ -1,0 +1,52 @@
+<div class="container-fluid conCenter">
+    <div class="boxlogin mx-auto mb-3">
+        <form id="form1" runat="server">
+            <div class="row mt-3 mb-3 p-3">
+                <h1 class=" col-12 text-center my-auto banner">Accedi</h1>
+            </div>
+            <div class="row px-4 pt-2">
+                <div class="col-12">
+                    <label for="Email" class="col-form-label">Email</label>
+                </div>
+            </div>
+            <div class="row px-4 py-1">
+                <div class="col-12">
+                    <input type="email" [(ngModel)]="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                </div>
+            </div>
+            <div class="row mt-2 px-4 py-1">
+                <div class="col-12">
+                    <label for="PWD" class="col-form-label">Password</label>
+                </div>
+            </div>
+            <div class="row px-4 pb-2">
+                <div class="col-12">
+                    <input type="password" [(ngModel)]="pwd" name="pwd" #PWD class="form-control" placeholder="Password" required>
+                </div>
+            </div>
+            <div class="row px-4 pb-2">
+                <div class="col-12">
+                    <input class="me-2" type="checkbox" (change)="showPassword()">Mostra password
+                </div>
+            </div>
+            <div class="row mt-2 py-1">
+                <div class="col-12 text-center">
+                    <input type="button" id="Accedi" (click)="Login()" class="btnLogin mx-auto" value="Accedi">
+                </div>
+            </div>
+            <div class="row px-4 py-1">
+                <div class="col-12 text-center">
+                    <a [routerLink]="" (click)="RecoverPassword()" id="pswdimenticata">Password Dimenticata? Recupera la password</a>
+                </div>
+            </div>
+            <div class="row py-1">
+                <p class="text-center my-auto">oppure</p>
+            </div>
+        </form>
+        <div class="row pb-3 pt-1">
+            <div class="col-12 text-center">
+                <a routerLink="/register" class="btnRegister mx-auto">Registrati</a>
+            </div>
+        </div>
+    </div>
+</div>

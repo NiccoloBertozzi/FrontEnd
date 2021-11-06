@@ -1,0 +1,30 @@
+export class Partita{
+    idpartita!:number;
+    atleta1!:string;
+    atleta2!:string;
+    atleta3!:string;
+    atleta4!:string;
+    idsq1!:number;
+    idsq2!:number;
+    team1!:string;
+    team2!:string;
+    idarbitro1!:number;
+    idarbitro2!:number;
+    idtorneo!:number;
+    numpartita!:number;
+    fase!:string;
+    campo!:number;
+    dataPartita!:string;
+    orapartita!:string;
+    risultato!:string;
+    durata!:string;
+    pt1s1!:string;
+    pt2s1!:number;
+    pt1s2!:number;
+    pt2s2!:number;
+    pt1s3!:number;
+    pt2s3!:number;
+    setSQ1!:number;
+    setSQ2!:number;
+    numpartitasuccessiva!:number;
+}

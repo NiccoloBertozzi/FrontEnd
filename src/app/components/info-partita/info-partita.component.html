@@ -1,0 +1,77 @@
+<form id="form1">
+    <!--Banner-->
+    <div class="row mt-3 mb-3">
+        <h1 class=" col-12 text-center my-3 banner">Informazioni partita</h1>
+    </div>
+    <div class="container-fluid mb-5">
+        <div class="contentInfo m-3 p-2">
+            <div class="row col-12 m-0 p-1 text-center" style="background-color: #edebeb;">
+                <div class="col-4 align-self-center">
+                    <div class="row">
+                        <div class="col-lg-6 align-self-center text-left">
+                            <p class="m-0 font-weight-bold">
+                                {{nomeT}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 align-self-center text-center">
+                    <p class="m-0 font-weight-bold" id="tipoT">
+                        {{partita[0].fase}}
+                    </p>
+                </div>
+                <div class="col-4 align-self-center" style="text-align-last: end;">
+                    <div class="row justify-content-end">
+                        <div class="col-lg-6 align-self-center text-left">
+                            {{partita[0].dataPartita}}
+                        </div>
+                        <div class="col-lg-6 align-self-center text-left">
+                            {{partita[0].oraPartita}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-12">
+                    <p>
+                        Campo: {{partita[0].campo}}
+                    </p>
+                </div>
+            </div>
+            <div class="row col-12 m-0 mb-1 mb-lg-5 text-center">
+                <div class="col-xl-4 align-self-center">
+                    <h2 class="mb-4 mb-lg-0 mt-4 mt-lg-0 font-weight-bold" id="team1">{{partita[0].team1}}</h2>
+                </div>
+                <div class="col-xl-4">
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <h2 class="m-0 font-weight-bold punteggio" id="punteggioT">{{partita[0].risultato}}</h2>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-center mt-4 ">
+                        <p class="my-2 col-md-4 col-12 px-0" id="setT1">
+                            {{partita[0].pT1S1 +'-'+ partita[0].pT2S1}}
+                        </p>
+                        <p class="my-2 col-md-4 col-12 px-0" id="setT2">
+                            {{partita[0].pT1S2 +'-'+ partita[0].pT2S2}}
+                        </p>
+                        <p class="my-2 col-md-4 col-12 px-0" id="setT3">
+                            {{partita[0].pT1S3 +'-'+ partita[0].pT2S3}}
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xl-4 align-self-center">
+                    <h2 class="mb-4 mb-lg-0 mt-4 mt-lg-0 font-weight-bold" id="team2">{{partita[0].team2}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="mr-3 ml-3 my-5">
+            <div class="row m-0">
+                <div class="col-12 text-right">
+                    <input type="button" ID="partite" value="Modifica partita" [hidden]="modifica" (click)="Modifica()" class="btn btn-primary me-3" />
+                    <a id="back" class="btn btn-secondary" href="javascript:history.go(-1)">Indietro</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

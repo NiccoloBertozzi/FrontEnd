@@ -1,0 +1,53 @@
+.contentInfo {
+    background-color: #ffffff;
+    border-top: 8px solid #0077aa;
+    padding-top: 40px !important;
+    padding-right: 30px !important;
+    padding-bottom: 25px !important;
+    padding-left: 30px !important;
+    box-shadow: 0px 0px 20px 0px rgb(0 0 0 / 50%);
+}
+
+#infotorneo .contentInfo>h2 {
+    letter-spacing: 1.2px;
+    color: #333;
+    padding-bottom: 10px;
+    line-height: 1em;
+    font-weight: 500;
+}
+
+#infotorneo .contentInfo .head {
+    font-size: 18px;
+    letter-spacing: 1.2px;
+    color: #4a4a4a;
+}
+
+#infotorneo .contentInfo p {
+    margin: 0;
+    font-size: 22px;
+    word-spacing: 0.5px;
+    color: #0077aa;
+}
+
+table {
+    width: 100%;
+}
+
+.myContentOutputTornei {
+    max-width: 95vw !important;
+}
+
+.mat-sort-header-arrow {
+    color: black !important;
+}
+
+.matInput {
+    padding-bottom: 0 !important;
+}
+
+.mat-header-cell {
+    background-color: #4a86e8;
+    font-weight: bold;
+    font-size: 70%;
+    color: black;
+}

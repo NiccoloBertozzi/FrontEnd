@@ -1,0 +1,107 @@
+<form id="form1" runat="server">
+    <!--Banner-->
+    <div class="row mt-3 mb-3">
+        <h1 class=" col-12 text-center my-auto banner">Informazioni torneo</h1>
+    </div>
+    <div class="container" id="infotorneo">
+        <div class="mr-3 ml-3 mt-3 mb-5">
+            <div class="row mt-4 mb-3">
+                <div class="col-md-6 col-sm-12 contentInfo">
+                    <h2>Info Torneo</h2>
+                    <div *ngFor="let item of InfoSchematizato| keyvalue :originalOrder" class="row mt-3">
+                        <p class='head col-6'>{{item.key}}</p>
+                        <p class="col-6">{{item.value}}</p>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-12 offset-md-1 mt-3 mt-md-0">
+                    <div class="row">
+                        <div class="col-12 contentInfo">
+                            <h2>Località</h2>
+                            <div *ngFor="let item of InfoLocalita| keyvalue :originalOrder" class="row mt-3">
+                                <p class='head col-6'>{{item.key}}</p>
+                                <p class="col-6">{{item.value}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-3 justify-content-between">
+                        <div class="col-12 d-grid gap-2">
+                            <input type="button" id="autorizza" class="btn btn-primary btn-block" [hidden]="btnautorizza" (click)="Autorizza()" value="Autorizza" />
+                        </div>
+                    </div>
+                    <div class="row my-3 justify-content-between">
+                        <div class="col-12 d-grid gap-2">
+                            <input type="button" id="iscrivi" class="btn btn-primary btn-block" [hidden]="btniscrivi" (click)="Iscrivi()" value="Iscrivi Squadra" />
+                        </div>
+                    </div>
+                    <div class="row my-3 justify-content-between">
+                        <div class="col-12 d-grid gap-2">
+                            <input type="button" id="iscrivi" class="btn btn-primary btn-block" [hidden]="assegnadelegato" (click)="AssegnaDelegato()" value="Assegna Delegato" />
+                        </div>
+                    </div>
+                    <div class="row my-3 justify-content-between">
+                        <div class="col-12 d-grid gap-2">
+                            <input type="button" id="iscrivi" class="btn btn-primary btn-block" (click)="VisualizzaPartite()" value="Visualizza partite" />
+                        </div>
+                    </div>
+                    <div class="row my-3 justify-content-between">
+                        <div class="col-12 d-grid gap-2">
+                            <input type="button" id="iscrivi" class="btn btn-primary btn-block" [hidden]="btntabellone" (click)="CreaTabellone()" value="Genera Tabellone" />
+                        </div>
+                    </div>
+                    <div class="row my-3 justify-content-between">
+                        <div class="col-3">
+                            <input type="button" id="back" class="btn btn-secondary" (click)="Back();" value="Indietro" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3">
+            <h1 class=" col-12 text-center my-auto banner">Squadre</h1>
+        </div>
+        <div class="myContentOutputTornei ml-5 mr-5 mx-auto mb-5">
+            <div class="d-flex">
+                <div class="ms-auto p-0">
+                    <mat-form-field>
+                        <input matInput type="text" (keyup)="doFilter($event)" placeholder="Filter">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table mat-table [dataSource]="dataSource" matSort class="table table-hover mx-auto">
+
+                    <ng-container matColumnDef="index">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Index </th>
+                        <td mat-cell *matCellDef="let element; let i = index;" class="align-middle">{{i+1}}</td>
+                    </ng-container>
+
+                    <!-- nometeam Column -->
+                    <ng-container matColumnDef="nomeTeam">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Nome Team </th>
+                        <td mat-cell *matCellDef="let element" class="align-middle"> {{element.nomeTeam}} </td>
+                    </ng-container>
+
+                    <!-- atleta1 Column -->
+                    <ng-container matColumnDef="atleta1">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Atleta 1 </th>
+                        <td mat-cell *matCellDef="let element" class="align-middle"> {{element.atleta1}} </td>
+                    </ng-container>
+
+                    <!-- atleta2 Column -->
+                    <ng-container matColumnDef="atleta2">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Atleta 2 </th>
+                        <td mat-cell *matCellDef="let element" class="align-middle"> {{element.atleta2}} </td>
+                    </ng-container>
+                    <!-- punti Column -->
+                    <ng-container matColumnDef="entrypoints">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> EntryPoints </th>
+                        <td mat-cell *matCellDef="let element" class="align-middle"> {{element.entryPoints}} </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;" id={{row.idTeam}}></tr>
+                </table>
+                <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+            </div>
+        </div>
+    </div>
+</form>

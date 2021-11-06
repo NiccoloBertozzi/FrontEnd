@@ -1,0 +1,20 @@
+<div class="row mt-3 mb-3">
+    <h1 class=" col-12 text-center my-auto banner">Modifica Anagrafica</h1>
+</div>
+<form id="formComponentiAtleta" [formGroup]="formrcrea">
+    <div class="container">
+        <div class="mr-3 ml-3 mt-3 mb-5">
+            <div class="row mt-4">
+                <div class="col-md-8 offset-md-2 col-sm-12 mb-3 contentInfo">
+                    <div *ngFor="let item of elements| keyvalue :originalOrder" class="row mt-3">
+                        <label class="col-md-4 offset-md-2 my-auto">{{item.key}}:</label>
+                        <input type="text" class='col-md-4 my-auto' [formControlName]='item.key.toString().toLocaleLowerCase().split(" ").join("")' value={{item.value}}/>
+                    </div>
+                    <div class="row justify-content-center my-4">
+                        <input type="button" class="btn btn-primary" id="modifica" (click)="ModificaAnagrafica_Click()" value="Modifica anagrafica" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

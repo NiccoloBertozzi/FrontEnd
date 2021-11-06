@@ -1,0 +1,74 @@
+<!--Banner-->
+<div class="row my-2">
+    <h1 class=" col-12 text-center ms-auto banner">{{title}}</h1>
+</div>
+<div class="myContentOutputTornei ml-5 mr-5 mx-auto mb-5">
+    <div class="d-flex">
+        <div class="ms-auto p-0">
+            <mat-form-field>
+                <input matInput type="text" (keyup)="doFilter($event)" placeholder="Filter">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table mat-table [dataSource]="dataSource" matSort class="table table-hover mx-auto">
+
+            <!-- dataInizio Column -->
+            <ng-container matColumnDef="dataInizio">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Data Inizio </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.dataInizio | date:'shortDate'}} </td>
+            </ng-container>
+
+            <!-- nomeImpianto Column -->
+            <ng-container matColumnDef="localita">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Località </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.citta}} </td>
+            </ng-container>
+
+            <!-- nomeSocieta Column -->
+            <ng-container matColumnDef="nomeSocieta">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Nome Societa </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.nomeSocieta}} </td>
+            </ng-container>
+            <!-- gender Column -->
+            <ng-container matColumnDef="gender">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Genere </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.gender}} </td>
+            </ng-container>
+            <!-- outdoor Column -->
+            <ng-container matColumnDef="outdoor">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Outdoor </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.outdoor ? 'outdoor': 'indoor'}} </td>
+            </ng-container>
+            <!-- montepremi Column -->
+            <ng-container matColumnDef="montepremi">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Montepremi </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.montepremi}} </td>
+            </ng-container>
+            <!-- formula Column -->
+            <ng-container matColumnDef="formula">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Tabellone </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.formula}} </td>
+            </ng-container>
+            <!-- oraInizio Column -->
+            <ng-container matColumnDef="oraInizio">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Ora Inizio </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.oraInizio}} </td>
+            </ng-container>
+            <!-- formula Column -->
+            <ng-container matColumnDef="coppie">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Coppie ammesse </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.numMaxTeamMainDraw}} </td>
+            </ng-container>
+            <!-- dataChiusuraIscrizioni Column -->
+            <ng-container matColumnDef="dataChiusuraIscrizioni">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Data Chiusura Iscrizioni </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.dataChiusuraIscrizioni | date:'shortDate'}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onSelect(row.idTorneo)" id={{row.idTorneo}}></tr>
+        </table>
+    </div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

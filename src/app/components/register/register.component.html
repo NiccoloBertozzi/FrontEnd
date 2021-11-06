@@ -1,0 +1,364 @@
+<!--Banner-->
+<div class="row mt-3 mb-3">
+    <h1 class="col-12 text-center my-auto banner">Registrazione</h1>
+</div>
+<div class="container">
+    <form id="formreg" [formGroup]="formregister">
+        <div class="row mt-5 md-5">
+            <div class="col-12 col-lg-4  offset-lg-2">
+                <label for="Ruolo" class="col-form-label">Ruolo</label>
+            </div>
+            <div class="col-12 col-lg-4 text-lg-center">
+                <div class="btn-group" role="group">
+                    <input type="hidden" name="ruolo" id="ruolo" />
+                    <input type="button" name="btnAtleta" value="Atleta" (click)="AtletaClick()" #btnAtleta class="btn btn-info" />
+                    <input type="button" name="btnAllenatore" value="Allenatore" (click)="AllenatoreClick()" #btnAllenatore class="btn btn-secondary" />
+                    <input type="button" name="btnDelegato" value="Delegato" (click)="DelegatoClick()" #btnDelegato class="btn btn-secondary" />
+                    <input type="button" name="btnSocieta" value="Società" (click)="SocietaClick()" #btnSocieta class="btn btn-secondary" />
+                </div>
+            </div>
+        </div>
+        <!--COMUNE-->
+        <div id="common" [hidden]="commonBox">
+            <div class="row mt-md-3">
+                <div class="col-12 col-lg-4  offset-lg-2">
+                    <label for="lblNome" class="col-form-label">Nome</label>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <input name="nome" formControlName="nome" type="text" id="nome" class="form-control" placeholder="Nome" />
+                </div>
+            </div>
+            <div class="row mt-md-3">
+                <div class="col-12 col-lg-4  offset-lg-2">
+                    <label for="lblCognome" class="col-form-label">Cognome</label>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <input name="cognome" formControlName="cognome" type="text" id="cognome" class="form-control" placeholder="Cognome" />
+                </div>
+            </div>
+            <div class="row mt-md-3">
+                <div class="col-12 col-lg-4  offset-lg-2">
+                    <label for="lbldataNascita" class="col-form-label">Data di nascita</label>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <input name="dataNascita" formControlName="dataNascita" type="date" id="dataNascita" class="form-control" placeholder="Data di nascita" />
+                </div>
+            </div>
+            <div class="row mt-md-3">
+                <div class="col-12 col-lg-4  offset-lg-2">
+                    <label for="cbComNasc" class="col-form-label">Comune di nascita</label>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <select id="cbComNasc" class="form-control" formControlName="cbComNasc">
+                        <option *ngFor="let c of city" [ngValue]="c.citta">{{c.citta}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-md-3">
+                <div class="col-12 col-lg-4  offset-lg-2">
+                    <label for="lblCf" class="col-form-label">Codice Fiscale</label>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <input name="cf" type="text" formControlName="cf" id="cf" class="form-control" placeholder="Codice Fiscale" />
+                </div>
+            </div>
+            <div class="row mt-md-3">
+                <div class="col-12 col-lg-4  offset-lg-2">
+                    <label for="lblSesso" class="col-form-label">Sesso</label>
+                </div>
+                <div class="col-6 col-lg-2 my-auto">
+                    <span class="my-auto"><input id="sesso1" type="radio" name="sesso" formControlName="sesso" value="M" /><label for="sesso1">Maschio</label></span>
+                </div>
+                <div class="col-6 col-lg-2 my-auto">
+                    <span class="my-auto"><input id="sesso2" type="radio" name="sesso" formControlName="sesso" value="F" /><label for="sesso2">Femmina</label></span>
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lblTel " class="col-form-label ">Numero di cellulare</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="tel" type="text" formControlName="tel" id="tel" class="form-control" placeholder="Numero di cellulare" />
+                </div>
+            </div>
+            <div class="row mt-md-3">
+                <div class="col-12 col-lg-4  offset-lg-2">
+                    <label for="cbComRes" class="col-form-label ">Comune di residenza</label>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <select id="cbComRes" class="form-control" formControlName="cbComRes">
+                        <option *ngFor="let c of city" [ngValue]="c.citta">{{c.citta}}</option>
+                      </select>
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lblIndirizzo " class="col-form-label ">Indirizzo di residenza</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="indirizzo" type="text" formControlName="indirizzo" id="indirizzo" class="form-control" placeholder="Indirizzo di residenza" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lblCAP " class="col-form-label ">Codice postale (CAP)</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="cap" type="text" id="cap" formControlName="cap" class="form-control" placeholder="Codice Postale" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="Email " class="col-form-label ">Email</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="email" type="text" id="email" formControlName="email" class="form-control" placeholder="Email" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="PWD " class="col-form-label ">Password</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="password" type="text" id="password" formControlName="password" class="form-control" placeholder="Password" />
+                </div>
+            </div>
+        </div>
+        <!--FORM ATLETA-->
+        <div id="atleta" [hidden]="atletaBox">
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="cbNomeSocietaAtleta" class="col-form-label ">Nome società</label>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <select id="cbNomeSocietaAtleta" class="form-control" formControlName="cbNomeSocieta">
+                        <option *ngFor="let s of societa" [ngValue]="s.nomeSocieta">{{s.nomeSocieta}}</option>
+                      </select>
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lblDataScadCert " class="col-form-label ">Data scadenza certificato</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="dataScadenzaCertificato" type="date" formControlName="dataScadenzaCertificato" id="dataScadenzaCertificato" class="form-control" placeholder="Data scadenza certificato" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lblDataScadCert " class="col-form-label ">Altezza</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="altezza" type="text" id="altezza" formControlName="altezza" class="form-control" placeholder="Altezza" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lblPeso " class="col-form-label ">Peso</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="peso" type="text" id="peso" formControlName="peso" class="form-control" placeholder="Peso" />
+                </div>
+            </div>
+        </div>
+        <!--FORM ALLENATORE-->
+        <div id="allenatore" [hidden]="allenatoreBox">
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="cbNomeSocietaAllenatore" class="col-form-label">Nome società</label>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <select id="cbNomeSocietaAllenatore" class="form-control" formControlName="cbNomeSocieta">
+                        <option *ngFor="let s of societa" [ngValue]="s.nomeSocieta">{{s.nomeSocieta}}</option>
+                      </select>
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lblgrado " class="col-form-label ">Grado</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="grado" type="text" id="grado" class="form-control" placeholder="Grado" formControlName="grado" />
+                </div>
+            </div>
+        </div>
+        <!--FORM DELEGATO-->
+        <div id="delegato" [hidden]="delegatoBox">
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lblRuolo " class="col-form-label ">Ruolo</label>
+                </div>
+                <div class="col-6 col-lg-2 my-auto ">
+                    <span class="my-auto"><input id="supervisore" type="checkbox" value="supervisore" formControlName="supervisore" name="supervisore" />Supervisore</span>
+                </div>
+                <div class="col-6 col-lg-2 my-auto ">
+                    <span class="my-auto"><input id="arbitro" type="checkbox" value="arbitro" formControlName="arbitro" name="arbitro" />Arbitro</span>
+                </div>
+            </div>
+        </div>
+        <!--FORM SOCIETA-->
+        <div id="societa" [hidden]="societaBox">
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="nomeSocieta" class="col-form-label ">Nome Società</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="nomeSocieta" type="text" id="nomeSocieta" class="form-control" placeholder="Nome Società" formControlName="nomeSocieta" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lblNome " class="col-form-label ">Indirizzo</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="indirizzosoc" type="text" id="indirizzosoc" class="form-control" placeholder="Indirizzo" formControlName="indirizzo" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="citta " class="col-form-label ">Citta</label>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <select id="citta" class="form-control" formControlName="citta">
+                        <option *ngFor="let c of city" [ngValue]="c.citta">{{c.citta}}</option>
+                      </select>
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lblCAP " class="col-form-label ">Codice postale (CAP)</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="capsoc" type="text" id="capsoc" class="form-control" placeholder="Codice Postale" formControlName="cap" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lbldataFondazione " class="col-form-label ">Data di fondazione</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="dataFondazione" type="date" id="dataFondazione" class="form-control" placeholder="Data di fondazione" formControlName="dataFondazione" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lbldataAffiliazione " class="col-form-label ">Data di affiliazione</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="dataAffiliazione" type="date" id="dataAffiliazione" class="form-control" placeholder="Data di affiliazione" formControlName="dataAffiliazione" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lblcodAffiliazione " class="col-form-label ">Codice di affiliazione</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="codiceAffiliazione" type="text" id="codiceAffiliazione" class="form-control" placeholder="Codice di affiliazione" formControlName="codiceAffiliazione" />
+                </div>
+            </div>
+            <div class="row mt-md-3 mb-2 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lblsito " class="col-form-label ">Sito</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="sito" type="text" id="sito" class="form-control" placeholder="Sito" formControlName="sito" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lblTelefono1 " class="col-form-label ">Telefono 1</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="tel1" type="text" id="tel1" class="form-control" placeholder="Telefono 1" formControlName="tel1" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lblTelefono2 " class="col-form-label ">Telefono 2</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="tel2" type="text" id="tel2" class="form-control" placeholder="Telefono 2" formControlName="tel2" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="PEC " class="col-form-label ">Indirizzo PEC</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="PEC" type="text" id="PEC" class="form-control" placeholder="Indirizzo PEC" formControlName="pec" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="pIVA " class="col-form-label ">Partita IVA</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="PIVA" type="text" id="PIVA" class="form-control" placeholder="Partita IVA" formControlName="PIVA" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lblCf " class="col-form-label ">Codice Fiscale</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="cfSoc" type="text" id="cfSoc" class="form-control" placeholder="Codice Fiscale" formControlName="cfSoc" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="lblCertUnica " class="col-form-label ">Codice SDI</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="CU" type="text" id="CU" class="form-control" placeholder="Codice SDI" formControlName="cu" />
+                </div>
+            </div>
+            <div class="row mt-md-3">
+                <div class="col-12 col-lg-4  offset-lg-2">
+                    <label for="cbComResSoc" class="col-form-label ">Comune di residenza</label>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <select id="cbComResSoc" class="form-control" formControlName="cbComRes">
+                        <option *ngFor="let c of city" [ngValue]="c.citta">{{c.citta}}</option>
+                      </select>
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="Presidente" class="col-form-label ">Nome Presidente</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="Presidente" type="text" id="Presidente" class="form-control" placeholder="Nome Presidente" formControlName="Presidente" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="Referente" class="col-form-label ">Nome Referente</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="Referente" type="text" id="Referente" class="form-control" placeholder="Nome Referente" formControlName="Referente" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="Email " class="col-form-label ">Email</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="emailSoc" type="text" id="emailSoc" class="form-control" placeholder="Email" formControlName="email" />
+                </div>
+            </div>
+            <div class="row mt-md-3 ">
+                <div class="col-12 col-lg-4 offset-lg-2 ">
+                    <label for="PWD " class="col-form-label ">Password</label>
+                </div>
+                <div class="col-12 col-lg-4 ">
+                    <input name="pswSoc" type="text" id="pswSoc" class="form-control" placeholder="Password" formControlName="pswSoc" />
+                </div>
+            </div>
+        </div>
+        <div class="row md-3 mt-4 mb-4">
+            <div class="col-12 col-lg-8 offset-lg-2 text-center">
+                <input type="submit" name="ctl06" value="Registra" (click)="Register()" class="btnLogin mx-auto btn-block text-center" />
+            </div>
+        </div>
+    </form>
+</div>

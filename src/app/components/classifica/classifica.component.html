@@ -1,0 +1,51 @@
+<div class="row mt-3 mb-3">
+    <h1 class=" col-12 text-center my-auto banner">Rank {{genere}}</h1>
+</div>
+<form [formGroup]="formtour">
+    <div class="row mt-md-3 mx-3 justify-content-end">
+        <div class="col-1 tour">
+            <label for="cbtour" class="col-form-label">Tour:</label>
+        </div>
+        <div class="col-2">
+            <select id="cbtour" class="form-control" formControlName="tour" (change)="onSelectChange($event)">
+                <option value="AIBVC TOUR">AIBVC TOUR</option>
+            <option *ngFor="let s of Tour" [ngValue]="s">{{s}}</option>
+          </select>
+        </div>
+    </div>
+</form>
+<div class="myContentOutputTornei ml-5 mr-5 mx-auto mb-5">
+    <div class="d-flex">
+        <div class="ms-auto p-0">
+            <mat-form-field>
+                <input matInput type="text" (keyup)="doFilter($event)" placeholder="Filter">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table mat-table [dataSource]="dataSource" matSort class="table table-hover mx-auto">
+
+            <!-- nome Column -->
+            <ng-container matColumnDef="nome">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Classifica</th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.nome}} {{element.cognome}} </td>
+            </ng-container>
+
+            <!-- punteggi Column -->
+            <ng-container matColumnDef="punteggi">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle">Punteggio</th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.punteggi}} </td>
+            </ng-container>
+
+            <!-- tappa Column -->
+            <ng-container *ngFor="let tappa of tappe; index as i" [matColumnDef]="tappa">
+                <th mat-header-cell *matHeaderCellDef at-sort-header class="align-middle">{{tappa}}</th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{!!element?.Tappe[i]?.punti ? element?.Tappe[i]?.punti : 0}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
