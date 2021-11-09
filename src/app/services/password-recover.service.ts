@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PwdRecover } from '../models/pwdrecover.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,6 @@ import { PwdRecover } from '../models/pwdrecover.model';
 export class PasswordRecoverService {
 
   constructor(private HttpClient:HttpClient) { }
-  URL:string="http://80.211.0.174:8082/"; 
 
 
   //RECUPERA PASSWORD
@@ -20,6 +20,6 @@ export class PasswordRecoverService {
         'Accept':  'application/json'
       })
     }; 
-    return this.HttpClient.post<PwdRecover>("api/v1/LoginRegister/RecuperaPassword",body,httpOptions)
+    return this.HttpClient.post<PwdRecover>(environment.apiURL+"api/v1/LoginRegister/RecuperaPassword",body,httpOptions)
   }
 }

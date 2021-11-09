@@ -1,8 +1,11 @@
 {
     "/api/v1/*": {
-        "target": "http://80.211.0.174:8082",
+        "target": "http://80.211.0.174",
         "secure": false,
         "logLevel": "debug",
+        "pathRewrite": {
+            "^/api/v1": ""
+        },
         "changeOrigin": true
     }
 }

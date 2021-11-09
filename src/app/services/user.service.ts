@@ -7,6 +7,7 @@ import { Allenatore } from '../models/allenatore.model';
 import { Delegato } from '../models/delegato.model';
 import { DelegatiTorneo } from '../models/delegatiTorneo.model';
 import { Info } from '../models/info.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,6 @@ import { Info } from '../models/info.model';
 export class UserService {
 
   constructor(private HttpClient:HttpClient) { }
-  URL:string="http://80.211.0.174:8082/"; 
 
   //GET Tornei Iscritti
   public GetTorneiIscritti(token:string,idutente:string):Observable<Torneo[]>{
@@ -25,7 +25,7 @@ export class UserService {
         'Authorization':'Bearer '+token
       })
     }; 
-    return this.HttpClient.get<Torneo[]>("api/v1/atleti/Iscrizioni/"+idutente,httpOptions)
+    return this.HttpClient.get<Torneo[]>(environment.apiURL+"api/v1/atleti/Iscrizioni/"+idutente,httpOptions)
   }
    //GET Tornei In corso
    public GetTorneiInCorso(token:string,idutente:string):Observable<Torneo[]>{
@@ -36,7 +36,7 @@ export class UserService {
         'Authorization':'Bearer '+token
       })
     }; 
-    return this.HttpClient.get<Torneo[]>("api/v1/tornei/TorneInCorso/"+idutente,httpOptions)
+    return this.HttpClient.get<Torneo[]>(environment.apiURL+"api/v1/tornei/TorneInCorso/"+idutente,httpOptions)
   }
   //GET Tornei finiti
   public GetTorneiFiniti(token:string,idutente:string):Observable<Torneo[]>{
@@ -47,7 +47,7 @@ export class UserService {
         'Authorization':'Bearer '+token
       })
     }; 
-    return this.HttpClient.get<Torneo[]>("api/v1/tornei/ToreniFiniti/"+idutente,httpOptions)
+    return this.HttpClient.get<Torneo[]>(environment.apiURL+"api/v1/tornei/ToreniFiniti/"+idutente,httpOptions)
   } 
     //GET Tornei Iscritti Allenatore
     public GetTorneiIscrittiAllenatore(token:string,idutente:string):Observable<Torneo[]>{
@@ -58,7 +58,7 @@ export class UserService {
           'Authorization':'Bearer '+token
         })
       }; 
-      return this.HttpClient.get<Torneo[]>("api/v1/allenatori/TorneiIscritti/"+idutente,httpOptions)
+      return this.HttpClient.get<Torneo[]>(environment.apiURL+"api/v1/allenatori/TorneiIscritti/"+idutente,httpOptions)
     }
      //GET Tornei In corso Allenatore
      public GetTorneiInCorsoAllenatore(token:string,idutente:string):Observable<Torneo[]>{
@@ -69,7 +69,7 @@ export class UserService {
           'Authorization':'Bearer '+token
         })
       }; 
-      return this.HttpClient.get<Torneo[]>("api/v1/allenatori/TorneiInCorso/"+idutente,httpOptions)
+      return this.HttpClient.get<Torneo[]>(environment.apiURL+"api/v1/allenatori/TorneiInCorso/"+idutente,httpOptions)
     }
     //GET Tornei finiti Allenatore
     public GetTorneiFinitiAllenatore(token:string,idutente:string):Observable<Torneo[]>{
@@ -80,7 +80,7 @@ export class UserService {
           'Authorization':'Bearer '+token
         })
       }; 
-      return this.HttpClient.get<Torneo[]>("api/v1/allenatori/TorneiFiniti/"+idutente,httpOptions)
+      return this.HttpClient.get<Torneo[]>(environment.apiURL+"api/v1/allenatori/TorneiFiniti/"+idutente,httpOptions)
     }
     //GET Anaagrafica Atleta
     public GetAnagraficaAtleta(token:string,idutente:string):Observable<Atleta>{
@@ -91,7 +91,7 @@ export class UserService {
           'Authorization':'Bearer '+token
         })
       }; 
-      return this.HttpClient.get<Atleta>("api/v1/atleti/GetAnagraficaAtleta/"+idutente,httpOptions)
+      return this.HttpClient.get<Atleta>(environment.apiURL+"api/v1/atleti/GetAnagraficaAtleta/"+idutente,httpOptions)
     }
     //GET Anaagrafica Allentaore
     public GetAnagraficaAllenatore(token:string,idutente:string):Observable<Allenatore>{
@@ -102,7 +102,7 @@ export class UserService {
           'Authorization':'Bearer '+token
         })
       }; 
-      return this.HttpClient.get<Allenatore>("api/v1/allenatori/GetAnagraficaAllenatore/"+idutente,httpOptions)
+      return this.HttpClient.get<Allenatore>(environment.apiURL+"api/v1/allenatori/GetAnagraficaAllenatore/"+idutente,httpOptions)
     }
     //GET Anaagrafica Delegato
     public GetAnagraficaDelegato(token:string,idutente:string):Observable<Delegato>{
@@ -113,7 +113,7 @@ export class UserService {
           'Authorization':'Bearer '+token
         })
       }; 
-      return this.HttpClient.get<Delegato>("api/v1/supervisore/GetAnagraficaDelegato/"+idutente,httpOptions)
+      return this.HttpClient.get<Delegato>(environment.apiURL+"api/v1/supervisore/GetAnagraficaDelegato/"+idutente,httpOptions)
     }
     //GET Supervisori
     public GetSupervisori(token:string):Observable<DelegatiTorneo[]>{
@@ -124,7 +124,7 @@ export class UserService {
           'Authorization':'Bearer '+token
         })
       }; 
-      return this.HttpClient.get<DelegatiTorneo[]>("api/v1/supervisore/GetSupervisori/",httpOptions)
+      return this.HttpClient.get<DelegatiTorneo[]>(environment.apiURL+"api/v1/supervisore/GetSupervisori/",httpOptions)
     }
     //GET Aribtri
     public GetArbitri(token:string):Observable<DelegatiTorneo[]>{
@@ -135,7 +135,7 @@ export class UserService {
           'Authorization':'Bearer '+token
         })
       }; 
-      return this.HttpClient.get<DelegatiTorneo[]>("api/v1/supervisore/GetArbitri/",httpOptions)
+      return this.HttpClient.get<DelegatiTorneo[]>(environment.apiURL+"api/v1/supervisore/GetArbitri/",httpOptions)
     }
     //GET Direttori
     public GetDirettori(token:string):Observable<DelegatiTorneo[]>{
@@ -146,7 +146,7 @@ export class UserService {
           'Authorization':'Bearer '+token
         })
       }; 
-      return this.HttpClient.get<DelegatiTorneo[]>("api/v1/supervisore/GetDirettori/",httpOptions)
+      return this.HttpClient.get<DelegatiTorneo[]>(environment.apiURL+"api/v1/supervisore/GetDirettori/",httpOptions)
     }
     //GET Atleti
     public GetAtleti(token:string):Observable<Atleta[]>{
@@ -157,7 +157,7 @@ export class UserService {
           'Authorization':'Bearer '+token
         })
       }; 
-      return this.HttpClient.get<Atleta[]>("api/v1/atleti/GetAtleti",httpOptions)
+      return this.HttpClient.get<Atleta[]>(environment.apiURL+"api/v1/atleti/GetAtleti",httpOptions)
     }
     //GET Allenatori
     public GetAllenatori(token:string):Observable<Allenatore[]>{
@@ -168,7 +168,7 @@ export class UserService {
           'Authorization':'Bearer '+token
         })
       }; 
-      return this.HttpClient.get<Allenatore[]>("api/v1/allenatori/GetAllenatori",httpOptions)
+      return this.HttpClient.get<Allenatore[]>(environment.apiURL+"api/v1/allenatori/GetAllenatori",httpOptions)
     }
     //Assegna Delegati
     public AssegnaDelegati(token:string,body:string):Observable<Info>{
@@ -179,6 +179,6 @@ export class UserService {
           'Authorization':'Bearer '+token
         })
       }; 
-      return this.HttpClient.put<Info>("api/v1/tornei/AssegnaDelegati",body,httpOptions)
+      return this.HttpClient.put<Info>(environment.apiURL+"api/v1/tornei/AssegnaDelegati",body,httpOptions)
     }
 }

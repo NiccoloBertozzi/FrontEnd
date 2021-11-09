@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import {Comuni} from '../models/comuni.model';
 import {Societa} from '../models/societa.model';
 import { Info } from '../models/info.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,6 @@ export class RegisterService {
 
   constructor(private HttpClient:HttpClient) { }
 
-  URL = "api/v1/";
 
   //GET COMUNI
   public getComuni():Observable<Comuni[]>{
@@ -22,7 +22,7 @@ export class RegisterService {
         'Accept':  'application/json'
       })
     }; 
-    return this.HttpClient.get<Comuni[]>(this.URL+"gestionale/GetComuni",httpOptions)
+    return this.HttpClient.get<Comuni[]>(environment.apiURL+"api/v1/gestionale/GetComuni",httpOptions)
   }
 
   //GET SOCIETA
@@ -33,7 +33,7 @@ export class RegisterService {
         'Accept':  'application/json'
       })
     }; 
-    return this.HttpClient.get<Societa[]>(this.URL+"societa/GetAllSocieta",httpOptions)
+    return this.HttpClient.get<Societa[]>(environment.apiURL+"api/v1/societa/GetAllSocieta",httpOptions)
   }
 
   //REGISTER
@@ -44,6 +44,6 @@ export class RegisterService {
         'Accept':  'application/json'
       })
     }; 
-    return this.HttpClient.post<Info>(this.URL+"LoginRegister/Registra"+ruolo,body,httpOptions)
+    return this.HttpClient.post<Info>(environment.apiURL+"api/v1/LoginRegister/Registra"+ruolo,body,httpOptions)
   }
 }

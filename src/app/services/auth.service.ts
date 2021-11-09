@@ -3,6 +3,7 @@ import { HttpClient,HttpHeaders}from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import {Login} from '../models/login.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,6 @@ import {Login} from '../models/login.model';
 export class AuthService {
 
   constructor(private HttpClient:HttpClient) { }
-  URL:string="http://80.211.0.174:8082/"; 
   public Login(credenziali:Login) : Observable<Login>{
     const httpOptions = {
       headers: new HttpHeaders({
@@ -20,6 +20,6 @@ export class AuthService {
       withCredentials: true,
     }; 
     const body = {email: credenziali.username, password: credenziali.pwd};
-    return this.HttpClient.post<Login>("api/v1/LoginRegister/Login",body,httpOptions)
+    return this.HttpClient.post<Login>(environment.apiURL+"api/v1/LoginRegister/Login",body,httpOptions)
   }
 }
