@@ -26,6 +26,11 @@
                 </div>
                 <div class="col-12 col-lg-4">
                     <input name="nome" formControlName="nome" type="text" id="nome" class="form-control" placeholder="Nome" />
+                    <div *ngIf="formregister.controls['nome'].invalid && (formregister.controls['nome'].dirty || formregister.controls['nome'].touched)" class=" mt-3 alert alert-danger">
+                        <div *ngIf="formregister.controls['nome'].errors!.required">
+                            Inserire il nome.
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mt-md-3">
@@ -34,6 +39,11 @@
                 </div>
                 <div class="col-12 col-lg-4">
                     <input name="cognome" formControlName="cognome" type="text" id="cognome" class="form-control" placeholder="Cognome" />
+                    <div *ngIf="formregister.controls['cognome'].invalid && (formregister.controls['cognome'].dirty || formregister.controls['cognome'].touched)" class=" mt-3 alert alert-danger">
+                        <div *ngIf="formregister.controls['cognome'].errors!.required">
+                            Inserire il cognome
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mt-md-3">
@@ -42,6 +52,11 @@
                 </div>
                 <div class="col-12 col-lg-4">
                     <input name="dataNascita" formControlName="dataNascita" type="date" id="dataNascita" class="form-control" placeholder="Data di nascita" />
+                    <div *ngIf="formregister.controls['dataNascita'].invalid && (formregister.controls['dataNascita'].dirty || formregister.controls['dataNascita'].touched)" class=" mt-3 alert alert-danger">
+                        <div *ngIf="formregister.controls['dataNascita'].errors!.required">
+                            Inserire la data di nascita
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mt-md-3">
@@ -49,9 +64,15 @@
                     <label for="cbComNasc" class="col-form-label">Comune di nascita</label>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <select id="cbComNasc" class="form-control" formControlName="cbComNasc">
-                        <option *ngFor="let c of city" [ngValue]="c.citta">{{c.citta}}</option>
-                    </select>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Comune</mat-label>
+                        <input type="text" placeholder="Comune" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option.citta">
+                                {{option.citta}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
                 </div>
             </div>
             <div class="row mt-md-3">
@@ -60,6 +81,11 @@
                 </div>
                 <div class="col-12 col-lg-4">
                     <input name="cf" type="text" formControlName="cf" id="cf" class="form-control" placeholder="Codice Fiscale" />
+                    <div *ngIf="formregister.controls['cf'].invalid && (formregister.controls['cf'].dirty || formregister.controls['cf'].touched)" class=" mt-3 alert alert-danger">
+                        <div *ngIf="formregister.controls['cf'].errors!.required">
+                            Inserire il codice fiscale
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mt-md-3">
@@ -79,6 +105,11 @@
                 </div>
                 <div class="col-12 col-lg-4 ">
                     <input name="tel" type="text" formControlName="tel" id="tel" class="form-control" placeholder="Numero di cellulare" />
+                    <div *ngIf="formregister.controls['tel'].invalid && (formregister.controls['tel'].dirty || formregister.controls['tel'].touched)" class=" mt-3 alert alert-danger">
+                        <div *ngIf="formregister.controls['tel'].errors!.required">
+                            Inserire il numero di telefono
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mt-md-3">
@@ -86,9 +117,15 @@
                     <label for="cbComRes" class="col-form-label ">Comune di residenza</label>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <select id="cbComRes" class="form-control" formControlName="cbComRes">
-                        <option *ngFor="let c of city" [ngValue]="c.citta">{{c.citta}}</option>
-                      </select>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Comune</mat-label>
+                        <input type="text" placeholder="Comune" aria-label="Number" matInput [formControl]="myControlRes" [matAutocomplete]="autores">
+                        <mat-autocomplete autoActiveFirstOption #autores="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptionsRes | async" [value]="option.citta">
+                                {{option.citta}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -113,14 +150,31 @@
                 </div>
                 <div class="col-12 col-lg-4 ">
                     <input name="email" type="text" id="email" formControlName="email" class="form-control" placeholder="Email" />
+                    <div *ngIf="formregister.controls['email'].invalid && (formregister.controls['email'].dirty || formregister.controls['email'].touched)" class=" mt-3 alert alert-danger">
+                        <div *ngIf="formregister.controls['email'].errors!.required">
+                            Inserire l'email
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mt-md-3 ">
                 <div class="col-12 col-lg-4 offset-lg-2 ">
                     <label for="PWD " class="col-form-label ">Password</label>
                 </div>
-                <div class="col-12 col-lg-4 ">
-                    <input name="password" type="text" id="password" formControlName="password" class="form-control" placeholder="Password" />
+                <div class="col-12 col-lg-4 row">
+                    <div class="col-11">
+                        <input name="password" type="password" id="password" #password formControlName="password" class="form-control" placeholder="Password" />
+                    </div>
+                    <div class="col-1 pl-0 my-1" (click)="showPassword()">
+                        <fa-icon [icon]="faeye"></fa-icon>
+                    </div>
+                    <div class="col-12">
+                        <div *ngIf="formregister.controls['password'].invalid && (formregister.controls['password'].dirty || formregister.controls['password'].touched)" class=" mt-3 alert alert-danger">
+                            <div *ngIf="formregister.controls['password'].errors!.required">
+                                Inserire la password
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -132,8 +186,13 @@
                 </div>
                 <div class="col-12 col-lg-4">
                     <select id="cbNomeSocietaAtleta" class="form-control" formControlName="cbNomeSocieta">
-                        <option *ngFor="let s of societa" [ngValue]="s.nomeSocieta">{{s.nomeSocieta}}</option>
-                      </select>
+                        <option *ngFor="let s of societa  " [ngValue]="s.nomeSocieta">{{s.nomeSocieta}}</option>
+                    </select>
+                    <div *ngIf="formregister.controls['cbNomeSocieta'].invalid && (formregister.controls['cbNomeSocieta'].dirty || formregister.controls['cbNomeSocieta'].touched)" class=" mt-3 alert alert-danger">
+                        <div *ngIf="formregister.controls['cbNomeSocieta'].errors!.required">
+                            Inserire la societa
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -150,6 +209,11 @@
                 </div>
                 <div class="col-12 col-lg-4 ">
                     <input name="altezza" type="text" id="altezza" formControlName="altezza" class="form-control" placeholder="Altezza" />
+                    <div *ngIf="formregister.controls['altezza'].invalid && (formregister.controls['altezza'].dirty || formregister.controls['altezza'].touched)" class=" mt-3 alert alert-danger">
+                        <div *ngIf="formregister.controls['altezza'].errors!.required">
+                            Inserire la altezza
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -158,6 +222,11 @@
                 </div>
                 <div class="col-12 col-lg-4 ">
                     <input name="peso" type="text" id="peso" formControlName="peso" class="form-control" placeholder="Peso" />
+                    <div *ngIf="formregister.controls['peso'].invalid && (formregister.controls['peso'].dirty || formregister.controls['peso'].touched)" class=" mt-3 alert alert-danger">
+                        <div *ngIf="formregister.controls['peso'].errors!.required">
+                            Inserire il peso
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -169,8 +238,13 @@
                 </div>
                 <div class="col-12 col-lg-4">
                     <select id="cbNomeSocietaAllenatore" class="form-control" formControlName="cbNomeSocieta">
-                        <option *ngFor="let s of societa" [ngValue]="s.nomeSocieta">{{s.nomeSocieta}}</option>
+                        <option *ngFor="let s of societa  " [ngValue]="s.nomeSocieta">{{s.nomeSocieta}}</option>
                       </select>
+                    <div *ngIf="formregister.controls['cbNomeSocieta'].invalid && (formregister.controls['cbNomeSocieta'].dirty || formregister.controls['cbNomeSocieta'].touched)" class=" mt-3 alert alert-danger">
+                        <div *ngIf="formregister.controls['cbNomeSocieta'].errors!.required">
+                            Inserire la societa
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -179,6 +253,11 @@
                 </div>
                 <div class="col-12 col-lg-4 ">
                     <input name="grado" type="text" id="grado" class="form-control" placeholder="Grado" formControlName="grado" />
+                    <div *ngIf="formregister.controls['grado'].invalid && (formregister.controls['grado'].dirty || formregister.controls['grado'].touched)" class=" mt-3 alert alert-danger">
+                        <div *ngIf="formregister.controls['grado'].errors!.required">
+                            Inserire il grado
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -204,6 +283,11 @@
                 </div>
                 <div class="col-12 col-lg-4 ">
                     <input name="nomeSocieta" type="text" id="nomeSocieta" class="form-control" placeholder="Nome Società" formControlName="nomeSocieta" />
+                    <div *ngIf="formregister.controls['nomeSocieta'].invalid && (formregister.controls['nomeSocieta'].dirty || formregister.controls['nomeSocieta'].touched)" class=" mt-3 alert alert-danger">
+                        <div *ngIf="formregister.controls['nomeSocieta'].errors!.required">
+                            Inserire la societa
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -212,6 +296,11 @@
                 </div>
                 <div class="col-12 col-lg-4 ">
                     <input name="indirizzosoc" type="text" id="indirizzosoc" class="form-control" placeholder="Indirizzo" formControlName="indirizzo" />
+                    <div *ngIf="formregister.controls['indirizzo'].invalid && (formregister.controls['indirizzo'].dirty || formregister.controls['indirizzo'].touched)" class=" mt-3 alert alert-danger">
+                        <div *ngIf="formregister.controls['indirizzo'].errors!.required">
+                            Inserire l'indirizzo della societa
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -219,9 +308,15 @@
                     <label for="citta " class="col-form-label ">Citta</label>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <select id="citta" class="form-control" formControlName="citta">
-                        <option *ngFor="let c of city" [ngValue]="c.citta">{{c.citta}}</option>
-                      </select>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Comune</mat-label>
+                        <input type="text" placeholder="Comune" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option.citta">
+                                {{option.citta}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -238,6 +333,11 @@
                 </div>
                 <div class="col-12 col-lg-4 ">
                     <input name="dataFondazione" type="date" id="dataFondazione" class="form-control" placeholder="Data di fondazione" formControlName="dataFondazione" />
+                    <div *ngIf="formregister.controls['dataFondazione'].invalid && (formregister.controls['dataFondazione'].dirty || formregister.controls['dataFondazione'].touched)" class=" mt-3 alert alert-danger">
+                        <div *ngIf="formregister.controls['dataFondazione'].errors!.required">
+                            Inserire la data di fondazione
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -246,6 +346,11 @@
                 </div>
                 <div class="col-12 col-lg-4 ">
                     <input name="dataAffiliazione" type="date" id="dataAffiliazione" class="form-control" placeholder="Data di affiliazione" formControlName="dataAffiliazione" />
+                    <div *ngIf="formregister.controls['dataAffiliazione'].invalid && (formregister.controls['dataAffiliazione'].dirty || formregister.controls['dataAffiliazione'].touched)" class=" mt-3 alert alert-danger">
+                        <div *ngIf="formregister.controls['dataAffiliazione'].errors!.required">
+                            Inserire la data di affiliazione
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -317,9 +422,15 @@
                     <label for="cbComResSoc" class="col-form-label ">Comune di residenza</label>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <select id="cbComResSoc" class="form-control" formControlName="cbComRes">
-                        <option *ngFor="let c of city" [ngValue]="c.citta">{{c.citta}}</option>
-                      </select>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Comune</mat-label>
+                        <input type="text" placeholder="Comune" aria-label="Number" matInput [formControl]="myControlRes" [matAutocomplete]="auto">
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptionsRes | async" [value]="option.citta">
+                                {{option.citta}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
                 </div>
             </div>
             <div class="row mt-md-3 ">
@@ -344,20 +455,38 @@
                 </div>
                 <div class="col-12 col-lg-4 ">
                     <input name="emailSoc" type="text" id="emailSoc" class="form-control" placeholder="Email" formControlName="email" />
+                    <div *ngIf="formregister.controls['email'].invalid && (formregister.controls['email'].dirty || formregister.controls['email'].touched)" class=" mt-3 alert alert-danger">
+                        <div *ngIf="formregister.controls['email'].errors!.required">
+                            Inserire email società
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row mt-md-3 ">
                 <div class="col-12 col-lg-4 offset-lg-2 ">
                     <label for="PWD " class="col-form-label ">Password</label>
                 </div>
-                <div class="col-12 col-lg-4 ">
-                    <input name="pswSoc" type="text" id="pswSoc" class="form-control" placeholder="Password" formControlName="pswSoc" />
+                <div class="col-12 col-lg-4 row">
+                    <div class="col-11">
+                        <input name="pswSoc" type="text" id="pswSoc" #pswSoc class="form-control" placeholder="Password" formControlName="pswSoc" />
+                    </div>
+                    <div class="col-1 pl-0 my-1" (click)="showPasswordpswSoc()">
+                        <fa-icon [icon]="faeye"></fa-icon>
+                    </div>
+                    <div class="col-12">
+                        <div *ngIf="formregister.controls['pswSoc'].invalid && (formregister.controls['pswSoc'].dirty || formregister.controls['pswSoc'].touched)" class=" mt-3 alert alert-danger">
+                            <div *ngIf="formregister.controls['pswSoc'].errors!.required">
+                                Inserire la password
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
         <div class="row md-3 mt-4 mb-4">
             <div class="col-12 col-lg-8 offset-lg-2 text-center">
-                <input type="submit" name="ctl06" value="Registra" (click)="Register()" class="btnLogin mx-auto btn-block text-center" />
+                <input type="submit" name="ctl06" value="Registra" [disabled]="formregister.invalid" (click)="Register()" class="btnLogin mx-auto btn-block text-center" />
             </div>
         </div>
     </form>

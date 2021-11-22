@@ -17,7 +17,6 @@ export class AuthService {
         "Content-Type": "application/json; charset=UTF-8",
         'Accept':  'application/json',
       }),
-      withCredentials: true,
     }; 
     const body = {email: credenziali.username, password: credenziali.pwd};
     return this.HttpClient.post<Login>(environment.apiURL+"api/v1/LoginRegister/Login",body,httpOptions)

@@ -20,18 +20,24 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.links = this.navbarService.getLinks();
-
-    //controllo che non ci sia già un utente loggato
-    var logcookie = this.cookieService.get("token");
-    if(!logcookie){
+    var passcookie = this.cookieService.get("recuperapassword");
+    if(passcookie=="true"){
       this.isLoggedIn=false; 
-      console.log("Utente non loggato!");
-      this.router.navigate(['login']);
+      this.router.navigate(['newpassword']);
     }
     else{
-      this.isLoggedIn=true; 
-      this.router.navigate(['OutputTornei/L1']);
-    }
+      //controllo che non ci sia già un utente loggato
+      var logcookie = this.cookieService.get("token");
+      if(!logcookie){
+        this.isLoggedIn=false; 
+        console.log("Utente non loggato!");
+        this.router.navigate(['login']);
+      }
+      else{
+        this.isLoggedIn=true; 
+        this.router.navigate(['OutputTornei/L1']);
+      }
+    } 
   }
   Change(route:string){
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>

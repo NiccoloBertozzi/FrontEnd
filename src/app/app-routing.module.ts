@@ -15,6 +15,7 @@ import { ModificaAnagraficaComponent } from './components/modifica-anagrafica/mo
 import { AssegnaDelegatoComponent } from './components/assegna-delegato/assegna-delegato.component';
 import { InfoPartitaComponent } from './components/info-partita/info-partita.component';
 import { GestisciPartitaComponent } from './components/gestisci-partita/gestisci-partita.component';
+import { NewPasswordComponent } from './components/new-password/new-password.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'AssegnaDelegato/:id', component: AssegnaDelegatoComponent },
   { path: 'InfoPartita/:id/Partita/:partita', component: InfoPartitaComponent },
   { path: 'GestisciPartita/:id/Partita/:partita', component: GestisciPartitaComponent },
+  { path: 'newpassword', component: NewPasswordComponent },
 
   { path: '', component: AppComponent }
 

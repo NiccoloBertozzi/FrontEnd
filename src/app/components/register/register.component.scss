@@ -30,3 +30,14 @@ input[type="radio"] {
     outline: none;
     box-shadow: none;
 }
+
+.example-full-width {
+    width: 100%;
+    background-color: rgb(255, 255, 255) !important;
+}
+
+::ng-deep {
+    .mat-form-field .mat-form-field-flex {
+        background-color: white;
+    }
+}

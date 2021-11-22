@@ -11,7 +11,7 @@ import {MatTableModule} from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import {MatSelectInfiniteScrollModule} from 'ng-mat-select-infinite-scroll';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +29,9 @@ import { ModificaAnagraficaComponent } from './components/modifica-anagrafica/mo
 import { AssegnaDelegatoComponent } from './components/assegna-delegato/assegna-delegato.component';
 import { InfoPartitaComponent } from './components/info-partita/info-partita.component';
 import { GestisciPartitaComponent } from './components/gestisci-partita/gestisci-partita.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { NewPasswordComponent } from './components/new-password/new-password.component';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,7 @@ import { GestisciPartitaComponent } from './components/gestisci-partita/gestisci
     AssegnaDelegatoComponent,
     InfoPartitaComponent,
     GestisciPartitaComponent,
+    NewPasswordComponent,
 
   ],
   imports: [
@@ -62,7 +66,10 @@ import { GestisciPartitaComponent } from './components/gestisci-partita/gestisci
     MatTableModule,
     MatSortModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule,
+    MatAutocompleteModule,
+    NgxMatSelectSearchModule
     ],
   providers: [CookieService],
   bootstrap: [AppComponent]

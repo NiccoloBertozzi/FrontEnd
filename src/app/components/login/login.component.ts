@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import {AuthService} from '../../services/auth.service';
@@ -9,7 +9,10 @@ import {PwdRecover} from '../../models/pwdrecover.model'
 
 import { NavbarService } from '../../services/navbar.service';
 import { CookieService } from 'ngx-cookie-service';
-
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+export interface DialogData {
+  info: string;
+}
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,13 +22,20 @@ export class LoginComponent implements OnInit {
   data:any;
   email!:string;
   pwd!:string;
-  constructor(private AuthService:AuthService,private PasswordRecoverService:PasswordRecoverService,private router:Router,private cookieService: CookieService,private navbarService: NavbarService) { 
+  info!: string;
+
+  constructor(public dialog: MatDialog,private AuthService:AuthService,private PasswordRecoverService:PasswordRecoverService,private router:Router,private cookieService: CookieService,private navbarService: NavbarService) { 
     navbarService.clearAllItems();
   }
 
   ngOnInit(): void {
   }
-
+ openDialog(): void {
+  const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+    panelClass: 'custom-dialog-container',
+    data: {info: this.info},
+  });
+}
   //Login
   Login():void{
     let credenziali=new Login();
@@ -51,6 +61,8 @@ export class LoginComponent implements OnInit {
     },
   error=>{
       console.log("error", error);
+      this.info=error.error.message;
+        this.openDialog();
   })
 }
 
@@ -74,10 +86,28 @@ export class LoginComponent implements OnInit {
       obj=>{
         recover=obj;
         console.log(recover);
+        this.info="Email inviata a "+this.email;
+        this.openDialog();
       },
       error=>{
         console.log("error", error);
     })
   }
 
+}
+
+
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialog.html',
+})
+export class DialogOverviewExampleDialog {
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }
