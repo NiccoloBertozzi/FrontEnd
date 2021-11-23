@@ -61,7 +61,8 @@ export class OutputTorneiIscrittiComponent implements OnInit {
       //scarico tutti i tornei
       this.UserService.GetTorneiIscritti(this.cookieService.get("token"),this.cookieService.get("id")).subscribe(
         obj=>{
-          this.dataSource.data=obj  as Torneo[]
+          this.dataSource.data=obj  as Torneo[];
+          console.log("TORNEI ISCRITTI",this.dataSource.data);
         },
         error=>{
           console.log("error", error);
@@ -71,7 +72,8 @@ export class OutputTorneiIscrittiComponent implements OnInit {
       //scarico tutti i tornei
       this.UserService.GetTorneiIscrittiAllenatore(this.cookieService.get("token"),this.cookieService.get("id")).subscribe(
         obj=>{
-          this.dataSource.data=obj  as Torneo[]
+          this.dataSource.data=obj  as Torneo[];
+          console.log("TORNEI ISCRITTI",this.dataSource.data);
         },
         error=>{
           console.log("error", error);
@@ -96,7 +98,8 @@ export class OutputTorneiIscrittiComponent implements OnInit {
       //scarico tutti i tornei
       this.UserService.GetTorneiInCorso(this.cookieService.get("token"),this.cookieService.get("id")).subscribe(
         obj=>{
-          this.dataSource.data=obj  as Torneo[]
+          this.dataSource.data=obj  as Torneo[];
+          console.log("TORNEI INCORSO",this.dataSource.data);
         },
         error=>{
           console.log("error", error);
@@ -106,7 +109,8 @@ export class OutputTorneiIscrittiComponent implements OnInit {
       //scarico tutti i tornei
       this.UserService.GetTorneiInCorsoAllenatore(this.cookieService.get("token"),this.cookieService.get("id")).subscribe(
         obj=>{
-          this.dataSource.data=obj  as Torneo[]
+          this.dataSource.data=obj  as Torneo[];
+          console.log("TORNEI INCORSO",this.dataSource.data);
         },
         error=>{
           console.log("error", error);
@@ -131,7 +135,8 @@ export class OutputTorneiIscrittiComponent implements OnInit {
       //scarico tutti i tornei
       this.UserService.GetTorneiFiniti(this.cookieService.get("token"),this.cookieService.get("id")).subscribe(
         obj=>{
-          this.dataSource.data=obj  as Torneo[]
+          this.dataSource.data=obj  as Torneo[];
+          console.log("TORNEI FINITI",this.dataSource.data); 
         },
         error=>{
           console.log("error", error);
@@ -141,7 +146,8 @@ export class OutputTorneiIscrittiComponent implements OnInit {
       //scarico tutti i tornei
       this.UserService.GetTorneiFinitiAllenatore(this.cookieService.get("token"),this.cookieService.get("id")).subscribe(
         obj=>{
-          this.dataSource.data=obj  as Torneo[]
+          this.dataSource.data=obj  as Torneo[];
+          console.log("TORNEI FINITI",this.dataSource.data); 
         },
         error=>{
           console.log("error", error);

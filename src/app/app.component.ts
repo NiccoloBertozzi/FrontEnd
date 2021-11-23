@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
       }
       else{
         this.isLoggedIn=true; 
-        this.router.navigate(['OutputTornei/L1']);
+        this.router.navigate(['OutputTorneiIscritti']);
       }
     } 
   }

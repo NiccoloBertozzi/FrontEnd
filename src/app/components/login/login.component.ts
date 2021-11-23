@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
       this.cookieService.set("id",auth.id.toString(),{'expires':date});//id
       this.cookieService.set("token",auth.token,{'expires':date});//token
       //cambio pagina
-      this.router.navigate(['OutputTornei/L1']);
+      this.router.navigate(['OutputTorneiIscritti']);
     },
   error=>{
       console.log("error", error);
