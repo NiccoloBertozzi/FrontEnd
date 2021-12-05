@@ -5,7 +5,12 @@ import {AuthService} from '../../services/auth.service';
 import {Auth} from '../../models/auth.model'
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import {Login} from '../../models/login.model'
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
+export interface DialogData {
+  error: string;
+}
 @Component({
   selector: 'app-new-password',
   templateUrl: './new-password.component.html',
@@ -13,25 +18,40 @@ import { Router } from '@angular/router';
 })
 export class NewPasswordComponent implements OnInit {
 
-  constructor(private PasswordRecoverService:PasswordRecoverService,private AuthService:AuthService,private cookieService: CookieService,private router:Router) { }
+  constructor(private PasswordRecoverService:PasswordRecoverService,public dialog: MatDialog,private AuthService:AuthService,private cookieService: CookieService,private router:Router) { }
   data:any;
   email!:string;
   pwd!:string;
+  errore!: string;
+
   ngOnInit(): void {
   }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+      panelClass: 'custom-dialog-container',
+      data: {error: this.errore},
+    });
+  }
   ChangePassword(){
+    this.cookieService.set("newpassword", '', -1);
     let recover:PwdRecover;
-    this.PasswordRecoverService.ChangePsw("{\r\n  \"email\": \"" + this.email + "\",\r\n  \"password\":\""+this.pwd+"\"\r\n}").subscribe(
+    let credenziali=new Login();
+    credenziali.username=this.email;
+    credenziali.pwd=this.pwd;
+    this.PasswordRecoverService.ChangePsw(credenziali).subscribe(
       obj=>{
         recover=obj;
         console.log(recover);
+        this.Login();
       },
       error=>{
+        this.errore=error.error.message;
         console.log("error", error);
+        this.openDialog();
     })
   }
   Login():void{
-    let credenziali=new this.Login();
+    let credenziali=new Login();
     credenziali.username=this.email;
     credenziali.pwd=this.pwd;
     //chiamo l'api login
@@ -56,4 +76,18 @@ export class NewPasswordComponent implements OnInit {
       console.log("error", error);
   })
 }
+}
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialog.html',
+})
+export class DialogOverviewExampleDialog {
+  constructor(
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+  ) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }

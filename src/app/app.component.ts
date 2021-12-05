@@ -20,8 +20,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.links = this.navbarService.getLinks();
-    var passcookie = this.cookieService.get("recuperapassword");
-    if(passcookie=="true"){
+    var passcookie = this.cookieService.get("newpassword");
+    if(passcookie=="SI"){
       this.isLoggedIn=false; 
       this.router.navigate(['newpassword']);
     }

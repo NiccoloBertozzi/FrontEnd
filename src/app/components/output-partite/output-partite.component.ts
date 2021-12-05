@@ -96,8 +96,11 @@ export class OutputPartiteComponent implements OnInit {
     //add column name
     worksheet.columns = [
       { header: "Num", key: "num", width: 3 },
+      { header: "TitoloTorneo", key: "tt", width: 50 },
       { header: "NomeTeam", key: "nt", width: 50 },
       { header: "Pool", key: "idpool", width: 20 },
+      { header: "PF", key: "pf", width: 20 },
+      { header: "PS", key: "ps", width: 20 },
       { header: "QP", key: "qp", width: 20 }
     ];
     //get partite
@@ -107,7 +110,7 @@ export class OutputPartiteComponent implements OnInit {
         console.log(testadiserie);
         for (let i=0;i<testadiserie.length;i++)
         {
-          worksheet.addRow({num:i+1, nt: testadiserie[i]["nomeTeam"], idpool: testadiserie[i]["idPool"], qp:testadiserie[i]["qp"] });
+          worksheet.addRow({num:i+1, tt: testadiserie[i]["TitoloTorneo"], nt: testadiserie[i]["nomeTeam"], idpool: testadiserie[i]["idPool"], pf:testadiserie[i]["pf"], ps:testadiserie[i]["ps"], qp:testadiserie[i]["qp"] });
         }
         //set downloadable file name
         let fname="Testa di Serie"
