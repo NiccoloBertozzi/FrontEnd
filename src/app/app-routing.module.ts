@@ -16,11 +16,12 @@ import { AssegnaDelegatoComponent } from './components/assegna-delegato/assegna-
 import { InfoPartitaComponent } from './components/info-partita/info-partita.component';
 import { GestisciPartitaComponent } from './components/gestisci-partita/gestisci-partita.component';
 import { NewPasswordComponent } from './components/new-password/new-password.component';
+import { AddImpiantiComponent } from './components/add-impianti/add-impianti.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'OutputTornei/:tipologia', component: OutputTorneiComponent },
+  { path: 'OutputTornei/:tipologia/:storico', component: OutputTorneiComponent },
   { path: 'OutputTorneiIscritti', component: OutputTorneiIscrittiComponent },
   { path: 'OutputPartite/:id', component: OutputPartiteComponent },
   { path: 'CreaTorneo', component: CreaTorneoComponent },
@@ -34,9 +35,9 @@ const routes: Routes = [
   { path: 'InfoPartita/:id/Partita/:partita', component: InfoPartitaComponent },
   { path: 'GestisciPartita/:id/Partita/:partita', component: GestisciPartitaComponent },
   { path: 'newpassword', component: NewPasswordComponent },
-
+  { path: 'AddImpianto', component: AddImpiantiComponent },
+  
   { path: '', component: AppComponent }
-
 ];
 
 @NgModule({

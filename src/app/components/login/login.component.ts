@@ -10,6 +10,7 @@ import {PwdRecover} from '../../models/pwdrecover.model'
 import { NavbarService } from '../../services/navbar.service';
 import { CookieService } from 'ngx-cookie-service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { AppComponent } from 'src/app/app.component';
 export interface DialogData {
   info: string;
 }
@@ -56,8 +57,12 @@ export class LoginComponent implements OnInit {
       //salvo il token in un cookie che scade mese per mese
       this.cookieService.set("id",auth.id.toString(),{'expires':date});//id
       this.cookieService.set("token",auth.token,{'expires':date});//token
+      AuthService.login=true;
       //cambio pagina
-      this.router.navigate(['OutputTorneiIscritti']);
+      if(this.cookieService.get("ruolo")=="Admin") {this.router.navigate(['OutputTornei/NonAutorizzati/false']);}
+      else{
+        this.router.navigate(['OutputTorneiIscritti']);
+      }
     },
   error=>{
       console.log("error", error);

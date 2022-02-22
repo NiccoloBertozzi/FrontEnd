@@ -40,6 +40,15 @@ export class TorneoAPIService {
     }; 
     return this.HttpClient.get<Torneo[]>(environment.apiURL+"api/v1/tornei/GetTorneiTipo/"+tipo,httpOptions)
   }
+  public getTorneiTipoStorico(tipo:string):Observable<Torneo[]>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json; charset=UTF-8",
+        'Accept':  'application/json'
+      })
+    }; 
+    return this.HttpClient.get<Torneo[]>(environment.apiURL+"api/v1/tornei/GetTorneiTipoStorico/"+tipo,httpOptions)
+  }
   //GET TORNEI NON AUTORIZZATI
   public getTorneiNonAutorizzati(token:string):Observable<Torneo[]>{
     const httpOptions = {

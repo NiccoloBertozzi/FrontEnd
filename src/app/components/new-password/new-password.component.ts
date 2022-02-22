@@ -33,7 +33,7 @@ export class NewPasswordComponent implements OnInit {
     });
   }
   ChangePassword(){
-    this.cookieService.set("newpassword", '', -1);
+    this.cookieService.set("newpassword","NO");
     let recover:PwdRecover;
     let credenziali=new Login();
     credenziali.username=this.email;

@@ -16,7 +16,7 @@
             <!-- dataInizio Column -->
             <ng-container matColumnDef="dataInizio">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Data Inizio </th>
-                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.dataInizio | date:'shortDate'}} </td>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.dataInizio}} </td>
             </ng-container>
 
             <!-- nomeImpianto Column -->
@@ -26,9 +26,9 @@
             </ng-container>
 
             <!-- nomeSocieta Column -->
-            <ng-container matColumnDef="nomeSocieta">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Nome Societa </th>
-                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.nomeSocieta}} </td>
+            <ng-container matColumnDef="titolo">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Titolo </th>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.titolo}} </td>
             </ng-container>
             <!-- gender Column -->
             <ng-container matColumnDef="gender">
@@ -63,7 +63,7 @@
             <!-- dataChiusuraIscrizioni Column -->
             <ng-container matColumnDef="dataChiusuraIscrizioni">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header class="align-middle"> Data Chiusura Iscrizioni </th>
-                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.dataChiusuraIscrizioni | date:'shortDate'}} </td>
+                <td mat-cell *matCellDef="let element" class="align-middle"> {{element.dataChiusuraIscrizioni}} </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

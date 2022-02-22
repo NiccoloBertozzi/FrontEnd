@@ -32,6 +32,7 @@ import { GestisciPartitaComponent } from './components/gestisci-partita/gestisci
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { NewPasswordComponent } from './components/new-password/new-password.component';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { AddImpiantiComponent } from './components/add-impianti/add-impianti.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     InfoPartitaComponent,
     GestisciPartitaComponent,
     NewPasswordComponent,
+    AddImpiantiComponent,
 
   ],
   imports: [

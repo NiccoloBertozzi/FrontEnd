@@ -4,6 +4,8 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 import { NavbarService } from './services/navbar.service';
 import { CookieService } from 'ngx-cookie-service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +15,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class AppComponent implements OnInit {
   title = 'aibvc';
   links!: Array<{ text: string, path: string }>;
-  isLoggedIn = false;
+  isLoggedIn = AuthService.login;
   faIcon = faBars;
 
   constructor(private router: Router,private ActivatedRoute: ActivatedRoute, private cookieService: CookieService, private navbarService: NavbarService) {}
@@ -22,21 +24,21 @@ export class AppComponent implements OnInit {
     this.links = this.navbarService.getLinks();
     var passcookie = this.cookieService.get("newpassword");
     if(passcookie=="SI"){
-      this.isLoggedIn=false; 
+      AuthService.login=false;
+      this.isLoggedIn=AuthService.login; 
       this.router.navigate(['newpassword']);
     }
     else{
       //controllo che non ci sia già un utente loggato
       var logcookie = this.cookieService.get("token");
-      if(!logcookie){
-        this.isLoggedIn=false; 
-        console.log("Utente non loggato!");
-        this.router.navigate(['login']);
-      }
-      else{
-        this.isLoggedIn=true; 
-        this.router.navigate(['OutputTorneiIscritti']);
-      }
+      //se è logattto setto il flag
+      if(!logcookie)
+        AuthService.login=false;
+      else 
+        AuthService.login=true;
+      this.isLoggedIn=AuthService.login; 
+      //va nella home
+      this.router.navigate(['OutputTornei/L1/false']); 
     } 
   }
   Change(route:string){
@@ -45,7 +47,12 @@ export class AppComponent implements OnInit {
   )}
 
   LogOut(){
-    this.isLoggedIn=false; 
+    AuthService.login=false;
+    this.isLoggedIn=AuthService.login;  
+    this.cookieService.deleteAll();
+    this.router.navigate(['login']);
+  }
+  LogIn(){
     this.cookieService.deleteAll();
     this.router.navigate(['login']);
   }

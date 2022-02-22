@@ -82,6 +82,39 @@ export class UserService {
       }; 
       return this.HttpClient.get<Torneo[]>(environment.apiURL+"api/v1/allenatori/TorneiFiniti/"+idutente,httpOptions)
     }
+  //GET Tornei Iscritti Delegato
+  public GetTorneiIscrittDelegato(token:string,idutente:string):Observable<Torneo[]>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json; charset=UTF-8",
+        'Accept':  'application/json',
+        'Authorization':'Bearer '+token
+      })
+    }; 
+    return this.HttpClient.get<Torneo[]>(environment.apiURL+"api/v1/supervisore/TorneiIscritti/"+idutente,httpOptions)
+  }
+   //GET Tornei In corso Delegato
+   public GetTorneiInCorsoDelegato(token:string,idutente:string):Observable<Torneo[]>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json; charset=UTF-8",
+        'Accept':  'application/json',
+        'Authorization':'Bearer '+token
+      })
+    }; 
+    return this.HttpClient.get<Torneo[]>(environment.apiURL+"api/v1/supervisore/TorneiInCorso/"+idutente,httpOptions)
+  }
+  //GET Tornei finiti Delegato
+  public GetTorneiFinitiDelegato(token:string,idutente:string):Observable<Torneo[]>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json; charset=UTF-8",
+        'Accept':  'application/json',
+        'Authorization':'Bearer '+token
+      })
+    }; 
+    return this.HttpClient.get<Torneo[]>(environment.apiURL+"api/v1/supervisore/TorneiFiniti/"+idutente,httpOptions)
+  }
     //GET Anaagrafica Atleta
     public GetAnagraficaAtleta(token:string,idutente:string):Observable<Atleta>{
       const httpOptions = {

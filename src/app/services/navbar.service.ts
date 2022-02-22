@@ -13,10 +13,12 @@ export class NavbarService {
   }
   addItem(ruolo:string) {
     if(ruolo!="")this.links.push({ text: "Anagrafica", path: "Anagrafica" });
-    if(ruolo=="Societa")
+    if(ruolo=="Societa"){
     this.links.push({ text: "Crea Torneo", path: "CreaTorneo" });
-    else if(ruolo=="Admin")
-    this.links.push({ text: "Autorizza Torneo", path: "OutputTornei/NonAutorizzati"});
+    this.links.push({ text: "Aggiungi Impianto", path: "AddImpianto" }); 
+  }
+  else if(ruolo=="Admin")
+    this.links.push({ text: "Autorizza Torneo", path: "OutputTornei/NonAutorizzati/false"});
     else if(ruolo=="Atleta"||ruolo=="Allenatore"){
     this.links.push({ text: "Tornei Iscritti", path: "OutputTorneiIscritti"});
     }

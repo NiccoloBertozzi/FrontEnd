@@ -1,0 +1,63 @@
+<form [formGroup]="formrcrea">
+    <!--Banner-->
+    <div class="row mt-3 mb-3">
+        <h1 class=" col-12 text-center my-auto banner">Aggiungi Impianto</h1>
+    </div>
+    <div class="container">
+        <div class="mr-3 ml-3 mt-3 mb-5">
+
+            <div class="form-group mt-3">
+                <label for="nomeimpianto">Nome impianto:</label>
+                <input name="nomeimpianto" formControlName="nomeImpianto" type="text" id="txtTitolo" class="form-control" required="true" placeholder="Inserisci il nome dell'impianto" />
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="numCampi">Numero Campi:</label>
+                <input name="numCampi" formControlName="numeroCampi" type="number" id="txtTitolo" class="form-control" required="true" placeholder="Inserisci il numero di campi" />
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="cbCom" class="col-form-label">Comune:</label>
+                <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Comune</mat-label>
+                    <input type="text" placeholder="Comune" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option.citta">
+                            {{option.citta}}
+                        </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+            </div>
+            <div class="form-group mt-3">
+                <label for="indirizzo">Indirizzo:</label>
+                <input name="indirizzo" formControlName="indirizzo" type="text" id="txtQuotaIscr" class="form-control" required="true" placeholder="Inserisci l'indirizzo" />
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="cap">CAP:</label>
+                <input name="cap" formControlName="cap" type="text" id="txtQuotaIscr" class="form-control" required="true" placeholder="Inserisci il CAP" />
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="email">Email:</label>
+                <input name="email" formControlName="email" type="email" id="txtQuotaIscr" class="form-control" required="true" placeholder="Inserisci l'email" />
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="sito">Sito:</label>
+                <input name="sito" formControlName="sito" type="text" id="txtQuotaIscr" class="form-control" required="true" placeholder="Inserisci il sito" />
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="telefono">Telefono:</label>
+                <input name="telefono" formControlName="tel" type="text" id="txtQuotaIscr" class="form-control" required="true" placeholder="Inserisci il numero di telefono" />
+            </div>
+
+            <div class="row md-3 mt-4 mb-4">
+                <div class="col-12 col-lg-8 offset-lg-2 text-center">
+                    <input type="submit" name="creat" value="Crea Impianto" (click)="Crea_Click()" class="btnLogin mx-auto btn-block text-center" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

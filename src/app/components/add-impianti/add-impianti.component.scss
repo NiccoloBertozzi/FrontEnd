@@ -1,0 +1,23 @@
+.example-full-width {
+    width: 100%;
+    background-color: rgb(255, 255, 255) !important;
+}
+
+::ng-deep {
+    .mat-form-field .mat-form-field-flex {
+        background-color: white;
+    }
+}
+
+.btnLogin {
+    background: linear-gradient(to bottom, #0091ff 5%, #0065bd 100%);
+    background-color: #0091ff;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px 25%;
+    text-decoration: none;
+}

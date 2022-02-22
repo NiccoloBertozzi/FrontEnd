@@ -13,9 +13,17 @@
                         <div class="dropdown-menu">
                             <a class="dropdown-item" [routerLink]="" (click)="Change('Classifica/M')">Classifica Maschile</a>
                             <a class="dropdown-item" [routerLink]="" (click)="Change('Classifica/F')">Classifica Femminile</a>
-                            <a class="dropdown-item" (click)="Change('OutputTornei/L1')">L1</a>
-                            <a class="dropdown-item" (click)="Change('OutputTornei/L2')">L2</a>
-                            <a class="dropdown-item" (click)="Change('OutputTornei/L3')">L3</a>
+                            <a class="dropdown-item" (click)="Change('OutputTornei/L1/false')">L1</a>
+                            <a class="dropdown-item" (click)="Change('OutputTornei/L2/false')">L2</a>
+                            <a class="dropdown-item" (click)="Change('OutputTornei/L3/false')">L3</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown" role="presentation">
+                        <a class="nav-link dropdown-toggle" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Storici</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" (click)="Change('OutputTornei/L1/true')">Storico Tornei L1</a>
+                            <a class="dropdown-item" (click)="Change('OutputTornei/L2/true')">Storico Tornei L2</a>
+                            <a class="dropdown-item" (click)="Change('OutputTornei/L3/true')">Storico Tornei L3</a>
                         </div>
                     </li>
                     <li class="nav-item" *ngFor="let link of links">
@@ -24,9 +32,12 @@
                 </ul>
             </div>
             <div class="col-1">
-                <div class="nav-item" *ngIf="isLoggedIn">
-                    <button type="button" id="btnlogin" (click)="LogOut();" class="btn btn-light">Log out</button>
+                <div class="nav-item" *ngIf="isLoggedIn; else elseblock">
+                    <button type="button" id="btnlogin" (click)="LogOut();" class="btn btn-light">Esci</button>
                 </div>
+                <ng-template #elseblock>
+                    <button type="button" id="btnlogin" (click)="LogIn();" class="btn btn-light">Accedi</button>
+                </ng-template>
             </div>
         </div>
     </div>

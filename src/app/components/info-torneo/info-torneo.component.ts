@@ -39,7 +39,7 @@ export class InfoTorneoComponent implements OnInit {
     this.assegnadelegato=true;
 
     this.id=this.activatedRoute.snapshot.paramMap.get('id');
-    if(this.cookieService.get("ruolo")=="Delegato" || this.cookieService.get("ruolo")=="Admin")this.CheckAutorizzazione();
+    if(this.cookieService.get("ruolo")=="Atleta" ||this.cookieService.get("ruolo")=="Delegato" || this.cookieService.get("ruolo")=="Admin")this.CheckAutorizzazione();
   }
   
   Info!:Torneo;
@@ -161,7 +161,7 @@ export class InfoTorneoComponent implements OnInit {
           this.TorneoAPIService.ControlloChiusuraIscrizioni(this.cookieService.get("token"),this.id).subscribe(
             obj=>{
               if(!obj){
-                if(this.cookieService.get("ruolo")=="Delegato" || this.cookieService.get("ruolo")=="Admin")this.btniscrivi=false;
+                if(this.cookieService.get("ruolo")=="Atleta" || this.cookieService.get("ruolo")=="Delegato" || this.cookieService.get("ruolo")=="Admin")this.btniscrivi=false;
                 this.btntabellone=true;
               }
               else {

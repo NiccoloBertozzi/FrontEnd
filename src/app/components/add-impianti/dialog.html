@@ -1,0 +1,24 @@
+<!--DIALOG ERROR-->
+<style>
+    .bar {
+        padding: 10px;
+        margin: 10px;
+        color: #333;
+        background: #fafafa;
+        border: 1px solid #ccc;
+    }
+    
+    .error {
+        color: #333;
+        background: #ffe0e0;
+    }
+</style>
+<div class="bar error m-0">
+    <h3 mat-dialog-title>Error</h3>
+    <div mat-dialog-content>
+        <p>{{data.error}}</p>
+    </div>
+    <div mat-dialog-actions>
+        <button class="btn btn-outline-danger" mat-button (click)="onNoClick()">Close</button>
+    </div>
+</div>

@@ -12,9 +12,9 @@ export class Torneo{
     quotaIscrizione!: number;
     puntiVittoria!: number;
     montepremi!: number;
-    dataInizio!: number;
-    dataFine!: number;
-    dataChiusuraIscrizioni!: Date;
+    dataInizio!: string;
+    dataFine!: string;
+    dataChiusuraIscrizioni!: string;
     gender!: string;
     numMaxTeamMainDraw!: number;
     numMaxTeamQualifiche!: number;
@@ -23,5 +23,6 @@ export class Torneo{
     outdoor!: boolean;
     riunioneTecnica!: boolean;
     oraInizio!: string;
-    tour!: string
+    tour!: string;
+    autorizzato!:string;
 }

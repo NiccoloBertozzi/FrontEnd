@@ -10,6 +10,8 @@ import { environment } from '../../environments/environment';
 })
 export class AuthService {
 
+  static login=false;
+
   constructor(private HttpClient:HttpClient) { }
   public Login(credenziali:Login) : Observable<Login>{
     const httpOptions = {
@@ -20,5 +22,8 @@ export class AuthService {
     }; 
     const body = {email: credenziali.username, password: credenziali.pwd};
     return this.HttpClient.post<Login>(environment.apiURL+"api/v1/LoginRegister/Login",body,httpOptions)
+  }
+  public SetLogin(status){
+    AuthService.login=status;
   }
 }
